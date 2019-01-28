@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
 
+import Layout from './hoc/Layout/Layout';
+
+import Home from './containers/components/Home/Home';
+import Search from './containers/components/Search/Search';
+
+import Reviews from './containers/components/Reviews/Reviews';
+import Requirements from './containers/components/Requirements/Requirements';
+import Requests from './containers/components/Requests/Requests';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Layout>
+        <Switch>
+          <Route path='/reviews' component={Reviews} />
+          <Route path='/requirements' component={Requirements} />
+          <Route path='/request' component={Requests} />
+          <Route path='/search' component={Search} />
+          <Route path='/' exact component={Home} />
+        </Switch>
+      </Layout>
     );
   }
 }
