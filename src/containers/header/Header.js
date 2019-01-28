@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import Logo from './Logo/Logo';
-import Search from './Search/Search';
+import SearchBar from './SearchBar/SearchBar';
 import AddPanel from './AddPanel/AddPanel';
 import './Header.css'; 
 class Header extends Component {
@@ -9,7 +9,7 @@ class Header extends Component {
         return (
             <header className='header'>
                 <Logo />
-                <Search />
+                <SearchBar />
                 <AddPanel />
             </header>
         );
