@@ -3,6 +3,7 @@ import './Layout.css';
 import Aux from './../Aux';
 import Header from '../../containers/header/Header';
 import Navigation from '../../containers/navigation/Navigation';
+import Footer from './../../containers/footer/Footer';
 class Layout extends Component {
     render() {
         return (
@@ -14,6 +15,7 @@ class Layout extends Component {
                 <main className='content'>
                     {this.props.children}
                 </main>
+                <Footer />
             </Aux>
         );
     }
