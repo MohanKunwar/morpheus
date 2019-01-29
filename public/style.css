@@ -2,3 +2,18 @@
     display: grid;
     /* grid-template-columns: repeat () */
 }
+@media (max-width:767px){
+    .card-container {
+        margin: auto;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-container {
+        margin: auto;
+        max-width: 1140px;
+        min-width:748px;
+        width: 100%;
+    }
+}

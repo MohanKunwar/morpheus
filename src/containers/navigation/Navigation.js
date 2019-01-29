@@ -1,32 +1,39 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import {Button} from 'react-bootstrap';
-import Requests from './../../containers/components/Requests/Requests';
+import { Button } from 'react-bootstrap';
+
+import Requests from './../components/Requests/Requests';
 
 class Navigation extends Component {
-    showRequestModal = () => {
-        return (
-            <Requests></Requests>
-        );
+    state = {
+        showRequestModal: false
+    }
+    showRequestModalDialog = () => {
+        this.setState({ showRequestModal: true });
     }
     render() {
+
         return (
             <nav>
-                <Link to='/'>
-                    Home
+                <div className='card-container'>
+                    <Link to='/'>
+                        Home
                 </Link>
-                <Link to='/'>
-                    My Activity
+                    <Link to='/'>
+                        My Activity
                 </Link>
-                <Link to='/reviews'>
-                    Reviews
+                    <Link to='/reviews'>
+                        Reviews
                 </Link>
-                <Link to='/requirements'>
-                    My Requirements
+                    <Link to='/requirements'>
+                        My Requirements
                 </Link>
-                {/* <Button onClick={this.showRequestModal}>
-                    Request Product/Service
-                </Button> */}
+                    <Button onClick={this.showRequestModalDialog}>
+                        Request Product/Service
+                </Button>
+                    <Requests
+                        show={this.state.showRequestModal} />
+                </div>
             </nav>
         );
     }

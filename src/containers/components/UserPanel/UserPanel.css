@@ -1,0 +1,7 @@
+.user-panel > ul {
+    list-style: none;
+}
+.user-panel > ul li {
+    float: right;
+    margin: 0 0 0 10px;
+}

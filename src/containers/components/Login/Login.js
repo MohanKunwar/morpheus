@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 import Modal from './../../../UI/Modal/Modal';
 import Hoc from './../../../hoc/Hoc';
-class Requests extends Component {
+class Login extends Component {
     state = {
         backDropType: 'none'
     }
     render() {
-        let showRequest = null;
+        let showLogin = null;
         if (this.props.show) {
-            showRequest = (
+            showLogin = (
             <Modal show={this.props.show} backDropType={this.state.backDropType} >
                 <Hoc>
-                <p>Request form goes here!</p>
+                <p>Login form goes here!</p>
                 </Hoc>
             </Modal>);
         }
-        return showRequest;
+        return showLogin;
     }
 }
 
-export default Requests;
+export default Login;
