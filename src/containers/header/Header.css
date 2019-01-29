@@ -1,6 +1,39 @@
 header {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-rows: minmax(50px,70px);
+    width: 100%;
     background: #112e51;
+}
+.header-area {
+    margin: 0 10px;
+}
+.user-panel-area {
+    margin: 10px 0;
+}
+@media (max-width:767px){
+    .header-area {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .search-area {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .user-panel-area {
+        background: #c2d3a3;
+    }
+}
+
+@media (min-width: 768px) {
+    .header-area {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1.5fr;
+    }
+    .search-area {
+        margin: auto 0;
+    }
+
+    .user-panel-area {
+        background: #c2d3a3;
+    }
 }
