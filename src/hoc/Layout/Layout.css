@@ -1,13 +1,3 @@
-
-header {
-    display: grid;
-}
-nav {
-    display: grid;
-}
-main {
-    display: grid;
-}
 .main-container {
     width: 100%;
     height: 100%;
