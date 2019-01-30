@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
+import { Link} from 'react-router-dom';
 
 import './UserPanel.css';
 import Login from './../Login/Login';
@@ -22,7 +23,7 @@ class UserPanel extends Component {
                     <li>
                         <Button onClick={this.openLoginModal}>Login</Button></li>
                     <li><Button onClick={this.openRegisterModal}>Join</Button></li>
-                    <li >Add Business<span>&#124;</span></li>
+                    <li ><Link to='/register-business'>Add Business <span>&#124;</span></Link></li>
                 </ul>
                 <Login show={this.state.showLogin} ></Login>
                 <Register show={this.state.showRegister}></Register>

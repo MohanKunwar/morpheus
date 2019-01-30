@@ -13,9 +13,9 @@
     transition: all 0.3s ease-out;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
     .modal-container {
-        width: 500px;
-        left: calc(50% - 250px);
+        width: 800px;
+        left: calc(50% - 400px);
     }
 }

@@ -10,13 +10,16 @@ class backdrop extends Component {
             switch (this.props.type) {
                 case 'img': {
                     showBackdrop = (
-                        <div className='shade'></div>
+                        <div className='shade'>
+                            {/* <img src={props.img} /> */}
+                        </div>
                     );
                     break;
                 }
                 case 'shade': {
                     showBackdrop = (
                         <div className='shade'></div>
+                        // <div className='shade' onClick={}></div>
                     );
                     break;
                 }
