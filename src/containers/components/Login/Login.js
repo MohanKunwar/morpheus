@@ -11,8 +11,8 @@ class Login extends Component {
             password: ''
         }
     }
-    handleChanges = (event) => {
-        console.log(event);
+    handleChanges = () => {
+        console.log();
 
         // this.setState({ this.state.LoginForm[password]: event.target.value });
         // this.setState({this.state.LoginForm[$event.target.]})
@@ -32,7 +32,7 @@ class Login extends Component {
                             <input type='text'
                                 className='input-login'
                                 defaultalue={this.state.LoginForm.emailOrNumber}
-                                onChange={this.handleChanges(this.$event).bind(this)} />
+                                onChange={this.handleChanges()} />
                             <span>Password</span>
                             <input type='password'
                                 className='input-login'

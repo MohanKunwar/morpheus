@@ -11,8 +11,28 @@ class Home extends Component {
                 <div className='card-container'>
                     <div className='home-area'>
                         <div className='well-cards'>
-                            {/* <WellCards /> */}
-                            <p>Well cards</p>
+                            <div className='well-card'>
+                                <img src=''></img>
+                                <span className='well-card-text'>
+                                    Hotel Booking
+                                    Hotel Booking
+                                    Hotel Booking
+                                    Hotel Booking
+                                </span>
+                            </div>
+                            <div className='well-card'>
+                                <img src=''></img>
+                                <span className='well-card-text'>
+                                    Food Order
+                                </span>
+                            </div>
+                            <div className='well-card'>
+                                <img src=''></img>
+                                <span className='well-card-text'>
+                                    Facebook Boosting
+                                </span>
+                            </div>
+
                         </div>
                         <div className='page-grid'>
                             <div className='left-grid'>
