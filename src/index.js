@@ -6,6 +6,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import fontawesome from '@fortawesome/fontawesome'
+import solid from '@fortawesome/fontawesome-free-solid'
+import regular from '@fortawesome/fontawesome-free-regular'
+
+fontawesome.library.add(solid, regular)
+
+
 const app = (
     <BrowserRouter>
         <App />
