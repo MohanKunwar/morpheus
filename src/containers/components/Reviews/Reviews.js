@@ -1,26 +1,40 @@
 import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import './reviews.css';
-// import FontAwesomeIcon from "@fortawesome/react-fontawesome"
-// import { faEdit, faCoffee } from '@fortawesome/fontawesome-free-solid
+// import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+// import { faEdit, faStar } from '@fortawesome/fontawesome-free-solid";
+
 
 const Stars = (props) => {
+    const rating = 5;
+    let stars =[];
+    for(let i=0; i<rating; i++){
+        stars.push(<i key={i} className="fa fa-star"></i>);
+    }
     return(
-     <i className="fa fa-star"></i>
+        <div className="col">
+       {/* {props.rating.map((number, i) =>
+        <i key={i} className="fa fa-star">{number}</i>
+        )} */}
+        {stars}
+        </div>
     );
-  }
+  };
 
   const Actions = (props) => {
       return(
-        <i className="fa fa-edit"></i>
-        // <i className="fa fa-trash-alt"></i>
+        <div className="col">
+       <i className="fa fa-edit"></i>
+        <i className="fa fa-trash-alt"></i>
+        </div>
       );
-  }
+  };
+
 
 class Reviews extends Component {
-    constructor(props) {
-    super(props)
-    this.state = {
+    // constructor(props) {
+    // super(props)
+        state = {
         reviews: [
             {
                 id: 1,
@@ -46,36 +60,37 @@ class Reviews extends Component {
             }
         ]
     }
-}
 
     render() {
+   
         return (
             <div className="container">
            {
-               this.state.reviews.map((rowdata,i) =>
-            <div className="card">
-            <div className="card-header">
-            <div className="row">
-            <div className="col-6">
-            <a>{rowdata.reviewer_name }</a>
-            <br></br>
-            <small>{rowdata.created_at}</small>
-            </div>
-            <div className="col-6 text-right">
-            <Actions />
+               this.state.reviews.map((rowdata) =>
+               <div className="row mt-3">
+               <div className="col-md-8 offset-md-2">
+                <div className="card">
+                <div className="card-header">
+                <div className="row">
+                <div className="col-6">
+                <h5>{rowdata.reviewer_name }</h5>
+                </div>
+                <div className="col-6 text-right">
+                <Actions />
 
-            </div>
-            </div>
-           
-            </div>
-            <div className="card-body">
-            {rowdata.body}
-            </div>
-            <div className="card-footer">
-            <div className="row">
-            <div className="col-6">
-            </div>
-            <div className="col-6 text-right">
+                </div>
+                </div>
+            
+                </div>
+                <div className="card-body">
+                {rowdata.body}
+                </div>
+                <div className="card-footer">
+                <div className="row">
+                <div className="col-6 creare_date">
+                {rowdata.created_at}
+                </div>
+                <div className="col-6 text-right">
 
             <Stars />
            
@@ -83,6 +98,8 @@ class Reviews extends Component {
             </div>
             </div>
              
+            </div>
+            </div>
             </div>
             )
         }
