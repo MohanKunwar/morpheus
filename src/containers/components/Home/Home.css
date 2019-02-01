@@ -1,0 +1,37 @@
+.home-container {
+    width: 100%;
+    background-color: #0ffff0;
+    display: grid;
+}
+.home-area {
+    margin: 0 10px;
+    background-color: #0ff000;
+}
+.well-cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    margin-top: -20px;
+}
+.well-card {
+    background: #a10a0d;
+}
+.page-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+.left-grid {
+    background-color: #0ab;
+}
+.middle-grid {
+    background-color: #ab3;
+}
+.right-grid {
+    background-color: #dc1;
+}
+@media (min-width: 768px) {
+    .home-area {
+        margin: 0 10px;
+    }
+}

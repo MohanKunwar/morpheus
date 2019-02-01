@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import './Layout.css';
 // import Aux from './../Aux';
 import Header from '../../containers/header/Header';
@@ -7,11 +7,9 @@ import Footer from './../../containers/footer/Footer';
 class Layout extends Component {
     render() {
         return (
-            <div>
+            <div className="main-container'">
                 <Header />
-                <nav className='nav'>
-                    <Navigation />
-                </nav>
+                <Navigation />
                 <main className='content'>
                     {this.props.children}
                 </main>

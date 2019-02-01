@@ -1,0 +1,35 @@
+nav {
+    /* background-color: #112e51; */
+    background-color: #fff;
+}
+.nav-area {
+    margin: 0 10px;
+}
+/* .nav-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+} */
+@media (max-width:767px){
+    .nav-area {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+    }
+}
+
+@media (min-width: 768px) {
+    .nav-area {
+        display: grid;
+        grid-template-columns: 4fr 1.5fr;
+    }
+}
+
+.request-btn {
+    text-align: right;
+}
+.request-btn-text {
+    padding: 15px;
+    background-color: #3a3ca3;
+    display: inline-block;
+    margin-top: 5px;
+}
+

@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 import Modal from './../../../UI/Modal/Modal';
 import Hoc from './../../../hoc/Hoc';
-class Requests extends Component {
+class Register extends Component {
     state = {
         backDropType: 'none'
     }
     render() {
-        let showRequest = null;
+        let showRegister = null;
         if (this.props.show) {
-            showRequest = (
+            showRegister = (
             <Modal show={this.props.show} backDropType={this.state.backDropType} >
                 <Hoc>
-                <p>Request form goes here!</p>
+                <p>Register form goes here!</p>
                 </Hoc>
             </Modal>);
         }
-        return showRequest;
+        return showRegister;
     }
 }
 
-export default Requests;
+export default Register;

@@ -8,7 +8,7 @@ import Search from './containers/components/Search/Search';
 
 import Reviews from './containers/components/Reviews/Reviews';
 import Requirements from './containers/components/Requirements/Requirements';
-import Requests from './containers/components/Requests/Requests';
+import AddBusiness from './containers/components/AddBusiness/AddBusiness';
 class App extends Component {
   render() {
     return (
@@ -16,7 +16,7 @@ class App extends Component {
         <Switch>
           <Route path='/reviews' component={Reviews} />
           <Route path='/requirements' component={Requirements} />
-          <Route path='/request' component={Requests} />
+          <Route path='/register-business' component={AddBusiness} />
           <Route path='/search' component={Search} />
           <Route path='/' exact component={Home} />
         </Switch>
