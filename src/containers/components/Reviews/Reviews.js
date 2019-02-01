@@ -13,19 +13,23 @@ const Stars = (props) => {
     }
     return(
         <div className="col">
-       {/* {props.rating.map((number, i) =>
-        <i key={i} className="fa fa-star">{number}</i>
-        )} */}
         {stars}
         </div>
     );
   };
 
   const Actions = (props) => {
+    const status = (props.reviews);
+    let actions =[];
+    for(let i=0; i<status; i++){
+        actions.push(<div key={i}>
+            <i className="fa fa-edit"></i>
+            <i className="fa fa-trash-alt"></i>
+        </div>);
+    }
       return(
-        <div className="col">
-       <i className="fa fa-edit"></i>
-        <i className="fa fa-trash-alt"></i>
+        <div>
+        {actions}
         </div>
       );
   };
@@ -37,7 +41,7 @@ const Stars = (props) => {
         );
   };
 
-  const ReviewrName = (props) => {
+  const ReviewerName = (props) => {
       return(
         <div>{props.reviews}</div>
       )
@@ -84,10 +88,10 @@ class Reviews extends Component {
                 <div className="card-header">
                 <div className="row">
                 <div className="col-6">
-                <h5><ReviewrName reviews ={rowdata.reviewer_name} /> </h5>
+                <h5><ReviewerName reviews ={rowdata.reviewer_name} /> </h5>
                 </div>
                 <div className="col-6 text-right">
-                <Actions />
+                <Actions reviews ={rowdata.status} />
 
                 </div>
                 </div>
