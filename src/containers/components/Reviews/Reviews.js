@@ -2,11 +2,11 @@ import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import './reviews.css';
 // import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-// import { faEdit, faStar } from '@fortawesome/fontawesome-free-solid";
+// import { faEdit, faStar } from /"@fortawesome/fontawesome-free-solid";
 
 
 const Stars = (props) => {
-    const rating = 5;
+    const rating = (props.reviews);
     let stars =[];
     for(let i=0; i<rating; i++){
         stars.push(<i key={i} className="fa fa-star"></i>);
@@ -30,10 +30,21 @@ const Stars = (props) => {
       );
   };
 
+  const MainContent = (props) => {
+        return(
+            <div>{props.reviews}</div>
+               
+        );
+  };
+
+  const ReviewrName = (props) => {
+      return(
+        <div>{props.reviews}</div>
+      )
+  }
 
 class Reviews extends Component {
-    // constructor(props) {
-    // super(props)
+   
         state = {
         reviews: [
             {
@@ -73,7 +84,7 @@ class Reviews extends Component {
                 <div className="card-header">
                 <div className="row">
                 <div className="col-6">
-                <h5>{rowdata.reviewer_name }</h5>
+                <h5><ReviewrName reviews ={rowdata.reviewer_name} /> </h5>
                 </div>
                 <div className="col-6 text-right">
                 <Actions />
@@ -83,7 +94,7 @@ class Reviews extends Component {
             
                 </div>
                 <div className="card-body">
-                {rowdata.body}
+                <MainContent reviews={rowdata.body} />
                 </div>
                 <div className="card-footer">
                 <div className="row">
@@ -92,7 +103,7 @@ class Reviews extends Component {
                 </div>
                 <div className="col-6 text-right">
 
-            <Stars />
+            <Stars reviews = {rowdata.rating} />
            
             </div>
             </div>
