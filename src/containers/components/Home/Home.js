@@ -1,53 +1,33 @@
 import React, { Component } from 'react';
 import './Home.css';
+import WellCards from './WellCards/WellCards';
+import Categories from './Categories/Categories';
+import Featured from './Featured/Featured';
+import RecentActivities from './RecentActivities/RecentActivities';
+import RecentlyAdded from './RecentlyAdded/RecentlyAdded';
+import Banner from './Banner/Banner';
+
 class Home extends Component {
+
     render() {
         return (
             <div className='home-container'>
-                {/* <Banner /> */}
-                <div>
-                    <p>Banner</p>
-                </div>
+                <Banner />
                 <div className='card-container'>
                     <div className='home-area'>
-                        <div className='well-cards'>
-                            <div className='well-card'>
-                                <img src=''></img>
-                                <span className='well-card-text'>
-                                    Hotel Booking
-                                    Hotel Booking
-                                    Hotel Booking
-                                    Hotel Booking
-                                </span>
-                            </div>
-                            <div className='well-card'>
-                                <img src=''></img>
-                                <span className='well-card-text'>
-                                    Food Order
-                                </span>
-                            </div>
-                            <div className='well-card'>
-                                <img src=''></img>
-                                <span className='well-card-text'>
-                                    Facebook Boosting
-                                </span>
-                            </div>
 
-                        </div>
+                        <WellCards />
                         <div className='page-grid'>
                             <div className='left-grid'>
-                                {/* <Categories /> */}
-                                <p>left grid</p>
+                                <Categories />
                             </div>
                             <div className='middle-grid'>
-                            <p>mid grid</p>
-                                {/* <Featured />
-                             <MostPopular />
-                            <RecentActivities />
-                            <RecentlyAdded /> */}
+                                <Featured />
+                                <RecentActivities />
+                                <RecentlyAdded />
                             </div>
                             <div className='right-grid'>
-                            <p>right-grid</p>
+                                <p>right-grid</p>
                             </div>
                         </div>
                     </div>

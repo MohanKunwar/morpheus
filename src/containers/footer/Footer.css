@@ -29,3 +29,128 @@
     background-color: #a9302b;
 }
 
+/* Footer */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.footer {
+    background-color: white;
+    /* position: absolute;
+    bottom: 0; */
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 25px;
+    color: #34495E;
+    /* Margin Top Can Be Added Later If Required */
+}
+.footer a{
+    color: #34495E;
+    text-decoration: none;
+}
+.footer-area {
+    display: grid;
+    grid-template-columns: 1.5fr .5fr 1fr 1fr;
+    grid-column-gap: 40px;
+    line-height: 1.6em;
+}
+div.footer-khozinfo #khoz-logo{
+    width: 210px;
+    position: relative;
+    bottom: 25px;
+    left: 0;
+}
+div.footer-navigate h4, div.footer-contacts h4, div.footer-app-links h4{
+    margin-top: 21px;
+    margin-bottom: 24px;
+}
+div.footer-khozinfo h3{
+    white-space: nowrap; 
+    margin-top: -56px;
+}
+
+img.social-icons{
+    width: 38px;
+    margin: 18px 25px 0 0;
+    cursor: pointer;
+}
+div.footer-navigate li , h4{
+    text-align: left;
+    list-style: none;
+    white-space: nowrap;
+    /* position: relative;
+    margin-left: 50%;
+    transform: translateX(-50%); */
+}
+div.footer-contacts img{
+    width: 18px;
+    margin-right: 8px;
+   
+}
+div.footer-contacts label{
+    white-space: nowrap;
+}
+div.footer-app-links img{
+    width: 50px;
+    float: left;
+    margin-right: 18px;
+}
+
+div.apple{
+    border: 2px solid grey;
+    padding: 3px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    width: 252px;
+}
+div.android{
+    background: #34495E;
+    color: white;
+    padding: 6px;
+    border-radius: 5px;
+    width: 252px;
+}
+div.apple p, h2{
+    white-space: nowrap;
+}
+div.android p, h2{
+    white-space: nowrap;
+}
+
+
+@media only screen and (max-width: 1337px){
+    .footer-area{
+        grid-column-gap: 30px;
+    }
+}
+@media only screen and (max-width: 1304px){
+    div.apple, div.android{
+        width: 220px;
+    }
+}
+@media only screen and (max-width: 1260px){
+    .footer-area{
+        grid-column-gap: 20px;
+    }
+    div.apple, div.android{
+        width: 200px;
+    }
+    div.footer-app-links img{
+        margin-right: 5px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    footer{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .footer-area{
+        grid-template-columns: 1.5fr .5fr;
+    }
+    div.footer-contacts h4{
+        margin-top: 21px;
+    }
+    
+}
