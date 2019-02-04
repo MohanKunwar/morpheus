@@ -3,8 +3,8 @@ import { Button } from 'react-bootstrap';
 import { Link} from 'react-router-dom';
 
 import './UserPanel.css';
-import Login from './../Login/Login';
-import Register from'./../Register/Register';
+import Login from './Login/Login';
+import Register from'./Register/Register';
 class UserPanel extends Component {
     state = {
         showLogin: false,

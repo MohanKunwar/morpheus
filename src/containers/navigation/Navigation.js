@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
-import Requests from './../components/Requests/Requests';
+import Requests from './Requests/Requests';
 import './Navigation.css';
 class Navigation extends Component {
     state = {

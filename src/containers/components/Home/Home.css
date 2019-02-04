@@ -1,34 +1,46 @@
 .home-container {
     width: 100%;
-    background-color: #0ffff0;
+    background-color: #c3c5c5;
     display: grid;
 }
 .home-area {
     margin: 0 10px;
-    background-color: #0ff000;
 }
-.well-cards {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 20px;
-    margin-top: -20px;
+@media (min-width: 768px) {
+    .page-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+    .left-grid-mobile {
+        display: none;
+    }
+    .left-grid {
+        display: block;
+    }
 }
-.well-card {
-    background: #a10a0d;
-}
-.page-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+@media (max-width: 767px) {
+    .page-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+    .left-grid {
+        display: none;
+    }
+    .left-grid-mobile {
+        float: left;
+        display: block;
+        grid-column: 1/3;
+        grid-row: 1/2;
+    }
 }
 .left-grid {
-    background-color: #0ab;
+    margin-right: 10px;
 }
 .middle-grid {
-    background-color: #ab3;
+    display:grid;
 }
 .right-grid {
-    background-color: #dc1;
+    margin-left: 10px;
 }
 @media (min-width: 768px) {
     .home-area {
