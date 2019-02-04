@@ -1,125 +1,116 @@
-.footer {
-    width: 100%; 
-    background-color: white;
-    font-size: 17px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-bottom: 25px;
-    color: #34495E;
-}
-.footer-area {
-    display: grid;
-    margin: 0 10px;
-}
-@media (max-width: 767px) {
-    .footer-area {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-@media (min-width: 768px) {
-    .footer-area {
-        grid-template-columns: 1.5fr .75fr 1fr 1fr;
-    }
-}
-.footer a{
-    color: #34495E;
-    text-decoration: none;
-}
-div.footer-khozinfo #khoz-logo{
-    width: 210px;
-    position: relative;
-    bottom: 25px;
-    left: 0;
-}
-div.footer-navigate h4, div.footer-contacts h4, div.footer-app-links h4{
-    margin-top: 21px;
-    margin-bottom: 24px;
-}
-div.footer-khozinfo h3{
-    white-space: nowrap; 
-    margin-top: -56px;
+/* Footer Css */
+
+*{
+    margin: 0px;
+    padding: 0px;
 }
 
-img.social-icons{
-    width: 38px;
-    margin: 18px 25px 0 0;
+body{
+    line-height: 1.6;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    color: #34495E;
+}
+footer{
+    width: 100%;
+    overflow: hidden;
+}
+div.footer-area{
+    padding-left: 12px;
+    padding-right: 12px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#logo{
+  margin-top: -30px;
+  margin-bottom: -40px;
+  width: 225px;
+}
+div.footer-khozinfo img.social-icons{
+    width: 40px;
+    padding-top: 15px;
+    padding-right: 1.3vw;
     cursor: pointer;
 }
-div.footer-navigate li , h4{
-    text-align: left;
-    list-style: none;
-    white-space: nowrap;
-    /* position: relative;
-    margin-left: 50%;
-    transform: translateX(-50%); */
+div.footer-contacts{
+    text-align:  center;
+}
+div.footer-contacts h4{
+    text-align: center;
 }
 div.footer-contacts img{
-    width: 18px;
-    margin-right: 8px;
-   
+    width: 22px;
+    min-width: 22px;
 }
-div.footer-contacts label{
+div.footer-khozinfo h3{
     white-space: nowrap;
+}
+div.footer-navigate li{
+    white-space: nowrap;
+    list-style: none;
+    display: inline-block;
+}
+
+div.footer-contacts label,a, pre{
+   white-space: nowrap; 
+   color: #34495E;
+}
+h4.title{
+    margin-top: 23px;
+    margin-bottom: 15px;
 }
 div.footer-app-links img{
-    width: 50px;
+    width: 56px;
     float: left;
-    margin-right: 18px;
+    padding-right: 8px;
 }
-
-div.apple{
+div.footer-app-links p, div.footer-app-links h2{
+    white-space: nowrap;
+}
+div.footer-app-links div.apple{
     border: 2px solid grey;
-    padding: 3px;
-    margin-bottom: 15px;
+    width: auto;
+    min-width: 210px;
+    max-width: 210px;
     border-radius: 5px;
-    width: 252px;
+    padding: 5px;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
-div.android{
-    background: #34495E;
+
+div.footer-app-links div.android{
+    border: 2px solid #34495E;
+    margin-top: 10px;
+    background-color: #34495E;
     color: white;
-    padding: 6px;
+    width: auto;
+    min-width: 210px;
+    max-width: 210px;
     border-radius: 5px;
-    width: 252px;
+    padding: 5px;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
-div.apple p, h2{
-    white-space: nowrap;
+div.footer-base p{
+    text-align: center;
+    margin-top: 25px;
 }
-div.android p, h2{
-    white-space: nowrap;
-}
+@media only screen and (min-width: 768px){
+    div.footer-area{
+        grid-template-columns: 1fr .5fr 1fr 1fr;
+        grid-column-gap: 25px;
+        text-align: left;
+    }
+    div.footer-navigate{
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
 
-/* 
-@media only screen and (max-width: 1337px){
-    .footer-area{
-        grid-column-gap: 30px;
-    }
-}
-@media only screen and (max-width: 1304px){
-    div.apple, div.android{
-        width: 220px;
-    }
-}
-@media only screen and (max-width: 1260px){
-    .footer-area{
-        grid-column-gap: 20px;
-    }
-    div.apple, div.android{
-        width: 200px;
-    }
-    div.footer-app-links img{
-        margin-right: 5px;
-    }
-} */
-
-/* @media only screen and (max-width: 768px){
-    footer{
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    .footer-area{
-        grid-template-columns: 1.5fr .5fr;
+    div.footer-contacts {
+        text-align: center;
     }
     div.footer-contacts h4{
-        margin-top: 21px;
+        text-align: left;
     }
-    
-} */
+}
