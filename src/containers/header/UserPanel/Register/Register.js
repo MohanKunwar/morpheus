@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Modal from './../../../UI/Modal/Modal';
-import Hoc from './../../../hoc/Hoc';
+import Modal from './../../../../UI/Modal/Modal';
+import Hoc from './../../../../hoc/Hoc';
 class Register extends Component {
     state = {
         backDropType: 'none'

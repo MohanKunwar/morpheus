@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import Modal from './../../../UI/Modal/Modal';
+import Modal from './../../../../UI/Modal/Modal';
 // import Hoc from './../../../hoc/Hoc';
 import './Login.css';
-import { Form, Field } from 'react-final-form';
 // import axios from './../../../axios';
 class Login extends Component {
     state = {
