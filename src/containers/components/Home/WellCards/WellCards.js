@@ -10,9 +10,9 @@ const WellCards = () => {
         </span>
       </div>
       <div className="well-card">
-        <div className='well-card-area'>
-        
-        </div>
+        <span className='well-card-text'>
+          Food Ordering
+        </span>
       </div>
       <div className="well-card">
         {/* <img src=''></img> */}

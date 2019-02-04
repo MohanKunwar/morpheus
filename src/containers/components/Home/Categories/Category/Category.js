@@ -10,15 +10,15 @@ class Category extends Component {
         //     });
         return (
             <div className='category-btn'>
-                <OverlayTrigger trigger='click' key={this.props.id}
+                {/* <OverlayTrigger trigger='click' key={this.props.id}
                     overlay={
                         <Popover id="popover-basic">
                         <p>abc</p>
-                            {/* {this.props.subcategories} */}
+                            {this.props.subcategories}
                         </Popover>
                     }>
                     <span key={this.props.id}>{this.props.title}</span>
-                </OverlayTrigger>
+                </OverlayTrigger> */}
             </div>
         );
     }

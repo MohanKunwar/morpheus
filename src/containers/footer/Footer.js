@@ -8,10 +8,10 @@ class Footer extends Component {
             <div className="card-container">
                     <div className='footer-area'>
                         <div className='footer-khozinfo'>
-                        <img src={require("../../assets/images/khozinfo.png")} alt="Khozinfo Logo" id="khoz-logo" />
+                        <img src={require("../../assets/images/khozinfo-footer.png")} alt="Khozinfo Logo" id="khoz-logo" />
                         <h3>Connecting Buyers And Sellers Digitally</h3>
                         <p>We help you explore the market and assist you in finding your needs.</p>
-                        <img src={require("../../assets/images/facebook.svg")} alt="facebook" className="social-icons" obnClick={() => window.open("https://www.facebook.com/khozinfo/")}/>
+                        <img src={require("../../assets/images/facebook.svg")} alt="facebook" className="social-icons" onClick={() => window.open("https://www.facebook.com/khozinfo/")}/>
                         <img src={require("../../assets/images/twitter.svg")} alt="twitter" className="social-icons" onClick={() => window.open("https://twitter.com/khozinfo")} />
                         <img src={require("../../assets/images/instagram.svg")} alt="instagram" className="social-icons" onClick={() => window.open("https://instagram.com/khozinfo")} />
                         </div>

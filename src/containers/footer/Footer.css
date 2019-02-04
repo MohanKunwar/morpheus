@@ -1,6 +1,10 @@
 .footer {
-    width: 100%;
-    background-color: #000;
+    width: 100%; 
+    background-color: white;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 25px;
+    color: #34495E;
 }
 .footer-area {
     display: grid;
@@ -16,44 +20,9 @@
         grid-template-columns: 1.5fr .75fr 1fr 1fr;
     }
 }
-.footer-khozinfo {
-    background-color: #abd3ef;
-}
-.footer-navigate {
-    background-color: #849246;
-}
-.footer-contacts {
-    background-color: #7a3354;
-}
-.footer-app-links {
-    background-color: #a9302b;
-}
-
-/* Footer */
-*{
-    margin: 0;
-    padding: 0;
-}
-
-.footer {
-    background-color: white;
-    /* position: absolute;
-    bottom: 0; */
-    font-size: 17px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-bottom: 25px;
-    color: #34495E;
-    /* Margin Top Can Be Added Later If Required */
-}
 .footer a{
     color: #34495E;
     text-decoration: none;
-}
-.footer-area {
-    display: grid;
-    grid-template-columns: 1.5fr .5fr 1fr 1fr;
-    grid-column-gap: 40px;
-    line-height: 1.6em;
 }
 div.footer-khozinfo #khoz-logo{
     width: 210px;
@@ -118,7 +87,7 @@ div.android p, h2{
     white-space: nowrap;
 }
 
-
+/* 
 @media only screen and (max-width: 1337px){
     .footer-area{
         grid-column-gap: 30px;
@@ -139,9 +108,9 @@ div.android p, h2{
     div.footer-app-links img{
         margin-right: 5px;
     }
-}
+} */
 
-@media only screen and (max-width: 768px){
+/* @media only screen and (max-width: 768px){
     footer{
         padding-left: 10px;
         padding-right: 10px;
@@ -153,4 +122,4 @@ div.android p, h2{
         margin-top: 21px;
     }
     
-}
+} */
