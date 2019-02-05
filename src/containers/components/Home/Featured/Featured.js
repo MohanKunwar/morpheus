@@ -6,6 +6,7 @@ import BusinessCard from './../../../../UI/BusinessCard/BusinessCard';
 import './Featured.css';
 
 class Featured extends Component {
+
     // all component related api calls here
     getCategories = () => {
         // axios
@@ -16,7 +17,7 @@ class Featured extends Component {
             const categories=this.props.categories;
         // add categoryInfo
         // getCategories(
-        // map items to categories
+        // map items to categories item model in state
         // )
         // )
         return [
@@ -62,8 +63,9 @@ class Featured extends Component {
             return (
                 // <FeaturedItem key={item.id} item={item} /> 
                 <div className='featured-item' key={item.id}>
-                    <BusinessCard
-                        // key={item.id}
+                    {/* item model  */}
+                    <BusinessCard business={item} />
+                        {/* // key={item.id}
                         imageSrc={item.image}
                         businessUrl={item.businessUrl}
                         name={item.name}
@@ -73,7 +75,7 @@ class Featured extends Component {
                         totalViews={item.total_views}
                         totalReviews={item.noofreviews}
                         reviewStars={item.reviewstars}
-                    ></BusinessCard>
+                    ></BusinessCard> */}
 
                 </div>
             );

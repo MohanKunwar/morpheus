@@ -6,7 +6,9 @@
 .services-info-card {
     position: relative;
 }
-
+.sevices-info-card img {
+    width: 100%;
+}
 .card-overlay-text {
     position: absolute;
     top: 0;
