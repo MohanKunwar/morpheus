@@ -55,8 +55,8 @@ class RecentlyAdded extends Component {
             return (
                 // <FeaturedItem key={item.id} item={item} /> 
                 <div className='recently-added-item' key={item.id}>
-                    <BusinessCard
-                        // key={item.id}
+                    <BusinessCard business={item} />
+                        {/* // key={item.id}
                         imageSrc={item.image}
                         businessUrl={item.businessUrl}
                         name={item.name}
@@ -64,7 +64,7 @@ class RecentlyAdded extends Component {
                         categoryName={item.categoryName}
                         categoryUrl={item.categoryUrl}
                         totalViews={item.total_views}
-                    ></BusinessCard>
+                    ></BusinessCard> */}
 
                 </div>
             );
