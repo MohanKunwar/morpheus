@@ -17,3 +17,7 @@
         width: 100%;
     }
 }
+.img-thumbnail {
+    border: none !important;
+    padding: 0 !important;
+}

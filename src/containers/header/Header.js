@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
 import Logo from './Logo/Logo';
-import SearchBar from './../../containers/components/SearchBar/SearchBar';
-import UserPanel from './../../containers/components/UserPanel/UserPanel';
+import SearchBar from './SearchBar/SearchBar';
+import UserPanel from './UserPanel/UserPanel';
 import './Header.css';
 class Header extends Component {
     render() {
