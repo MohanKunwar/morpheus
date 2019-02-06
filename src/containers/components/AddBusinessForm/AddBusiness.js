@@ -49,7 +49,7 @@ class AddBusiness extends Component {
             </button>
             
 
-        );
+        
     }
 }
 
