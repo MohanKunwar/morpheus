@@ -6,7 +6,7 @@ class BusinessCard extends Component {
         // business data model
     }
     render() {
-
+        console.log('business-card');
         return (
             <div className='business-card'>
                 <Image src={this.props.business.image} thumbnail alt={this.props.business.name} />
@@ -14,7 +14,7 @@ class BusinessCard extends Component {
                 <div className='business-card-info'>
                     <p onClick={this.props.business.businessUrl}>{this.props.business.name}</p>
                     <p onClick={this.props.business.categoryUrl}>{this.props.business.CategoryName}</p>
-                    <p>{this.props.business.totalViews}</p>
+                    <p>{this.props.business.totalView} views</p>
                     <p>{this.props.business.totalReviews}</p>
                     <p>{this.props.business.reviewStars}</p>
                 </div>
