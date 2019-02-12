@@ -5,6 +5,9 @@ import SearchBar from './SearchBar/SearchBar';
 import UserPanel from './UserPanel/UserPanel';
 import './Header.css';
 class Header extends Component {
+    componentWillMount() {
+        console.log('contxt header', this.context);
+    }
     render() {
         return (
             <header className='header'>
@@ -15,6 +18,7 @@ class Header extends Component {
                             <SearchBar />
                         </div>
                         <div className='user-panel-area'>
+
                             <UserPanel />
                         </div>
                     </div>

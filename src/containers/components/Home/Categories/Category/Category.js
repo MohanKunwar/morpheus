@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { OverlayTrigger, Popover } from 'react-bootstrap';
 import './Category.css';
 class Category extends Component {
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Image } from 'react-bootstrap';
 import './Backdrop.css';
 
 class backdrop extends Component {
@@ -11,21 +12,21 @@ class backdrop extends Component {
                 case 'img': {
                     showBackdrop = (
                         <div className='shade'>
-                            {/* <img src={props.img} /> */}
+                            <Image src={this.props.img.src} alt={this.props.img.alt} />
                         </div>
                     );
                     break;
                 }
                 case 'shade': {
                     showBackdrop = (
-                        <div className='shade'></div>
-                        // <div className='shade' onClick={}></div>
+                        <div className='shade'>
+                        </div>
                     );
                     break;
                 }
                 default: {
                     showBackdrop = (
-                        <div className='shade'></div>
+                        <div className='sa'></div>
                     );
                 }
             }

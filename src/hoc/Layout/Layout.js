@@ -3,19 +3,27 @@ import './Layout.css';
 // import Aux from './../Aux';
 import Header from '../../containers/header/Header';
 import Navigation from '../../containers/navigation/Navigation';
-import Footer from './../../containers/footer/Footer';
+// import Footer from './../../containers/footer/Footer';
+// import axios from './../../axios';
+// import API from './../../api';
+// import ContextService from './../../services/index';
+import ContextProvider from './../ContextProvider/ContextProvider';
+
 class Layout extends Component {
+
     render() {
-        return (
-            <div className="main-container'">
+        const layout = (<div className="main-container'">
+            <ContextProvider>
                 <Header />
                 <Navigation />
                 <main className='content'>
                     {this.props.children}
                 </main>
                 {/* <Footer /> */}
-            </div>
-        );
+            </ContextProvider>
+        </div>)
+
+        return (layout);
     }
 }
 

@@ -6,7 +6,7 @@ import './RecentlyAdded.css';
 class RecentlyAdded extends Component {
     getRecentlyAddedItems = () => {
         // getRecentlyAddedItems (
-            const categories=this.props.categories;
+            // const categories=this.props.categories;
         // add categoryInfo
         // getItemsWithCategories(
         // map items to categories
@@ -45,7 +45,7 @@ class RecentlyAdded extends Component {
                 address: 'Mahadev Path',
                 image: munneyimage,
                 categoryName: 'Tourism and Hospitality',
-                total_view: 343,
+                totalView: 343,
                 noofreviews: 43
             }
         ]
