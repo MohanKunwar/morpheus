@@ -1,0 +1,11 @@
+.category-btn {
+    margin: 10px;
+    position: relative;
+}
+.sub-categories {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 100;
+    background: #ccc;
+}

@@ -9,14 +9,14 @@ class BusinessCard extends Component {
         console.log('business-card');
         return (
             <div className='business-card'>
-                <Image src={this.props.business.image} thumbnail alt={this.props.business.name} />
+                <Image src={this.props.business.logo} thumbnail alt={this.props.business.name} />
 
                 <div className='business-card-info'>
                     <p onClick={this.props.business.businessUrl}>{this.props.business.name}</p>
-                    <p onClick={this.props.business.categoryUrl}>{this.props.business.CategoryName}</p>
-                    <p>{this.props.business.totalView} views</p>
-                    <p>{this.props.business.totalReviews}</p>
-                    <p>{this.props.business.reviewStars}</p>
+                    {/* <p onClick={this.props.business.categoryUrl}>{this.props.business.CategoryName}</p> */}
+                    <p>{this.props.business.view_count} views</p>
+                    <p>{this.props.business.review_count} reviews</p>
+                    <p>{this.props.business.rating_avg}</p>
                 </div>
             </div>
         )

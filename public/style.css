@@ -20,4 +20,5 @@
 .img-thumbnail {
     border: none !important;
     padding: 0 !important;
+    width: 100%;
 }
