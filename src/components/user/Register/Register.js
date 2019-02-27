@@ -158,8 +158,7 @@ class Register extends React.Component {
                 Signin
               </button>
               <div className="login_click">
-              <Link to="/ligin"
-                type="button"
+              <Link to="/login"
               // onClick={}  reroute
               >
                Already user, Login!
