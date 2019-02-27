@@ -6,6 +6,10 @@ import LoadForm from '../../../containers/common-components/LoadForm/LoadForm';
 import Axios from '../../../services/Axios';
 import UserService from '../../../services/User';
 import KhozContext from '../../../services/Context';
+import khozlogo from './../../../assets/images/khozlogo.png';
+import boosting from './../../../assets/images/boosting.jpg';
+import Inputfield from "../../../UI/Inputfield/inputfield";
+
 const initForm = {
   username: "",
   password: ""
@@ -66,6 +70,9 @@ const preSaveFormat = (values, originalValues) => {
 };
 
 class Login extends Component {
+  state = {
+    inputItems: []
+}
 
   save = values => {
     Axios.instance.post(Axios.API.user.loginUrl, values).then(response => {
@@ -84,6 +91,7 @@ class Login extends Component {
 
   render() {
     return (
+      <div className="login-container">
       <LoadForm
         load={load}
         loading={loading}
@@ -92,15 +100,19 @@ class Login extends Component {
         save={this.save}
         validate={validate}
       >
+      
         {({ handleSubmit, reset, submitting, pristine, values }) => (
           <form className="login-form" onSubmit={handleSubmit}>
+          <div className="logo_or_head">
+         <img alt='logo' src={khozlogo} />
+        <h2>Connecting Buyers<br /> & Sellers Digitally</h2>
+        <span>Free forever. No cerdit card needed.</span>
+        </div>
             <div className="login-form-group">
               <label className="login-form-label">Email/Mobile Number</label>
-              <Field
+              <Inputfield
                 name="username"
-                component="input"
                 type="email"
-                className="login-form-field"
                 placeholder="Email/Mobile Number"
                 disabled={submitting}
               />
@@ -108,26 +120,27 @@ class Login extends Component {
             </div>
             <div className="login-form-group">
               <label className="login-form-label">Password</label>
-              <Field
+              <Inputfield
                 name="password"
-                component="input"
                 type="password"
-                className="login-form-field"
-                placeholder="Password"
+                placeholder="password"
                 disabled={submitting}
               />
               <Error className="form-error" name="password" />
             </div>
+            <div className="forget_password">Forget password ?</div>
             <div className="buttons">
               <button type="submit" disabled={submitting || pristine}>
                 Login
               </button>
+              <div className="register_click">
               <Link
                 to='/register'
               // onClick={}  reroute
               >
                 Not a user, Register!
               </Link>
+              </div>
             </div>
             {/* <h3>Form Values</h3>
                         <pre>{JSON.stringify(values, 0, 2)}</pre> */}
@@ -135,7 +148,13 @@ class Login extends Component {
         <pre>{JSON.stringify(record, 0, 2)}</pre> */}
           </form>
         )}
-      </LoadForm>);
+      </LoadForm>
+      <div className="loginside_img">
+        <img src= {boosting} alt='bossting' />
+      </div>
+      </div>
+      );
+      
   }
 
 }

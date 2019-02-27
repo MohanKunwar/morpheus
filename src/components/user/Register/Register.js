@@ -1,10 +1,14 @@
 import React from "react";
 import { Field } from "react-final-form";
-
+import './register.css';
 import LoadForm from '../../../containers/common-components/LoadForm/LoadForm';
 import Axios from '../../../services/Axios';
 import UserService from '../../../services/User';
 import KhozContext from '../../../services/Context';
+import { Link } from 'react-router-dom';
+import khozlogo from './../../../assets/images/khozlogo.png';
+import boosting from './../../../assets/images/boosting.jpg';
+import Inputfield from "../../../UI/Inputfield/inputfield";
 const initForm = {
   firstname: "",
   lastname: "",
@@ -102,6 +106,7 @@ class Register extends React.Component {
   }
   render() {
     return (
+      <div className="register-container">
       <LoadForm
         load={load}
         loading={loading}
@@ -111,92 +116,67 @@ class Register extends React.Component {
         validate={validate}
       >
         {({ handleSubmit, reset, submitting, pristine, values }) => (
-          <form onSubmit={handleSubmit}>
-            <div className="">
-              <label>Firstname</label>
-              <Field
-                name="firstname"
-                component="input"
-                type="text"
-                placeholder="Firstname"
-                disabled={submitting}
-              />
+          <form onSubmit={handleSubmit} className="register-form">
+           <div className="logo_reg_head">
+         <img alt='logo' src={khozlogo} />
+        <h2>Connecting Buyers<br /> & Sellers Digitally</h2>
+        <span>Free forever. No cerdit card needed.</span>
+        </div>
+            <div className="register-form-group">
+              <label className="register-form-label">Firstname</label>
+              <Inputfield />
               <Error classname="form-error" name="firstname" />
             </div>
-            <div className="">
-              <label>Lastname</label>
-              <Field
-                name="lastname"
-                component="input"
-                type="text"
-                placeholder="Lastname"
-                disabled={submitting}
-              />
+            <div className="register-form-group">
+              <label className="register-form-label">Lastname</label>
+              <Inputfield />
               <Error classname="form-error" name="lastname" />
             </div>
-            <div className="">
-              <label>Email Address</label>
-              <Field
-                name="email"
-                component="input"
-                type="email"
-                placeholder="Email Address"
-                disabled={submitting}
-              />
+            <div className="register-form-group">
+              <label className="register-form-label">Email Address</label>
+              <Inputfield />
               <Error classname="form-error" name="username" />
             </div>
 
-            <div className="">
-              <label>Mobile Number</label>
-              <Field
-                name="mobile_number"
-                component="input"
-                type="number"
-                placeholder="Mobile Number"
-                disabled={submitting}
-              />
+            <div className="register-form-group">
+              <label className="register-form-label">Mobile Number</label>
+              <Inputfield />
               <Error classname="form-error" name="mobile_number" />
             </div>
-            <div>
-              <label>Password</label>
-              <Field
-                name="password"
-                component="input"
-                type="password"
-                placeholder="Password"
-                disabled={submitting}
-              />
+            <div className="register-form-group">
+              <label className="register-form-label">Password</label>
+              <Inputfield />
               <Error className="form-error" name="password" />
             </div>
-            <div>
-              <label>Confirm Password</label>
-              <Field
-                name="confirmPassword"
-                component="input"
-                type="password"
-                placeholder="Confirm Password"
-                disabled={submitting}
-              />
+            <div className="register-form-group">
+              <label className="register-form-label">Confirm Password</label>
+              <Inputfield />
               <Error className="form-error" name="confirmPassword" />
             </div>
             <div className="buttons">
               <button type="submit" disabled={submitting || pristine}>
-                Login
+                Signin
               </button>
-              <button
+              <div className="login_click">
+              <Link to="/ligin"
                 type="button"
               // onClick={}  reroute
               >
-                Not a user, Register!
-              </button>
+               Already user, Login!
+              </Link>
+              </div>
             </div>
-            <h3>Form Values</h3>
-            <pre>{JSON.stringify(values, 0, 2)}</pre>
+            {/* <h3>Form Values</h3>
+            <pre>{JSON.stringify(values, 0, 2)}</pre> */}
             {/* <h3>Database Record</h3>
         <pre>{JSON.stringify(record, 0, 2)}</pre> */}
           </form>
         )}
       </LoadForm>
+      <div className="registerside_img">
+        <img src= {boosting} alt='bossting' />
+      </div>
+      </div>
     );
   }
 }
