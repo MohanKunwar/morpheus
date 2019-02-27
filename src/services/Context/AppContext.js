@@ -12,6 +12,7 @@ export class AppContextProvider extends Component {
     }
     login = (user) => {
         this.setState({user: user})
+        console.log('user is context', user)
     }
 
     render() {

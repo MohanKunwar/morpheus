@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 
-import axios from './../../axios-authenticated'
-import API from './../../api'
-import 'bootstrap/dist/css/bootstrap.css';
+import Axios from '../../../services/Axios'
 import './reviews.css';
-import Review from './../../UI/Review/Review';
+import Review from '../../../UI/Review';
 
 // import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 // import { faEdit, faStar } from /"@fortawesome/fontawesome-free-solid";
@@ -14,8 +12,7 @@ class Reviews extends Component {
         reviews: []
     }
     componentWillMount() {
-        axios.get(API.user.getUserReviewsUrl).then(response => {
-            console.log('user reviews', response.data.data)
+        Axios.authInstance.get(Axios.API.user.getUserReviewsUrl).then(response => {
             this.setState({ reviews: response.data.data })
         })
     }

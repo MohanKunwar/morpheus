@@ -28,7 +28,7 @@ class Carousel extends Component {
     prevClicked(event) {
         event.preventDefault()
         this.currIndex -= 1
-        if (this.currIndex === 0) {
+        if (this.currIndex === 1) {
             this.setState({
                 currItem: this.props.items[this.currIndex],
                 prevItem: null,
@@ -49,7 +49,7 @@ class Carousel extends Component {
     nextClicked(event) {
         event.preventDefault()
         this.currIndex += 1
-        if (this.currIndex === this.props.items.length-1) {
+        if (this.currIndex === this.props.items.length-2) {
             this.setState({
                 currItem: this.props.items[this.currIndex],
                 prevItem: this.props.items[this.currIndex - 1],

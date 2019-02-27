@@ -1,5 +1,4 @@
-import {AppContext, AppContextProvider} from './ContextProvider';
-// import AppContextProvider from './ContextProvider';
+import {AppContext, AppContextProvider} from './AppContext';
 
 
 const KhozContext = { AppContext, AppContextProvider };

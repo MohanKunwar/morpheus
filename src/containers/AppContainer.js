@@ -8,6 +8,7 @@ import Footer from '../components/Footer';
 
 import SearchContainer from './SearchContainer';
 import HomeContainer from './HomeContainer';
+import Reviews from '../components/user/Reviews/Reviews';
 
 class AppContainer extends Component {
 
@@ -21,8 +22,8 @@ class AppContainer extends Component {
                     <Route path='/home' component={HomeContainer} />
                     {/* <Route path='/business' />
                     <Route path='/product' />
-                    <Route path='/service' />
-                    <Route path='/user' component={UserContainer} /> */}
+                    <Route path='/service' /> */}
+                    <Route path='/reviews' component={Reviews} />
                     <Redirect to='/home' />
                 </Switch>
                 <Footer />

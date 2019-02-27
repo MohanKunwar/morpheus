@@ -2,39 +2,24 @@ import React, { Component } from 'react';
 export const SearchContext = React.createContext();
 
 export class SearchContextProvider extends Component {
-    state = {
-        query: null,
-        category: null,
-        location: null,
-        newest: null,
-        popular: null,
-        highest_rated: null
-        
+   state = {}
+    setFilter = (key, value) => {
+        console.log(key, value)
+        this.setState({...this.state, [key]: value})
     }
-    setCategory = category => {
-        this.setState({category: category})
-    }
-    setLocation = location => {
-        this.setState({location: location})
-    }
-    setNewest = newest => {
-        this.setState({newest: newest})
-    }
-    setPopular = popular => {
-        this.setState({popular: popular})
-    }
-    setHighestRated = highest_rated => {
-        this.setState({highest_rated: highest_rated})
+    setFilters = (filterObject) => {
+        this.setState({
+            ...this.state,
+            filters: filterObject
+
+        })
     }
     render() {
         return (
             <SearchContext.Provider value={{
                 ...this.state,
-               setCategory: this.setCategory,
-               setLocation: this.setLocation,
-               setNewest: this.setNewest,
-               setPopular: this.setPopular,
-               setHighestRated: this.setHighestRated
+                setFilter: (key, value) => this.setFilter(key, value),
+                setFilters: filterObject => this.setFilters(filterObject)
              }}> {this.props.children}</SearchContext.Provider>
         );
     }

@@ -20,9 +20,15 @@ const API = {
         recentlyAddedUrl: 'businesses/latest',
         topLevelCategoriesUrl: 'categories/parent',
         getCategoryUrl: '/categories/', // id is attached whenever used
+        getLocationsUrl: '/locations'
     },
     business: {
         getBusinessUrl: 'businesses', // id is attached whenever called
+    },
+    search: {
+        getResults: (type, params) => {
+            return (`search/${type}?${params}`)
+        }
     }
 }
 const Axios = {

@@ -15,38 +15,35 @@ class App extends Component {
     if (refresh_token) {
       Axios.authInstance.get(Axios.API.user.userDetailsUrl).then(
         response => {
-          switch (response.status) {
-            case 200: {
-              this.setState({ user: response.data.data })
-              break
-            }
-            case 401: {
-              Axios.instance.post(Axios.API.user.refreshLoginUrl, { refresh_token: refresh_token }).then(
-                response => {
-                  for (let item in response.data) {
-                    UserService.setItem(item, response.data[item])
+          if (response){
+            switch (response.status) {
+              case 200: {
+                this.setState({ user: response.data.data })
+                break
+              }
+              case 401: {
+                Axios.instance.post(Axios.API.user.refreshLoginUrl, { refresh_token: refresh_token }).then(
+                  response => {
+                    for (let item in response.data) {
+                      UserService.setItem(item, response.data[item])
+                    }
+                    Axios.authInstance.get(Axios.API.user.userDetailsUrl)
+                      .then(response => this.setState({ user: response.data.data }))
                   }
-                  Axios.authInstance.get(Axios.API.user.userDetailsUrl)
-                    .then(response => this.setState({ user: response.data.data }))
-                }
-              ).catch(error => {
-                console.log('error on refresh token fetch', error);
-              })
-              break
+                ).catch(error => {
+                  console.log('error on refresh token fetch', error);
+                })
+                break
+              }
+              default: {
+                this.setState({ user: 'none' })
+                break
+              }
             }
-            default: {
-              this.setState({ user: 'none' })
-              break
-            }
-          }
-          console.log('app response', response)
-          if (response.data) {
-            // for (let item in response.data) {
-            //   UserService.setItem(item, response.data[item]);
-            // }
           } else {
-            this.setState({ user: 'none' })
+            this.setState({user: 'none'})
           }
+          
         }
       ).catch(error => {
         console.log('error on contextProvider', error);

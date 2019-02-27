@@ -5,8 +5,9 @@ class SearchResults extends Component {
     state = {
         results: null
     }
-    componentWillMount() {
-        this.buildQuery(this.props.filters)
+    componentWillUpdate() {
+        // this.setState({results: null})
+        // this.buildQuery(this.props.context)
     }
     buildQuery = filters => {
         let query = '';
@@ -28,7 +29,7 @@ class SearchResults extends Component {
         if (filters.highest_rated) {
             query += `highest_rated&`
         }
-        console.log('query', query)
+
         if (query) {
             console.log('type', this.props.type)
             Axios.instance.get(Axios.API.search.getResults(this.props.type, query.substr(0, query.lastIndexOf('&')))).then(
@@ -56,9 +57,9 @@ class SearchResults extends Component {
     }
     render() {
         let items
-        // if (this.props.context.filters && !this.state.results) {
-        //     this.buildQuery(this.props.context.filters)
-        // }
+        if (this.props.context.filters && !this.state.results) {
+            this.buildQuery(this.props.context.filters)
+        }
         if (this.state.results) {
             console.log('state', this.state.results)
             switch (this.props.type) {

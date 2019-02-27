@@ -34,7 +34,7 @@ const HomeContainer = () => {
                         <div className='middle-grid'>
                             <Featured />
                             {/* <RecentActivities /> */}
-
+                            <p>recent activities</p>
                             <RecentlyAdded />
                         </div>
                         <div className='right-grid'>
