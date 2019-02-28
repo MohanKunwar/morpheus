@@ -31,6 +31,7 @@ const validate = values => {
   if (!values.password) {
     errors.password = "Required";
   }
+  
   if (values.password) {
     // regex validation
   }
@@ -70,9 +71,9 @@ const preSaveFormat = (values, originalValues) => {
 };
 
 class Login extends Component {
-  state = {
-    inputItems: []
-}
+//   state = {
+//     inputItems: []
+// }
 
   save = values => {
     Axios.instance.post(Axios.API.user.loginUrl, values).then(response => {
@@ -86,6 +87,7 @@ class Login extends Component {
       } else {
         console.log('invalid login');
       }
+
     });
   };
 
@@ -111,21 +113,24 @@ class Login extends Component {
             <div className="login-form-group">
               <label className="login-form-label">Email/Mobile Number</label>
               <Inputfield
-                name="username"
-                type="email"
-                placeholder="Email/Mobile Number"
+                name={'username'}
+                type={'email'}
+                placeholder={'Email/Mobile Number'}
                 disabled={submitting}
-              />
+                value={values}
+                />
               <Error classname="form-error" name="username" />
             </div>
             <div className="login-form-group">
               <label className="login-form-label">Password</label>
               <Inputfield
-                name="password"
-                type="password"
-                placeholder="password"
+                name={"password"}
+                type={"password"}
+                placeholder={"password"}
                 disabled={submitting}
+                value={values}
               />
+              
               <Error className="form-error" name="password" />
             </div>
             <div className="forget_password">Forget password ?</div>

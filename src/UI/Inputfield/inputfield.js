@@ -6,14 +6,14 @@ class Inputfield extends Component {
 render(){
     return(
         <div>
-         <Field
+            <Field
                 component="input"
                 className="login-form-field"
-                name={this.props.inputname}
-                type={this.props.inputtype}
+                name={this.props.name}
+                type={this.props.type}
                 placeholder={this.props.placeholder}
-                disabled={this.props.submitting}
-              />   
+                disabled={this.props.submitting}  
+                />
         </div>
     )
 }

@@ -124,33 +124,63 @@ class Register extends React.Component {
         </div>
             <div className="register-form-group">
               <label className="register-form-label">Firstname</label>
-              <Inputfield />
+              <Inputfield 
+              type={'text'}
+              name={'firstname'}
+              placeholder={'firstname'}
+              disabled={submitting}
+              />
               <Error classname="form-error" name="firstname" />
             </div>
             <div className="register-form-group">
               <label className="register-form-label">Lastname</label>
-              <Inputfield />
+              <Inputfield 
+               type={'text'}
+               name={'lastname'}
+               placeholder={'Lastname'}
+               disabled={submitting}
+              />
               <Error classname="form-error" name="lastname" />
             </div>
             <div className="register-form-group">
               <label className="register-form-label">Email Address</label>
-              <Inputfield />
+              <Inputfield 
+              type={'email'}
+              name={'email'}
+              placeholder={'email address'}
+              disabled={submitting}
+              />
               <Error classname="form-error" name="username" />
             </div>
 
             <div className="register-form-group">
               <label className="register-form-label">Mobile Number</label>
-              <Inputfield />
+              <Inputfield 
+              type={'text'}
+              name={'mobile_number'}
+              placeholder={'mobile number'}
+              disabled={submitting}
+              />
               <Error classname="form-error" name="mobile_number" />
             </div>
             <div className="register-form-group">
               <label className="register-form-label">Password</label>
-              <Inputfield />
+              <Inputfield 
+              type={'password'}
+              name={'password'}
+              placeholder={'password'}
+              disabled={submitting}
+              />
               <Error className="form-error" name="password" />
             </div>
             <div className="register-form-group">
               <label className="register-form-label">Confirm Password</label>
-              <Inputfield />
+              <Inputfield 
+              type={'password'}
+              name={'confirmPassword'}
+              placeholder={'confirm password'}
+              disabled={submitting}
+              />
               <Error className="form-error" name="confirmPassword" />
             </div>
             <div className="buttons">
