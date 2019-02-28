@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import searchContext from '../../services/Context/SearchContext';
+import './Search.css';
 
 import SearchFilters from './Filters';
 class Search extends Component {

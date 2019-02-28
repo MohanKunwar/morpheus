@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
 import Axios from '../../../services/Axios'
 import BusinessCard from '../../../UI/BusinessCard/BusinessCard';
+import './Results.css';
 class SearchResults extends Component {
     state = {
-        results: null
+        filters: this.props.filters,
+    }
+    componentWillReceiveProps() {
+        console.log('search results filters', this.state.filters)
+        // if (nextProps.filters !== this.state.filters) {
+        this.buildQuery(this.props.filters)
+        // }
     }
     componentWillMount() {
         this.buildQuery(this.props.filters)
+        console.log('results mount', this.props.filters)
     }
     buildQuery = filters => {
         let query = '';
         if (filters.q) {
             query += `q=${filters.q}&`
+        } else {
+            query += 'q=""&'
         }
         if (filters.category) {
             query += `category=${filters.category}&`
@@ -30,40 +40,54 @@ class SearchResults extends Component {
         }
         console.log('query', query)
         if (query) {
+            this.setState({ results: null })
             console.log('type', this.props.type)
             Axios.instance.get(Axios.API.search.getResults(this.props.type, query.substr(0, query.lastIndexOf('&')))).then(
                 response => {
                     if (response) {
-                        console.log('response', response)
-                        this.setState({
-                            results: response.data.data.map(item => {
-                                return {
-                                    name: item.name,
-                                    id: item.id,
-                                    category_name: item.category.name,
-                                    address: item.address,
-                                    logo: item.logo,
-                                    view_count: item.view_count,
-                                    review_count: item.review_count,
-                                    rating_avg: item.rating_avg
-                                }
-                            })
-                        })
+                        switch (this.props.type) {
+                            case 'business': {
+                                this.setState({
+                                    results: response.data.data.map(item => {
+                                        return {
+                                            name: item.name,
+                                            id: item.id,
+                                            category_name: item.category.name,
+                                            address: item.address,
+                                            logo: item.logo,
+                                            view_count: item.view_count,
+                                            review_count: item.review_count,
+                                            rating_avg: item.rating_avg
+                                        }
+                                    })
+                                })
+                                break
+                            }
+                            case 'product': {
+                                console.log('products', response.data.data)
+                                break
+                            }
+                            default: {
+                                break
+                            }
+                        }
                     }
 
                 })
         }
     }
+    component
     render() {
         let items
-        // if (this.props.context.filters && !this.state.results) {
-        //     this.buildQuery(this.props.context.filters)
-        // }
         if (this.state.results) {
-            console.log('state', this.state.results)
             switch (this.props.type) {
                 case 'business': {
-                    items = this.state.results.map((result, index) => <BusinessCard key={index} business={result} />)
+                    items = this.state.results.map((result, index) => (
+                        <div className='search-item' key={index}>
+                            <BusinessCard business={result} />
+                        </div>
+                    )
+                    )
                     break
                 }
                 case 'product': {
@@ -74,11 +98,17 @@ class SearchResults extends Component {
                     break
                 }
             }
+        } else {
+            items = <div>...</div>
         }
 
         return (
             <div className='search-results-container'>
                 {items}
+                {
+                    this.state.noResult ?
+                    (<div>NO results found</div>) : null
+                }
             </div>
         )
     }

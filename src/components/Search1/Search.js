@@ -4,7 +4,6 @@ import searchContext from '../../services/Context/SearchContext';
 import SearchFilters from './Filters';
 import SearchResults from './Results';
 class Search extends Component {
-    filters = {}
     componentWillMount() {
         console.log('search', this.props.context)
         let searchParams = window.location.search ? (window.location.search.split('?'))[1].split('&') : null
@@ -25,13 +24,11 @@ class Search extends Component {
             console.log('search context', this.props.context)
         }
     }
-    componentWillUpdate() {
-        this.filters = {}
-    }
+    
     render() {
         return (
             <div className='search-container'>
-                <SearchFilters  type={this.props.match.params.id} context={this.props.context} />
+                <SearchFilters type={this.props.match.params.id} context={this.props.context} />
                 <SearchResults type={this.props.match.params.id} context={this.props.context} />
             </div>
         )

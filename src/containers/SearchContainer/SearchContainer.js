@@ -18,12 +18,12 @@ class SearchContainer extends Component {
                     <Link to='/search/product'>{this.types.products_services}</Link>
                     {/* <Link to='/search/rooms'>{this.types.rooms}</Link> */}
                 </div>
-                <searchContext.SearchContextProvider>
+                {/* <searchContext.SearchContextProvider> */}
                     <Switch>
                         <Route path={`${url}/:id`} component={Search} />
                         <Redirect to={`${url}/business`} />
                     </Switch>
-                </searchContext.SearchContextProvider>
+                {/* </searchContext.SearchContextProvider> */}
             </div>
         )
     }
