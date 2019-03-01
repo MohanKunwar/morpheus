@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchResults from '../Results';
 import Axios from '../../../services/Axios';
 import Checkbox from '../../../UI/Search/Checkbox/Checkbox';
+import './searchfilter.css';
 class SearchFilters extends Component {
     state = {
         categories: null,

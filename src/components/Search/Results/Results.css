@@ -2,4 +2,11 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 15px;
+    margin-right: auto;
+
 }
+@media (max-width: 768px) {
+    .search-results-container {
+        grid-template-columns: 1fr;
+        }
+    }

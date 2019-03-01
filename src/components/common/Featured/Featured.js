@@ -13,6 +13,7 @@ class Featured extends Component {
         // get featured items 
         Axios.instance.get(Axios.API.common.featuredUrl).then(response => {
             if (response) {
+                console.log(response.data.data)
                 this.setState({
                     featuredItems: response.data.data.map(item => {
                         return {
@@ -37,9 +38,11 @@ class Featured extends Component {
         if (this.state.featuredItems.length > 0) {
             items = this.state.featuredItems.map(item => {
                 return (
+                    
                     <div className='featured-item' key={item.id}>
                         <BusinessCard business={item} />
                     </div>
+                   
                 );
             })
              return (<Carousel items={items} />)
