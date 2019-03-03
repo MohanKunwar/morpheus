@@ -1,6 +1,6 @@
-import {AppContext, AppContextProvider} from './AppContext';
+import {AppContext, AppContextProvider, withAppContext} from './AppContext';
 
 
-const KhozContext = { AppContext, AppContextProvider };
+const KhozContext = { AppContext, AppContextProvider, withAppContext };
 
 export default KhozContext;

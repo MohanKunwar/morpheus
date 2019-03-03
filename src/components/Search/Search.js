@@ -14,8 +14,6 @@ class Search extends Component {
                 let item = param.split('=')
                 if (item.length > 1) {
                     contextObject[item[0]] = item[1]
-                } else {
-                    contextObject[item[0]] = true
                 }
             })
         } else {

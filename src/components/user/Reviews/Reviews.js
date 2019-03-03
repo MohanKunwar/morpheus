@@ -8,7 +8,7 @@ import Review from '../../../UI/Review';
 // import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 // import { faEdit, faStar } from /"@fortawesome/fontawesome-free-solid";
 
-class Reviews extends Component {
+class UserReviews extends Component {
     state = {
         reviews: []
     }
@@ -35,4 +35,4 @@ class Reviews extends Component {
     }
 }
 
-export default Reviews;
+export default UserReviews;

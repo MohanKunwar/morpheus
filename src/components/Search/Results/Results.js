@@ -5,10 +5,10 @@ import './Results.css';
 class SearchResults extends Component {
     state = {
         filters: this.props.filters,
+        noResult: false
     }
     componentWillReceiveProps() {
         console.log('search results filters', this.state.filters)
-        // if (nextProps.filters !== this.state.filters) {
         this.buildQuery(this.props.filters)
         // }
     }
@@ -30,13 +30,13 @@ class SearchResults extends Component {
             query += `location=${filters.location}&`
         }
         if (filters.newest) {
-            query += `newest&`
+            query += `newest=1&`
         }
         if (filters.popular) {
-            query += `popular&`
+            query += `popular=1&`
         }
         if (filters.highest_rated) {
-            query += `highest_rated&`
+            query += `highest_rated=1&`
         }
         console.log('query', query)
         if (query) {
@@ -45,6 +45,7 @@ class SearchResults extends Component {
             Axios.instance.get(Axios.API.search.getResults(this.props.type, query.substr(0, query.lastIndexOf('&')))).then(
                 response => {
                     if (response) {
+                        if (response.data.data.length > 0) {
                         switch (this.props.type) {
                             case 'business': {
                                 this.setState({
@@ -59,18 +60,21 @@ class SearchResults extends Component {
                                             review_count: item.review_count,
                                             rating_avg: item.rating_avg
                                         }
-                                    })
+                                    }),
+                                    noResult: false
                                 })
                                 break
                             }
                             case 'product': {
-                                console.log('products', response.data.data)
                                 break
                             }
                             default: {
                                 break
                             }
                         }
+                    } else {
+                        this.setState({noResult: true})
+                    }
                     }
 
                 })
@@ -104,10 +108,9 @@ class SearchResults extends Component {
 
         return (
             <div className='search-results-container'>
-                {items}
                 {
                     this.state.noResult ?
-                    (<div>NO results found</div>) : null
+                    (<div>No results found</div>) : items
                 }
             </div>
         )
