@@ -10,8 +10,12 @@ class SearchFilters extends Component {
         filters: this.props.filters
     }
     componentWillMount() {
-        this.getCategories()
-        this.getLocations()
+        if (!this.state.categories) {
+            this.getCategories()
+        }
+        if (!this.state.locations) {
+            this.getLocations()
+        }
 
     }
     getCategories() {
@@ -42,16 +46,16 @@ class SearchFilters extends Component {
         })
     }
     handleChange(e, filterType) {
-        e.preventDefault()
+        // e.preventDefault()
         let filters = this.state.filters
         filters[filterType] = e.target.value !== 'All' ? e.target.value : null
         this.setState({ filters: filters })
     }
     handleCheckboxChange(e, filterType) {
-        e.preventDefault()
         let filters = this.state.filters
-        filters[filterType] = filters[filterType] ? !filters[filterType] : true
+        filters[filterType] = filters[filterType] === 1 ? null : 1
         this.setState({filters: filters})
+        // e.preventDefault()
     }
     render() {
         return (
@@ -81,7 +85,7 @@ class SearchFilters extends Component {
                             </select>
                         </div>
                         <div className='popular-filter'>
-                            <span><input type='checkbox' value={this.state.filters.popular} onChange={e => this.handleCheckboxChange(e, 'popular')} />Popular</span>
+                            <span><input type='checkbox' checked={this.state.filters.popular === 1} onChange={e => this.handleCheckboxChange(e, 'popular')} />Popular</span>
                             {/* <Checkbox toggle={e => this.handleChange(e, false)} value={this.state.filters.popular} /> */}
                         </div>
                         <div className='newest-filter'>

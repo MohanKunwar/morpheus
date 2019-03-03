@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import Search from '../../components/Search';
-import searchContext from '../../services/Context/SearchContext';
+
 class SearchContainer extends Component {
     types = {
         business: 'Business',

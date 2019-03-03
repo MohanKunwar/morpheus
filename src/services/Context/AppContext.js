@@ -25,3 +25,13 @@ export class AppContextProvider extends Component {
         );
     }
 }
+
+export const withAppContext = (Component) => {
+    return (props) => {
+      return (<AppContext.Consumer>
+        {(context) => {
+          return <Component {...props} context={context} />
+        }}
+      </AppContext.Consumer>)
+    }
+  }

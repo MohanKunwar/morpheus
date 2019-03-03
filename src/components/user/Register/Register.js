@@ -1,10 +1,8 @@
 import React from "react";
 import { Field } from "react-final-form";
 import './register.css';
-import LoadForm from '../../../containers/common-components/LoadForm/LoadForm';
+import KhozForm from '../../common/Form';
 import Axios from '../../../services/Axios';
-import UserService from '../../../services/User';
-import KhozContext from '../../../services/Context';
 import { Link } from 'react-router-dom';
 import khozlogo from './../../../assets/images/khozlogo.png';
 import boosting from './../../../assets/images/boosting.jpg';
@@ -107,7 +105,7 @@ class Register extends React.Component {
   render() {
     return (
       <div className="register-container">
-      <LoadForm
+      <KhozForm
         load={load}
         loading={loading}
         postLoadFormat={postLoadFormat}
@@ -201,7 +199,7 @@ class Register extends React.Component {
         <pre>{JSON.stringify(record, 0, 2)}</pre> */}
           </form>
         )}
-      </LoadForm>
+      </KhozForm>
       <div className="registerside_img">
         <img src= {boosting} alt='bossting' />
       </div>

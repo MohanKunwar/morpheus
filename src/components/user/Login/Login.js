@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { Field } from "react-final-form";
 import { Link } from 'react-router-dom';
 import "./Login.css";
-import LoadForm from '../../../containers/common-components/LoadForm/LoadForm';
 import Axios from '../../../services/Axios';
 import UserService from '../../../services/User';
 import KhozContext from '../../../services/Context';
+import KhozForm from '../../common/Form';
 import khozlogo from './../../../assets/images/khozlogo.png';
 import boosting from './../../../assets/images/boosting.jpg';
 import Inputfield from "../../../UI/Inputfield/inputfield";
@@ -83,6 +83,7 @@ class Login extends Component {
           UserService.setItem(item, response.data[item]);
         }
         this.props.context.login(response.data['access_token']);
+        console.log(this.props.context.user)
         this.props.history.push('/home');
       } else {
         console.log('invalid login');
@@ -94,7 +95,7 @@ class Login extends Component {
   render() {
     return (
       <div className="login-container">
-      <LoadForm
+      <KhozForm
         load={load}
         loading={loading}
         postLoadFormat={postLoadFormat}
@@ -153,7 +154,7 @@ class Login extends Component {
         <pre>{JSON.stringify(record, 0, 2)}</pre> */}
           </form>
         )}
-      </LoadForm>
+      </KhozForm>
       <div className="loginside_img">
         <img src= {boosting} alt='bossting' />
       </div>
