@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Carousel.css';
 
 class Carousel extends Component {
     // props.init
@@ -9,15 +10,19 @@ class Carousel extends Component {
     state = {
         nextItem: null,
         currItem: null,
-        prevItem: null,
         itemCount: 0,
         limitTo: 0
         // disablePrev: false,
         // disableNext: false
     }
     componentWillMount() {
-        this.setState({ items: this.props.items, itemCount: this.props.itemCount, limitTo: this.props.limitTo })
-                this.setState({ currItem: this.props.items[0], nextItem: this.props.items[1] })
+        this.setState({
+            // items: this.props.items,
+            itemCount: this.props.itemCount,
+            limitTo: this.props.limitTo,
+            currItem: this.props.items[0],
+            nextItem: this.props.items[1]
+        })
         console.log('items', this.props.items)
     }
     // componentWillReceiveProps() {
@@ -28,83 +33,48 @@ class Carousel extends Component {
     prevClicked(event) {
         event.preventDefault()
         this.currIndex -= 1
-        if (this.currIndex === 1) {
             this.setState({
                 currItem: this.props.items[this.currIndex],
-                prevItem: null,
-                nextItem: this.props.items[this.currIndex + 1],
-                // disablePrev: true,
-                // disableNext: false
+                nextItem: this.props.items[this.currIndex + 1]
             })
-        } else {
-            this.setState({
-                currItem: this.props.items[this.currIndex],
-                prevItem: this.props.items[this.currIndex - 1],
-                nextItem: this.props.items[this.currIndex + 1],
-                // disablePrev: false,
-                // disableNext: false
-            })
-        }
     }
     nextClicked(event) {
         event.preventDefault()
         this.currIndex += 1
-        if (this.currIndex === this.props.items.length-2) {
             this.setState({
                 currItem: this.props.items[this.currIndex],
-                prevItem: this.props.items[this.currIndex - 1],
-                nextItem: null,
-                // disablePrev: false,
-                // disableNext: true
-            })
-        } else {
-            this.setState({
-                currItem: this.props.items[this.currIndex],
-                prevItem: this.props.items[this.currIndex - 1],
                 nextItem: this.props.items[this.currIndex + 1],
-                // disablePrev: false,
-                // disableNext: false
             })
-        }
     }
+
     render() {
         let carousel = null
         carousel = this.props.items.length > 0 && this.state.currItem ?
-        (<div className='carousel'>
-            {
-                this.state.prevItem
-                    ? <button onClick={e => this.prevClicked(e)}>Prev</button>
-                    : null
-            }
-            {/* <div className='prev-item'>
-                <Item item={this.props.prevItem} />
-            </div> */}
-            <div className='curr-item'>
-                <Item item={this.state.currItem} />
-            </div>
-            <div className='next-item'>
-                <Item item={this.state.nextItem} />
-            </div>
-            {
-                this.state.nextItem
-                    ? <button onClick={e => this.nextClicked(e)}>Next</button>
-                    : null
-            }
-        </div>)
-        : (
-            // todo
-            // spinner
-            null
-        )
-        return ( carousel)
-    }
-}
-const Item = (props) => {
-    const Item = props.item;
-    if (Item) {
-        return (Item)
-    } else {
-        return null
+            (<div className='carousel'>
+                <div className='curr-item'>
+                    {
+                        this.currIndex !== 0
+                            ? <button className='prev-btn' onClick={e => this.prevClicked(e)}>Prev</button>
+                            : null
+                    }
+                    {this.state.currItem}
+                </div>
+                <div className='next-item'>
+                    {this.state.nextItem}
+                    {
+                        this.currIndex !== this.props.items.length - 2
+                            ? <button className='next-btn' onClick={e => this.nextClicked(e)}>Next</button>
+                            : null
+                    }
+                </div>
+
+            </div>)
+            : (
+                // todo
+                // spinner
+                null
+            )
+        return (carousel)
     }
 }
 

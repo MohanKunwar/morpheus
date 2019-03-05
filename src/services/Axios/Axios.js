@@ -2,12 +2,10 @@ import axios from 'axios';
 import UserService from './../User';
 
 export const instance = axios.create({
-    baseURL: 'http://mock.khozinfo.com/api/v1'
+    baseURL: 'https://mock.khozinfo.com/api/v1'
 });
 
-export const authInstance = axios.create({
-    baseURL: 'http://mock.khozinfo.com/api/v1'
-});
+export const authInstance = Object.create(instance);
 
 instance.interceptors.request.use(request => {
     return request;
@@ -26,7 +24,6 @@ authInstance.interceptors.request.use(request => {
     // if protected route
     if (!request.headers.Authorization) {
         const token = UserService.getItem('access_token')
-
         if (token) {
             request.headers.Authorization = `Bearer ${token}`
         }

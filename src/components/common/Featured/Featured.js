@@ -45,7 +45,12 @@ class Featured extends Component {
                    
                 );
             })
-             return (<Carousel items={items} />)
+             return (
+                <div className='featured'>
+                <div>Featured</div>
+             <Carousel items={items} />
+             </div>)
+
         } else {
             return (<div className='featured'>featured</div>)
             // todo

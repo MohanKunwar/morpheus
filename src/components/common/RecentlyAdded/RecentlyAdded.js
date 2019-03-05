@@ -12,7 +12,6 @@ class RecentlyAdded extends Component {
         // get recently added items 
         Axios.instance.get(Axios.API.common.recentlyAddedUrl).then(response => {
             if (response) {
-                console.log('recently added templae', response.data.data);
                 this.setState({
                     recentlyAddedItems: response.data.data.map(item => {
                         return {
@@ -32,7 +31,6 @@ class RecentlyAdded extends Component {
     }
 
     render() {
-        console.log('featured in render', this.state.featuredItems);
         let items = null;
         if (this.state.recentlyAddedItems.length > 0) {
             items = this.state.recentlyAddedItems.map(item => {
@@ -44,6 +42,7 @@ class RecentlyAdded extends Component {
             })
             return (
                 <div className='recently-added'>
+                <div>Recently Added</div>
                 <Carousel items={items} />
                 </div>
             )

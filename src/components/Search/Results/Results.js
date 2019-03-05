@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import Axios from '../../../services/Axios'
 import BusinessCard from '../../../UI/BusinessCard/BusinessCard';
 import './Results.css';
 class SearchResults extends Component {
+    newItems = []
     state = {
         filters: this.props.filters,
         noResult: false
@@ -15,6 +17,10 @@ class SearchResults extends Component {
     componentWillMount() {
         this.buildQuery(this.props.filters)
         console.log('results mount', this.props.filters)
+    }
+    navigateToItem = (e, type, id) => {
+        e.preventDefault()
+        this.props.history.push(`/${type}/${id}`)
     }
     buildQuery = filters => {
         let query = '';
@@ -80,6 +86,10 @@ class SearchResults extends Component {
                 })
         }
     }
+    handlePageScroll = e => {
+        e.preventDefault()
+        console.log('abc')
+    }
     component
     render() {
         let items
@@ -87,9 +97,9 @@ class SearchResults extends Component {
             switch (this.props.type) {
                 case 'business': {
                     items = this.state.results.map((result, index) => (
-                        <div className='search-item' key={index}>
+                        <Link className='search-item' key={index} to={`/business/${result.id}`}>
                             <BusinessCard business={result} />
-                        </div>
+                        </Link>
                     )
                     )
                     break
@@ -107,12 +117,22 @@ class SearchResults extends Component {
         }
 
         return (
-            <div className='search-results-container'>
+            <React.Fragment>
                 {
                     this.state.noResult ?
-                    (<div>No results found</div>) : items
+                    (<div>No results found</div>) 
+                    : 
+                    <div className='search-results-container'>
+                    {items}
+                    {this.newItems}
+                    {
+                        this.state.fetchingMore
+                        ? <div>loading more results...</div>
+                        : null
+                    }
+                    </div>
                 }
-            </div>
+            </React.Fragment>
         )
     }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import Category from './Category/Category';
 import Axios from '../../../services/Axios'
 import './Categories.css';
@@ -18,7 +19,7 @@ class Categories extends Component {
         if (this.state.categories.length > 0) {
             categories = this.state.categories.map(item => {
                 return (
-                    <Category key={item.id} name={item.name} id={item.id} />
+                    <Link to={`/search/business?category=${item.name}`} key={item.id}><Category name={item.name} id={item.id} /></Link>
                 );
             })
         } else {

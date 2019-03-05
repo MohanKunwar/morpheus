@@ -12,7 +12,7 @@ class SearchContainer extends Component {
         // const currUrl = this.props.match.url
         const { match: { url } } = this.props
         return (
-            <div className='search-page'>
+            <div className='card-container'>
                 <div className='search-types'>
                     <Link to='/search/business'>{this.types.business}</Link>
                     <Link to='/search/product'>{this.types.products_services}</Link>
