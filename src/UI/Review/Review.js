@@ -1,5 +1,5 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap/dist/css/bootstrap.css'
 import './Review.css'
 import { Image } from 'react-bootstrap'
 // import FontAwesomeIcon from "@fortawesome/react-fontawesome"

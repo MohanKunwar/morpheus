@@ -17,6 +17,9 @@
     .left-grid {
         display: block;
     }
+    .left-grid .categories-container{
+       margin-bottom: 20px;
+    }
 }
 @media (max-width: 767px) {
     .page-grid {

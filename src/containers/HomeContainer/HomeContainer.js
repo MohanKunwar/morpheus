@@ -28,7 +28,9 @@ const HomeContainer = () => {
                             <p>mobile text for categories</p>
                         </div>
                         <div className='left-grid'>
+                        <div className="categories-container">
                             <Categories />
+                            </div>
                             <RequestCard />
                         </div>
                         <div className='middle-grid'>

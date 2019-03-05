@@ -1,6 +1,23 @@
 .category-btn {
-    margin: 10px;
     position: relative;
+    padding: 5px 10px 5px 20px ;
+    display: block;
+    color: rgba(22, 74, 185, 0.8);
+}
+.category-btn:hover{
+    background-color: rgba(22, 74, 185, 0.1);
+    color: rgba(22, 74, 185, 1);
+    font-weight: 600;  
+}
+
+.category-btn:hover:before{
+    content: '';
+    width: 4px;
+    position: absolute;
+    background-color: rgba(22, 74, 185, 1);
+    height: 100%;
+    left: 0;
+    top: 0;
 }
 .sub-categories {
     position: absolute;
@@ -8,4 +25,30 @@
     left: 100%;
     z-index: 100;
     background: #ccc;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(22, 74, 185, 0.2), 0 2px 2px rgba(22, 74, 185, 0.23);
+}
+.chevron_icon{
+    float: right;
+}
+.sub-category-btn{
+    padding: 5px 15px;
+    font-weight: 400;
+    color: rgba(22, 74, 185, 0.8);
+
+}
+.sub-category-btn:hover{
+    background-color: rgba(22, 74, 185, 0.1);
+    border-left: 3px solid rgba(22, 74, 185, 1);
+    height: 100%;
+    font-weight: 600;
+}
+.sub-category-btn:hover:before{
+    /* content: '';
+    width: 3px;
+    position: absolute;
+    background-color: rgba(22, 74, 185, 1);
+    height: 100%;
+    left: 0;
+    top: 0; */ 
 }
