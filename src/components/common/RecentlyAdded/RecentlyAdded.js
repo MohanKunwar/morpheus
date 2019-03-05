@@ -13,19 +13,7 @@ class RecentlyAdded extends Component {
         Axios.instance.get(Axios.API.common.recentlyAddedUrl).then(response => {
             if (response) {
                 this.setState({
-                    recentlyAddedItems: response.data.data.map(item => {
-                        return {
-                            name: item.name,
-                            id: item.id,
-                            category_name: item.category.name,
-                            address: item.address,
-                            logo: item.logo,
-                            view_count: item.view_count,
-                            review_count: item.review_count,
-                            rating_avg: item.rating_avg
-                        }
-                    })
-                });
+                    recentlyAddedItems: response.data.data});
             }
         })
     }
