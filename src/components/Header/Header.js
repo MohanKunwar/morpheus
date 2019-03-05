@@ -5,7 +5,7 @@ import './Header.css';
 
 const Logo = () => {
     return (
-        <div style={{ margin: 'auto auto auto 0', padding: '10px 0' }}>
+        <div>
             <img src={khozinfo} alt="KhozInfo" />
         </div>)
 }

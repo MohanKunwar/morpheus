@@ -21,7 +21,7 @@ class UserPanel extends Component {
                         : (<ul>
                             <li><Link to='/khoz/login'>Login</Link></li>
                             <li><Link to='/khoz/register'>Join</Link></li>
-                            <li ><Link to='/business/register'>Add Business<span>&#124;</span></Link></li>
+                            <li><Link to='/business/register'>Add Business<span>&#124;</span></Link></li>
                         </ul>)
 
                 }
@@ -34,12 +34,12 @@ export default KhozContext.withAppContext(UserPanel);
 const Panel = (props) => {
     return (
         <ul>
-            <li>notifications</li>
+            <li>Notifications</li>
             <li>Add Business</li>
             <li>
-                <img src={props.user.photo} alt={props.user.name} />
-                <Dropdown user={props.user} logout={props.logout}/>
-            </li>
+                <img src={props.user.photo} alt={props.user.name} /> </li>
+            <li> <Dropdown user={props.user} logout={props.logout}/> </li>
+            
         </ul>
     )
 }
