@@ -15,18 +15,7 @@ class Featured extends Component {
             if (response) {
                 console.log(response.data.data)
                 this.setState({
-                    featuredItems: response.data.data.map(item => {
-                        return {
-                            name: item.name,
-                            id: item.id,
-                            category_name: item.category.name,
-                            address: item.address,
-                            logo: item.logo,
-                            view_count: item.view_count,
-                            review_count: item.review_count,
-                            rating_avg: item.rating_avg
-                        }
-                    })
+                    featuredItems: response.data.data
                 });
             }
         })
