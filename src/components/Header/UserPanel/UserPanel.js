@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import KhozContext from '../../../services/Context';
-
+import Dropdown from './Dropdown';
 import './UserPanel.css';
 class UserPanel extends Component {
 
@@ -11,61 +11,34 @@ class UserPanel extends Component {
     }
     render() {
 
-        console.log('context rerender from userpanel ');
-        // console.log('render userpanel', {context.loggedIn)
+        console.log('context rerender from userpanel ', this.props.context);
         return (
             <div className='user-panel'>
-                <KhozContext.AppContext.Consumer>
-                    {context => (
-                        context.user
-                            ? (
-                                <ul>
-                                    <li><Link to='/khoz/login'>Login</Link></li>
-                                    <li><Link to='/khoz/register'>Join</Link></li>
-                                    <li ><Link to='/business/register'>Add Business<span>&#124;</span></Link></li>
-                                </ul>)
-                            : <Panel user={context.user} logout={context.logout} />
-                    )
-                    }
-                </KhozContext.AppContext.Consumer>
+                {
+                    this.props.context.user
+                        ?
+                        <Panel user={this.props.context.user} logout={this.props.context.logout} />
+                        : (<ul>
+                            <li><Link to='/khoz/login'>Login</Link></li>
+                            <li><Link to='/khoz/register'>Join</Link></li>
+                            <li ><Link to='/business/register'>Add Business<span>&#124;</span></Link></li>
+                        </ul>)
+
+                }
             </div>
         );
     }
 }
-export default UserPanel;
+export default KhozContext.withAppContext(UserPanel);
 
 const Panel = (props) => {
-    let user = props.context.user
-    let getUserDropdown = (user) => {
-        return (
-            <div className='user-dropdown'>
-                <span>Hi {user.name} </span>
-                <br />
-                <span>My Account</span>
-                <br />
-                <span>Business</span>
-                {
-                    user.businesses.length > 0 ?
-                        <div className='user-businesses'>
-                            {
-                                user.businesses.map(business =>
-                                    <div>{business.name}</div>
-                                )
-                            }
-                        </div>
-                        : <div></div>
-                }
-                <span onClick={(e) => props.logout(e)}>Logout</span>
-            </div>
-        )
-    }
-    console.log('user panel props', props)
     return (
         <ul>
             <li>notifications</li>
+            <li>Add Business</li>
             <li>
-                <img src={user.photo} alt={props.context.user.name} />
-                <button onClick={getUserDropdown(user, props.logout)} />
+                <img src={props.user.photo} alt={props.user.name} />
+                <Dropdown user={props.user} logout={props.logout}/>
             </li>
         </ul>
     )

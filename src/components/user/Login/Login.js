@@ -79,12 +79,16 @@ class Login extends Component {
     Axios.instance.post(Axios.API.user.loginUrl, values).then(response => {
       if (response.data) {
         for (let item in response.data) {
-          // set tokens on local storage
           UserService.setItem(item, response.data[item]);
         }
-        this.props.context.login(response.data['access_token']);
-        console.log(this.props.context.user)
-        this.props.history.push('/home');
+        Axios.authInstance.get(Axios.API.user.userDetailsUrl).then(response => {
+          if (response.status === 200) {
+            this.props.context.login(response.data.data)
+            this.props.history.push('/home')
+          } else {
+
+          }
+        })
       } else {
         console.log('invalid login');
       }
