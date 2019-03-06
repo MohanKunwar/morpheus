@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import "./Dropdown.css";
 class Dropdown extends Component {
     constructor() {
         super();
@@ -18,7 +18,6 @@ class Dropdown extends Component {
             document.addEventListener('click', this.hideDropdownMenu);
         });
     }
-
     hideDropdownMenu() {
         this.setState({ displayMenu: false }, () => {
             document.removeEventListener('click', this.hideDropdownMenu);

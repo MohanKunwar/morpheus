@@ -1,0 +1,20 @@
+div.dropdown{
+    position: relative;
+}
+div.user-dropdown{
+    position: absolute;
+    right: 0;
+    margin-top: 25px;
+    text-align: center;
+    background: #c2d3a3;
+    color: black;
+}
+div.dropdown div.button{
+    cursor: pointer;
+}
+div.user-dropdown span, div.user-dropdown div{
+    padding: 0 10px 0 10px;
+}
+div.user-dropdown span{
+    cursor: pointer;
+}
