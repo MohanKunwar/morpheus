@@ -2,7 +2,16 @@
     border: 1px solid rgba(128, 128, 128, 0.3);
     margin-bottom: 10px;
     color: rgb(22, 74, 185);
+    flex: auto;
     box-shadow: 0 1px 2px 0 rgba(128, 128, 128, 0.2), 0 1px 2px 0 rgba(128, 128, 128, 0.19);
+}
+.star-css{
+    width: 23px;
+    vertical-align: middle;
+}
+.search-item{
+    white-space: normal;
+    text-decoration: none !important;
 }
 .business-card:hover{
     box-shadow: 0 2px 4px 0 rgba(128, 128, 128, 0.2), 0 2px 4px 0 rgba(128, 128, 128, 0.19);
@@ -31,7 +40,8 @@
     margin-bottom: 0;
 }
 .business-card-info .business_address{
-    font-size: 13px;
+    font-size: 12px;
+    min-height: 40px;
     padding-top: 0;
     opacity: 0.5;
 }
@@ -43,7 +53,6 @@
 }
 .business_rating{
     display: inline;
-    
 }
 .business_review{
     display: inline;

@@ -46,7 +46,7 @@ class SearchResults extends Component {
         }
         if (query) {
             this.setState({results: null})
-            Axios.instance.get(Axios.API.search.getResults(this.nextPropType, query.substr(0, query.lastIndexOf('&')))).then(
+            Axios.instance.get(Axios.API.search.getResults   (this.nextPropType, query.substr(0, query.lastIndexOf('&')))).then(
                 response => {
                     if (response) {
                         if (response.data.data.length > 0) {
@@ -84,10 +84,10 @@ class SearchResults extends Component {
         if (this.state.results) {
             switch (this.nextPropType) {
                 case 'business': {
-                    items = this.state.results.map((result, index) => (
-                        <Link className='search-item' key={index} to={`/business/${result.id}`}>
+                    items = this.state.results.map((result) => (
+                        <div className='search-item'>
                             <BusinessCard business={result} />
-                        </Link>
+                        </div>
                     )
                     )
                     break
