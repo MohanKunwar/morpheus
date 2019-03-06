@@ -1,12 +1,11 @@
-import React, { Component } from 'react'
-import {Image} from 'react-bootstrap'
+import React, { Component } from 'react';
 class ProductCard extends Component {
     render() {
         // console.log('product card prop', this.props.product)
         return (
             <div className='product-card'>
             <div className='product-img-container'>
-            <Image thumbnail src={this.props.product.photo} alt={this.props.product.name} />
+            <img  src={this.props.product.photo} alt={this.props.product.name} />
             </div>
             <div className='product-card-info'>
             {this.props.product.name}
