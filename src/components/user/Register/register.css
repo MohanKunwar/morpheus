@@ -1,0 +1,79 @@
+.register-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: auto;
+    padding-left: 15px;
+    color: rgb(60,90,153);
+    margin-bottom: 0;
+}
+.logo_reg_head{
+    margin-bottom: 5px;
+}
+.logo_reg_head span{
+    font-size: 12px;
+    opacity: 0.7;
+}
+.logo_reg_head img{
+    width: 35%;
+    margin-bottom: 5px;
+}
+.register-form-label{
+    opacity: 0.6;
+    font-size: 14px;
+}
+.registerside_img img{
+    width: 100%;
+    height: 100%;
+}
+.login_click{
+    font-size: 12px;
+    text-align: center;
+}
+.register-form-group{
+    margin-bottom: 5px;
+}
+/* for media query */
+
+@media (min-width: 768px) {
+    .register-container {
+        margin-left: 7%;
+     }
+    .register-form{
+        margin-top: 5%;
+    }
+     .login_click{
+        padding-right: 25%;
+     }
+     .forget_password{
+        padding-right: 30%;
+     }
+     .registerside_img  {
+        overflow: hidden;
+        height: 100;
+        bottom: 0;
+        position: fixed;
+        height: 100%;
+        right: 0;
+        width: 45%;
+    
+    }
+    .buttons button{
+        width: 70%;
+    }
+}
+@media (max-width: 768px) {
+    .register-container {
+        grid-template-columns: 1fr;
+        margin-right: auto;
+        padding-right: 15px;
+        }
+    .register-form{
+        margin-top: 5%;
+    }
+     .buttons button {
+        width: 100%;
+    }
+    .login_click{
+        margin-bottom: 20px;
+    }
+}

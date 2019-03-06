@@ -1,0 +1,18 @@
+.carousel {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+.prev-btn {
+    position: absolute;
+    top: 35%;
+    color: #fff;
+    background: rgb(26, 73, 88);
+}
+.next-btn {
+    position: absolute;
+    top: 35%;
+    right: 0;
+    color: #fff;
+    background: rgb(26, 73, 88);
+}

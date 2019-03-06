@@ -1,0 +1,9 @@
+.review-container {
+    background: #abcdab;
+}
+@media (min-width: 768px) {
+    .review-container {
+        max-width: 768px;
+        margin: 10px auto;
+    }
+}

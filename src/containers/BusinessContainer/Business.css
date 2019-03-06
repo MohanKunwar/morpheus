@@ -1,0 +1,11 @@
+.card-business-body {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-gap: 15px;
+}
+.side-bar ul {
+    list-style: none;
+}
+.business-data-container {
+    /* margin-left: 30px; */
+}

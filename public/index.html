@@ -1,26 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="theme-color" content="#000000" />
-    <!--
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="theme-color" content="#000000" />
+  <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="" />
-    <link rel="stylesheet" href="./style.css" />
-    
- 
-    <title>KhozInfo-Decision with Precision</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
+  <link rel="manifest" href="" />
+
+  <link rel="icon" type="image/png" sizes="96x96" href="http://khozinfo.com/favicon/favicon-96x96.png">
+  <title>KhozInfo-Decision with Precision</title>
+</head>
+
+<body>
+  <style>
+    #root {
+      display: grid;
+      /* grid-template-columns: repeat () */
+    }
+    @media (max-width:767px) {
+      .card-container {
+        margin: auto;
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .card-container {
+        margin: auto;
+        max-width: 1200px;
+        min-width: 748px;
+        width: 100%;
+      }
+    }
+
+    .img-thumbnail {
+      border: none !important;
+      padding: 0 !important;
+      width: 100%;
+    }
+  </style>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -30,5 +55,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+</body>
+
 </html>

@@ -1,0 +1,107 @@
+.login-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: auto;
+    padding-left: 15px;
+    color: rgb(60,90,153);
+    margin-bottom: 0;
+}
+
+.logo_or_head{
+    margin-bottom: 25px;
+}
+.logo_or_head span{
+    font-size: 12px;
+    opacity: 0.7;
+}
+.logo_or_head img{
+    width: 35%;
+    margin-bottom: 10px;
+}
+
+/* text input field  */
+.login-form-group{
+    margin-bottom: 15px;
+}
+.login-form-label{
+    opacity: 0.6;
+    font-size: 14px;
+}
+.buttons button{
+    height: 30px;
+    border-radius: 3px;
+}
+
+.forget_password{
+    font-size: 12px;
+    color: #EB4E3A;
+    text-align: right;
+}
+
+.buttons button{
+    background-color: rgb(60,90,153);
+    color: #ffffff;
+    border: transparent;
+    margin: 10px 5px;
+}
+.buttons button:hover{
+    box-shadow: 0 3px 5px rgba(0,0,0,0.19), 0 2px 2px rgba(0,0,0,0.23); 
+}
+
+@media (min-width: 768px) {
+    .login-container {
+        margin-left: 7%;
+     }
+    .login-form{
+        margin-top: 12%;
+    }
+     .register_click{
+        padding-right: 25%;
+     }
+     .forget_password{
+        padding-right: 30%;
+     }
+     .loginside_img  {
+        overflow: hidden;
+        height: 100;
+        bottom: 0;
+        position: fixed;
+        height: 100%;
+        right: 0;
+        width: 45%;
+    
+    }
+    .buttons button{
+        width: 70%;
+    }
+}
+@media (max-width: 768px) {
+    .login-container {
+        grid-template-columns: 1fr;
+        margin-right: auto;
+        padding-right: 15px;
+        }
+    .login-form{
+        margin-top: 10%;
+    }
+     .buttons button {
+        width: 100%;
+    }
+    .register_click{
+        margin-bottom: 20px;
+    }
+}
+.register_click{
+    font-size: 12px;
+    text-align: center;
+}
+
+.loginside_img img{
+    width: 100%;
+    height: 100%;
+}
+
+/* input field area */
+
+
+/* input field area */

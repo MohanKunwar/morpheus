@@ -1,0 +1,22 @@
+.card-business-header {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-gap: 30px;
+}
+.business-logo {
+    width: 100%;
+}
+.business-header-right {
+    display: grid;
+    grid-template-columns: 3.5fr 1.5fr;
+    grid-gap: 30px;
+}
+ .business-social {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    grid-gap: 10px; 
+}
+.social-icons {
+     width:33%;
+    padding: 5px; 
+}
