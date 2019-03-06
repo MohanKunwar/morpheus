@@ -1,9 +1,14 @@
 .search-results-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 15px;
-
+    flex-wrap: wrap;
+    /* overflow: hidden; */
+    flex: auto;
 }
+    
+
 @media (max-width: 768px) {
     .search-results-container {
         grid-template-columns: 1fr;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import star from './../../assets/images/ratings.svg';
 import './BusinessCard.css';
 
@@ -7,7 +8,9 @@ const Star = (props) => {
     const rating = 5;
     let stars =[];
     for(let i=0; i<rating; i++){
-        stars.push(<Image key={i} src={star} style={{width: '23px'}} />);
+        stars.push(<Image key={i} src={star} 
+            className= "star-css" 
+            />);
     }
     return(
         <span>{stars}</span>
@@ -19,18 +22,22 @@ class BusinessCard extends Component {
         // business data model
     }
     render() {
-        console.log('business-card');
+        console.log(this.props.business);
         return (
             <div className='business-card'>
+            
             <div className="business_img_container">
                 <Image src={this.props.business.logo} thumbnail alt={this.props.business.name} />
                     </div>
                 <div className='business-card-info'>
-                    <h6 
+                <Link className='search-item' key={this.props.index} to={`/business/${this.props.business.slug}`}>
+                    <h5 
                     onClick={this.props.business.businessUrl}
                     className="budiness_heading">
-                    {this.props.business.name}</h6>
-                    <span className="business_address">{this.props.business.address}</span>
+                    {this.props.business.slug}</h5></Link>
+                    <div className="business_address">
+                    <Link className='search-item' key={this.props.index} to={`/business/${this.props.business.slug}`}>
+                    {this.props.business.address}</Link></div>
                     <p 
                     onClick={this.props.business.categoryUrl}
                     className="business_categories">{this.props.business.category_name}</p>
