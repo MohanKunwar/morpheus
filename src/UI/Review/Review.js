@@ -1,14 +1,10 @@
-import React from 'react'
-// import 'bootstrap/dist/css/bootstrap.css'
-import './Review.css'
-import { Image } from 'react-bootstrap'
-// import FontAwesomeIcon from "@fortawesome/react-fontawesome"
-// import { faEdit, faStar } from /"@fortawesome/fontawesome-free-solid"
+import React from 'react';
+import './Review.css';
 
 const ProfileImage = (props) => {
     return (
         <div className='review-image'>
-            <Image src={props.photoUrl} alt={props.name} />
+            <img src={props.photoUrl} alt={props.name} />
         </div>
     )
 }

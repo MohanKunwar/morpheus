@@ -8,7 +8,7 @@ import DealsIn from './DealsIn/DealsIn';
 import Photos from './Photos/Photos';
 import Reviews from './Reviews/Reviews';
 
-import BusinessView from '../../components/BusinessView';
+// import BusinessView from '../../components/BusinessView';
 
 import Hotel from './features/Hotel';
 import './Business.css';

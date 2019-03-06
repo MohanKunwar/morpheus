@@ -27,7 +27,7 @@ class BusinessCard extends Component {
             <div className='business-card'>
             
             <div className="business_img_container">
-                <Image src={this.props.business.logo} thumbnail alt={this.props.business.name} />
+                <img src={this.props.business.logo}  alt={this.props.business.name} />
                     </div>
                 <div className='business-card-info'>
                 <Link className='search-item' key={this.props.index} to={`/business/${this.props.business.slug}`}>

@@ -24,6 +24,7 @@ class Dropdown extends Component {
         });
     }
     render() {
+        console.log('dropdown log', this.props.user)
         return (
             <div className="dropdown" >
                 <div className="button" onClick={e => this.showDropdownMenu(e)}> drop</div>
@@ -41,7 +42,11 @@ class Dropdown extends Component {
                                         <div className='user-businesses'>
                                             {
                                                 this.props.user.businesses.map((business, index) =>
-                                                    <div key={index}>{business.name}</div>
+
+                                                    <div key={index}>
+                                                    <img src={business.logo} alt={business.name} />
+                                                    {business.name}
+                                                    </div>
                                                 )
                                             }
                                         </div>
