@@ -10,6 +10,7 @@ import SearchContainer from './SearchContainer';
 import HomeContainer from './HomeContainer';
 import UserContainer from './UserContainer/UserContainer';
 import BusinessContainer from './BusinessContainer';
+import ProductContainer from './ProductContainer';
 
 class AppContainer extends Component {
 
@@ -22,8 +23,8 @@ class AppContainer extends Component {
                     <Route path='/search' component={SearchContainer} />
                     <Route path='/home' component={HomeContainer} />
                     <Route path='/business/:id' component={BusinessContainer}/>
-                    {/* <Route path='/product' />
-                    <Route path='/service' /> */}
+                    <Route path='/product/:id' component={ProductContainer} />
+                    {/* <Route path='/service' />  */}
                     <Route path='/user' component={UserContainer} />
                     <Redirect to='/home' />
                 </Switch>

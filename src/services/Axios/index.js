@@ -13,6 +13,7 @@ const API = {
         logoutUrl: '/user/logout',
         // user actions
         getUserReviewsUrl: '/user/business-reviews',
+        getUserRequirementsUrl: 'user/leads',
         userDetailsUrl: '/user'
     },
     common: {
