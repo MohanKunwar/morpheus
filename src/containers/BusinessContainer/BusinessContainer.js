@@ -72,10 +72,10 @@ class BusinessContainer extends Component {
                     <div className='card-container card-business-body'>
                         <div className='side-bar'>
                             <ul>
-                                <li><Link to={`${currUrl}/overview`}>Overview</Link></li>
-                                <li><Link to={`${currUrl}/photos`}>Photos</Link></li>
-                                <li><Link to={`${currUrl}/reviews`} >Reviews</Link></li>
-                                <li><Link to={`${currUrl}/deals-in`}>Deals In</Link></li>
+                                <li><Link to={`${currUrl}/overview`} className="sidebar_link">Overview</Link></li>
+                                <li><Link to={`${currUrl}/photos`} className="sidebar_link">Photos</Link></li>
+                                <li><Link to={`${currUrl}/reviews`} className="sidebar_link" >Reviews</Link></li>
+                                <li><Link to={`${currUrl}/deals-in`} className="sidebar_link">Deals In</Link></li>
                                 {
                                     this.state.business.feature_enabled.length > 0
                                         ?
