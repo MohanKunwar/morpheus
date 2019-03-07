@@ -1,0 +1,31 @@
+.displayMenu{
+    border: 1px solid rgba(168, 166, 166, 0.3);
+    position: absolute;
+    width: 100px;
+    right: 0;
+    text-align: left;
+    border-radius: 2px;
+    top: 20px;
+}
+.displayMenu:hover{
+    box-shadow: 0 1px 2px 0 rgba(128, 128, 128, 0.2), 0 1px 2px 0 rgba(128, 128, 128, 0.19);
+}
+.displayItem{
+    padding: 2px 10px;
+    font-size: 15px;
+}
+.displayItem:hover{
+    background: rgba(22, 74, 185, 0.1);
+    cursor: pointer;
+}
+.dot{
+    width: 3px;
+    height: 3px;
+    margin-bottom: 3px;
+    background: #4e4c4c;
+    align-self: right;
+}
+.button-dropdown{
+    float: right;
+    padding-right: 5px;
+}
