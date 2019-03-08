@@ -8,7 +8,8 @@ import AppContainer from './containers/AppContainer';
 import KhozContainer from './containers/KhozContainer';
 class App extends Component {
   state = {
-    user: null
+    user: null,
+    noUser: false
   }
   componentWillMount() {
     const refresh_token = UserService.getItem('refresh_token')
@@ -36,12 +37,12 @@ class App extends Component {
                 break
               }
               default: {
-                this.setState({ user: 'none' })
+                this.setState({ noUser: true })
                 break
               }
             }
           } else {
-            this.setState({user: 'none'})
+            this.setState({noUser: true })
           }
           
         }
@@ -49,13 +50,12 @@ class App extends Component {
         console.log('error on contextProvider', error);
       })
     } else {
-      this.setState({ user: 'none' })
+      this.setState({ noUser: true })
     }
-    // }
   }
   render() {
     return (
-      this.state.user ?
+      this.state.user || this.state.noUser ?
       (<div>
         <KhozContext.AppContextProvider user={this.state.user}>
           <Switch>
@@ -71,33 +71,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-// import { Route, Switch, Redirect } from 'react-router-dom';
-// import Layout from './hoc/Layout/Layout';
-
-// import Home from './pages/Home/Home';
-// import Search from './pages/Search/Search';
-
-// import Requirements from './containers/components/Requirements/Requirements';
-// // import RegisterBusiness from './pages/RegisterBusiness/RegisterBusiness';
-// import BusinessProfile from './pages/BusinessProfile/BusinessProfile';
-// import Register from './pages/Register/Register';
-// import ConfirmMobileCode from './pages/ConfirmMobileCode/ConfirmMobileCode';
-// import Login from './pages/Login/Login';
-// import Reviews from './pages/Reviews/Reviews';
-// import PrivateRoute from './PrivateRoute';
-
-      // <Layout>
-        //   <Switch>
-        //     <Route path='/register' component={Register} />
-        //     <Route path='/confirm-mobile-code' component={ConfirmMobileCode} />
-        //     <Route path='/login' component={Login} />
-        //     <Route path='/reviews' component={Reviews} />
-        //     <Route path='/requirements' component={Requirements} />
-        //     <Route path='/business/:id' component={BusinessProfile} />
-        //     <Route path='/search' component={Search} />
-        //     <Route path='/home' component={Home} />
-        //     <Redirect to='/home' />
-        //   </Switch>
-        // </Layout>

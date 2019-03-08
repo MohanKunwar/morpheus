@@ -4,12 +4,7 @@ import KhozContext from '../../../services/Context';
 import Dropdown from './Dropdown';
 import './UserPanel.css';
 class UserPanel extends Component {
-
-    componentWillUpdate() {
-        console.log('uiser panel updated');
-    }
     render() {
-
         console.log('context rerender from userpanel ', this.props.context);
         return (
             <div className='user-panel'>
@@ -36,7 +31,11 @@ const Panel = (props) => {
             <li>Notifications</li>
             <li>Add Business</li>
             <li>
-                <img src={props.user.photo} alt={props.user.name} /> </li>
+                {
+                    props.user.photo ? 
+                    <img src={props.user.photo} alt={props.user.name} />
+                    : <img src={require('../../../assets/images/place.svg')} alt='stock' />
+                } </li>
             <li> <Dropdown user={props.user} logout={props.logout}/> </li>
             
         </ul>
