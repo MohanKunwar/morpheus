@@ -94,7 +94,9 @@ class SearchResults extends Component {
                 }
                 case 'product': {
                     items = this.state.results.map((result, index) =>
+                    <div className='search-item'>
                         <ProductCard product={result} key={index} />
+                        </div>
                     )
                     break
                 }

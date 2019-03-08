@@ -44,7 +44,6 @@ const Review = (props) => {
                 {/* user review or business reviews check
                 todo */}
                 <div className="review_image">
-                photo
                 <ProfileImage photoUrl={photoUrl} />
                 </div>
                 <div className="review_on_name">

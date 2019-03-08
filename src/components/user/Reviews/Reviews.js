@@ -22,7 +22,7 @@ class UserReviews extends Component {
 
         return (
             <div className="card-container">
-            <h5>My Reviews</h5>
+            <h4 className="card_header">My Reviews</h4>
             {/* <Review review={this.state.reviews}/> */}
                 {
                     this.state.reviews ?
