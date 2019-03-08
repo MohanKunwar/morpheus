@@ -15,12 +15,15 @@ class UserReviews extends Component {
     componentWillMount() {
         Axios.authInstance.get(Axios.API.user.getUserReviewsUrl).then(response => {
             this.setState({ reviews: response.data.data })
+            console.log(response.data.data)
         })
     }
     render() {
 
         return (
             <div className="card-container">
+            <h5>My Reviews</h5>
+            {/* <Review review={this.state.reviews}/> */}
                 {
                     this.state.reviews ?
                     this.state.reviews.map((review, index) =>
@@ -28,7 +31,7 @@ class UserReviews extends Component {
                             key={index} 
                             review={review} />
                     )
-                    : <div>loading</div>
+                    : <div>loadin</div>
                 }
             </div>
         );

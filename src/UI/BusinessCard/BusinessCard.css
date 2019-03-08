@@ -62,3 +62,6 @@
 .business_view, .business_review{
     font-size: 12px
 }
+button{
+    cursor: pointer;
+}

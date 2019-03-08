@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Image } from 'react-bootstrap';
+import React, { Component } from 'react';
+import Img from 'react-image';
 import { Link } from 'react-router-dom';
 import star from './../../assets/images/ratings.svg';
 import './BusinessCard.css';
@@ -8,7 +8,7 @@ const Star = (props) => {
     const rating = 5;
     let stars =[];
     for(let i=0; i<rating; i++){
-        stars.push(<Image key={i} src={star} 
+        stars.push(<Img key={i} src={star} 
             className= "star-css" 
             />);
     }
@@ -27,7 +27,7 @@ class BusinessCard extends Component {
             <div className='business-card'>
             
             <div className="business_img_container">
-                <img src={this.props.business.logo}  alt={this.props.business.name} />
+                <Img src={this.props.business.logo}  alt={this.props.business.name} />
                     </div>
                 <div className='business-card-info'>
                 <Link className='search-item' key={this.props.index} to={`/business/${this.props.business.slug}`}>

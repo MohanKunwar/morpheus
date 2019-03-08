@@ -2,12 +2,12 @@
     position: relative;
     padding: 5px 10px 5px 20px ;
     display: block;
-    color: rgba(22, 74, 185, 0.8);
+    color: rgba(22, 74, 185, 0.7);
 }
 .category-btn:hover{
     background-color: rgba(22, 74, 185, 0.1);
     color: rgba(22, 74, 185, 1);
-    font-weight: 600;  
+    font-weight: 500;  
 }
 
 .category-btn:hover:before{
@@ -34,14 +34,15 @@
 .sub-category-btn{
     padding: 5px 15px;
     font-weight: 400;
-    color: rgba(22, 74, 185, 0.8);
+    color: rgba(22, 74, 185, 0.7);
 
 }
 .sub-category-btn:hover{
     background-color: rgba(22, 74, 185, 0.1);
     border-left: 3px solid rgba(22, 74, 185, 1);
     height: 100%;
-    font-weight: 600;
+    font-weight: 500;
+    color: rgba(22, 74, 185, 1);
 }
 .sub-category-btn:hover:before{
     /* content: '';

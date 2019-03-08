@@ -1,10 +1,26 @@
 import React from 'react';
 import './Review.css';
+import Img from 'react-image';
+import star from './../../assets/images/ratings.svg';
+import DropdownToggle from './dropdown/dropdown'; 
+
+const Star = (props) => {
+    const starrating = props.rate;
+    let stars =[];
+    for(let i=0; i<starrating; i++){
+        stars.push(<Img key={i} src={star} 
+            className= "star-css" 
+            />);
+    }
+    return(
+        <span>{stars}</span>
+    )
+}
 
 const ProfileImage = (props) => {
     return (
         <div className='review-image'>
-            <img src={props.photoUrl} alt={props.name} />
+            <Img src={props.photoUrl} alt={props.name} />
         </div>
     )
 }
@@ -23,20 +39,29 @@ const Review = (props) => {
 
     console.log('review props', props)
     return (
-        <div className="card review-container">
+        <div className="review-container">
             <div className="review-header">
                 {/* user review or business reviews check
                 todo */}
+                <div className="review_image">
+                photo
                 <ProfileImage photoUrl={photoUrl} />
-                {name}
-                {props.review.created_at}
-                <div className='review-crud'>edit delete </div>
+                </div>
+                <div className="review_on_name">
+                <div classname="review_name">
+                {name}</div>
+                <div className="review_date">{props.review.created_at}</div>
+                </div>
+                <div className='review-crud'>
+                <DropdownToggle />
+                </div>
             </div>
             <div className='review-rating'>
-                {props.review.rating}
+            <Star rate={props.review.rating}/> {props.review.rating}
+            {/* <Star review={props.review.rating}/> */}
             </div>
             <div className='review-body'>
-                {props.review.body}
+                    {props.review.body}
             </div>
         </div>
     )

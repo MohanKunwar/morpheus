@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, Link, Redirect } from 'react-router-dom';
+import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
 import KhozContext from '../../services/Context';
 import Axios from '../../services/Axios';
 import Overview from './Overview/Overview';
@@ -72,15 +72,15 @@ class BusinessContainer extends Component {
                     <div className='card-container card-business-body'>
                         <div className='side-bar'>
                             <ul>
-                                <li><Link to={`${currUrl}/overview`}>Overview</Link></li>
-                                <li><Link to={`${currUrl}/photos`}>Photos</Link></li>
-                                <li><Link to={`${currUrl}/reviews`} >Reviews</Link></li>
-                                <li><Link to={`${currUrl}/deals-in`}>Deals In</Link></li>
+                                <li><NavLink to={`${currUrl}/overview`} className="sidebar_link">Overview</NavLink></li>
+                                <li><NavLink to={`${currUrl}/photos`} className="sidebar_link">Photos</NavLink></li>
+                                <li><NavLink to={`${currUrl}/reviews`} className="sidebar_link" >Reviews</NavLink></li>
+                                <li><NavLink to={`${currUrl}/deals-in`} className="sidebar_link">Deals In</NavLink></li>
                                 {
                                     this.state.business.feature_enabled.length > 0
                                         ?
                                         this.state.business.feature_enabled.map((item, index) =>
-                                            <li key={index}><Link to={`${currUrl}/${item}`}>{item}</Link></li>)
+                                            <li key={index}><NavLink to={`${currUrl}/${item}`}>{item}</NavLink></li>)
                                         : null
                                 }
                             </ul>
