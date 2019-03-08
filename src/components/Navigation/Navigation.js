@@ -17,7 +17,7 @@ class Navigation extends Component {
                 </Link>
                                 <Link to='/user/reviews'>Reviews
                 </Link>
-                                <Link to='/requirements'>
+                                <Link to='/user/requirements'>
                                     My Requirements
                 </Link>
                                 <Link to='/business/12'>

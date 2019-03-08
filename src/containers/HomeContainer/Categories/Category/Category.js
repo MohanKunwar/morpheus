@@ -14,7 +14,9 @@ class Category extends Component {
         this.setState({ hover: true });
         if (this.state.subCategories.length === 0) {
             Axios.instance.get(Axios.API.common.getCategoryUrl + id + '/children').then(response => {
-                this.setState({ subCategories: response.data.data });
+                if (response.data) {
+                    this.setState({ subCategories: response.data.data });
+                }
             });
         }
     }

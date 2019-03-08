@@ -14,6 +14,7 @@ const API = {
         // user actions
         getUserReviewsUrl: '/user/business-reviews',
         getUserRequirementsUrl: 'user/leads',
+        postUserRequirementUrl: '/leads',
         userDetailsUrl: '/user'
     },
     common: {
