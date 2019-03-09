@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Axios from '../../../services/Axios';
-import {Link, Redirect, Route, Switch} from 'react-router-dom';
+import {NavLink, Redirect, Route, Switch} from 'react-router-dom';
 import RequirementList from './RequirementList';
 import * as moment from 'moment';
+import './requirement.css';
 class Requirements extends Component {
     state = {
         requirements: null
@@ -28,15 +29,19 @@ class Requirements extends Component {
     render() {
         let currUrl = this.props.match.url
         return (
-            this.state.requirements
+            <div className="card-container">
+            <h4 className="card_header">My Requirements</h4>
+           { 
+               this.state.requirements
             ? (
                 <React.Fragment>
                     <div className='requirement-types'>
-                    <Link to={`${currUrl}/approved`}>Approved</Link>
-                    <Link to={`${currUrl}/pending`}>Pending</Link>
-                    <Link to={`${currUrl}/completed`}>Completed</Link>
+                    <NavLink to={`${currUrl}/approved`} className="require_status">Approved</NavLink>
+                    <NavLink to={`${currUrl}/pending`} className="require_status">Pending</NavLink>
+                    <NavLink to={`${currUrl}/completed`} className="require_status">Completed</NavLink>
                     </div>
                     <Switch>
+                        <div className="requirement-details">
                         <Route path={`${currUrl}/approved`} 
                         component={() => <RequirementList items={this.state.requirements.filter(item => 
                             item.status === 'approved'
@@ -50,10 +55,13 @@ class Requirements extends Component {
                             item.status === 'completed'
                         )} /> } />
                         <Redirect to={`${currUrl}/pending`} />
+                        </div>
                     </Switch>
                 </React.Fragment>
             )
             : <div>loading</div>
+        }
+        </div>
         )
     }
 }

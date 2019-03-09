@@ -1,0 +1,64 @@
+.requirement-types{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 3fr;
+    grid-gap: 10px 5px;
+}
+.card_header{
+    padding: 10px 0;
+}
+.require_status{
+    border: 1px solid rgba(128, 128, 128, 0.150);  
+    background: rgba(238, 240, 243, 0.03);
+    padding: 5px;
+    text-align: center;
+    border-radius: 3px;
+    text-decoration: none !important;
+}
+.require_status.active{
+    color: rgba(22, 74, 185, 1);
+    background: #ffffff;
+    font-weight: 500;
+    border-bottom: transparent;
+}
+.requirement-details{
+    background: #fff;
+    height: 100%;
+    padding: 20px 15px;
+    bottom: 0;
+    border: transparent;
+}
+
+/* requirement-list */
+.requirement-item{
+    border: 1px solid rgba(128, 128, 128, 0.150); 
+    padding: 20px 15px; 
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 rgba(128, 128, 128, 0.1);
+}
+.requirement-item:hover{
+    box-shadow: 0 1px 2px 0 rgba(128, 128, 128, 0.2), 0 1px 2px 0 rgba(128, 128, 128, 0.19);
+}
+
+.require_location{
+    font-size: 12px;
+    opacity: 0.6;
+}
+.require_dec{
+    opacity: 0.7;
+    font-size: 14px;
+    padding-top: 5px;
+}
+.require_image{
+    max-height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+.require_count{
+    font-size: 14px;
+    color: rgba(22, 74, 185, 1);
+}
+.approval_status{
+    font-size: 14px;
+    opacity: 0.7;
+    padding-left: 30px;
+}
