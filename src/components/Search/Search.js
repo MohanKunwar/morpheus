@@ -13,13 +13,14 @@ class Search extends Component {
             searchParams.forEach(param => {
                 let item = param.split('=')
                 if (item.length > 1) {
-                    contextObject[item[0]] = item[1]
+                    contextObject[item[0]] = decodeURIComponent(item[1])
                 }
             })
         } else {
             contextObject['q'] = null
         }
         this.setState({filters: contextObject})
+        console.log('filers in search', this.state.filters)
     }
     componentWillUpdate() {
         this.filters = {}

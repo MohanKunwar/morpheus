@@ -19,13 +19,8 @@ class SearchFilters extends Component {
     }
     getCategories() {
         Axios.instance.get(Axios.API.common.topLevelCategoriesUrl).then(response => {
-            if (response) {
-                let categories = []
-                response.data.data.map(category =>
-                    categories.push(category.name)
-                )
-                this.setState({ categories: categories })
-                console.log(response.data.data)
+            if (response.data) {
+                this.setState({ categories: response.data.data })
             }
         });
     }
@@ -35,7 +30,7 @@ class SearchFilters extends Component {
             if (response) {
                 let locations = []
                 response.data.data.map(location => locations.push(location.name))
-                this.setState({ locations: locations })
+                this.setState({ locations: locations})
             }
         })
     }
@@ -62,8 +57,8 @@ class SearchFilters extends Component {
                                     this.state.categories.map((category, index) => {
                                         return (<option
                                             key={index}
-                                            value={category}
-                                        >{category}</option>)
+                                            value={category.slug.trim()}
+                                        >{category.name}</option>)
                                     })
                                 }
                             </select>

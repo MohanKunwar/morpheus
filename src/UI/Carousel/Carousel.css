@@ -5,14 +5,17 @@
 }
 .prev-btn {
     position: absolute;
-    top: 35%;
+    top: 40%;
     color: #fff;
     background: rgb(26, 73, 88);
 }
 .next-btn {
     position: absolute;
-    top: 35%;
+    top: 40%;
     right: 0;
     color: #fff;
     background: rgb(26, 73, 88);
+}
+.next-item, .curr-item {
+    position: relative;
 }

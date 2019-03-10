@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, Redirect, Link } from 'react-router-dom';
+import { Switch, Route, Redirect, NavLink } from 'react-router-dom';
 import Search from '../../components/Search';
 
 class SearchContainer extends Component {
@@ -14,8 +14,8 @@ class SearchContainer extends Component {
         return (
             <div className='card-container'>
                 <div className='search-types'>
-                    <Link to='/search/business'>{this.types.business}</Link>
-                    <Link to='/search/product'>{this.types.products_services}</Link>
+                    <NavLink className='require_status' to='/search/business'>{this.types.business}</NavLink>
+                    <NavLink className='require_status' to='/search/product'>{this.types.products_services}</NavLink>
                     {/* <Link to='/search/rooms'>{this.types.rooms}</Link> */}
                 </div>
                 <Switch>

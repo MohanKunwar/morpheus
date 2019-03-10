@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Axios from '../../../services/Axios'
 import './reviews.css';
 import Review from '../../../UI/Review';
+import Spinner from '../../common/Spinner';
 
 
 // import FontAwesomeIcon from "@fortawesome/react-fontawesome";
@@ -10,28 +11,28 @@ import Review from '../../../UI/Review';
 
 class UserReviews extends Component {
     state = {
-        reviews: []
+        reviews: null
     }
     componentWillMount() {
         Axios.authInstance.get(Axios.API.user.getUserReviewsUrl).then(response => {
-            this.setState({ reviews: response.data.data })
-            console.log(response.data.data)
+            if (response.data) {
+                this.setState({ reviews: response.data.data })
+            }
         })
     }
     render() {
 
         return (
             <div className="card-container">
-            <h4 className="card_header">My Reviews</h4>
-            {/* <Review review={this.state.reviews}/> */}
+                <h4 className="card_header">My Reviews</h4>
                 {
                     this.state.reviews ?
-                    this.state.reviews.map((review, index) =>
-                        <Review 
-                            key={index} 
-                            review={review} />
-                    )
-                    : <div>loadin</div>
+                        this.state.reviews.map((review, index) =>
+                            <Review
+                                key={index}
+                                review={review} />
+                        )
+                        : <Spinner />
                 }
             </div>
         );

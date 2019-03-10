@@ -22,7 +22,6 @@ class BusinessCard extends Component {
         // business data model
     }
     render() {
-        console.log(this.props.business);
         return (
             <div className='business-card'>
             

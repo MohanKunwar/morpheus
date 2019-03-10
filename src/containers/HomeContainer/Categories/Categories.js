@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Category from './Category/Category';
 import Axios from '../../../services/Axios'
 import './Categories.css';
-import Sidenav from '../../../UI/Sidenav/sidenav';
+import Spinner from '../../../components/common/Spinner';
+
 class Categories extends Component {
     state = {
         categories: [],
@@ -19,13 +20,14 @@ class Categories extends Component {
         let categories = null;
         if (this.state.categories.length > 0) {
             categories = this.state.categories.map(item => {
-                return ( 
-                   <Link to={`/search/business?category=${item.name}`} key={item.id} className="sidenav-categories"><Category name={item.name} id={item.id} /></Link>
+                return (
+                    <Link to={`/search/business?category=${item.slug.trim()}`} key={item.id} className="sidenav-categories">
+                        <Category name={item.name} id={item.id} />
+                    </Link>
                 );
             })
         } else {
-            // todo
-            // categories = <Spinner />
+            categories = <Spinner />
         }
 
         return (categories)

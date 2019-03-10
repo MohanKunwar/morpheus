@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Carousel.css';
+import Spinner from '../../components/common/Spinner';
 
 class Carousel extends Component {
     // props.init
@@ -69,11 +70,7 @@ class Carousel extends Component {
                 </div>
 
             </div>)
-            : (
-                // todo
-                // spinner
-                null
-            )
+            : <Spinner />
         return (carousel)
     }
 }

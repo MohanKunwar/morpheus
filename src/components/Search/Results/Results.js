@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import Spinner from '../../common/Spinner';
 import Axios from '../../../services/Axios'
 import BusinessCard from '../../../UI/BusinessCard/BusinessCard';
 import ProductCard from '../../../UI/ProductCard';
@@ -84,8 +85,8 @@ class SearchResults extends Component {
         if (this.state.results) {
             switch (this.nextPropType) {
                 case 'business': {
-                    items = this.state.results.map((result) => (
-                        <div className='search-item'>
+                    items = this.state.results.map((result, index) => (
+                        <div className='search-item' key={index}>
                             <BusinessCard business={result} />
                         </div>
                     )
@@ -94,8 +95,8 @@ class SearchResults extends Component {
                 }
                 case 'product': {
                     items = this.state.results.map((result, index) =>
-                    <div className='search-item'>
-                        <ProductCard product={result} key={index} />
+                    <div className='search-item' key={index}>
+                        <ProductCard product={result} />
                         </div>
                     )
                     break
@@ -105,7 +106,7 @@ class SearchResults extends Component {
                 }
             }
         } else {
-            items = <div>...</div>
+            items = <Spinner />
         }
 
         return (

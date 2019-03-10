@@ -4,6 +4,7 @@ import {NavLink, Redirect, Route, Switch} from 'react-router-dom';
 import RequirementList from './RequirementList';
 import * as moment from 'moment';
 import './requirement.css';
+import Spinner from '../../common/Spinner';
 class Requirements extends Component {
     state = {
         requirements: null
@@ -40,8 +41,9 @@ class Requirements extends Component {
                     <NavLink to={`${currUrl}/pending`} className="require_status">Pending</NavLink>
                     <NavLink to={`${currUrl}/completed`} className="require_status">Completed</NavLink>
                     </div>
+
+                    <div className="requirement-details">
                     <Switch>
-                        <div className="requirement-details">
                         <Route path={`${currUrl}/approved`} 
                         component={() => <RequirementList items={this.state.requirements.filter(item => 
                             item.status === 'approved'
@@ -55,11 +57,11 @@ class Requirements extends Component {
                             item.status === 'completed'
                         )} /> } />
                         <Redirect to={`${currUrl}/pending`} />
-                        </div>
                     </Switch>
+                        </div>
                 </React.Fragment>
             )
-            : <div>loading</div>
+            : <Spinner />
         }
         </div>
         )
