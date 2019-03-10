@@ -6,7 +6,7 @@
 .login-form-field{
     height: 30px;
     border-radius: 3px;
-    width: 70%;
+    width: 100%;
 }
 .login-form-field:hover{
     border-color: rgba(60,90,153, 0.5);

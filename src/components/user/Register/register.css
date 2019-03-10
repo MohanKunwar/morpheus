@@ -9,6 +9,7 @@
 .logo_reg_head{
     margin-bottom: 5px;
 }
+
 .logo_reg_head span{
     font-size: 12px;
     opacity: 0.7;
@@ -32,21 +33,18 @@
 .register-form-group{
     margin-bottom: 5px;
 }
+.buttons button{
+    width: 100%;
+}
 /* for media query */
-
 @media (min-width: 768px) {
     .register-container {
         margin-left: 7%;
      }
     .register-form{
         margin-top: 5%;
+        width: 70%;
     }
-     .login_click{
-        padding-right: 25%;
-     }
-     .forget_password{
-        padding-right: 30%;
-     }
      .registerside_img  {
         overflow: hidden;
         height: 100;
@@ -57,21 +55,16 @@
         width: 45%;
     
     }
-    .buttons button{
-        width: 70%;
-    }
 }
 @media (max-width: 768px) {
     .register-container {
         grid-template-columns: 1fr;
         margin-right: auto;
-        padding-right: 15px;
+        margin-right: 15px;
         }
     .register-form{
         margin-top: 5%;
-    }
-     .buttons button {
-        width: 100%;
+        width: 98%; 
     }
     .login_click{
         margin-bottom: 20px;
