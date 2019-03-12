@@ -7,7 +7,7 @@ class UserPanel extends Component {
     render() {
         console.log('context rerender from userpanel ', this.props.context);
         return (
-            <div className='user-panel'>
+            <div className='user_panel'>
                 {
                     this.props.context.user
                         ?

@@ -1,6 +1,8 @@
+.user_panel {
+    color: #fff;
+}
 
-
-.user-panel > ul {
+.user_panel > ul {
     list-style: none;
     display: flex;
     justify-content: flex-end;
@@ -11,16 +13,16 @@
     float: right;
     margin: 0 0 0 10px;
 } */
-.user-panel > ul li{
+.user_panel > ul li{
     padding: 0 0 0 12px;
     cursor: pointer;
 }
-.user-panel > ul li:nth-child(3) img{
+.user_panel > ul li:nth-child(3) img{
     border-radius: 100%;
     /* object-fit: cover; */
     width: 40px;
     height: 40px;
 }
-.user-panel span{
+.user_panel span{
     white-space: nowrap;
 }
