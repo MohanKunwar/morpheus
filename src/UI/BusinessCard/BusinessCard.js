@@ -39,7 +39,8 @@ class BusinessCard extends Component {
                     {this.props.business.address}</Link></div>
                     <p 
                     onClick={this.props.business.categoryUrl}
-                    className="business_categories">{this.props.business.category_name}</p>
+                    className="business_categories">{this.props.business.category.name}</p>
+                    <p className='business_location'>{this.props.business.location.name}</p>
                     <p className="business_view">{this.props.business.view_count} views</p>
                     <p className="business_rating"><Star business={this.props.business.rating_avg}/></p>
                     <p className="business_review">{this.props.business.review_count} reviews</p>

@@ -3,10 +3,12 @@ import SearchResults from '../Results';
 import Axios from '../../../services/Axios';
 import './searchfilter.css';
 class SearchFilters extends Component {
+    filters = this.props.filters
+    type = this.props.type
     state = {
         categories: null,
         locations: null,
-        filters: this.props.filters
+        filterChanged: null
     }
     componentWillMount() {
         if (!this.state.categories) {
@@ -16,6 +18,11 @@ class SearchFilters extends Component {
             this.getLocations()
         }
 
+    }
+    componentWillReceiveProps(nextProps) {
+       this.filters = nextProps.filters
+       this.type = nextProps.type
+       this.setState({filterChanged: 'reset'})
     }
     getCategories() {
         Axios.instance.get(Axios.API.common.topLevelCategoriesUrl).then(response => {
@@ -35,14 +42,18 @@ class SearchFilters extends Component {
         })
     }
     handleChange(e, filterType) {
-        let filters = this.state.filters
-        filters[filterType] = e.target.value !== 'All' ? e.target.value : null
-        this.setState({ ...this.state, filters: filters })
+        this.filters[filterType] = e.target.value !== 'All' ? e.target.value : null
+        this.setState({filterChanged: filterType})
+        // let filters = this.state.filters
+        // filters[filterType] = 
+        // this.setState({ ...this.state, filters: filters })
     }
     handleCheckboxChange(e, filterType) {
-        let filters = this.state.filters
-        filters[filterType] = filters[filterType] === '1' ? null : '1'
-        this.setState({ filters: filters })
+        this.filters[filterType] = this.filters[filterType] === '1' ? null : '1'
+        this.setState({filterChanged: filterType})
+        // let filters = this.state.filters
+        // filters[filterType] = filters[filterType] === '1' ? null : '1'
+        // this.setState({ filters: filters })
     }
     render() {
         return (
@@ -51,7 +62,10 @@ class SearchFilters extends Component {
                     <div className='search-filters'>
                         <div className='category-filter'>
                             <p>Select Category</p>
-                            <select onChange={e => this.handleChange(e, 'category')} defaultValue={this.state.filters.category}>
+                            <select 
+                                onChange={e => this.handleChange(e, 'category')} 
+                                defaultValue={this.filters.category}
+                                value={this.state.filterChanged === 'reset' ? 'All' : this.filters.category}>
                                 <option value='All'>All Categories</option>
                                 {
                                     this.state.categories.map((category, index) => {
@@ -65,7 +79,10 @@ class SearchFilters extends Component {
                         </div>
                         <div className='location-filter'>
                             <p>Select Location</p>
-                            <select onChange={e => this.handleChange(e, 'location')} defaultValue={this.state.filters.location} >
+                            <select 
+                                onChange={e => this.handleChange(e, 'location')} 
+                                defaultValue={this.filters.location} 
+                                value={this.state.filterChanged === 'reset' ? 'All' : this.filters.location}>
                                 <option value='All'>All Locations</option>
                                 {
                                     this.state.locations.map((location, index) => {
@@ -77,18 +94,19 @@ class SearchFilters extends Component {
                         <div className='popular-filter'>
                             <span>
                                 <input type='checkbox'
-                                    defaultChecked={this.state.filters.popular==='1'}
-                                    onChange={e => this.handleCheckboxChange(e, 'popular')} />Popular
+                                    // defaultChecked={this.filters.popular==='1'}
+                                    onChange={e => this.handleCheckboxChange(e, 'popular')} 
+                                    checked={this.state.filterChanged === 'reset' ? false : this.filters.popular === '1' ? 'checked' : false}/>Popular
                             </span>
                         </div>
                         <div className='newest-filter'>
                             <span>
                                 <input type='checkbox'
-                                    defaultChecked={this.state.filters.newest==='1'}
+                                    // defaultChecked={this.filters.newest==='1'}
                                     onChange={e => this.handleCheckboxChange(e, 'newest')} />Newest</span>
                         </div>
                         {
-                            this.state.filters.highest_rated
+                            this.filters.highest_rated
                                 ?
                                 <div className='rated-filter'>
                                     {
@@ -97,7 +115,7 @@ class SearchFilters extends Component {
                                 : null
                         }
                     </div>
-                    <SearchResults type={this.props.type} filters={this.state.filters} />
+                    <SearchResults type={this.type} filters={this.filters} />
                 </React.Fragment>
                 : <div>loading</div>
         )

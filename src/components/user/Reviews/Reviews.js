@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Axios from '../../../services/Axios'
 import './reviews.css';
 import Review from '../../../UI/Review';
-import Spinner from '../../common/Spinner';
+import Spinner from '../../../helpers/Spinner';
 
 
 // import FontAwesomeIcon from "@fortawesome/react-fontawesome";

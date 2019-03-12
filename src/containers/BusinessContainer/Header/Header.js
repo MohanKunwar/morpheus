@@ -53,7 +53,7 @@ const Header = (props) => {
                                 ? <button>edit</button>
                                 : null
                         }
-                        <Link to={`/search/business?category=${props.business.category.name.toLowerCase()}`} className='business-category'>{props.business.category.name}</Link>{props.business.view_count} views
+                        <Link to={`/search/business?category=${props.business.category.slug}`} className='business-category'>{props.business.category.name}</Link>{props.business.view_count} views
                         <p>{props.business.rating_avg} rating {props.business.review_count} reviews</p>
                     </div>
                     <div className='business-social'>

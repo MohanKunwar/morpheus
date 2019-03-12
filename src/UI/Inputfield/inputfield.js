@@ -12,7 +12,6 @@ render(){
                 name={this.props.name}
                 type={this.props.type}
                 placeholder={this.props.placeholder}
-                disabled={this.props.submitting}  
                 />
         </div>
     )
