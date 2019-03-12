@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Category.css';
 
 import Axios from '../../../../services/Axios';
-import Spinner from '../../../../components/common/Spinner';
+import Spinner from '../../../../helpers/Spinner';
 
 class Category extends Component {
     state = {
