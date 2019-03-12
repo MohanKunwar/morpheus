@@ -102,7 +102,6 @@ class MyPassword extends Component {
                         )}
                     </Form>
                 </div>
-                );
             </React.Fragment>
         )
     }

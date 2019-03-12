@@ -5,7 +5,7 @@ import UserReviews from '../../components/user/Reviews';
 import Requirements from '../../components/user/Requirements';
 import CreateRequirement from '../../components/user/CreateRequirement';
 import TermsAndConditions from '../../components/user/TermsAndConditions';
-import Navigation from '../../components/Navigation';
+// import Navigation from '../../components/Navigation';
 import Account from '../../components/user/Account';
 import PrivateRoute from '../../helpers/PrivateRoute';
 class UserContainer extends Component {
@@ -14,7 +14,7 @@ class UserContainer extends Component {
         const currUrl = this.props.match.url
         return (
             <div className='user-container'>
-            <Navigation />
+            {/* <Navigation /> */}
             <Switch>
                 <PrivateRoute path={`${currUrl}/reviews`} component={UserReviews} />
                 <PrivateRoute path={`${currUrl}/requirements`} component={Requirements} />
