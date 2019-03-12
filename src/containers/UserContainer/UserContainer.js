@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+
 import UserReviews from '../../components/user/Reviews';
 import Requirements from '../../components/user/Requirements';
-import Account from '../../components/user/Account';
 import CreateRequirement from '../../components/user/CreateRequirement';
 import TermsAndConditions from '../../components/user/TermsAndConditions';
+import Navigation from '../../components/Navigation';
+import Account from '../../components/user/Account';
+import PrivateRoute from '../../helpers/PrivateRoute';
 class UserContainer extends Component {
 
     render() {
         const currUrl = this.props.match.url
         return (
             <div className='user-container'>
+            <Navigation />
             <Switch>
-                <Route path={`${currUrl}/reviews`} component={UserReviews} />
-                <Route path={`${currUrl}/requirements`} component={Requirements} />
-                <Route path={`${currUrl}/request`} component={CreateRequirement} />
-                <Route path={`${currUrl}/account`} component={Account} />
+                <PrivateRoute path={`${currUrl}/reviews`} component={UserReviews} />
+                <PrivateRoute path={`${currUrl}/requirements`} component={Requirements} />
+                <PrivateRoute path={`${currUrl}/account`} component={Account} />
                 <Route path={`${currUrl}/terms-and-conditions`} component={TermsAndConditions} />
+                <Route path={`${currUrl}/request`} component={CreateRequirement} />
                 <Redirect to={`${currUrl}/reviews`} />
             </Switch>
             </div>

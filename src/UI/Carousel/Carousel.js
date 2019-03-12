@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Carousel.css';
-import Spinner from '../../components/common/Spinner';
+import Spinner from '../../helpers/Spinner';
 
 class Carousel extends Component {
     // props.init

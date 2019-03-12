@@ -4,7 +4,7 @@ const Spinner = () => {
     return (
         <div className="loader">
             <div id="first-box" className="box">
-                <img className='magnifier-img' src={require('../../../assets/images/magnifier.svg')} alt='magnifier img' />
+                <img className='magnifier-img' src={require('../../assets/images/magnifier.svg')} alt='magnifier img' />
             </div>
             <div id="second-box" className="box">
 

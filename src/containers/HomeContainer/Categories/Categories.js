@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Category from './Category/Category';
 import Axios from '../../../services/Axios'
 import './Categories.css';
-import Spinner from '../../../components/common/Spinner';
+import Spinner from '../../../helpers/Spinner';
 
 class Categories extends Component {
     state = {
@@ -11,7 +11,7 @@ class Categories extends Component {
     }
     componentWillMount() {
         Axios.instance.get(Axios.API.common.topLevelCategoriesUrl).then(response => {
-            if (response) {
+            if (response.data) {
                 this.setState({ categories: response.data.data })
             }
         });

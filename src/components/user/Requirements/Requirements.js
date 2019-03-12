@@ -4,7 +4,7 @@ import {NavLink, Redirect, Route, Switch} from 'react-router-dom';
 import RequirementList from './RequirementList';
 import * as moment from 'moment';
 import './requirement.css';
-import Spinner from '../../common/Spinner';
+import Spinner from '../../../helpers/Spinner';
 class Requirements extends Component {
     state = {
         requirements: null

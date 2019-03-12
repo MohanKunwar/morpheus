@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form';
 import Axios from '../../../services/Axios';
+import Inputfield from '../../../UI/Inputfield/inputfield';
 
 const Error = ({ name }) => (
     <Field name={name} subscription={{ error: true, touched: true }}>
@@ -79,7 +80,7 @@ class CreateRequirement extends Component {
                             <form onSubmit={handleSubmit}>
                                 <div className='form-group'>
                                     <label>Title</label>
-                                    <Field name="title" component='input' type='text' placeholder="Title for your request" />
+                                    <Inputfield name={'title'} type='text' placeholder={'Title for your request'} />
                                     <Error name='title' />
                                 </div>
                                 <div className='form-group'>

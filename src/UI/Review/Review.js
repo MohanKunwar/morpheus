@@ -47,7 +47,7 @@ const Review = (props) => {
                 <ProfileImage photoUrl={photoUrl} />
                 </div>
                 <div className="review_on_name">
-                <div classname="review_name">
+                <div className="review_name">
                 {name}</div>
                 <div className="review_date">{props.review.created_at}</div>
                 </div>

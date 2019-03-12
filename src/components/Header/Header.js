@@ -1,26 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import khozinfo from '../../assets/images/khozinfo.png';
 import UserPanel from './UserPanel/UserPanel';
+import SearchBar from './SearchBar';
 import './Header.css';
 
 const Logo = () => {
     return (
         <div>
-            <img src={khozinfo} alt="KhozInfo" />
+            <Link to='/home'><img src={khozinfo} alt="KhozInfo" /></Link>
         </div>)
 }
-const SearchBar = () => {
-    return (
-        <div className='search-bar'>
-            <input type='text' className='search-input' />
-        </div>
-    );
 
-}
+
 class Header extends Component {
-    componentWillMount() {
-        console.log('contxt header', this.context);
-    }
     render() {
         return (
             <header className='header'>
