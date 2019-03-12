@@ -6,6 +6,7 @@ import Axios from './services/Axios';
 
 import AppContainer from './containers/AppContainer';
 import KhozContainer from './containers/KhozContainer';
+import SearchContainer from './containers/SearchContainer';
 class App extends Component {
   state = {
     user: null,
@@ -76,6 +77,7 @@ class App extends Component {
           <KhozContext.AppContextProvider user={this.state.user}>
             <Switch>
               <Route path='/khoz' component={KhozContainer} />
+              <Route path='/search' component={SearchContainer} />
               <Route path='/' component={AppContainer} />
               <Redirect to='/' />
             </Switch>
