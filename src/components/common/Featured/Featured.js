@@ -4,6 +4,7 @@ import Axios from '../../../services/Axios';
 import BusinessCard from './../../../UI/BusinessCard/BusinessCard';
 import Carousel from './../../../UI/Carousel/Carousel';
 import './Featured.css';
+import Spinner from '../../../helpers/Spinner';
 
 class Featured extends Component {
     state = {
@@ -22,29 +23,24 @@ class Featured extends Component {
     }
 
     render() {
-        let items = null;
+        let items = this.state.featuredItems.map(item => {
+            return (
+                <div className='featured-item' key={item.id}>
+                    <BusinessCard business={item} />
+                </div>
+            );
+        })
 
-        if (this.state.featuredItems.length > 0) {
-            items = this.state.featuredItems.map(item => {
-                return (
-                    
-                    <div className='featured-item' key={item.id}>
-                        <BusinessCard business={item} />
-                    </div>
-                   
-                );
-            })
-             return (
-                <div className='featured'>
+        return (
+            <div className='featured'>
                 <div>Featured</div>
-             <Carousel items={items} />
-             </div>)
-
-        } else {
-            return (<div className='featured'>featured</div>)
-            // todo
-            // <Spinner />
-        }
+                {
+                    this.state.featuredItems.length > 0
+                        ? <Carousel items={items} />
+                        : <Spinner />
+                }
+            </div>
+        )
     }
 }
 

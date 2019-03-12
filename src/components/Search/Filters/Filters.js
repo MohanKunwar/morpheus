@@ -64,7 +64,7 @@ class SearchFilters extends Component {
                             <p>Select Category</p>
                             <select 
                                 onChange={e => this.handleChange(e, 'category')} 
-                                defaultValue={this.filters.category}
+                                // defaultValue={this.filters.category}
                                 value={this.state.filterChanged === 'reset' ? 'All' : this.filters.category}>
                                 <option value='All'>All Categories</option>
                                 {
@@ -81,7 +81,7 @@ class SearchFilters extends Component {
                             <p>Select Location</p>
                             <select 
                                 onChange={e => this.handleChange(e, 'location')} 
-                                defaultValue={this.filters.location} 
+                                // defaultValue={this.filters.location} 
                                 value={this.state.filterChanged === 'reset' ? 'All' : this.filters.location}>
                                 <option value='All'>All Locations</option>
                                 {
