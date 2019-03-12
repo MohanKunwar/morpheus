@@ -1,8 +1,8 @@
 header {
     width: 100%;
     background-color:#112E51;
-    position: fixed;
-    z-index: 999;
+    /* position: fixed;
+    z-index: 999; */
 }
 .search-bar{
     display: grid;

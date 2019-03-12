@@ -11,6 +11,17 @@ instance.interceptors.request.use(request => {
     return request;
 }, error => {
     console.log('error', error)
+    // todo
+    // switch (error.response.status) {
+    //     case 401: {
+    //         axios.post('https://mock.khozinfo.com/api/v1/login/refresh', {refresh_token: localStorage.getItem('refresh_token')})
+    //             .then()
+    //         break
+    //     }
+    //     default: {
+    //         return error.response
+    //     }
+    // }
     return error.response
 });
 instance.interceptors.response.use(response => {
