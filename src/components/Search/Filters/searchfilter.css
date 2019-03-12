@@ -1,3 +1,11 @@
 .search-filters{
-   
+    position: sticky;
+    top: 45px;
+    left: 0;
+    height: 0px;
+}
+.search-types{
+    position: sticky;
+    top: 25px;
+    left: 0;
 }
