@@ -28,7 +28,7 @@ class AppContainer extends Component {
                     <Route path='/user' component={UserContainer} />
                     <Redirect to='/home' />
                 </Switch>
-                {/* <Footer /> */}
+                <Footer />
             </div>
         )
 
