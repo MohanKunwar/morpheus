@@ -13,14 +13,14 @@ class App extends Component {
   }
   getUser = () => {
     Axios.authInstance.get(Axios.API.user.userDetailsUrl)
-    .then(response => this.setState({ user: response.data.data }))
+      .then(response => this.setState({ user: response.data.data }))
   }
   componentWillMount() {
     const refresh_token = UserService.getItem('refresh_token')
     if (refresh_token) {
       Axios.authInstance.get(Axios.API.user.userDetailsUrl).then(
         response => {
-          if (response){
+          if (response) {
             switch (response.status) {
               case 200: {
                 this.setState({ user: response.data.data })
@@ -29,12 +29,12 @@ class App extends Component {
               case 401: {
                 Axios.instance.post(Axios.API.user.refreshLoginUrl, { refresh_token: refresh_token }).then(
                   response => {
-                    switch(response.status) {
+                    switch (response.status) {
                       case 200: {
                         for (let item in response.data) {
                           UserService.setItem(item, response.data[item])
                         }
-                       this.getUser()
+                        this.getUser()
                         break
                       }
                       case 401: {
@@ -42,10 +42,10 @@ class App extends Component {
                         break
                       }
                       default: {
-                        this.setState({noUser: true})
+                        this.setState({ noUser: true })
                       }
                     }
-                    
+
                   }
                 ).catch(error => {
                   console.log('error on refresh token fetch', error);
@@ -58,9 +58,9 @@ class App extends Component {
               }
             }
           } else {
-            this.setState({noUser: true })
+            this.setState({ noUser: true })
           }
-          
+
         }
       ).catch(error => {
         console.log('error on contextProvider', error);
@@ -72,16 +72,16 @@ class App extends Component {
   render() {
     return (
       this.state.user || this.state.noUser ?
-      (<div>
-        <KhozContext.AppContextProvider user={this.state.user}>
-          <Switch>
-            <Route path='/khoz' component={KhozContainer} />
-            <Route path='/' component={AppContainer} />
-            <Redirect to='/' />
-          </Switch>
-        </KhozContext.AppContextProvider>
-      </div>)
-      : <div>Loading</div>
+        (<React.Fragment>
+          <KhozContext.AppContextProvider user={this.state.user}>
+            <Switch>
+              <Route path='/khoz' component={KhozContainer} />
+              <Route path='/' component={AppContainer} />
+              <Redirect to='/' />
+            </Switch>
+          </KhozContext.AppContextProvider>
+        </React.Fragment>)
+        : <div>Loading</div>
     )
   }
 }

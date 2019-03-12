@@ -16,7 +16,7 @@ class AppContainer extends Component {
 
     render() {
         const appContainer = (
-            <div className="main-container'">
+            <div className="main_container">
                 <Header />
                 <Navigation />
                 <Switch>
@@ -28,7 +28,7 @@ class AppContainer extends Component {
                     <Route path='/user' component={UserContainer} />
                     <Redirect to='/home' />
                 </Switch>
-                <Footer />
+                <Footer /> 
             </div>
         )
 
