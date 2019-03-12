@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import './Home.css';
 import RecentlyAdded from '../../components/common/RecentlyAdded';
 import Featured from '../../components/common/Featured';
@@ -11,9 +11,9 @@ import RequestCard from './RequestCard/RequestCard';
 
 const Banner = () => {
     return (
-        <img alt='banner' 
-        src={require('./../../assets/images/banner.png')} 
-        style={{ width:'100%', minHeight: '200px'}} />)
+        <img alt='banner'
+            src={require('./../../assets/images/banner.png')}
+            style={{ width: '100%', minHeight: '200px' }} />)
 }
 const HomeContainer = () => {
     return (
@@ -28,15 +28,13 @@ const HomeContainer = () => {
                             <p>mobile text for categories</p>
                         </div>
                         <div className='left-grid'>
-                        <div className="categories-container">
-                            <Categories />
+                            <div className="categories-container">
+                                <Categories />
                             </div>
                             <RequestCard />
                         </div>
                         <div className='middle-grid'>
                             <Featured />
-                            {/* <RecentActivities /> */}
-                            <p>recent activities</p>
                             <RecentlyAdded />
                         </div>
                         <div className='right-grid'>

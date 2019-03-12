@@ -30,6 +30,9 @@
         "search_bar search_bar search_bar";
         justify-items: stretch;
     }
+    .header + div {
+        padding-top: 118px;
+    }
 }
 @media (min-width:768px){
     header {
@@ -40,10 +43,10 @@
     }
 }
 
-.logo img {
+ .logo img {
     object-fit: cover;
     max-height: 100%;
-    max-width: 200px;
+    max-width: 100%;
 
 }
 

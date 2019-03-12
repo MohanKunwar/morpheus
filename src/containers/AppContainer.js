@@ -22,7 +22,6 @@ class AppContainer extends Component {
                     <Route path='/home' component={HomeContainer} />
                     <Route path='/business/:id' component={BusinessContainer}/>
                     <Route path='/product/:id' component={ProductContainer} />
-                    {/* <Route path='/service' />  */}
                     <Route path='/user' component={UserContainer} />
                     <Redirect to='/home' />
                 </Switch>
