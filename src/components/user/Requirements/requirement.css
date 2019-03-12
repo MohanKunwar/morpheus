@@ -34,6 +34,7 @@
     padding: 20px 15px; 
     border-radius: 2px;
     box-shadow: 0 1px 1px 0 rgba(128, 128, 128, 0.1);
+    margin-bottom: 15px;
 }
 .requirement-item:hover{
     box-shadow: 0 1px 2px 0 rgba(128, 128, 128, 0.2), 0 1px 2px 0 rgba(128, 128, 128, 0.19);
