@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom';
+import './searchbar.css';
 class SearchBar extends Component {
     state = {
         searchContext: 'business',
@@ -34,13 +35,24 @@ class SearchBar extends Component {
     render() {
         return (
             <div className='search-bar'>
-                <select onChange={e => this.setContext(e)}>
+            <div>
+                <select onChange={e => this.setContext(e)} className="search_select">
                     <option value='business'>Business</option>
                     <option value='room'>Room</option>
                     <option value='product'>Product</option>
                 </select>
-                <input type='text' className='search-input' onChange={e => this.setQuery(e)} onKeyPress={e => this.gotoSearch(e, 'enter')} />
-                <button type='submit' onClick={e => this.gotoSearch(e)}>Search</button>
+                </div>
+                <div>
+                <input 
+                type='text' 
+                className='search-input' 
+                onChange={e => this.setQuery(e)} 
+                onKeyPress={e => this.gotoSearch(e, 'enter')} 
+                placeholder='Hotel, Cafe, Hardware'
+                // placeholder="f002"
+                />
+                <button type='submit' onClick={e => this.gotoSearch(e)} className="searchbar_submit">Search</button>
+                </div>
             </div>
         );
     }
