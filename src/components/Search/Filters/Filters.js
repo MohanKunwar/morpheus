@@ -34,10 +34,8 @@ class SearchFilters extends Component {
 
     getLocations() {
         Axios.instance.get(Axios.API.common.getLocationsUrl).then(response => {
-            if (response) {
-                let locations = []
-                response.data.data.map(location => locations.push(location.name))
-                this.setState({ locations: locations})
+            if (response.data) {
+                this.setState({ locations: response.data.data})
             }
         })
     }
@@ -64,7 +62,7 @@ class SearchFilters extends Component {
                             <p>Select Category</p>
                             <select 
                                 onChange={e => this.handleChange(e, 'category')} 
-                                defaultValue={this.filters.category}
+                                // defaultValue={this.filters.category}
                                 value={this.state.filterChanged === 'reset' ? 'All' : this.filters.category}>
                                 <option value='All'>All Categories</option>
                                 {
@@ -81,12 +79,12 @@ class SearchFilters extends Component {
                             <p>Select Location</p>
                             <select 
                                 onChange={e => this.handleChange(e, 'location')} 
-                                defaultValue={this.filters.location} 
+                                // defaultValue={this.filters.location} 
                                 value={this.state.filterChanged === 'reset' ? 'All' : this.filters.location}>
                                 <option value='All'>All Locations</option>
                                 {
                                     this.state.locations.map((location, index) => {
-                                        return (<option key={index} value={location}>{location}</option>)
+                                        return (<option key={index} value={location.name}>{location.name}</option>)
                                     })
                                 }
                             </select>

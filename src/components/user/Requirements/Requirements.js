@@ -46,15 +46,15 @@ class Requirements extends Component {
                     <Switch>
                         <Route path={`${currUrl}/approved`} 
                         component={() => <RequirementList items={this.state.requirements.filter(item => 
-                            item.status === 'approved'
+                            item.status === 'approved' && item.closed_at === null
                         )} /> } />
                         <Route path={`${currUrl}/pending`} 
                         component={() => <RequirementList items={this.state.requirements.filter(item => 
-                            item.status === 'pending'
+                            item.status === 'pending' && item.closed_at === null
                         )} /> } />
                         <Route path={`${currUrl}/completed`} 
                         component={() => <RequirementList items={this.state.requirements.filter(item => 
-                            item.status === 'completed'
+                            item.closed_at
                         )} /> } />
                         <Redirect to={`${currUrl}/pending`} />
                     </Switch>

@@ -18,7 +18,7 @@ class AppContainer extends Component {
         const appContainer = (
             <div className="main-container'">
                 <Header />
-                {/* <Navigation /> */}
+                <Navigation />
                 <Switch>
                     <Route path='/search' component={SearchContainer} />
                     <Route path='/home' component={HomeContainer} />

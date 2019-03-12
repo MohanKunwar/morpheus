@@ -15,7 +15,9 @@ const API = {
         getUserReviewsUrl: '/user/business-reviews',
         getUserRequirementsUrl: 'user/leads',
         postUserRequirementUrl: '/leads',
-        userDetailsUrl: '/user'
+        userDetailsUrl: '/user',
+        editProfileUrl: '/user/profile',
+        changePasswordUrl: '/user/password'
     },
     common: {
         featuredUrl: 'businesses/featured',

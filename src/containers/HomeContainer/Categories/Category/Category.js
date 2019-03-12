@@ -30,7 +30,10 @@ class Category extends Component {
             categoryItems = this.state.subCategories.map((item, index) => {
                 return (
                     <div className='sub-category-btn' key={index}>
-                        <span>{item.name}</span>
+                    <span>{item.name}</span>
+                    {/* to do 
+                    implement sub category filter to search page */}
+                        {/* <Link to='/search/business'><span>{item.name}</span></Link> */}
                     </div>
                 );
             })

@@ -18,8 +18,6 @@ class Reviews extends Component {
     }
 
     render() {
-        console.log('review render')
-        console.log('state', this.state.reviews)
         return (
             this.state.reviews ?
                 (<div className='business-reviews'>

@@ -96,18 +96,36 @@ class SearchResults extends Component {
         let query = this.buildQuery(filters)
         this.getResults(query)
     }
-    buildTerm = () => {
-        let term = 'Searching'
-        if (this.filters.q) {
-            term += ` for "${this.filters.q}"`
-        }
-        if (this.filters.category) {
-            term += this.filters.q ? ` of ${this.filters.category} category` : ` ${this.filters.category} category`
-        }
-        if (this.filters.location) {
-            term += this.filters.q ? ` in ${this.filters.location}` : ` of ${this.filters.location}`
-        }
-        return term
+    buildFilters = () => {
+        return (
+            <div className='applied-filters'>
+            { 
+                this.filters.q
+                ? <span>term: {this.filters.q} <button>x</button></span>
+                : null
+            }
+            { 
+                this.filters.category
+                ? <span>category: {this.filters.category} <button>x</button></span>
+                : null
+            }
+            { 
+                this.filters.location
+                ? <span>term: {this.filters.location} <button>x</button></span>
+                : null
+            }
+            { 
+                this.filters.newest
+                ? <span>newest<button>x</button></span>
+                : null
+            }
+            { 
+                this.filters.popular
+                ? <span>popular<button>x</button></span>
+                : null
+            }
+            </div>
+        )
     }
     render() {
         let items
@@ -141,7 +159,7 @@ class SearchResults extends Component {
         return (
             <React.Fragment>
                 {/* {
-                    this.buildTerm()
+                    this.buildFilters()
                 } */}
                 {
                     this.state.results
