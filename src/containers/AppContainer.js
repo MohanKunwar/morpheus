@@ -6,7 +6,6 @@ import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
-import SearchContainer from './SearchContainer';
 import HomeContainer from './HomeContainer';
 import UserContainer from './UserContainer/UserContainer';
 import BusinessContainer from './BusinessContainer';
@@ -20,7 +19,6 @@ class AppContainer extends Component {
                 <Header />
                 <Navigation />
                 <Switch>
-                    <Route path='/search' component={SearchContainer} />
                     <Route path='/home' component={HomeContainer} />
                     <Route path='/business/:id' component={BusinessContainer}/>
                     <Route path='/product/:id' component={ProductContainer} />

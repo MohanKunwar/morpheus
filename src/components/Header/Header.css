@@ -1,8 +1,13 @@
 .header {
     background-color:#112E51;
     padding: 10px 0;
-    /* position: fixed;
-    z-index: 999; */
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    width: 100%;
+}
+.header + div {
+    padding-top: 88px;
 }
 .logo {
     grid-area: logo;
