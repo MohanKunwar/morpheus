@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form';
 import Axios from '../../../services/Axios';
-import Inputfield from '../../../UI/Inputfield/inputfield';
+import './createRequirement.css';
+import Inputfield from './../../../UI/Inputfield/inputfield'
 
 const Error = ({ name }) => (
     <Field name={name} subscription={{ error: true, touched: true }}>
         {({ meta: { error, touched } }) =>
-            error && touched ? <span>{error}</span> : null
+            error && touched ? <span className="requirement_error">{error}</span> : null
         }
     </Field>
 );
@@ -56,7 +57,8 @@ class CreateRequirement extends Component {
     }
     render() {
         return (
-
+            <div className="card-container">
+            {
             this.state.locations ?
                 (<div className='create-requirement'>
                     <Form
@@ -79,29 +81,29 @@ class CreateRequirement extends Component {
                         {({ handleSubmit }) => (
                             <form onSubmit={handleSubmit}>
                                 <div className='form-group'>
-                                    <label>Title</label>
-                                    <Inputfield name={'title'} type='text' placeholder={'Title for your request'} />
+                                    <label className="requirement_create_label">Title</label>
+                                    <Inputfield name="title" component='input' type='text' placeholder="Title for your request" />
                                     <Error name='title' />
                                 </div>
                                 <div className='form-group'>
-                                    <label>Description</label>
-                                    <Field name="description" component='textarea' type='text' placeholder="Describe your request/requirement in as detail as possible" />
+                                    <label className="requirement_create_label">Description</label>
+                                    <Inputfield name="description" component='textarea' type='text' placeholder="Describe your request/requirement in as detail as possible" />
                                     <Error name='description' />
                                 </div>
                                 <div className='form-group'>
-                                    <label>Location</label>
-                                    <Field name="location" component='select' >
+                                    <label className="requirement_create_label">Location</label>
+                                    <Inputfield name="location" component='select' >
                                         <option value='none'>Select Location</option>
                                         {
                                             this.state.locations.map((location, index) =>
                                                 <option key={index} value={location.id}>{location.name}</option>
                                             )
-                                        }</Field>
+                                        }</Inputfield>
                                     <Error name='location' />
                                 </div>
                                 <div className='form-group'>
-                                    <label>Attach relevant file, image</label>
-                                    <input type='file' placeholder="Attachment" onChange={e => this.getFile(e)} />
+                                    <label className="requirement_create_label">Attach relevant file, image</label>
+                                    <input type='file' placeholder="Attachment" onChange={e => this.getFile(e)} className="attach_file" />
                                 </div>
                                 {
                                     this.state.imagePreviewUrl
@@ -113,11 +115,13 @@ class CreateRequirement extends Component {
                                         ? <span>upload file cannot be larger than 2MB</span>
                                         : null
                                 }
-                                <button type='submit' >Submit</button>
+                                <button type='submit' className="requirement_button" >Submit</button>
                             </form>
                         )}</Form>
                 </div>)
                 : <div>Loading...</div>
+            }
+            </div>
         )
     }
 }

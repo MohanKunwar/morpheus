@@ -47,20 +47,17 @@
 .buttons button:hover{
     box-shadow: 0 3px 5px rgba(0,0,0,0.19), 0 2px 2px rgba(0,0,0,0.23); 
 }
-
+.buttons button{
+    width: 100%;
+}
 @media (min-width: 768px) {
     .login-container {
         margin-left: 7%;
      }
     .login-form{
         margin-top: 12%;
-    }
-     .register_click{
-        padding-right: 25%;
-     }
-     .forget_password{
-        padding-right: 30%;
-     }
+        width: 70%;
+        }
      .loginside_img  {
         overflow: hidden;
         height: 100;
@@ -71,9 +68,7 @@
         width: 45%;
     
     }
-    .buttons button{
-        width: 70%;
-    }
+    
 }
 @media (max-width: 768px) {
     .login-container {
@@ -83,9 +78,7 @@
         }
     .login-form{
         margin-top: 10%;
-    }
-     .buttons button {
-        width: 100%;
+        width: 98%;
     }
     .register_click{
         margin-bottom: 20px;
