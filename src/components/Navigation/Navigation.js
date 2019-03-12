@@ -7,7 +7,6 @@ class Navigation extends Component {
 
     render() {
         return (
-            <nav>
                 <div className='card-container'>
                     <div className='nav-area'>
                         <div className='nav-links'>
@@ -37,7 +36,6 @@ class Navigation extends Component {
                     {/* <Requests
                         show={this.state.showRequestModal} /> */}
                 </div>
-            </nav>
         );
     }
 }
