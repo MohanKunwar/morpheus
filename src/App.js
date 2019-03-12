@@ -11,6 +11,10 @@ class App extends Component {
     user: null,
     noUser: false
   }
+  getUser = () => {
+    Axios.authInstance.get(Axios.API.user.userDetailsUrl)
+    .then(response => this.setState({ user: response.data.data }))
+  }
   componentWillMount() {
     const refresh_token = UserService.getItem('refresh_token')
     if (refresh_token) {
@@ -25,11 +29,23 @@ class App extends Component {
               case 401: {
                 Axios.instance.post(Axios.API.user.refreshLoginUrl, { refresh_token: refresh_token }).then(
                   response => {
-                    for (let item in response.data) {
-                      UserService.setItem(item, response.data[item])
+                    switch(response.status) {
+                      case 200: {
+                        for (let item in response.data) {
+                          UserService.setItem(item, response.data[item])
+                        }
+                       this.getUser()
+                        break
+                      }
+                      case 401: {
+                        this.props.history.push('/login')
+                        break
+                      }
+                      default: {
+                        this.setState({noUser: true})
+                      }
                     }
-                    Axios.authInstance.get(Axios.API.user.userDetailsUrl)
-                      .then(response => this.setState({ user: response.data.data }))
+                    
                   }
                 ).catch(error => {
                   console.log('error on refresh token fetch', error);

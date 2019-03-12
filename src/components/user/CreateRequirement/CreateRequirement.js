@@ -92,13 +92,13 @@ class CreateRequirement extends Component {
                                 </div>
                                 <div className='form-group'>
                                     <label className="requirement_create_label">Location</label>
-                                    <Inputfield name="location" component='select' >
+                                    <Field name="location" component='select' >
                                         <option value='none'>Select Location</option>
                                         {
                                             this.state.locations.map((location, index) =>
                                                 <option key={index} value={location.id}>{location.name}</option>
                                             )
-                                        }</Inputfield>
+                                        }</Field>
                                     <Error name='location' />
                                 </div>
                                 <div className='form-group'>

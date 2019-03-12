@@ -11,14 +11,14 @@ instance.interceptors.request.use(request => {
     return request;
 }, error => {
     console.log('error', error)
-    return error
+    return error.response
 });
 instance.interceptors.response.use(response => {
     return response;
 }, function (error) {
     // Do something with response error
     console.log('error is', error.response)
-    return error
+    return error.response
 });
 authInstance.interceptors.request.use(request => {
     // if protected route
