@@ -90,7 +90,7 @@ class SearchResults extends Component {
                 }
             })
     }
- 
+
     loadResults = filters => {
         this.setState({ results: null })
         let query = this.buildQuery(filters)
@@ -99,31 +99,31 @@ class SearchResults extends Component {
     buildFilters = () => {
         return (
             <div className='applied-filters'>
-            { 
-                this.filters.q
-                ? <span>term: {this.filters.q} <button>x</button></span>
-                : null
-            }
-            { 
-                this.filters.category
-                ? <span>category: {this.filters.category} <button>x</button></span>
-                : null
-            }
-            { 
-                this.filters.location
-                ? <span>term: {this.filters.location} <button>x</button></span>
-                : null
-            }
-            { 
-                this.filters.newest
-                ? <span>newest<button>x</button></span>
-                : null
-            }
-            { 
-                this.filters.popular
-                ? <span>popular<button>x</button></span>
-                : null
-            }
+                {
+                    this.filters.q
+                        ? <span>term: {this.filters.q} <button>x</button></span>
+                        : null
+                }
+                {
+                    this.filters.category
+                        ? <span>category: {this.filters.category} <button>x</button></span>
+                        : null
+                }
+                {
+                    this.filters.location
+                        ? <span>term: {this.filters.location} <button>x</button></span>
+                        : null
+                }
+                {
+                    this.filters.newest
+                        ? <span>newest<button>x</button></span>
+                        : null
+                }
+                {
+                    this.filters.popular
+                        ? <span>popular<button>x</button></span>
+                        : null
+                }
             </div>
         )
     }
@@ -155,7 +155,7 @@ class SearchResults extends Component {
         } else {
             items = <Spinner />
         }
-        
+
         return (
             <React.Fragment>
                 {/* {
@@ -173,10 +173,10 @@ class SearchResults extends Component {
                                         ? <div>loading more results...</div>
                                         : <div>no more records</div>
                                 }
+                                <div id='end_of_search'></div>
                             </div>)
                         : <Spinner />
                 }
-                <div id='end_of_search'></div>
             </React.Fragment>
         )
     }
