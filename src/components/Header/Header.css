@@ -41,6 +41,10 @@
         grid-template-areas: 
         "logo search_bar user_panel";
     }
+    .search_bar {
+        margin: 5px 0 0 20px;
+
+    }
 }
 
  .logo img {

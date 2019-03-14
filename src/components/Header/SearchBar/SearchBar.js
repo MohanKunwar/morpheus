@@ -41,6 +41,7 @@ class SearchBar extends Component {
                     <option value='product'>Product</option>
                 </select>
                 <input
+                    autoFocus={true}
                     type='text'
                     className='search-input'
                     onChange={e => this.setQuery(e)}

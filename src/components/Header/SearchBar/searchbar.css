@@ -1,6 +1,6 @@
-.search_bar select, .search_bar button, .search_bar input {
+/* .search_bar select, .search_bar button, .search_bar input {
     display: inline-block;
-}
+} */
 .search_select{
 
     height: 35px;
@@ -20,7 +20,7 @@
 }
 .search-input {
     outline: none;
-    width: calc(70% - 10px);
+    width: 70%;
     border: transparent;
     height: 35px;
     border-top-right-radius: 20px;
@@ -43,3 +43,8 @@
     border-radius: 20px;
     padding: 0 10px;
 }
+/* @media (min-width: 768px) {
+    .search-input {
+        width: calc(70% - 30px)
+    }
+} */
