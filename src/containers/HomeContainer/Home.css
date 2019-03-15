@@ -6,6 +6,7 @@
     .page-grid {
         display: grid;
         grid-template-columns: 1fr 2fr 1fr;
+        margin-top: 40px;
     }
     .left-grid-mobile {
         display: none;

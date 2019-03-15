@@ -1,3 +1,6 @@
+.business-page{
+    padding-top: 30px;
+}
 .card-business-body {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;

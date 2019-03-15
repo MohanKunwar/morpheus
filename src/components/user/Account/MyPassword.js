@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form';
 import Inputfield from '../../../UI/Inputfield/inputfield';
 import Axios from '../../../services/Axios';
+import './Account.css';
 
 const Error = ({ name }) => (
     <Field name={name} subscription={{ error: true, touched: true }}>
         {({ meta: { error, touched } }) =>
-            error && touched ? <span>{error}</span> : null
+            error && touched ? <span className="password_Err">{error}</span> : null
         }
     </Field>
 );
@@ -38,7 +39,7 @@ class MyPassword extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="login-container">
+                <div className="my_account">
                     <Form
                         onSubmit={this.onSubmit}
                         validate={values => {

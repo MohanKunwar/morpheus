@@ -59,9 +59,10 @@ class SearchFilters extends Component {
                 <React.Fragment>
                     <div className='search-filters'>
                         <div className='category-filter'>
-                            <p>Select Category</p>
+                            <p className="filter_heading">Select Category</p>
                             <select 
-                                onChange={e => this.handleChange(e, 'category')} 
+                                onChange={e => this.handleChange(e, 'category')}
+                                className="search_filter_select" 
                                 // defaultValue={this.filters.category}
                                 value={this.state.filterChanged === 'reset' ? 'All' : this.filters.category}>
                                 <option value='All'>All Categories</option>
@@ -76,9 +77,10 @@ class SearchFilters extends Component {
                             </select>
                         </div>
                         <div className='location-filter'>
-                            <p>Select Location</p>
+                            <p className="filter_heading">Select Location</p>
                             <select 
-                                onChange={e => this.handleChange(e, 'location')} 
+                                onChange={e => this.handleChange(e, 'location')}
+                                className="search_filter_select" 
                                 // defaultValue={this.filters.location} 
                                 value={this.state.filterChanged === 'reset' ? 'All' : this.filters.location}>
                                 <option value='All'>All Locations</option>

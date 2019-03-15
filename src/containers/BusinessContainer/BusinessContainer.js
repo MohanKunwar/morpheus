@@ -80,7 +80,7 @@ class BusinessContainer extends Component {
                                     this.state.business.feature_enabled.length > 0
                                         ?
                                         this.state.business.feature_enabled.map((item, index) =>
-                                            <li key={index}><NavLink to={`${currUrl}/${item}`}>{item}</NavLink></li>)
+                                            <li key={index}><NavLink to={`${currUrl}/${item}`} className="sidebar_link">{item}</NavLink></li>)
                                         : null
                                 }
                             </ul>

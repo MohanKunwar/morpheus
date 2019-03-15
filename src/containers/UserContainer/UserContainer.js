@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-
+import './userContainer.css';
 import UserReviews from '../../components/user/Reviews';
 import Requirements from '../../components/user/Requirements';
 import CreateRequirement from '../../components/user/CreateRequirement';
@@ -8,6 +8,8 @@ import TermsAndConditions from '../../components/user/TermsAndConditions';
 // import Navigation from '../../components/Navigation';
 import Account from '../../components/user/Account';
 import PrivateRoute from '../../helpers/PrivateRoute';
+
+
 class UserContainer extends Component {
 
     render() {

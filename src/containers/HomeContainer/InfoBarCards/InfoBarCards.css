@@ -1,9 +1,31 @@
 .info-bar {
     display: grid;
     background: #fff;
+    border: 1px solid #DBE0E5;
+    padding: 0;
+    border-radius: 2px;
 }
-.info-card {
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid #000;
+.info-card-product {
+    padding: 20px 15px;
+    border: transparent;
+    background: #DF1D3F;
+    color: #fff;
+}
+.info-card-hotel{
+    padding: 20px 15px;
+    border: transparent;
+    background: #ffffff;
+    color: #112e51;
+}
+.info-card-food{
+    padding: 20px 15px;
+    border: transparent;
+    background: #DF1D3F;
+    color: #fff;
+}
+.info-number{
+    font-size: 20px;
+}
+.info-text{
+    font-size: 12px;
 }
