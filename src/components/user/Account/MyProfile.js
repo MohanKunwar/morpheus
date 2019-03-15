@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "../../../services/Axios";
+import './Account.css';
 
 class MyProfile extends Component {
     user = this.props.user
@@ -35,6 +36,12 @@ class MyProfile extends Component {
     };
     saveName = e => {
         e.preventDefault();
+        if(
+            /^[A-z ]+$/.test
+            (this.nameRef.current.value)
+        ){
+            this.setState({invalidName: false});
+        
         let saveData = {
             _method: "PUT",
             email: this.user.email,
@@ -42,6 +49,9 @@ class MyProfile extends Component {
             name: this.nameRef.current.value
         };
         this.saveChanges(saveData, 'name');
+    }else {
+        this.setState({ invalidName: true });
+    }
     };
     saveMobile = e => {
         e.preventDefault();
@@ -89,56 +99,69 @@ break
         console.log(this.user);
         return (
             <React.Fragment>
-                <div className="name">
+                <div className="name my_profile">
+                <label className="myProfile_form-label">Full Name</label>
                     {this.state.name ? (
                         <React.Fragment>
-                            <input ref={this.nameRef} defaultValue={this.user.name} />
-                            <button onClick={e => this.saveName(e)}>save</button>
-                            <button onClick={e => this.setState({name: false})}>cancel</button>
+                            <input ref={this.nameRef} defaultValue={this.user.name} className="account_inputfield" />
+                            {
+                                this.state.invalidName ? <div className="Input_Err">Invalid Name</div> : null
+                            }
+                            <div className="account_button_group">
+                            <button onClick={e => this.saveName(e)} className="save_btn">save</button>
+                            <button onClick={e => this.setState({name: false})} className="cancel_btn">cancel</button>
+                            </div>
                         </React.Fragment>
                     ) : (
                             <React.Fragment>
-                                <span>{this.user.name}</span>
-                                <button onClick={e => this.editItem(e, "name")}>edit</button>
+                                <span className="account_details">{this.user.name}</span>
+                                <button onClick={e => this.editItem(e, "name")}   className="edit_btn">edit</button>
                             </React.Fragment>
                         )}
                 </div>
-                <div className="email">
+                <div className="email my_profile">
+                <label className="myProfile_form-label">Email</label>
                     {this.state.email ? (
                         <React.Fragment>
-                            <input ref={this.emailRef} defaultValue={this.user.email} />
-                            {this.state.invalidEmail ? <div>invalid email</div> : null}
+                            <input ref={this.emailRef} defaultValue={this.user.email} className="account_inputfield" />
+                            {this.state.invalidEmail ? <div className="Input_Err">invalid email</div> : null}
                             {this.state.serverEmailError ? <div>{this.state.serverEmailError}</div> : null}
-                            <button onClick={e => this.saveEmail(e)}>save</button>
-                            <button onClick={e => this.setState({email: false})}>cancel</button>
+                            <div className="account_button_group">
+                            <button onClick={e => this.saveEmail(e)} className="save_btn">save</button>
+                            <button onClick={e => this.setState({email: false})}  className="cancel_btn">cancel</button>
+                            </div>
                         </React.Fragment>
                     ) : (
                             <React.Fragment>
-                                <span>{this.user.email}</span>
-                                <button onClick={e => this.editItem(e, "email")}>edit</button>
+                                <span className="account_details">{this.user.email}</span>
+                                <button onClick={e => this.editItem(e, "email")}  className="edit_btn">edit</button>
                             </React.Fragment>
                         )}
                 </div>
-                <div className="mobile">
+                <div className="mobile my_profile">
+                <label className="myProfile_form-label">Phone Number</label>
                     {this.state.mobile ? (
                         <React.Fragment>
                             <input
                                 ref={this.mobileRef}
                                 defaultValue={this.user.mobile_number}
+                                className="account_inputfield"
                             />
                             {this.state.invalidMobile ? (
-                                <div>invalid mobile number</div>
+                                <div className="Input_Err">invalid mobile number</div>
                             ) : null}
                             {this.state.serverMobileError ? (
-                                <div>{this.state.serverMobileError}</div>
+                                <div className="Input_Err">{this.state.serverMobileError}</div>
                             ) : null}
-                            <button onClick={e => this.saveMobile(e)}>save</button>
-                            <button onClick={e => this.setState({mobile: false})}>cancel</button>
+                            <div className="account_button_group">
+                            <button onClick={e => this.saveMobile(e)} className="save_btn">save</button>
+                            <button onClick={e => this.setState({mobile: false})} className="cancel_btn">cancel</button>
+                            </div>
                         </React.Fragment>
                     ) : (
                             <React.Fragment>
-                                <span>{this.user.mobile_number}</span>
-                                <button onClick={e => this.editItem(e, "mobile")}>edit</button>
+                                <span className="account_details">{this.user.mobile_number}</span>
+                                <button onClick={e => this.editItem(e, "mobile")} className="edit_btn">edit</button>
                             </React.Fragment>
                         )}
                 </div>

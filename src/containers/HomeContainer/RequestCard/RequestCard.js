@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './RequestCard.css';
 class RequestCard extends Component {
     render() {
         return (
             <div className='request-card'>
-                <p className='request-heading'>Request Now</p>
+                <h4 className='request-heading'>Request Now</h4>
                 <p className='request-info-text'>Request text</p>
-                <p className='request-btn'>Request Products/Services</p>
+                <button className='request-btn'>
+                <Link to='/user/request' className="request_link">Request Products/Services</Link></button>
             </div>
         )
     }

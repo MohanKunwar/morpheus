@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 // import Requests from './Requests/Requests';
 import './Navigation.css';
@@ -7,27 +7,29 @@ class Navigation extends Component {
 
     render() {
         return (
+            <div className="navigation_container">
                 <div className='card-container'>
                     <div className='nav-area'>
                         <div className='nav-links'>
-                            <Link to='/'>Home
-                </Link>
-                            <Link to='/user/account'>My Account
-                </Link>
-                            <Link to='/user/reviews'>Reviews
-                </Link>
-                            <Link to='/user/requirements'>
+                        <ul>
+                            <li><NavLink to='/' className="nav-item">Home
+                </NavLink></li>
+                           <li><NavLink to='/user/account' className="nav-item">My Account
+                </NavLink></li>
+                            <li><NavLink to='/user/reviews' className="nav-item">Reviews
+                </NavLink></li>
+                <li><NavLink to='/user/requirements' className="nav-item">
                                 My Requirements
-                </Link>
-                            <Link to='/business/12'>
+                </NavLink></li>
+                <li><NavLink to='/business/12' className="nav-item">
                                 Business
-                </Link>
-
+                </NavLink></li>
+                </ul>
 
                         </div>
-                        <div className='request-btn'>
+                        <div className='request-btn_nav'>
                             <Link to='/user/request'>
-                                <span className='request-btn-text'>Request Product/Service</span>
+                                <span className='request-btn-nav'>Request Product/Service</span>
                             </Link>
                         </div>
 
@@ -35,6 +37,7 @@ class Navigation extends Component {
 
                     {/* <Requests
                         show={this.state.showRequestModal} /> */}
+                </div>
                 </div>
         );
     }

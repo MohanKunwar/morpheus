@@ -2,3 +2,132 @@
     display: grid;
     grid-template-columns: 1fr 5fr;
 }
+
+.account_inputfield{
+    display: block;
+    padding: 0 5px;
+    border: 1px solid rgba(60,90,153, 0.1);
+    height: 30px;
+    border-radius: 3px;
+    width: 100%;
+    font-size: 14px;
+}
+.account_inputfield:hover{
+    border-color: rgba(60,90,153, 0.5);
+    box-shadow: 0 1px 3px rgba(60,90,153,0.19), 0 1px 1px rgba(60,90,153,0.23); 
+}
+.account_inputfield:focus{
+    box-shadow:  0 1px 0 2px rgba(92, 93, 100, 0.3);
+    cursor: pointer;
+}
+.account_inputfield::placeholder{
+    font-size: 14px;
+    opacity: 0.7;
+}
+.account_details{
+    padding: 5px 10px;
+    border: 1px solid rgba(60,90,153, 0.1);
+    height: 30px;
+    border-radius: 3px;
+    width: 100%;
+    background: #ffffff;
+    font-size: 14px;
+}
+.edit_btn, .save_btn, .cancel_btn{
+    padding: 2px 10px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    height: 25px;
+    margin-top: 2px;
+}
+.edit_btn:hover, .save_btn:hover, .cancel_btn:hover{
+    box-shadow: 0 1px 3px rgba(60,90,153,0.19), 0 1px 1px rgba(60,90,153,0.23)
+}
+.edit_btn{
+    border: 1px solid #112e51;
+    color: #112e51;
+    background: #ffffff;
+    width: 50px;
+}
+.save_btn{
+    border: 1px solid #112e51;
+    color: #ffffff;
+    background: #112e51;
+    width: 60px;
+}
+.cancel_btn{
+   border: transparent;
+   background: rgba(255, 0, 0, 0.7); 
+   color: #ffffff;
+   width: 70px;
+}
+.account_button_group{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0 3px;
+}
+.Input_Err{
+    color: rgba(255, 0, 0, 0.7);
+    font-size: 12px;
+    position: absolute;
+    margin-top: 50px;
+}
+.change_password_form-group{
+    margin-bottom: 15px;
+}
+.password_Err{
+    color: rgba(255, 0, 0, 0.7);
+    font-size: 12px;
+}
+.myProfile_form-label{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    padding-left: 5px;
+}
+@media (min-width: 768px){
+    .my_account{
+        margin-left: 7%;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-gap: 0 10px;
+    }
+    .my_profile{
+        margin-left: 7%;
+        display: grid;
+        grid-template-columns: 4fr 1fr 2fr;
+        grid-gap: 0 10px;
+        margin-bottom: 15px;
+    }
+}
+@media (max-width: 767px){
+    .my_account{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 5px 10px;
+    }
+    .my_profile{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 5px 10px;
+    }
+    .account_button_group{
+        grid-template-columns: 1fr 1fr 6fr;
+    }
+    .account_details, .account_inputfield{
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    .Input_Err{
+        right: 5%;
+        margin-top: 60px;
+    }
+    /* .edit_btn, .save_btn, .cancel_btn{
+        margin-top: 0;
+    }
+    .save_btn, .cancel_btn{
+        width: 50px !important;
+    }
+    .edit_btn{
+        width: 50px !important;
+    } */
+}

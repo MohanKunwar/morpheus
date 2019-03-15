@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Switch, Route, Redirect } from 'react-router-dom';
+import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
 import KhozContext from '../../../services/Context';
 
 // import MyEmail from './MyProfile';
@@ -16,9 +16,9 @@ class Account extends Component {
             <div className='card-container user-account'>
                 <div className='side-bar'>
                     <ul>
-                        <li className='category-btn'><Link to={`${currUrl}/picture`}>My Profile Picture</Link></li>
-                        <li className='category-btn'><Link to={`${currUrl}/profile`}>My Details</Link></li>
-                        <li className='category-btn'><Link to={`${currUrl}/password`}>My Password</Link></li>
+                        <li><NavLink to={`${currUrl}/picture`} className="sidebar_link">My Profile Picture</NavLink></li>
+                        <li><NavLink to={`${currUrl}/profile`}className="sidebar_link">My Details</NavLink></li>
+                        <li><NavLink to={`${currUrl}/password`}className="sidebar_link">My Password</NavLink></li>
                     </ul>
                 </div>
                 <div className='edit-panel'>
