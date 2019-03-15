@@ -27,17 +27,19 @@ export default KhozContext.withAppContext(UserPanel);
 
 const Panel = (props) => {
     return (
-        <ul>
-            <li>Notifications</li>
-            <li>Add Business</li>
-            <li>
-                {
-                    props.user.photo ? 
-                    <img src={props.user.photo} alt={props.user.name} />
-                    : <img src={require('../../../assets/images/place.svg')} alt='stock' />
-                } </li>
-            <li> <Dropdown user={props.user} logout={props.logout}/> </li>
-            
-        </ul>
+        <React.Fragment>
+            <ul>
+                <li>Notifications</li>
+                <li>Add Business</li>
+                <li>
+                    {
+                        props.user.photo ?
+                            <img src={props.user.photo} alt={props.user.name} />
+                            : <img src={require('../../../assets/images/place.svg')} alt='stock' />
+                    } </li>
+            </ul>
+            <Dropdown user={props.user} logout={props.logout} />
+        </React.Fragment>
+
     )
 }

@@ -12,7 +12,7 @@ class RecentlyAdded extends Component {
     componentWillMount() {
         // get recently added items 
         Axios.instance.get(Axios.API.common.recentlyAddedUrl).then(response => {
-            if (response.data) {
+            if (response && response.data) {
                 this.setState({recentlyAddedItems: response.data.data})
             }
         })

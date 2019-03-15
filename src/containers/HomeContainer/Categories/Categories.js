@@ -11,7 +11,7 @@ class Categories extends Component {
     }
     componentWillMount() {
         Axios.instance.get(Axios.API.common.topLevelCategoriesUrl).then(response => {
-            if (response.data) {
+            if (response && response.data) {
                 this.setState({ categories: response.data.data })
             }
         });

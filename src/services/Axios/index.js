@@ -13,8 +13,6 @@ const API = {
         logoutUrl: '/user/logout',
         // user actions
         getUserReviewsUrl: '/user/business-reviews',
-        getUserRequirementsUrl: 'user/leads',
-        postUserRequirementUrl: '/leads',
         userDetailsUrl: '/user',
         editProfileUrl: '/user/profile',
         changePasswordUrl: '/user/password'
@@ -28,6 +26,11 @@ const API = {
     },
     business: {
         getBusinessUrl: 'businesses', // id is attached whenever called
+    },
+    requirement: {
+        getUserRequirementsUrl: 'user/leads',
+        getCloseReasonsUrl: '/lead-close-reasons',
+        postUserRequirementUrl: '/leads'
     },
     search: {
         getResults: (type, params) => {

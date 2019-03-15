@@ -8,6 +8,7 @@ div.user-dropdown{
     text-align: center;
     background: #c2d3a3;
     color: black;
+    z-index: 1000;
 }
 div.dropdown div.button{
     cursor: pointer;

@@ -43,7 +43,7 @@ authInstance.interceptors.request.use(request => {
 },
     error => {
         console.log('auth route error request', error.response)
-        return Promise.reject(error)
+        return error.response
     }
 );
 

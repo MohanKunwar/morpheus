@@ -63,3 +63,9 @@
     opacity: 0.7;
     padding-left: 30px;
 }
+.close_request_btn {
+    float: right;
+}
+.requirement_dropdown {
+    background: #aabbcc;
+}

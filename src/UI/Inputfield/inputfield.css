@@ -1,27 +1,27 @@
-.login-form-field{
+.khoz_form_field{
     display: block;
     padding: 0 5px;
     border: 1px solid rgba(60,90,153, 0.1);
 }
-.login-form-field{
+.khoz_form_field{
     height: 30px;
     border-radius: 3px;
     width: 100%;
 }
-.login-form-field:hover{
+.khoz_form_field:hover{
     border-color: rgba(60,90,153, 0.5);
     box-shadow: 0 1px 3px rgba(60,90,153,0.19), 0 1px 1px rgba(60,90,153,0.23); 
 }
-.login-form-field:focus{
+.khoz_form_field:focus{
     box-shadow:  0 1px 0 2px rgba(92, 93, 100, 0.3);
     cursor: pointer;
 }
-.login-form-field::placeholder{
+.khoz_form_field::placeholder{
     font-size: 14px;
     opacity: 0.7;
 }
 @media (max-width: 768px) {
-     .login-form-field{
+     .khoz_form_field{
         width: 100%;
     }
 }

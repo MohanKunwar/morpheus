@@ -31,7 +31,7 @@ class CreateRequirement extends Component {
         if (this.state.imagePreviewUrl) {
             formData.append('attachment', this.state.file)
         }
-        Axios.authInstance.post(Axios.API.user.postUserRequirementUrl, formData).then(response => {
+        Axios.authInstance.post(Axios.API.requirement.postUserRequirementUrl, formData).then(response => {
             if (response.data) {
                 console.log(response.data)
                 this.props.history.push('/user/requirements')
