@@ -12,6 +12,7 @@ import Reviews from './Reviews/Reviews';
 
 import Hotel from './features/Hotel';
 import './Business.css';
+import Spinner from '../../helpers/Spinner';
 
 class BusinessContainer extends Component {
     state = {
@@ -63,57 +64,65 @@ class BusinessContainer extends Component {
         //     return (<div>Something went wrong! 404 page from Business Profile</div>);
         // }
         return (
-            this.state.business ?
-                (<div className='business-page'>
-                    <div className='card-container'>
+
+            <div className='card-container'>
+                {this.state.business ?
+                    <React.Fragment>
                         <Header business={this.state.business} isUserOwner={this.state.isUserOwner} />
-                    </div>
-                    <br />
-                    <div className='card-container card-business-body'>
-                        <div className='side-bar'>
-                            <ul>
-                                <li><NavLink to={`${currUrl}/overview`} className="sidebar_link">Overview</NavLink></li>
-                                <li><NavLink to={`${currUrl}/photos`} className="sidebar_link">Photos</NavLink></li>
-                                <li><NavLink to={`${currUrl}/reviews`} className="sidebar_link" >Reviews</NavLink></li>
-                                <li><NavLink to={`${currUrl}/deals-in`} className="sidebar_link">Deals In</NavLink></li>
+                        <br />
+                        <div className='card-business-body'>
+                            <div className='side-bar'>
+                                <ul>
+                                    <li><NavLink to={`${currUrl}/overview`} className="sidebar_link">Overview</NavLink></li>
+                                    <li><NavLink to={`${currUrl}/photos`} className="sidebar_link">Photos</NavLink></li>
+                                    <li><NavLink to={`${currUrl}/reviews`} className="sidebar_link" >Reviews</NavLink></li>
+                                    <li><NavLink to={`${currUrl}/deals-in`} className="sidebar_link">Deals In</NavLink></li>
+                                    {
+                                        this.state.business.feature_enabled.length > 0
+                                            ?
+                                            this.state.business.feature_enabled.map((item, index) =>
+                                                <li key={index}><NavLink to={`${currUrl}/${item}`}>{item}</NavLink></li>)
+                                            : null
+                                    }
+                                </ul>
+                            </div>
+                            <Switch>
+                                <Route path={`${currUrl}/overview`} component={() => <Overview business={this.state.business} isUserOwner={this.state.isUserOwner} />} />
+                                <Route path={`${currUrl}/photos`} component={() => <Photos photos={this.state.business.photos_url} isUserOwner={this.state.isUserOwner} />} />
+                                <Route path={`${currUrl}/reviews`} component={() => <Reviews reviews={this.state.business.reviews_url} isUserOwner={this.state.isUserOwner} />} />
+                                <Route path={`${currUrl}/deals-in`} component={() => <DealsIn dealsIn={this.state.business.dealsin_url} isUserOwner={this.state.isUserOwner} />} />
                                 {
+<<<<<<< HEAD
                                     this.state.business.feature_enabled.length > 0
                                         ?
                                         this.state.business.feature_enabled.map((item, index) =>
                                             <li key={index}><NavLink to={`${currUrl}/${item}`} className="sidebar_link">{item}</NavLink></li>)
+=======
+                                    this.state.business.feature_enabled.includes('hotel')
+                                        ? <Route path={`${currUrl}/hotel`} component={() => <Hotel dealsIn={this.state.business.dealsin_url} isUserOwner={this.state.isUserOwner} />} />
+>>>>>>> added forgot password and migrated form layout
                                         : null
                                 }
-                            </ul>
-                        </div>
-                        <Switch>
-                            <Route path={`${currUrl}/overview`} component={() => <Overview business={this.state.business} isUserOwner={this.state.isUserOwner} />} />
-                            <Route path={`${currUrl}/photos`} component={() => <Photos photos={this.state.business.photos_url} isUserOwner={this.state.isUserOwner} />} />
-                            <Route path={`${currUrl}/reviews`} component={() => <Reviews reviews={this.state.business.reviews_url} isUserOwner={this.state.isUserOwner} />} />
-                            <Route path={`${currUrl}/deals-in`} component={() => <DealsIn dealsIn={this.state.business.dealsin_url} isUserOwner={this.state.isUserOwner} />} />
-                            {
-                                this.state.business.feature_enabled.includes('hotel')
-                                    ? <Route path={`${currUrl}/hotel`} component={() => <Hotel dealsIn={this.state.business.dealsin_url} isUserOwner={this.state.isUserOwner} />} />
-                                    : null
-                            }
-                            {/* <Route path={`${currUrl}/restaurant`} component={() => <Restaurant dealsIn={this.state.business.dealsin_url} />} /> */}
-                            <Redirect to={`${currUrl}/overview`} />
-                        </Switch>
-                        <div className='overview-contact'>
-                            google api integration
+                                {/* <Route path={`${currUrl}/restaurant`} component={() => <Restaurant dealsIn={this.state.business.dealsin_url} />} /> */}
+                                <Redirect to={`${currUrl}/overview`} />
+                            </Switch>
+                            <div className='overview-contact'>
+                                google api integration
                                 <p>{this.state.business.address}</p>
-                            <p>{this.state.business.email}</p>
-                            {/* // todo
+                                <p>{this.state.business.email}</p>
+                                {/* // todo
                         // check if user logged in for phone number and hours */}
-                            <p>{this.state.business.mobile_number}</p>
-                            <p>{this.state.business.website}</p>
-                            <div className='overview-rating'>
-                                <p>{this.state.business.rating_avg} rating {this.state.business.review_count} reviews</p>
+                                <p>{this.state.business.mobile_number}</p>
+                                <p>{this.state.business.website}</p>
+                                <div className='overview-rating'>
+                                    <p>{this.state.business.rating_avg} rating {this.state.business.review_count} reviews</p>
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
-                </div>)
-                : <div>loading</div>
+                        </div>
+                    </React.Fragment>
+                    : <Spinner />
+                } </div>
 
         )
     }
@@ -122,24 +131,3 @@ class BusinessContainer extends Component {
 
 
 export default KhozContext.withAppContext(BusinessContainer);
-
-    // componentDidMount() {
-    //     console.log('component did mount');
-    //     console.log('state', this.state.business)
-    // }
-    // componentWillReceiveProps(nextProps) {
-    //     console.log('nextProps');
-    //     console.log('state', this.state.business)
-    // }
-    // shouldComponentUpdate() {
-    //     console.log('should comopnent update')
-    //     return true;
-    // }
-    // componentWillUpdate() {
-    //     console.log('compponent will update')
-    //     console.log('state', this.state.business)
-    // }
-    // componentDidUpdate() {
-    //     console.log('component did update')
-    //     console.log('state', this.state.business)
-    // }

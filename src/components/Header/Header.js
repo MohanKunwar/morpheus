@@ -14,31 +14,9 @@ const Logo = () => {
 
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {};
-
-        this.handleScroll = this.handleScroll.bind(this);
-    }
-
-    handleScroll() {
-        this.setState({scroll: window.scrollY});
-    }
-  
-  componentDidMount() {
-        const el = document.querySelector('header');
-        this.setState({top: el.offsetTop, height: el.offsetHeight});
-        window.addEventListener('scroll', this.handleScroll);
-    }
-  
-  componentDidUpdate() {
-    document.body.style.paddingTop = this.state.scroll > this.state.top ? 
-             `${this.state.height}px` : 0;
-    }
     render() {
         return (
-            <div className={this.state.scroll > this.state.top ? 'fixed-header' : 'header'}>
+            <div className='header'>
                 <header className='card-container'>
                     <Logo />
                     <SearchBar />

@@ -1,21 +1,12 @@
 import React from "react";
-import { Field, Form } from "react-final-form";
+import { Form } from "react-final-form";
 import "./register.css";
 import Axios from "../../../services/Axios";
 import { Link } from "react-router-dom";
 import khozlogo from "./../../../assets/images/khozlogo.png";
 import boosting from "./../../../assets/images/boosting.jpg";
 import Inputfield from "../../../UI/Inputfield/inputfield";
-
-const Error = ({ name }) => (
-  <Field
-    name={name}
-    subscription={{ error: true, touched: true }}
-    render={({ meta: { error, touched } }) =>
-      touched && error ? <span>{error}</span> : null
-    }
-  />
-);
+import Error from '../../../helpers/FormError';
 
 class Register extends React.Component {
   confirmCode;
@@ -93,6 +84,9 @@ class Register extends React.Component {
               }
               if (!values.password) {
                 errors.password = "Password is required";
+              }
+              if (values.password !== values.confirm_password) {
+                errors.confirm_password = 'Passwords do not match'
               }
               return errors;
             }}

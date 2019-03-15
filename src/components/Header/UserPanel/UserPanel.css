@@ -9,10 +9,6 @@
     align-items: center;
     margin: 0px !important;
 }
-/* .user-panel > ul li {
-    float: right;
-    margin: 0 0 0 10px;
-} */
 .user_panel > ul li{
     padding: 0 0 0 12px;
     cursor: pointer;

@@ -10,6 +10,8 @@ const API = {
         getRegisterCodeUrl: '/user',
         confirmCodeUrl: '/user/mobile-confirmation',
         resendConfirmCodeUrl: '/user/mobile-confirmation/resend',
+        getCodeForgotPasswordUrl: '/password/forgot',
+        resetCodeForgotPasswordUrl: '/password/reset',
         logoutUrl: '/user/logout',
         // user actions
         getUserReviewsUrl: '/user/business-reviews',

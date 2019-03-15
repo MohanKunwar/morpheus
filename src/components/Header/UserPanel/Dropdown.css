@@ -1,21 +1,9 @@
-div.dropdown{
-    position: relative;
-}
-div.user-dropdown{
+.user-dropdown {
+    display: inline-flex;
     position: absolute;
-    right: 0;
-    margin-top: 25px;
-    text-align: center;
-    background: #c2d3a3;
-    color: black;
-    z-index: 1000;
-}
-div.dropdown div.button{
-    cursor: pointer;
-}
-div.user-dropdown span, div.user-dropdown div{
-    padding: 0 10px 0 10px;
-}
-div.user-dropdown span{
-    cursor: pointer;
+    /* right: 0; */
+    max-height: 500px;
+    background: #abcabc;
+    overflow:scroll;
+
 }

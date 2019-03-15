@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import KhozContext from '../../../services/Context';
 import Dropdown from './Dropdown';
+// import Dropdown from '../../../UI/Dropdown/Dropdown';
 import './UserPanel.css';
 class UserPanel extends Component {
     render() {
@@ -11,7 +12,7 @@ class UserPanel extends Component {
                 {
                     this.props.context.user
                         ?
-                        <Panel user={this.props.context.user} logout={this.props.context.logout} />
+                        <AuthPanel user={this.props.context.user} logout={this.props.context.logout} />
                         : (<ul>
                             <li><Link to='/khoz/login'>Login</Link></li>
                             <li><Link to='/khoz/register'>Join</Link></li>
@@ -25,21 +26,28 @@ class UserPanel extends Component {
 }
 export default KhozContext.withAppContext(UserPanel);
 
-const Panel = (props) => {
-    return (
-        <React.Fragment>
-            <ul>
-                <li>Notifications</li>
-                <li>Add Business</li>
-                <li>
-                    {
-                        props.user.photo ?
-                            <img src={props.user.photo} alt={props.user.name} />
-                            : <img src={require('../../../assets/images/place.svg')} alt='stock' />
-                    } </li>
-            </ul>
-            <Dropdown user={props.user} logout={props.logout} />
-        </React.Fragment>
+class AuthPanel extends Component {
+    state = {
+        showUserDropDown: false
+    }
+    render() {
+        return (
+            <React.Fragment>
+                <ul>
+                    <li>Notifications</li>
+                    <li>Add Business</li>
+                    <li>
+                        {/* {
+                            this.props.user.photo ?
+                                <img src={this.props.user.photo} alt={this.props.user.name} />
+                                : <img src={require('../../../assets/images/place.svg')} alt='stock' />
+                        } */}
+                        {/* <button onClick={e => this.setState({ showUserDropDown: true })} /> */}
+                        <Dropdown user={this.props.user} logout={this.props.logout} />
+                    </li>
+                </ul>
+            </React.Fragment>
 
-    )
+        )
+    }
 }

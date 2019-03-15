@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Field, Form } from "react-final-form";
+import { Form } from "react-final-form";
 import { Link } from 'react-router-dom';
 import "./Login.css";
 import Axios from '../../../services/Axios';
@@ -8,17 +8,7 @@ import KhozContext from '../../../services/Context';
 import khozlogo from './../../../assets/images/khozlogo.png';
 import boosting from './../../../assets/images/boosting.jpg';
 import Inputfield from "../../../UI/Inputfield/inputfield";
-
-const Error = ({ name }) => (
-  <Field name={name} subscription={{ error: true, touched: true }}>
-    {({ meta: { error, touched } }) =>
-      error && touched ? <span>{error}</span> : null
-    }
-  </Field>
-);
-
-
-
+import Error from '../../../helpers/FormError';
 class Login extends Component {
   state = {
     submitting: false
@@ -97,7 +87,9 @@ class Login extends Component {
 
                 <Error className="form-error" name="password" />
               </div>
-              <div className="forget_password">Forget password ?</div>
+              <div className="forget_password">
+                <Link to='/khoz/forgot-password'>Forget password ?</Link>
+              </div>
               <div className="buttons">
                 <button type="submit" disabled={this.state.submitting ? 'disabled' : null}>
                   {

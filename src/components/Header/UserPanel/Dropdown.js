@@ -26,17 +26,17 @@ class Dropdown extends Component {
     render() {
         console.log('dropdown log', this.props.user)
         return (
-            <div className="dropdown" >
+            <div className="user_dropdown" >
                 <div className="button" onClick={e => this.showDropdownMenu(e)}> drop</div>
                 {
                     this.state.displayMenu
                         ? (
                             <div className='user-dropdown'>
-                                <span>Hi {this.props.user.name} </span>
+                                {/* <span>Hi {this.props.user.name} </span>
                                 <br />
                                 <span>My Account</span>
-                                <br />
-                                <span>Businessess</span>
+                                <br /> */}
+                                {/* <span>Businessess</span> */}
                                 {
                                     this.props.user.businesses && this.props.user.businesses.length > 0 ?
                                         <div className='user-businesses'>
