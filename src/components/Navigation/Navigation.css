@@ -18,19 +18,17 @@
     box-shadow: 0 1px 2px rgba(60,90,153,0.1), 0 1px 1px rgba(60,90,153,0.1)
 }
 
-.request-btn {
+.request_btn {
     text-align: right;
 }
 .request-btn-nav {
     padding: 8px 15px;
-    background-color: #3a3ca3;
     display: inline-block;
     margin-top: 6px;
     color: #ffffff;
     background: #DF1D3F;
     border-radius: 30px;
     border: transparent;
-    text-align: right;
 }
 .request-btn-nav:hover{
     box-shadow: 0 2px 1px #3a3ca367;

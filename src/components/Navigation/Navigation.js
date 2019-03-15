@@ -27,7 +27,7 @@ class Navigation extends Component {
                 </ul>
 
                         </div>
-                        <div className='request-btn_nav'>
+                        <div className='request_btn'>
                             <Link to='/user/request'>
                                 <span className='request-btn-nav'>Request Product/Service</span>
                             </Link>
