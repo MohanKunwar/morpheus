@@ -1,12 +1,21 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './Header.css';
+import Img from 'react-image';
+import star from './../../../assets/images/ratings.svg';
+import facebook from './../../../assets/images/facebook.svg';
+
+const Stars = () =>{
+    return(
+        <Img src={star} className="star-css" />
+    )
+}
 
 const GetIcon = props => {
     console.log('url for icons', props.url);
     const url = props.url;
     if (url.includes('facebook')) {
-        return (<img src={require('./../../../assets/images/facebook.svg')}
+        return (<Img src={require({facebook})}
             alt="facebook" className="social-icons" onClick={() => window.open(url)} />);
     }
     if (url.includes('twitter')) {
@@ -31,14 +40,13 @@ const Header = (props) => {
         header = (
             <div className='card-business-header'>
                 <div className='business-image'>
-                    <img className='business-logo' src={props.business.logo} alt={props.business.name} />
+                    <Img className='business-logo' src={props.business.logo} alt={props.business.name} />
                     {
                         props.isUserOwner
                             ? <button>edit</button>
                             : null
                     }
                 </div>
-
                 <div className='business-header-right'>
                     <div className='business-info'>
                         <p className='business-title'>{props.business.name}</p>
@@ -47,14 +55,18 @@ const Header = (props) => {
                                 ? <button>edit</button>
                                 : null
                         }
-                        <p className='business-title'>{props.business.address}</p>
+                        <p className='business-address'>{props.business.address}</p>
                         {
                             props.isUserOwner
                                 ? <button>edit</button>
                                 : null
                         }
-                        <Link to={`/search/business?category=${props.business.category.slug}`} className='business-category'>{props.business.category.name}</Link>{props.business.view_count} views
-                        <p>{props.business.rating_avg} rating {props.business.review_count} reviews</p>
+                        <Link to={`/search/business?category=${props.business.category.slug}`} className='business-category'>{props.business.category.name}</Link><br />
+                        <p className="business_view_count">
+                        {props.business.view_count} views</p>
+                        <p className="business_rating">
+                        <Stars />
+                        {props.business.rating_avg} rating {props.business.review_count} reviews</p>
                     </div>
                     <div className='business-social'>
                         <div className='social-links'>

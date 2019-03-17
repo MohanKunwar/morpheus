@@ -4,7 +4,7 @@ import Img from 'react-image';
 import star from './../../assets/images/ratings.svg';
 import DropdownToggle from './dropdown/dropdown'; 
 
-const Star = (props) => {
+export const Star = (props) => {
     const starrating = props.rate;
     let stars =[];
     for(let i=0; i<starrating; i++){
