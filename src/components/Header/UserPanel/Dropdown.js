@@ -44,9 +44,12 @@ class Dropdown extends Component {
                                         this.props.user.businesses.map((business, index) =>
 
                                             <div className='user-businesses' key={index}>
-                                                <img src={business.logo} alt={business.name} />
+                                            {
+                                                business.logo 
+                                                ? <img src={business.logo} alt={business.name} />
+                                                : null // placeholder business image
+                                            }
                                                 <span>{business.name}</span>
-
                                             </div>
                                         )
                                         :
