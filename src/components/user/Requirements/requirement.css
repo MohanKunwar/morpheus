@@ -23,7 +23,7 @@
 .requirement-details{
     background: #fff;
     height: 100%;
-    padding: 20px 15px;
+    padding: 20px 0px;
     bottom: 0;
     border: transparent;
 }
@@ -31,7 +31,7 @@
 /* requirement-list */
 .requirement-item{
     border: 1px solid rgba(128, 128, 128, 0.150); 
-    padding: 20px 15px; 
+    padding: 20px 0; 
     border-radius: 2px;
     box-shadow: 0 1px 1px 0 rgba(128, 128, 128, 0.1);
     margin-bottom: 15px;
@@ -68,4 +68,15 @@
 }
 .requirement_dropdown {
     background: #aabbcc;
+}
+.reason_list {
+    display: block;
+}
+.drop_down {
+    position: absolute;
+    right: 18px;
+    display: grid;
+    border: 1px solid #abcabc;
+    margin-top: -140px;
+    max-height: 300px;
 }

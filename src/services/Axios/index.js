@@ -32,7 +32,10 @@ const API = {
     requirement: {
         getUserRequirementsUrl: 'user/leads',
         getCloseReasonsUrl: '/lead-close-reasons',
-        postUserRequirementUrl: '/leads'
+        postUserRequirementUrl: '/leads',
+        closeRequirementUrl: (id) => {
+            return (`leads/${id}/close`)
+        }
     },
     search: {
         getResults: (type, params) => {
