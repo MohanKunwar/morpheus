@@ -1,208 +1,207 @@
 import React from "react";
-import { Field } from "react-final-form";
-import './register.css';
-import KhozForm from '../../common/Form';
-import Axios from '../../../services/Axios';
-import { Link } from 'react-router-dom';
-import khozlogo from './../../../assets/images/khozlogo.png';
-import boosting from './../../../assets/images/boosting.jpg';
+import { Form } from "react-final-form";
+import "./register.css";
+import Axios from "../../../services/Axios";
+import { Link } from "react-router-dom";
+import khozlogo from "./../../../assets/images/khozlogo.png";
+import boosting from "./../../../assets/images/boosting.jpg";
 import Inputfield from "../../../UI/Inputfield/inputfield";
-const initForm = {
-  firstname: "",
-  lastname: "",
-  email: "",
-  mobile_number: "",
-  password: "",
-  confirmPassword: ""
-};
-const load = async () => {
-  await initForm;
-  return initForm;
-};
-
-const loading = <p>Loading</p>;
-const validate = values => {
-  let errors = {};
-  if (!values.firstname) { errors.firstname = "Required"; }
-  if (!values.lastname) { errors.lastname = "Required"; }
-  if (!values.email) {
-    errors.email = "Required";
-    // email validation
-  }
-  if (!values.mobile_number) {
-    errors.mobile_number = "Required";
-    // mobile_number validation
-  }
-  if (!values.password) {
-    errors.password = "Required";
-  }
-  if (!values.confirmPassword) {
-    errors.confirmPassword = "Required";
-  }
-  if (values.password && values.confirmPassword) {
-    // match password
-    // regex validation
-  }
-};
-
-const Error = ({ name }) => (
-  <Field
-    name={name}
-    subscription={{ error: true, touched: true }}
-    render={({ meta: { error, touched } }) =>
-      touched && error ? <span>{error}</span> : null
-    }
-  />
-);
-// for multiple form field validations
-// const required = value => (value ? undefined : "Required");
-// const mustBeNumber = value => (isNaN(value) ? "Must be a number" : undefined);
-// const minValue = min => value =>
-//   isNaN(value) || value >= min ? undefined : `Should be greater than ${min}`;
-// const composeValidators = (...validators) => value =>
-//   validators.reduce((error, validator) => error || validator(value), undefined);
-
-const postLoadFormat = values => {
-  const { firstname, lastname, email, mobile_number, password, confirmPassword } = values;
-  return {
-    firstname,
-    lastname,
-    email,
-    mobile_number,
-    password,
-    confirmPassword
-  };
-};
-
-const preSaveFormat = (values, originalValues) => {
-  return {
-    ...originalValues,
-    name: values.firstname + ' ' + values.lastname,
-    email: values.email,
-    mobile_number: values.mobile_number,
-    password: values.password,
-    // confirmPassword: values.confirmPassword
-  };
-};
+import Error from '../../../helpers/FormError';
 
 class Register extends React.Component {
-  registered = false;
-  mobileConfirmed = false;
-
-  save = values => {
-    console.info("Saving", values);
-    // await axios response
+  confirmCode;
+  state = {
+    register: true
+  };
+  componentWillUpdate() {
+    if (!this.state.register) {
+      Axios.authInstance.get(Axios.API.getConfirmCodeUrl).then(response => {
+        this.confirmCode = response.data.data;
+      });
+    }
+  }
+  onSubmit = values => {
     Axios.instance.post(Axios.API.user.registerUrl, values).then(response => {
       if (response.data) {
         for (let item in response.data) {
           localStorage.setItem(item, response.data[item]);
         }
+        this.setState({ register: false });
       }
-
-    })
-    this.props.history.push('/confirm-mobile-code')
+    });
+  };
+  onCodeSubmit = value => {
+    Axios.authInstance
+      .post(Axios.API.user.confirmCodeUrl, value)
+      .then(response => {
+        console.log("confirm response", response);
+      });
   }
+
+  resendConfirmCode = e => {
+    e.preventDefault()
+    Axios.authInstance.post(Axios.API.user.resendConfirmCodeUrl).then(response => {
+      if (response && response.data) {
+
+      }
+    })
+  }
+
   render() {
     return (
       <div className="register-container">
-      <KhozForm
-        load={load}
-        loading={loading}
-        postLoadFormat={postLoadFormat}
-        preSaveFormat={preSaveFormat}
-        save={this.save}
-        validate={validate}
-      >
-        {({ handleSubmit, reset, submitting, pristine, values }) => (
-          <form onSubmit={handleSubmit} className="register-form">
-           <div className="logo_reg_head">
-         <img alt='logo' src={khozlogo} />
-        <h2>Connecting Buyers<br /> & Sellers Digitally</h2>
-        <span>Free forever. No cerdit card needed.</span>
-        </div>
-            <div className="register-form-group">
-              <label className="register-form-label">Firstname</label>
-              <Inputfield 
-              type={'text'}
-              name={'firstname'}
-              placeholder={'firstname'}
-              disabled={submitting}
-              />
-              <Error classname="form-error" name="firstname" />
-            </div>
-            <div className="register-form-group">
-              <label className="register-form-label">Lastname</label>
-              <Inputfield 
-               type={'text'}
-               name={'lastname'}
-               placeholder={'Lastname'}
-               disabled={submitting}
-              />
-              <Error classname="form-error" name="lastname" />
-            </div>
-            <div className="register-form-group">
-              <label className="register-form-label">Email Address</label>
-              <Inputfield 
-              type={'email'}
-              name={'email'}
-              placeholder={'email address'}
-              disabled={submitting}
-              />
-              <Error classname="form-error" name="username" />
-            </div>
+        {this.state.register ? (
+          <Form
+            onSubmit={this.onSubmit}
+            validate={values => {
+              const errors = {};
+              if (!values.username) {
+                errors.username = "Username is required";
+              } else if (!isNaN(values.username)) {
+                if (values.username.toString().length !== 10) {
+                  errors.username = "invalid phone number";
+                }
+              } else {
+                var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                if (!re.test(values.username)) {
+                  errors.username = "invalid email";
+                }
+              }
+              if (!values.firstname) {
+                errors.firstname = "Firstname is required";
+              }
+              if (!values.lastname) {
+                errors.lastname = "Lastname is required";
+              }
+              if (!values.email) {
+                errors.email = "Email address is required";
+              }
+              if (!values.mobile_number) {
+                errors.mobile_number = "Mobile number is required";
+              }
+              if (!values.confirm_password) {
+                errors.confirm_password = "Confirm Password is required";
+              }
+              if (!values.password) {
+                errors.password = "Password is required";
+              }
+              if (values.password !== values.confirm_password) {
+                errors.confirm_password = 'Passwords do not match'
+              }
+              return errors;
+            }}
+          >
+            {({ handleSubmit }) => (
+              <form onSubmit={handleSubmit} className="register-form">
+                <div className="logo_reg_head">
+                  <img alt="logo" src={khozlogo} />
+                  <h2>
+                    Connecting Buyers
+                    <br /> & Sellers Digitally
+                  </h2>
+                  <span>Free forever. No cerdit card needed.</span>
+                </div>
+                <div className="register-form-group">
+                  <label className="register-form-label">Firstname</label>
+                  <Inputfield
+                    type={"text"}
+                    name={"firstname"}
+                    placeholder={"firstname"}
+                  />
+                  <Error classname="form-error" name="firstname" />
+                </div>
+                <div className="register-form-group">
+                  <label className="register-form-label">Lastname</label>
+                  <Inputfield
+                    type={"text"}
+                    name={"lastname"}
+                    placeholder={"Lastname"}
+                  />
+                  <Error classname="form-error" name="lastname" />
+                </div>
+                <div className="register-form-group">
+                  <label className="register-form-label">Email Address</label>
+                  <Inputfield
+                    type={"email"}
+                    name={"email"}
+                    placeholder={"email address"}
+                  />
+                  <Error classname="form-error" name="email" />
+                </div>
 
-            <div className="register-form-group">
-              <label className="register-form-label">Mobile Number</label>
-              <Inputfield 
-              type={'text'}
-              name={'mobile_number'}
-              placeholder={'mobile number'}
-              disabled={submitting}
-              />
-              <Error classname="form-error" name="mobile_number" />
-            </div>
-            <div className="register-form-group">
-              <label className="register-form-label">Password</label>
-              <Inputfield 
-              type={'password'}
-              name={'password'}
-              placeholder={'password'}
-              disabled={submitting}
-              />
-              <Error className="form-error" name="password" />
-            </div>
-            <div className="register-form-group">
-              <label className="register-form-label">Confirm Password</label>
-              <Inputfield 
-              type={'password'}
-              name={'confirmPassword'}
-              placeholder={'confirm password'}
-              disabled={submitting}
-              />
-              <Error className="form-error" name="confirmPassword" />
-            </div>
-            <div className="buttons">
-              <button type="submit" disabled={submitting || pristine}>
-                Signin
-              </button>
-              <div className="login_click">
-              <Link to="/login"
-              // onClick={}  reroute
-              >
-               Already user, Login!
-              </Link>
-              </div>
-            </div>
-            {/* <h3>Form Values</h3>
-            <pre>{JSON.stringify(values, 0, 2)}</pre> */}
-            {/* <h3>Database Record</h3>
-        <pre>{JSON.stringify(record, 0, 2)}</pre> */}
-          </form>
+                <div className="register-form-group">
+                  <label className="register-form-label">Mobile Number</label>
+                  <Inputfield
+                    type={"text"}
+                    name={"mobile_number"}
+                    placeholder={"mobile number"}
+                  />
+                  <Error classname="form-error" name="mobile_number" />
+                </div>
+                <div className="register-form-group">
+                  <label className="register-form-label">Password</label>
+                  <Inputfield
+                    type={"password"}
+                    name={"password"}
+                    placeholder={"password"}
+                  />
+                  <Error className="form-error" name="password" />
+                </div>
+                <div className="register-form-group">
+                  <label className="register-form-label">
+                    Confirm Password
+                  </label>
+                  <Inputfield
+                    type={"password"}
+                    name={"confirm_password"}
+                    placeholder={"confirm password"}
+                  />
+                  <Error className="form-error" name="confirm_password" />
+                </div>
+                <div className="buttons">
+                  <button type="submit">Register</button>
+                  <div className="login_click">
+                    <Link to="/khoz/login">Already a user, Login!</Link>
+                  </div>
+                </div>
+              </form>
+            )}
+          </Form>
+        ) : (
+          <Form
+            onSubmit={this.onCodeSubmit}
+            validate={values => {
+              const errors = {};
+              if (!values.confirmation_code) {
+                errors.confirmation_code = "confirmation code is required";
+              }
+              return errors
+            }}
+          >
+            {({ handleSubmit }) => (
+              <form onSubmit={handleSubmit} className="khoz_form">
+                <div className="khoz_form_group">
+                  <label>Enter Mobile confirmation code</label>
+                  <Inputfield
+                    type="number"
+                    name="confirmation_code"
+                    placeholder="Confirmation Code"
+                  />
+
+                  <Error className="form-error" name="confirmation_code" />
+                  <div className="buttons">
+                  <button type="submit">Submit</button>
+                    <button onClick={e => this.resendConfirmCode(e)}>Resend Confirmation Code</button>
+                  
+                </div>
+                </div>
+              </form>
+            )}
+          </Form>
         )}
-      </KhozForm>
-      <div className="registerside_img">
-        <img src= {boosting} alt='bossting' />
-      </div>
+        <div className="registerside_img">
+          <img src={boosting} alt="bossting" />
+        </div>
       </div>
     );
   }

@@ -31,7 +31,7 @@
         justify-items: stretch;
     }
     .header + div {
-        padding-top: 118px;
+        padding-top: 104px;
     }
 }
 @media (min-width:768px){
@@ -41,12 +41,16 @@
         grid-template-areas: 
         "logo search_bar user_panel";
     }
+    .search_bar {
+        margin: 5px 0 0 20px;
+
+    }
 }
 
  .logo img {
     object-fit: cover;
     max-height: 100%;
-    max-width: 100%;
+    max-width: 200px;
 
 }
 

@@ -8,7 +8,7 @@ render(){
         <div>
             <Field
                 component="input"
-                className="login-form-field"
+                className="khoz_form_field"
                 name={this.props.name}
                 type={this.props.type}
                 placeholder={this.props.placeholder}

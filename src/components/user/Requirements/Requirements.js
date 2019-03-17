@@ -10,7 +10,7 @@ class Requirements extends Component {
         requirements: null
     }
     componentWillMount() {
-        Axios.authInstance.get(Axios.API.user.getUserRequirementsUrl).then(
+        Axios.authInstance.get(Axios.API.requirement.getUserRequirementsUrl).then(
             response => {
                 if (response.data) {
                     this.setState({requirements: response.data.data.map(item => {

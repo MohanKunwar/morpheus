@@ -10,11 +10,11 @@ const API = {
         getRegisterCodeUrl: '/user',
         confirmCodeUrl: '/user/mobile-confirmation',
         resendConfirmCodeUrl: '/user/mobile-confirmation/resend',
+        getCodeForgotPasswordUrl: '/password/forgot',
+        resetCodeForgotPasswordUrl: '/password/reset',
         logoutUrl: '/user/logout',
         // user actions
         getUserReviewsUrl: '/user/business-reviews',
-        getUserRequirementsUrl: 'user/leads',
-        postUserRequirementUrl: '/leads',
         userDetailsUrl: '/user',
         editProfileUrl: '/user/profile',
         changePasswordUrl: '/user/password'
@@ -28,6 +28,11 @@ const API = {
     },
     business: {
         getBusinessUrl: 'businesses', // id is attached whenever called
+    },
+    requirement: {
+        getUserRequirementsUrl: 'user/leads',
+        getCloseReasonsUrl: '/lead-close-reasons',
+        postUserRequirementUrl: '/leads'
     },
     search: {
         getResults: (type, params) => {

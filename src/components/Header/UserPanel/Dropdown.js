@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./Dropdown.css";
+import { FaAngleDown } from 'react-icons/fa';
 class Dropdown extends Component {
     constructor() {
         super();
@@ -26,8 +27,8 @@ class Dropdown extends Component {
     render() {
         console.log('dropdown log', this.props.user)
         return (
-            <div className="dropdown" >
-                <div className="button" onClick={e => this.showDropdownMenu(e)}> drop</div>
+            <div className="user_dropdown" >
+                <div className="button" onClick={e => this.showDropdownMenu(e)}><FaAngleDown className={'down'} /></div>
                 {
                     this.state.displayMenu
                         ? (
@@ -37,21 +38,20 @@ class Dropdown extends Component {
                                 <span>My Account</span>
                                 <br />
                                 <span>Businessess</span>
-                                {
-                                    this.props.user.businesses && this.props.user.businesses.length > 0 ?
-                                        <div className='user-businesses'>
-                                            {
-                                                this.props.user.businesses.map((business, index) =>
+                                <span>{
+                                    this.props.user.businesses && this.props.user.businesses.length > 0
+                                        ?
+                                        this.props.user.businesses.map((business, index) =>
 
-                                                    <div key={index}>
-                                                    <img src={business.logo} alt={business.name} />
-                                                    {business.name}
-                                                    </div>
-                                                )
-                                            }
-                                        </div>
-                                        : <div></div>
-                                }
+                                            <div className='user-businesses' key={index}>
+                                                <img src={business.logo} alt={business.name} />
+                                                <span>{business.name}</span>
+
+                                            </div>
+                                        )
+                                        :
+                                        null
+                                }</span>
                                 <span onClick={(e) => this.props.logout(e)}>Logout</span>
                             </div>
                         )

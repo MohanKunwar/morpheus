@@ -1,6 +1,6 @@
-.search_bar select, .search_bar button, .search_bar input {
+/* .search_bar select, .search_bar button, .search_bar input {
     display: inline-block;
-}
+} */
 .search_select{
 
     height: 35px;
@@ -20,7 +20,7 @@
 }
 .search-input {
     outline: none;
-    width: calc(70% - 10px);
+    width: 70%;
     border: transparent;
     height: 35px;
     border-top-right-radius: 20px;
@@ -42,4 +42,8 @@
     border: transparent;
     border-radius: 20px;
     padding: 0 10px;
+}
+.search_bar svg {
+    position: absolute;
+    margin: 10px 0 0 -20px;
 }

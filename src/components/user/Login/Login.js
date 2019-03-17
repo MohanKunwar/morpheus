@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Field, Form } from "react-final-form";
+import { Form } from "react-final-form";
 import { Link } from 'react-router-dom';
 import "./Login.css";
 import Axios from '../../../services/Axios';
@@ -8,17 +8,7 @@ import KhozContext from '../../../services/Context';
 import khozlogo from './../../../assets/images/khozlogo.png';
 import boosting from './../../../assets/images/boosting.jpg';
 import Inputfield from "../../../UI/Inputfield/inputfield";
-
-const Error = ({ name }) => (
-  <Field name={name} subscription={{ error: true, touched: true }}>
-    {({ meta: { error, touched } }) =>
-      error && touched ? <span>{error}</span> : null
-    }
-  </Field>
-);
-
-
-
+import Error from '../../../helpers/FormError';
 class Login extends Component {
   state = {
     submitting: false
@@ -40,7 +30,7 @@ class Login extends Component {
         })
       } else {
         console.log('invalid login');
-        this.setState({submitting: false})
+        this.setState({ submitting: false })
       }
 
     });
@@ -57,12 +47,12 @@ class Login extends Component {
               errors.username = 'Username is required'
             } else if (!isNaN(values.username)) {
               if (values.username.toString().length !== 10) {
-                errors.username='invalid phone number'
+                errors.username = 'invalid phone number'
               }
             } else {
               var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
               if (!re.test(values.username)) {
-              errors.username = 'invalid email'
+                errors.username = 'invalid email'
               }
             }
             if (!values.password) {
@@ -78,32 +68,34 @@ class Login extends Component {
                 <h2>Connecting Buyers<br /> & Sellers Digitally</h2>
                 <span>Free forever. No cerdit card needed.</span>
               </div>
-                    <div className="login-form-group">
-                      <label className="login-form-label">Email/Mobile Number</label>
-                      <Inputfield
-                        name={'username'}
-                        type={'text'}
-                        placeholder={'Email/Mobile Number'}
-                      />
-                      <Error classname="form-error" name="username" />
-                    </div>
-                    <div className="login-form-group">
-                      <label className="login-form-label">Password</label>
-                      <Inputfield
-                        name={"password"}
-                        type={"password"}
-                        placeholder={"password"}
-                      />
+              <div className="login-form-group">
+                <label className="login-form-label">Email/Mobile Number</label>
+                <Inputfield
+                  name={'username'}
+                  type={'text'}
+                  placeholder={'Email/Mobile Number'}
+                />
+                <Error classname="form-error" name="username" />
+              </div>
+              <div className="login-form-group">
+                <label className="login-form-label">Password</label>
+                <Inputfield
+                  name={"password"}
+                  type={"password"}
+                  placeholder={"password"}
+                />
 
-                      <Error className="form-error" name="password" />
-                    </div>
-              <div className="forget_password">Forget password ?</div>
+                <Error className="form-error" name="password" />
+              </div>
+              <div className="forget_password">
+                <Link to='/khoz/forgot-password'>Forget password ?</Link>
+              </div>
               <div className="buttons">
                 <button type="submit" disabled={this.state.submitting ? 'disabled' : null}>
-                {
-                  !this.state.submitting ? 'Login' : '...'
-                }
-              </button>
+                  {
+                    !this.state.submitting ? 'Login' : '...'
+                  }
+                </button>
                 <div className="register_click">
                   <Link
                     to='/khoz/register'

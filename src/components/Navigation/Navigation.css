@@ -33,21 +33,14 @@
 .request-btn-nav:hover{
     box-shadow: 0 2px 1px #3a3ca367;
 }
-.nav-links ul{
-    text-decoration: none;
-    list-style-type: none;
-
-}
-.nav-links ul li{
-    padding: 15px 20px 15px;
-    padding-left: 0;
-    display: inline-block;
-}
-
 .nav-item{
     color: #112e51;
     text-decoration: none !important;
     opacity: 0.7;
+    padding: 15px 20px 15px;
+    padding-left: 0;
+    display: inline-block;
+
 }
 .nav-item.active{
     font-weight: 500;

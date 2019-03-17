@@ -13,7 +13,7 @@ class Featured extends Component {
     componentWillMount() {
         // get featured items 
         Axios.instance.get(Axios.API.common.featuredUrl).then(response => {
-            if (response.data) {
+            if (response && response.data) {
                 this.setState({
                     featuredItems: response.data.data
                 })
