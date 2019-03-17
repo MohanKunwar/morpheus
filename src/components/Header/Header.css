@@ -24,14 +24,14 @@
         display: grid;
         grid-row-gap: 10px;
         grid-template-columns: 1fr 1.5fr;
-        grid-template-rows: 1fr 2fr;
+        grid-template-rows: 1fr 1fr;
         grid-template-areas: 
         "logo user_panel user_panel"
         "search_bar search_bar search_bar";
         justify-items: stretch;
     }
     .header + div {
-        padding-top: 118px;
+        padding-top: 104px;
     }
 }
 @media (min-width:768px){
@@ -50,7 +50,7 @@
  .logo img {
     object-fit: cover;
     max-height: 100%;
-    max-width: 100%;
+    max-width: 200px;
 
 }
 

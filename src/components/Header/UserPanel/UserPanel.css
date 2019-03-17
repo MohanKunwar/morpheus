@@ -2,16 +2,18 @@
     color: #fff;
 }
 
-.user_panel > ul {
-    list-style: none;
+.user_panel {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     margin: 0px !important;
 }
-.user_panel > ul li{
-    padding: 0 0 0 12px;
+.user_panel a {
+    margin: 0 12px 0 0;
+    padding: 5px;
     cursor: pointer;
+    color: #fff;
+    text-decoration: none;
 }
 .user_panel > ul li:nth-child(3) img{
     border-radius: 100%;
@@ -21,4 +23,7 @@
 }
 .user_panel span{
     white-space: nowrap;
+}
+.pipe_sign {
+    margin: 0 5px;
 }

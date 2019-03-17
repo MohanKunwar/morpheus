@@ -1,9 +1,30 @@
 .user-dropdown {
-    display: inline-flex;
+    display: block;
     position: absolute;
-    /* right: 0; */
-    max-height: 500px;
-    background: #abcabc;
+    padding: 20px;
+    margin-left: -204px;
+    max-width: 220px;
+    max-height: 300px;
+    background: #c73d2a;
     overflow:scroll;
 
+}
+.user-dropdown>span {
+    display: block;
+}
+.user-businesses {
+    display: -webkit-box;
+    width: max-content;
+    padding: 5px;
+
+}
+
+.user-businesses img {
+    max-width: 20px;
+    border-radius: 10px;
+}
+.user-businesses span {
+    margin: auto 0;
+    white-space: nowrap;
+    padding: 5px;
 }

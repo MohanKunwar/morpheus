@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
+import { FaAngleDoubleDown } from 'react-icons/fa';
 import './searchbar.css';
 class SearchBar extends Component {
     state = {
@@ -40,6 +41,7 @@ class SearchBar extends Component {
                     <option value='room'>Room</option>
                     <option value='product'>Product</option>
                 </select>
+                <FaAngleDoubleDown />
                 <input
                     autoFocus={true}
                     type='text'

@@ -92,15 +92,10 @@ class BusinessContainer extends Component {
                                 <Route path={`${currUrl}/reviews`} component={() => <Reviews reviews={this.state.business.reviews_url} isUserOwner={this.state.isUserOwner} />} />
                                 <Route path={`${currUrl}/deals-in`} component={() => <DealsIn dealsIn={this.state.business.dealsin_url} isUserOwner={this.state.isUserOwner} />} />
                                 {
-<<<<<<< HEAD
                                     this.state.business.feature_enabled.length > 0
                                         ?
                                         this.state.business.feature_enabled.map((item, index) =>
                                             <li key={index}><NavLink to={`${currUrl}/${item}`} className="sidebar_link">{item}</NavLink></li>)
-=======
-                                    this.state.business.feature_enabled.includes('hotel')
-                                        ? <Route path={`${currUrl}/hotel`} component={() => <Hotel dealsIn={this.state.business.dealsin_url} isUserOwner={this.state.isUserOwner} />} />
->>>>>>> added forgot password and migrated form layout
                                         : null
                                 }
                                 {/* <Route path={`${currUrl}/restaurant`} component={() => <Restaurant dealsIn={this.state.business.dealsin_url} />} /> */}

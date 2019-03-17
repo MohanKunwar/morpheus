@@ -43,8 +43,7 @@
     border-radius: 20px;
     padding: 0 10px;
 }
-/* @media (min-width: 768px) {
-    .search-input {
-        width: calc(70% - 30px)
-    }
-} */
+.search_bar svg {
+    position: absolute;
+    margin: 10px 0 0 -20px;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink, Link } from 'react-router-dom';
-
+import { FaHome } from 'react-icons/fa';
 // import Requests from './Requests/Requests';
 import './Navigation.css';
 class Navigation extends Component {
@@ -11,34 +11,20 @@ class Navigation extends Component {
                 <div className='card-container'>
                     <div className='nav-area'>
                         <div className='nav-links'>
-                        <ul>
-                            <li><NavLink to='/' className="nav-item">Home
-                </NavLink></li>
-                           <li><NavLink to='/user/account' className="nav-item">My Account
-                </NavLink></li>
-                            <li><NavLink to='/user/reviews' className="nav-item">Reviews
-                </NavLink></li>
-                <li><NavLink to='/user/requirements' className="nav-item">
-                                My Requirements
-                </NavLink></li>
-                <li><NavLink to='/business/12' className="nav-item">
-                                Business
-                </NavLink></li>
-                </ul>
-
+                            <NavLink to='/' className="nav-item"><FaHome /></NavLink>
+                            <NavLink to='/user/account' className="nav-item">My Account</NavLink>
+                            <NavLink to='/user/reviews' className="nav-item">Reviews</NavLink>
+                            <NavLink to='/user/requirements' className="nav-item">My Requirements</NavLink>
+                            <NavLink to='/business/12' className="nav-item">Business</NavLink>
                         </div>
                         <div className='request_btn'>
                             <Link to='/user/request'>
                                 <span className='request-btn-nav'>Request Product/Service</span>
                             </Link>
                         </div>
-
                     </div>
-
-                    {/* <Requests
-                        show={this.state.showRequestModal} /> */}
-                </div>
-                </div>
+                </div >
+            </div >
         );
     }
 }
