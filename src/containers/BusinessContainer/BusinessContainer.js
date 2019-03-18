@@ -7,12 +7,14 @@ import Header from './Header/Header';
 import DealsIn from './DealsIn/DealsIn';
 import Photos from './Photos/Photos';
 import Reviews from './Reviews/Reviews';
+import {FaMapMarkerAlt, FaRegEnvelope,FaGlobeAsia, FaPhone} from 'react-icons/fa';
 
 // import BusinessView from '../../components/BusinessView';
 
 import Hotel from './features/Hotel';
 import './Business.css';
 import Spinner from '../../helpers/Spinner';
+
 
 class BusinessContainer extends Component {
     state = {
@@ -64,7 +66,7 @@ class BusinessContainer extends Component {
         //     return (<div>Something went wrong! 404 page from Business Profile</div>);
         // }
         return (
-
+            <div className="business_container">
             <div className='card-container'>
                 {this.state.business ?
                     <React.Fragment>
@@ -81,7 +83,7 @@ class BusinessContainer extends Component {
                                         this.state.business.feature_enabled.length > 0
                                             ?
                                             this.state.business.feature_enabled.map((item, index) =>
-                                                <li key={index}><NavLink to={`${currUrl}/${item}`}>{item}</NavLink></li>)
+                                                <li key={index}><NavLink to={`${currUrl}/${item}`} className="sidebar_link">{item}</NavLink></li>)
                                             : null
                                     }
                                 </ul>
@@ -103,12 +105,12 @@ class BusinessContainer extends Component {
                             </Switch>
                             <div className='overview-contact'>
                                 google api integration
-                                <p>{this.state.business.address}</p>
-                                <p>{this.state.business.email}</p>
+                                <p className="overview_address"><FaMapMarkerAlt className="overview-icon" /> {this.state.business.address}</p>
+                                <p className="overview_email"><FaRegEnvelope className="overview-icon" /> {this.state.business.email}</p>
                                 {/* // todo
                         // check if user logged in for phone number and hours */}
-                                <p>{this.state.business.mobile_number}</p>
-                                <p>{this.state.business.website}</p>
+                                <p className="overview_mobile_number"><FaPhone className="overview-icon" /> {this.state.business.mobile_number}</p>
+                                <p className="overview_website"><FaGlobeAsia className="overview-icon" /> {this.state.business.website}</p>
                                 <div className='overview-rating'>
                                     <p>{this.state.business.rating_avg} rating {this.state.business.review_count} reviews</p>
                                 </div>
@@ -118,6 +120,7 @@ class BusinessContainer extends Component {
                     </React.Fragment>
                     : <Spinner />
                 } </div>
+                </div>
 
         )
     }

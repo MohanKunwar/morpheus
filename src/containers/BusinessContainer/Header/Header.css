@@ -1,10 +1,14 @@
 .card-business-header {
     display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-gap: 30px;
+    grid-template-columns: 1fr 7fr;
+    grid-gap: 20px;
+    color: #112e51;
 }
 .business-logo {
     width: 100%;
+}
+.business-info{
+    margin: auto 0;
 }
 .business-header-right {
     display: grid;
@@ -19,4 +23,33 @@
 .social-icons {
      width:33%;
     padding: 5px; 
+}
+.business-image{
+    border-radius: 50%;
+    overflow: hidden;
+    height: 130px;
+    width: 130px;
+}
+.business-image img{
+    width: 100%;
+}
+.business-title{
+    font-size: 21px;
+    font-weight: 800;
+}
+.business-address{
+    font-size: 14px;
+    opacity: 0.8;
+}
+.business_view_count{
+    font-size: 13px;
+}
+.business-category{
+    font-size: 13px;
+    text-decoration: none;
+    color: #112e51;
+    padding-top: 5px;
+}
+.business_rating{
+    font-size: 13px;
 }
