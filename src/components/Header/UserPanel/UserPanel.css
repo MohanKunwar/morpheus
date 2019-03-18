@@ -8,18 +8,12 @@
     align-items: center;
     margin: 0px !important;
 }
-.user_panel a {
+.user_panel a{
     margin: 0 12px 0 0;
     padding: 5px;
     cursor: pointer;
     color: #fff;
     text-decoration: none;
-}
-.user_panel > ul li:nth-child(3) img{
-    border-radius: 100%;
-    /* object-fit: cover; */
-    width: 40px;
-    height: 40px;
 }
 .user_panel span{
     white-space: nowrap;

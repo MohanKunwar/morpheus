@@ -27,23 +27,21 @@ class Dropdown extends Component {
     render() {
         console.log('dropdown log', this.props.user)
         return (
-            <div className="user_dropdown" >
-                <div className="button" onClick={e => this.showDropdownMenu(e)}><FaAngleDown className={'down'} /></div>
+            <div className="user-dropdown">
+                <div className="user-dropdown-button" onClick={e => this.showDropdownMenu(e)}><FaAngleDown className={'down'} /></div>
                 {
                     this.state.displayMenu
                         ? (
-                            <div className='user-dropdown'>
-                                <span>Hi {this.props.user.name} </span>
-                                <br />
-                                <span>My Account</span>
-                                <br />
-                                <span>Businessess</span>
-                                <span>{
+                            <div className='user-dropdown-list'>
+                                <div><p>Hi {this.props.user.name}</p></div>
+                                <div id="myaccount"><p>My Account</p></div>
+                                <div><p>Businessess</p></div>
+                                <div className="user-business-list">{
                                     this.props.user.businesses && this.props.user.businesses.length > 0
                                         ?
                                         this.props.user.businesses.map((business, index) =>
 
-                                            <div className='user-businesses' key={index}>
+                                            <div className='user-business' key={index}>
                                             {
                                                 business.logo 
                                                 ? <img src={business.logo} alt={business.name} />
@@ -54,8 +52,8 @@ class Dropdown extends Component {
                                         )
                                         :
                                         null
-                                }</span>
-                                <span onClick={(e) => this.props.logout(e)}>Logout</span>
+                                }</div>
+                                <div onClick={(e) => this.props.logout(e)}>Logout</div>
                             </div>
                         )
                         : null
