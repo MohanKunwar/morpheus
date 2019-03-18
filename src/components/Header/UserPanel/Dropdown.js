@@ -33,8 +33,12 @@ class Dropdown extends Component {
                     this.state.displayMenu
                         ? (
                             <div className='user-dropdown-list'>
-                                <div><p>Hi {this.props.user.name}</p></div>
-                                <div id="myaccount"><p>My Account</p></div>
+                                <div><p className="disabled">Hi {this.props.user.name}</p></div>
+                                <div id="myaccount">
+                                <img src={require("../../../assets/images/user.svg")} alt="user svg" />
+                                <p>My Account</p>
+                                </div>
+                                <hr style={{marginTop: "3px", marginBottom: "10px"}}/>
                                 <div><p>Businessess</p></div>
                                 <div className="user-business-list">{
                                     this.props.user.businesses && this.props.user.businesses.length > 0
@@ -45,7 +49,7 @@ class Dropdown extends Component {
                                             {
                                                 business.logo 
                                                 ? <img src={business.logo} alt={business.name} />
-                                                : null // placeholder business image
+                                                : <img id="default-business" src={require("../../../assets/images/default-business.svg")} alt={business.name} />
                                             }
                                                 <span>{business.name}</span>
                                             </div>
@@ -53,7 +57,8 @@ class Dropdown extends Component {
                                         :
                                         null
                                 }</div>
-                                <div onClick={(e) => this.props.logout(e)}>Logout</div>
+                                <hr style={{marginTop: "8px", marginBottom: "6px"}}/>
+                                <div onClick={(e) => this.props.logout(e)}><p>Logout</p></div>
                             </div>
                         )
                         : null
