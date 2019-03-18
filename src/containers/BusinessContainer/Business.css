@@ -6,8 +6,14 @@
 }
 .card-business-body {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 3fr;
     grid-gap: 15px;
+    margin-top: 15px;
+}
+.business_body{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
 }
 .side-bar ul {
     list-style: none;
@@ -67,4 +73,27 @@
 }
 .overview-contact .overview-icon{
     vertical-align: middle;
+    opacity: 1;
+}
+.overview-rating{
+    text-align: center;
+}
+.overview-rating .overview_star{
+    width: 130px;
+    height: 130px;
+}
+.average_rating{
+    margin-top: -95px;
+    color: #ffffff;
+    font-size: 20px;
+}
+.average_rating_text{
+    padding-top: 30px;
+    font-weight: 600;
+    opacity: 1;
+}
+@media (max-width: 768px){
+    .business_body{
+        grid-template-columns: 1fr;
+    }
 }

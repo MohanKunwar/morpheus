@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import './Header.css';
 import Img from 'react-image';
 import star from './../../../assets/images/ratings.svg';
-import facebook from './../../../assets/images/facebook.svg';
 
 const Stars = () =>{
     return(
@@ -15,7 +14,7 @@ const GetIcon = props => {
     console.log('url for icons', props.url);
     const url = props.url;
     if (url.includes('facebook')) {
-        return (<Img src={require({facebook})}
+        return (<Img src={require('./../../../assets/images/facebook.svg')}
             alt="facebook" className="social-icons" onClick={() => window.open(url)} />);
     }
     if (url.includes('twitter')) {
@@ -39,7 +38,7 @@ const Header = (props) => {
         }
         header = (
             <div className='card-business-header'>
-                <div className='business-image'>
+                <div className='business-profile-image'>
                     <Img className='business-logo' src={props.business.logo} alt={props.business.name} />
                     {
                         props.isUserOwner
@@ -66,7 +65,8 @@ const Header = (props) => {
                         {props.business.view_count} views</p>
                         <p className="business_rating">
                         <Stars />
-                        {props.business.rating_avg} rating {props.business.review_count} reviews</p>
+                        {props.business.rating_avg} rating 
+                        <Link to={`./reviews`} className="review_link">{props.business.review_count} reviews</Link></p>
                     </div>
                     <div className='business-social'>
                         <div className='social-links'>
@@ -77,7 +77,7 @@ const Header = (props) => {
                                     : null
                             }
                         </div>
-                        <p>Report</p>
+                        <p className="business_report">Report</p>
                     </div>
                 </div>
             </div>

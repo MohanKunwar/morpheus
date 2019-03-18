@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
-import { FaAngleDoubleDown } from 'react-icons/fa';
+import { FaAngleDoubleDown, FaSistrix } from 'react-icons/fa';
 import './searchbar.css';
 class SearchBar extends Component {
     state = {
@@ -41,7 +41,7 @@ class SearchBar extends Component {
                     <option value='room'>Room</option>
                     <option value='product'>Product</option>
                 </select>
-                <FaAngleDoubleDown />
+                <FaAngleDoubleDown className="searchbar_doubledown" />
                 <input
                     autoFocus={true}
                     type='text'
@@ -51,7 +51,7 @@ class SearchBar extends Component {
                     placeholder='Hotel, Cafe, Hardware'
                 // placeholder="f002"
                 />
-                <button type='submit' onClick={e => this.gotoSearch(e)} className="searchbar_submit">Search</button>
+                <button type='submit' onClick={e => this.gotoSearch(e)} className="searchbar_submit"><FaSistrix className="search-fa_icon"/></button>
 
             </div>
         );

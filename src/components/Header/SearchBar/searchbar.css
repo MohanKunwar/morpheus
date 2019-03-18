@@ -35,15 +35,23 @@
    
 }
 .searchbar_submit{
-    margin-left: -65px;
-    height: 30px;
+    margin-left: -50px;
+    height: 28px;
     background: #112e51;
     color: #ffffff;
     border: transparent;
     border-radius: 20px;
-    padding: 0 10px;
+    padding: 5px 10px;
+    width: 45px;
+    vertical-align: middle;
+    outline: none;
 }
-.search_bar svg {
+.search_bar .searchbar_doubledown {
     position: absolute;
     margin: 10px 0 0 -20px;
+}
+.search-fa_icon{
+    position: static;
+    margin: 0;
+    font-size: 20px;
 }

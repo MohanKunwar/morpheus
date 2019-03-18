@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
+import { Switch, Route, NavLink, Redirect, Link } from 'react-router-dom';
 import KhozContext from '../../services/Context';
 import Axios from '../../services/Axios';
 import Overview from './Overview/Overview';
@@ -8,6 +8,8 @@ import DealsIn from './DealsIn/DealsIn';
 import Photos from './Photos/Photos';
 import Reviews from './Reviews/Reviews';
 import {FaMapMarkerAlt, FaRegEnvelope,FaGlobeAsia, FaPhone} from 'react-icons/fa';
+import Img from 'react-image';
+import star from './../../assets/images/ratings.svg';
 
 // import BusinessView from '../../components/BusinessView';
 
@@ -88,6 +90,7 @@ class BusinessContainer extends Component {
                                     }
                                 </ul>
                             </div>
+                            <div className="business_body">
                             <Switch>
                                 <Route path={`${currUrl}/overview`} component={() => <Overview business={this.state.business} isUserOwner={this.state.isUserOwner} />} />
                                 <Route path={`${currUrl}/photos`} component={() => <Photos photos={this.state.business.photos_url} isUserOwner={this.state.isUserOwner} />} />
@@ -112,10 +115,13 @@ class BusinessContainer extends Component {
                                 <p className="overview_mobile_number"><FaPhone className="overview-icon" /> {this.state.business.mobile_number}</p>
                                 <p className="overview_website"><FaGlobeAsia className="overview-icon" /> {this.state.business.website}</p>
                                 <div className='overview-rating'>
-                                    <p>{this.state.business.rating_avg} rating {this.state.business.review_count} reviews</p>
+                                <Img src={star} className="overview_star" />
+                                    <div className="average_rating">{this.state.business.rating_avg}</div>
+                                    <p className="average_rating_text">Average Rating</p> 
+                                    <p><Link to={`${currUrl}/reviews`} className="review_link">{this.state.business.review_count} reviews</Link></p>
                                 </div>
                             </div>
-
+                            </div>
                         </div>
                     </React.Fragment>
                     : <Spinner />

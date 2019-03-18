@@ -1,5 +1,6 @@
 .business-overview {
     display: grid;
+    color: #112e51;
 }
 .overview-body {
     display: grid;
@@ -8,4 +9,12 @@
 }
 .business-cover {
     width: 100%;
+}
+.overview-body .overview_heading{
+    padding-top: 20px;
+    font-weight: 700;
+}
+.overview-body .overview_dec{
+    font-size: 15px;
+    opacity: 0.7;
 }
