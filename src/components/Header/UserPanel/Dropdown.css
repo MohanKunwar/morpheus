@@ -24,6 +24,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    font-weight: bold;
 
 }
 #myaccount img{
