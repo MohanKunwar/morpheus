@@ -18,6 +18,10 @@
 .user_panel span{
     white-space: nowrap;
 }
+.user_panel img {
+    width: 20px;
+    border-radius: 10px;
+}
 .pipe_sign {
     margin: 0 5px;
 }

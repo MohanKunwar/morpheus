@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserService from './services/User';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import KhozContext from './services/Context';
 import Axios from './services/Axios';
 
@@ -39,7 +39,8 @@ class App extends Component {
                         break
                       }
                       case 401: {
-                        this.props.history.push('/login')
+                        this.setState({noUser: true})
+                        this.props.history.push('/khoz/login')
                         break
                       }
                       default: {
@@ -88,4 +89,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
