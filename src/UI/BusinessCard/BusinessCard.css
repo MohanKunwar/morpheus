@@ -24,7 +24,8 @@
     padding: 10px 15px 20px 15px;
 }
 .business_img_container{
-    height: 180px;
+    height: auto;
+    min-height: 180px;
     overflow: hidden;
 }
 .business_img_container img{

@@ -1,21 +1,23 @@
 import React from "react";
 import './WellCards.css';
+import {FaBuilding, FaUtensils, FaFacebookF} from 'react-icons/fa';
 const WellCards = (props) => {
   return (
     <div className="well-cards">
       <div className="well-card">
-        {/* <img src=''></img> */}
-        <span className="well-card-text">
+        <div className="wellcard-hotel-icon"><FaBuilding /></div>
+        <div className="well-card-text">
           Hotel Booking
-        </span>
+        </div>
       </div>
       <div className="well-card">
-        <span className='well-card-text'>
+      <div className="wellcard-food-icon"><FaUtensils /></div>
+        <div className='well-card-text'>
           Food Ordering
-        </span>
+        </div>
       </div>
       <div className="well-card">
-        {/* <img src=''></img> */}
+        <div className="wellcard-facebook-icon"><FaFacebookF /></div>
         <span className="well-card-text">Facebook Boosting</span>
       </div>
     </div>
