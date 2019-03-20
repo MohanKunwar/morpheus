@@ -27,35 +27,38 @@ class Dropdown extends Component {
     render() {
         console.log('dropdown log', this.props.user)
         return (
-            <div className="user_dropdown" >
-                <div className="button" onClick={e => this.showDropdownMenu(e)}><FaAngleDown className={'down'} /></div>
+            <div className="user-dropdown">
+                <div className="user-dropdown-button" onClick={e => this.showDropdownMenu(e)}><FaAngleDown className={'down'} /></div>
                 {
                     this.state.displayMenu
                         ? (
-                            <div className='user-dropdown'>
-                                <span>Hi {this.props.user.name} </span>
-                                <br />
-                                <span>My Account</span>
-                                <br />
-                                <span>Businessess</span>
-                                <span>{
+                            <div className='user-dropdown-list'>
+                                <div><p className="disabled">Hi {this.props.user.name}</p></div>
+                                <div id="myaccount">
+                                <img src={require("../../../assets/images/user.svg")} alt="user svg" />
+                                <p>My Account</p>
+                                </div>
+                                <hr style={{marginTop: "3px", marginBottom: "10px"}}/>
+                                <div><p>Businessess</p></div>
+                                <div className="user-business-list">{
                                     this.props.user.businesses && this.props.user.businesses.length > 0
                                         ?
                                         this.props.user.businesses.map((business, index) =>
 
-                                            <div className='user-businesses' key={index}>
+                                            <div className='user-business' key={index}>
                                             {
                                                 business.logo 
                                                 ? <img src={business.logo} alt={business.name} />
-                                                : null // placeholder business image
+                                                : <img id="default-business" src={require("../../../assets/images/default-business.svg")} alt={business.name} />
                                             }
                                                 <span>{business.name}</span>
                                             </div>
                                         )
                                         :
                                         null
-                                }</span>
-                                <span onClick={(e) => this.props.logout(e)}>Logout</span>
+                                }</div>
+                                <hr style={{marginTop: "8px", marginBottom: "6px"}}/>
+                                <div onClick={(e) => this.props.logout(e)}><p>Logout</p></div>
                             </div>
                         )
                         : null
