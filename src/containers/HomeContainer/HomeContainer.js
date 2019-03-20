@@ -32,36 +32,33 @@ class HomeContainer extends Component {
                 this.setState({ recentlyAddedItems: response.data.data })
             }
         })
+        Axios.instance.get(Axios.API.common.getBannersUrl).then(response => {
+            if (response && response.data) {
+                this.setState({ banners: response.data.data })
+            }
+        })
     }
 
     render() {
         return (
-            this.state.featuredItems && this.state.recentlyAddedItems
+            this.state.featuredItems && this.state.recentlyAddedItems && this.state.banners
                 ?
                 (<div className='home-container'>
                     <Banner />
                     <div className='card-container'>
-                        <div className='home-area'>
-
-                            <WellCards />
-                            <div className='page-grid'>
-                                <div className='left-grid-mobile'>
-                                    <p>mobile text for categories</p>
-                                </div>
-                                <div className='left-grid'>
-                                    <div className="categories-container">
-                                        <Categories />
-                                    </div>
-                                    <RequestCard />
-                                </div>
-                                <div className='middle-grid'>
-                                    <FilteredBusinesses title='Featured' items={this.state.featuredItems} />
-                                    <FilteredBusinesses title='Recently Added' items={this.state.recentlyAddedItems} />
-                                </div>
-                                <div className='right-grid'>
-                                    <InfoBarCards hotelBooked='345' foodOrdered='2345' servicesRequested='6543' />
-                                    <ServicesInfo />
-                                </div>
+                        <WellCards />
+                        <div className='page-grid'>
+                            <div className='left-grid'>
+                                <Categories />
+                                <RequestCard />
+                            </div>
+                            <div className='middle-grid'>
+                                <FilteredBusinesses title='Featured' items={this.state.featuredItems} />
+                                <FilteredBusinesses title='Recently Added' items={this.state.recentlyAddedItems} />
+                            </div>
+                            <div className='right-grid'>
+                                <InfoBarCards hotelBooked='345' foodOrdered='2345' servicesRequested='6543' />
+                                <ServicesInfo />
                             </div>
                         </div>
                     </div>
@@ -73,3 +70,26 @@ class HomeContainer extends Component {
 
 }
 export default HomeContainer;
+
+{/* <div className='card-container'>
+                        <WellCards />
+                        <div className='page-grid'>
+                            <div className='left-grid-mobile'>
+                                <p>mobile text for categories</p>
+                            </div>
+                            <div className='left-grid'>
+                                <div className="categories-container">
+                                    <Categories />
+                                </div>
+                                <RequestCard />
+                            </div>
+                            <div className='middle-grid'>
+                                <FilteredBusinesses title='Featured' items={this.state.featuredItems} />
+                                <FilteredBusinesses title='Recently Added' items={this.state.recentlyAddedItems} />
+                            </div>
+                            <div className='right-grid'>
+                                <InfoBarCards hotelBooked='345' foodOrdered='2345' servicesRequested='6543' />
+                                <ServicesInfo />
+                            </div>
+                        </div>
+                    </div> */}

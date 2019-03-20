@@ -2,17 +2,17 @@ import React from 'react';
 import './Review.css';
 import Img from 'react-image';
 import star from './../../assets/images/ratings.svg';
-import DropdownToggle from './dropdown/dropdown'; 
+import DropdownToggle from './dropdown/dropdown';
 
 export const Star = (props) => {
     const starrating = props.rate;
-    let stars =[];
-    for(let i=0; i<starrating; i++){
-        stars.push(<Img key={i} src={star} 
-            className= "star-css" 
-            />);
+    let stars = [];
+    for (let i = 0; i < starrating; i++) {
+        stars.push(<Img key={i} src={star}
+            className="star-css"
+        />);
     }
-    return(
+    return (
         <span>{stars}</span>
     )
 }
@@ -36,31 +36,34 @@ const Review = (props) => {
         photoUrl = review.business.logo
         name = `You reviewed on ${review.business.name}`
     }
-
-    console.log('review props', props)
     return (
         <div className="review-container">
             <div className="review-header">
                 {/* user review or business reviews check
                 todo */}
                 <div className="review_image">
-                <ProfileImage photoUrl={photoUrl} />
+                    <ProfileImage photoUrl={photoUrl} />
                 </div>
                 <div className="review_on_name">
-                <div className="review_name">
-                {name}</div>
-                <div className="review_date">{props.review.created_at}</div>
+                    <div className="review_name">{name}</div>
+                    <div className="review_date">{props.review.created_at}</div>
                 </div>
-                <div className='review-crud'>
-                <DropdownToggle />
-                </div>
+                {
+                    props.edit
+                        ?
+                        <div className='review-crud'>
+                            <DropdownToggle />
+                        </div>
+                        :
+                        null
+                }
             </div>
             <div className='review-rating'>
-            <Star rate={props.review.rating}/> {props.review.rating}
-            {/* <Star review={props.review.rating}/> */}
+                <Star rate={props.review.rating} /> {props.review.rating}
+                {/* <Star review={props.review.rating}/> */}
             </div>
             <div className='review-body'>
-                    {props.review.body}
+                {props.review.body}
             </div>
         </div>
     )

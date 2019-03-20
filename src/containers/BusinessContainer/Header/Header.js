@@ -13,6 +13,7 @@ const Stars = () =>{
 const GetIcon = props => {
     console.log('url for icons', props.url);
     const url = props.url;
+<<<<<<< HEAD
     if (url.includes('facebook')) {
         return (<Img src={require('./../../../assets/images/facebook.svg')}
             alt="facebook" className="social-icons" onClick={() => window.open(url)} />);
@@ -25,12 +26,28 @@ const GetIcon = props => {
         return (<img src={require('./../../../assets/images/instagram.svg')}
             alt="instagram" className="social-icons" onClick={() => window.open(url)} />);
     }
+=======
+    // if (url.includes('facebook')) {
+    //     return (<Img src={require({facebook})}
+    //         alt="facebook" className="social-icons" onClick={() => window.open(url)} />);
+    // }
+    // if (url.includes('twitter')) {
+    //     return (<img src={require('./../../../assets/images/twitter.svg')}
+    //         alt="twitter" className="social-icons" onClick={() => window.open(url)} />);
+    // }
+    // if (url.includes('instagram')) {
+    //     return (<img src={require('./../../../assets/images/instagram.svg')}
+    //         alt="instagram" className="social-icons" onClick={() => window.open(url)} />);
+    // }
+    return null
+>>>>>>> reviews edit
 }
 
 const Header = (props) => {
-    console.log('heaer props', props);
     let header = null; let socialLinks = null;
     if (props.business !== null) {
+
+    console.log('heaer props', props);
         if (props.business.social_links.length > 0) {
             socialLinks = props.business.social_links.map((link, index) => {
                 return (<GetIcon key={index} url={link} />)

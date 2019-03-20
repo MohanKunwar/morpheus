@@ -30,7 +30,8 @@ class UserReviews extends Component {
                         this.state.reviews.map((review, index) =>
                             <Review
                                 key={index}
-                                review={review} />
+                                review={review}
+                                edit={true} />
                         )
                         : <Spinner />
                 }
