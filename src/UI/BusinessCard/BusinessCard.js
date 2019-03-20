@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import star from './../../assets/images/ratings.svg';
 import './BusinessCard.css';
 
-const Star = (props) => {
+const Star = () => {
     const rating = 5;
     let stars =[];
     for(let i=0; i<rating; i++){
@@ -30,17 +30,18 @@ class BusinessCard extends Component {
                     </div>
                 <div className='business-card-info'>
                 <Link className='search-item' key={this.props.index} to={`/business/${this.props.business.slug}`}>
-                    <h5 
+                    <div className="hover_business"><p 
                     onClick={this.props.business.businessUrl}
                     className="budiness_heading">
-                    {this.props.business.slug}</h5></Link>
+                    {this.props.business.slug}</p></div></Link>
                     <div className="business_address">
                     <Link className='search-item' key={this.props.index} to={`/business/${this.props.business.slug}`}>
-                    {this.props.business.address}</Link></div>
+                    {this.props.business.address}</Link>
+                    <p className='business_location'>{this.props.business.location.name}</p>
+                    </div>
                     <p 
                     onClick={this.props.business.categoryUrl}
                     className="business_categories">{this.props.business.category.name}</p>
-                    <p className='business_location'>{this.props.business.location.name}</p>
                     <p className="business_view">{this.props.business.view_count} views</p>
                     <p className="business_rating"><Star business={this.props.business.rating_avg}/></p>
                     <p className="business_review">{this.props.business.review_count} reviews</p>

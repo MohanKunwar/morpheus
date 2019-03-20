@@ -1,6 +1,6 @@
 .business-card {
     border: 1px solid rgba(128, 128, 128, 0.3);
-    color: rgb(22, 74, 185);
+    color: rgba(65, 92, 161, 0.8);
     flex: auto;
     box-shadow: 0 1px 2px 0 rgba(128, 128, 128, 0.2), 0 1px 2px 0 rgba(128, 128, 128, 0.19);
 }
@@ -11,6 +11,7 @@
 .search-item{
     white-space: normal;
     text-decoration: none !important;
+    color: rgba(65, 92, 161, 0.9);
 }
 .business-card:hover{
     box-shadow: 0 2px 4px 0 rgba(128, 128, 128, 0.2), 0 2px 4px 0 rgba(128, 128, 128, 0.19);
@@ -36,18 +37,55 @@
 
 }
 .business-card-info .budiness_heading{
+    font-weight: 700;
     opacity: .9;
     margin-bottom: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
+.hover_business:hover{
+    overflow: hidden;
+}
+.budiness_heading:hover{
+    overflow: visible;
+    white-space: nowrap;
+    text-overflow: none;
+    margin-left: 100%;
+    animation: scroll-left 5s linear infinite;
+    transition-delay: 2s;
+    }
+    @keyframes scroll-left {
+    0%   { 
+    margin-left: 0%; 		
+    }
+    100% { 
+    margin-left: -100%; 
+    }
+    }
+
 .business-card-info .business_address{
     font-size: 12px;
-    min-height: 40px;
-    padding-top: 0;
-    opacity: 0.5;
+    color: rgba(65, 92, 161, 0.8);
+    margin-top: 8px;
+    min-height: 32px;
+    overflow: hidden;
+    
+}
+/* .business_address .search-item{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+} */
+.business_address .search-item::after{
+    content: ', ';
+}
+.business_address .business_location{
+    display: inline;
 }
 .business-card-info .business_categories{
     font-size: 12px;
-    opacity: 0.7;
+    opacity: 1;
     padding-left: 1%;
     font-weight: 500;
 }
@@ -57,10 +95,11 @@
 .business_review{
     display: inline;
     padding-left: 10px;
-    opacity: 0.8;
-}
-.business_view, .business_review{
     font-size: 12px
+}
+.business_view{
+    font-size: 12px;
+    padding: 5px 1%;
 }
 button{
     cursor: pointer;
