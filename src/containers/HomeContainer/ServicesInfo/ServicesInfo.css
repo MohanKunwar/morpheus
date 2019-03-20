@@ -1,31 +1,110 @@
 .services-info {
     display: grid;
-    margin-top: 10px;
+    margin-top: 20px;
 
 }
-.services-info-card {
+.servicesinfo-facebook-card, .servicesinfo-hotel-card, .servicesinfo-food-card{
     position: relative;
+    padding-top: 10px;
+    height: 300px;
+    border-radius: 2px;
 }
-.sevices-info-card img {
+.servicesinfo-facebook-card img, .services-info-card img, .servicesinfo-food-card img {
     width: 100%;
 }
-.card-overlay-text {
+.card-overlay-facebook-text, .card-overlay-food-text, .card-overlay-hotel-text {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    color: #fff;
-}
-.info-card-white-heading {
-    color: #0e0909;
-}
-.info-card-white-btn {
-    background: #fff;
-    color: #000;
 }
 
-.info-card-blue-heading {
-    color: #0505a0;
+/* facebook boosting */
+.servicesinfo-facebook-card{
+    border: 1px solid rgba(219, 224, 229, 0.5);
+    color: #20438E;
 }
-.info-card-blue-btn {
-  background: #0505a0;
+.card-overlay-facebook-text{
+    bottom: 0;
+    margin-bottom: 20px;
+    margin-left: 13px;
+    width: 100%;
+}
+.info-card-facebook-btn{
+    width: 90%;
+    height: 35px;
+    border: transparent;
+    color: #ffffff;
+    font-size: 15px;
+    border-radius: 3px;
+    background: #20438E;
+}
+.info-card-facebook-heading{
+    padding-bottom: 15px;
+    font-weight: 700;
+}
+.info-card-facebook-text{
+    font-size: 14px;
+    opacity: 0.7;
+    padding-bottom: 20px;
+}
+
+/* hotel booking */
+.servicesinfo-hotel-card{
+    background: #20438E;
+    margin-top: 20px;
+}
+.card-overlay-hotel-text{
+    bottom: 0;
+    margin-bottom: 20px;
+    margin-left: 13px;
+    width: 100%;
+}
+.card-overlay-hotel-text .info-card-hotel-btn{
+    width: 90%;
+    height: 35px;
+    border: transparent;
+    color: #20438E;
+    font-size: 15px;
+    border-radius: 3px;
+    background: #fff;
+}
+.card-overlay-hotel-text .info-card-white-heading{
+    padding-bottom: 15px;
+    color: #fff;
+    font-weight: 700;
+}
+.card-overlay-hotel-text .info-card-hotel-text{
+    font-size: 14px;
+    opacity: 0.7;
+    padding-bottom: 20px;
+    color: #fff;
+}
+
+/* food order */
+.servicesinfo-food-card{
+    border: 1px solid rgba(219, 224, 229, 0.5);
+    margin-top: 20px;
+    color: #20438E;
+}
+.card-overlay-food-text{
+    bottom: 0;
+    margin-bottom: 20px;
+    margin-left: 13px;
+    width: 100%;
+}
+.info-card-food-btn{
+    width: 90%;
+    height: 35px;
+    border: transparent;
+    color: #ffffff;
+    font-size: 15px;
+    border-radius: 3px;
+    background: #20438E;
+}
+.info-card-food-heading{
+    padding-bottom: 15px;
+    font-weight: 700;
+}
+.info-card-food-text{
+    font-size: 14px;
+    opacity: 0.7;
+    padding-bottom: 20px;
 }
