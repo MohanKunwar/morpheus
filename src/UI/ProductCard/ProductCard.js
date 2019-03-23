@@ -11,9 +11,9 @@ class ProductCard extends Component {
             </div>
             <div className='product-card-info'>
             <Link className='search-item' key={this.props.index} to={`/product/${this.props.product.slug}`}>
-            <h5 className="product_heading">
+            <div className="hover_product"><p className="product_heading">
             {this.props.product.name}
-            </h5></Link>
+            </p></div></Link>
             <div className="product_price">
             Rs. {this.props.product.price}
             </div>

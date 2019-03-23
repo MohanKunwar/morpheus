@@ -24,14 +24,38 @@
 .product_heading{
     opacity: .9;
     margin-bottom: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 700;
+}
+.hover_product{
+    overflow: hidden;
+}
+.product_heading:hover{
+    overflow: visible;
+    white-space: nowrap;
+    text-overflow: none;
+    margin-left: 100%;
+    animation: scroll-left 5s linear infinite;
+    }
+    @keyframes scroll-left {
+    0%   { 
+    margin-left: 0%; 		
+    }
+    100% { 
+    margin-left: -100%; 
+    }
 }
 .product_price{
     opacity: 0.6;
     font-size: 14px;
+    padding: 8px 0;
 }
 .product_business_name{
     font-size: 13px;
     width: auto;
+    margin-bottom: 5px;
 }
 .search-item{
     white-space: normal;
