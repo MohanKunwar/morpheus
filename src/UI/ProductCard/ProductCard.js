@@ -7,7 +7,13 @@ class ProductCard extends Component {
         return (
             <div className='product-card'>
             <div className='product-img-container'>
-            <img  src={this.props.product.photo} alt={this.props.product.name} />
+            {
+                this.props.product.photo
+                ?
+                <img  src={this.props.product.photo} alt={this.props.product.name} />
+                :
+                <img src={require('../../assets/images/khoz-ph.jpg')} alt={this.props.product.name} />
+            }
             </div>
             <div className='product-card-info'>
             <Link className='search-item' key={this.props.index} to={`/product/${this.props.product.slug}`}>

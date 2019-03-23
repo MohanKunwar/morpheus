@@ -13,34 +13,24 @@ const Stars = () =>{
 const GetIcon = props => {
     console.log('url for icons', props.url);
     const url = props.url;
-<<<<<<< HEAD
     if (url.includes('facebook')) {
         return (<Img src={require('./../../../assets/images/facebook.svg')}
             alt="facebook" className="social-icons" onClick={() => window.open(url)} />);
-    }
-    if (url.includes('twitter')) {
+    } else if (url.includes('twitter')) {
         return (<img src={require('./../../../assets/images/twitter.svg')}
             alt="twitter" className="social-icons" onClick={() => window.open(url)} />);
-    }
-    if (url.includes('instagram')) {
+    } else if (url.includes('instagram')) {
+        return (<img src={require('./../../../assets/images/instagram.svg')}
+            alt="instagram" className="social-icons" onClick={() => window.open(url)} />);
+    } else if (url.includes('tripadvisor')) {
+        // todo tripadvisor image
+        return (<img src={require('./../../../assets/images/instagram.svg')}
+            alt="instagram" className="social-icons" onClick={() => window.open(url)} />);
+    } else {
+        // todo website image
         return (<img src={require('./../../../assets/images/instagram.svg')}
             alt="instagram" className="social-icons" onClick={() => window.open(url)} />);
     }
-=======
-    // if (url.includes('facebook')) {
-    //     return (<Img src={require({facebook})}
-    //         alt="facebook" className="social-icons" onClick={() => window.open(url)} />);
-    // }
-    // if (url.includes('twitter')) {
-    //     return (<img src={require('./../../../assets/images/twitter.svg')}
-    //         alt="twitter" className="social-icons" onClick={() => window.open(url)} />);
-    // }
-    // if (url.includes('instagram')) {
-    //     return (<img src={require('./../../../assets/images/instagram.svg')}
-    //         alt="instagram" className="social-icons" onClick={() => window.open(url)} />);
-    // }
-    return null
->>>>>>> reviews edit
 }
 
 const Header = (props) => {

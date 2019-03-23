@@ -41,9 +41,9 @@ const Review = (props) => {
             <div className="review-header">
                 {/* user review or business reviews check
                 todo */}
-                <div className="review_image">
-                    <ProfileImage photoUrl={photoUrl} />
-                </div>
+                    {/* <ProfileImage photoUrl={photoUrl} /> */}
+                    <Img className='review_image' src={photoUrl} alt='review image' />
+                
                 <div className="review_on_name">
                     <div className="review_name">{name}</div>
                     <div className="review_date">{props.review.created_at}</div>

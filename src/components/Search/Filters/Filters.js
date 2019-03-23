@@ -20,9 +20,9 @@ class SearchFilters extends Component {
 
     }
     componentWillReceiveProps(nextProps) {
-       this.filters = nextProps.filters
-       this.type = nextProps.type
-       this.setState({filterChanged: 'reset'})
+        this.filters = nextProps.filters
+        this.type = nextProps.type
+        this.setState({ filterChanged: 'reset' })
     }
     getCategories() {
         Axios.instance.get(Axios.API.common.topLevelCategoriesUrl).then(response => {
@@ -35,20 +35,20 @@ class SearchFilters extends Component {
     getLocations() {
         Axios.instance.get(Axios.API.common.getLocationsUrl).then(response => {
             if (response.data) {
-                this.setState({ locations: response.data.data})
+                this.setState({ locations: response.data.data })
             }
         })
     }
     handleChange(e, filterType) {
         this.filters[filterType] = e.target.value !== 'All' ? e.target.value : null
-        this.setState({filterChanged: filterType})
+        this.setState({ filterChanged: filterType })
         // let filters = this.state.filters
         // filters[filterType] = 
         // this.setState({ ...this.state, filters: filters })
     }
     handleCheckboxChange(e, filterType) {
         this.filters[filterType] = this.filters[filterType] === '1' ? null : '1'
-        this.setState({filterChanged: filterType})
+        this.setState({ filterChanged: filterType })
         // let filters = this.state.filters
         // filters[filterType] = filters[filterType] === '1' ? null : '1'
         // this.setState({ filters: filters })
@@ -58,29 +58,35 @@ class SearchFilters extends Component {
             (this.state.categories && this.state.locations) ?
                 <React.Fragment>
                     <div className='search-filters'>
-                        <div className='category-filter'>
-                            <p className="filter_heading">Select Category</p>
-                            <select 
-                                onChange={e => this.handleChange(e, 'category')}
-                                className="search_filter_select" 
-                                // defaultValue={this.filters.category}
-                                value={this.state.filterChanged === 'reset' ? 'All' : this.filters.category}>
-                                <option value='All'>All Categories</option>
-                                {
-                                    this.state.categories.map((category, index) => {
-                                        return (<option
-                                            key={index}
-                                            value={category.slug.trim()}
-                                        >{category.name}</option>)
-                                    })
-                                }
-                            </select>
-                        </div>
+                        {
+                            this.props.type !== 'hotel' && this.props.type !== 'room'
+                                ?
+                                <div className='category-filter'>
+                                    <p className="filter_heading">Select Category</p>
+                                    <select
+                                        onChange={e => this.handleChange(e, 'category')}
+                                        className="search_filter_select"
+                                        // defaultValue={this.filters.category}
+                                        value={this.state.filterChanged === 'reset' ? 'All' : this.filters.category}>
+                                        <option value='All'>All Categories</option>
+                                        {
+                                            this.state.categories.map((category, index) => {
+                                                return (<option
+                                                    key={index}
+                                                    value={category.slug.trim()}
+                                                >{category.name}</option>)
+                                            })
+                                        }
+                                    </select>
+                                </div>
+                                :
+                                null
+                        }
                         <div className='location-filter'>
                             <p className="filter_heading">Select Location</p>
-                            <select 
+                            <select
                                 onChange={e => this.handleChange(e, 'location')}
-                                className="search_filter_select" 
+                                className="search_filter_select"
                                 // defaultValue={this.filters.location} 
                                 value={this.state.filterChanged === 'reset' ? 'All' : this.filters.location}>
                                 <option value='All'>All Locations</option>
@@ -95,8 +101,8 @@ class SearchFilters extends Component {
                             <span>
                                 <input type='checkbox'
                                     // defaultChecked={this.filters.popular==='1'}
-                                    onChange={e => this.handleCheckboxChange(e, 'popular')} 
-                                    checked={this.state.filterChanged === 'reset' ? false : this.filters.popular === '1' ? 'checked' : false}/>Popular
+                                    onChange={e => this.handleCheckboxChange(e, 'popular')}
+                                    checked={this.state.filterChanged === 'reset' ? false : this.filters.popular === '1' ? 'checked' : false} />Popular
                             </span>
                         </div>
                         <div className='newest-filter'>
