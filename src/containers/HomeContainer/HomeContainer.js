@@ -46,7 +46,7 @@ class HomeContainer extends Component {
             this.state.featuredItems && this.state.recentlyAddedItems
                 ?
                 (<div className='home-container'>
-                    <Banner banners={this.state.banners} />
+                    {/* <Banner banners={this.state.banners} /> */}
                     {/* <Banner1 /> */}
                     <div className='card-container'>
                         <WellCards />
