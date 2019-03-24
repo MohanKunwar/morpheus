@@ -12,6 +12,11 @@ class RequirementList extends Component {
     closeReason: null,
     otherReason: ''
   };
+  getPossibleConnections = id => {
+    Axios.authInstance.get(`/leads/${id}/businesses/possible-connection`).then(response => {
+      console.log(response)
+    })
+  }
   closeRequest = (e, item) => {
     this.item = item
     e.preventDefault();
@@ -70,7 +75,7 @@ class RequirementList extends Component {
           <div className="requirement_bottom">
             <span className="require_count">
               {item.businesses_connected_count} connected &#124;{" "}
-              {item.businesses_possible_connection_count} possible connections
+              <span onClick={e => this.getPossibleConnections(item.id)}>{item.businesses_possible_connection_count} possible connections</span>
             </span>
             <span className="approval_status">
               {item.status === "pending"

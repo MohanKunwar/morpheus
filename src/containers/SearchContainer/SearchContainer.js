@@ -19,7 +19,7 @@ class SearchContainer extends Component {
                     <div className='search-types'>
                         <NavLink className='require_status' to='/search/business'>{this.types.business}</NavLink>
                         <NavLink className='require_status' to='/search/product'>{this.types.products_services}</NavLink>
-                        {/* <Link to='/search/rooms'>{this.types.rooms}</Link> */}
+                        <NavLink to='/search/room' className='require-status'>{this.types.rooms}</NavLink>
                     </div>
                     <Switch>
                         <Route path={`${url}/:id`} component={Search} />

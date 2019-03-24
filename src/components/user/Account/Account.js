@@ -16,8 +16,9 @@ class Account extends Component {
             <div className='card-container user-account'>
                 <div className='side-bar'>
                     <ul>
-                        <li><NavLink to={`${currUrl}/picture`} className="sidebar_link">My Profile Picture</NavLink></li>
+                        <li><NavLink to={`${currUrl}/activity`}className="sidebar_link">My Activities</NavLink></li>
                         <li><NavLink to={`${currUrl}/profile`}className="sidebar_link">My Details</NavLink></li>
+                        <li><NavLink to={`${currUrl}/picture`} className="sidebar_link">My Profile Picture</NavLink></li>
                         <li><NavLink to={`${currUrl}/password`}className="sidebar_link">My Password</NavLink></li>
                     </ul>
                 </div>
