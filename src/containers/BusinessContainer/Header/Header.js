@@ -16,21 +16,28 @@ const GetIcon = props => {
     if (url.includes('facebook')) {
         return (<Img src={require('./../../../assets/images/facebook.svg')}
             alt="facebook" className="social-icons" onClick={() => window.open(url)} />);
-    }
-    if (url.includes('twitter')) {
+    } else if (url.includes('twitter')) {
         return (<img src={require('./../../../assets/images/twitter.svg')}
             alt="twitter" className="social-icons" onClick={() => window.open(url)} />);
-    }
-    if (url.includes('instagram')) {
+    } else if (url.includes('instagram')) {
+        return (<img src={require('./../../../assets/images/instagram.svg')}
+            alt="instagram" className="social-icons" onClick={() => window.open(url)} />);
+    } else if (url.includes('tripadvisor')) {
+        // todo tripadvisor image
+        return (<img src={require('./../../../assets/images/instagram.svg')}
+            alt="instagram" className="social-icons" onClick={() => window.open(url)} />);
+    } else {
+        // todo website image
         return (<img src={require('./../../../assets/images/instagram.svg')}
             alt="instagram" className="social-icons" onClick={() => window.open(url)} />);
     }
 }
 
 const Header = (props) => {
-    console.log('heaer props', props);
     let header = null; let socialLinks = null;
     if (props.business !== null) {
+
+    console.log('heaer props', props);
         if (props.business.social_links.length > 0) {
             socialLinks = props.business.social_links.map((link, index) => {
                 return (<GetIcon key={index} url={link} />)

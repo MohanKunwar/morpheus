@@ -12,6 +12,7 @@ class SearchBar extends Component {
             query: null
         })
     }
+    selectRef = React.createRef()
     gotoSearch = (e, keypress) => {
         if (!keypress || (e.keyCode === 13 || e.which === 13)) {
             // e.preventDefault()
@@ -32,16 +33,22 @@ class SearchBar extends Component {
         console.log(e.target.value)
         this.setState({ searchContext: e.target.value })
     }
+    openSelect = e => {
+            const fieldInput = this.refs.fieldInput
+              if (!fieldInput.state.isOpen) {
+                fieldInput.handleMouseDown(e);
+              }
+    }
     render() {
         return (
             <div className='search_bar'>
 
-                <select onChange={e => this.setContext(e)} className="search_select">
+                <select ref='fieldInput' onChange={e => this.setContext(e)} className="search_select">
                     <option value='business'>Business</option>
                     <option value='room'>Room</option>
                     <option value='product'>Product</option>
                 </select>
-                <FaAngleDoubleDown className="searchbar_doubledown" />
+                <FaAngleDoubleDown onClick={e => this.openSelect(e)} className="searchbar_doubledown" />
                 <input
                     autoFocus={true}
                     type='text'

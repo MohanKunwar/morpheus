@@ -24,7 +24,8 @@ const API = {
         recentlyAddedUrl: 'businesses/latest',
         topLevelCategoriesUrl: 'categories/parent',
         getCategoryUrl: '/categories/', // id is attached whenever used
-        getLocationsUrl: '/locations'
+        getLocationsUrl: '/locations',
+        getBannersUrl: '/banners'
     },
     business: {
         getBusinessUrl: 'businesses', // id is attached whenever called
