@@ -46,23 +46,26 @@
 }
 .hover_business:hover{
     overflow: hidden;
+    position: relative;
 }
 .budiness_heading:hover{
     overflow: visible;
     white-space: nowrap;
     text-overflow: none;
-    margin-left: 100%;
-    animation: scroll-left 5s linear infinite;
-    transition-delay: 2s;
+    width: 100%;
+    margin: 0;
+    animation: scroll-left 4s linear infinite;
+    transition-delay: 1s;
     }
     @keyframes scroll-left {
     0%   { 
-    margin-left: 0%; 		
+    margin-left: 100%; 		
     }
     100% { 
     margin-left: -100%; 
     }
     }
+    
 
 .business-card-info .business_address{
     font-size: 12px;

@@ -2,7 +2,7 @@ import axios from 'axios';
 import UserService from './../User';
 
 export const instance = axios.create({
-    baseURL: 'https://khozinfo.com/api/v1'
+    baseURL: 'https://mock.khozinfo.com/api/v1'
 });
 
 export const authInstance = Object.create(instance);

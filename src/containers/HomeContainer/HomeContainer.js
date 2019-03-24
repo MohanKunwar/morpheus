@@ -9,6 +9,7 @@ import ServicesInfo from './ServicesInfo/ServicesInfo';
 import RequestCard from './RequestCard/RequestCard';
 import Axios from '../../services/Axios';
 import Spinner from '../../helpers/Spinner';
+import RoomCard from '../../UI/RoomCard/RoomCard';
 
 const Banner = () => {
     return (
@@ -57,6 +58,7 @@ class HomeContainer extends Component {
                                 <div className='middle-grid'>
                                     <FilteredBusinesses title='Featured' items={this.state.featuredItems} />
                                     <FilteredBusinesses title='Recently Added' items={this.state.recentlyAddedItems} />
+                                    <RoomCard />
                                 </div>
                                 <div className='right-grid'>
                                     <InfoBarCards hotelBooked='345' foodOrdered='2345' servicesRequested='6543' />
