@@ -9,17 +9,19 @@ import ServicesInfo from './ServicesInfo/ServicesInfo';
 import RequestCard from './RequestCard/RequestCard';
 import Axios from '../../services/Axios';
 import Spinner from '../../helpers/Spinner';
+import Banner from './Banner/Banner';
 
-const Banner = () => {
-    return (
-        <img alt='banner'
-            src={require('./../../assets/images/banner.png')}
-            style={{ width: '100%', minHeight: '200px' }} />)
-}
+// const Banner1 = () => {
+//     return (
+//         <img alt='banner'
+//             src={require('./../../assets/images/banner.png')}
+//             style={{ width: '100%', minHeight: '200px' }} />)
+// }
 class HomeContainer extends Component {
     state = {
         featuredItems: null,
-        recentlyAddedItems: null
+        recentlyAddedItems: null,
+        banners: null
     }
     componentWillMount() {
         Axios.instance.get(Axios.API.common.featuredUrl).then(response => {
@@ -41,10 +43,11 @@ class HomeContainer extends Component {
 
     render() {
         return (
-            this.state.featuredItems && this.state.recentlyAddedItems && this.state.banners
+            this.state.featuredItems && this.state.recentlyAddedItems
                 ?
                 (<div className='home-container'>
-                    <Banner />
+                    <Banner banners={this.state.banners} />
+                    {/* <Banner1 /> */}
                     <div className='card-container'>
                         <WellCards />
                         <div className='page-grid'>

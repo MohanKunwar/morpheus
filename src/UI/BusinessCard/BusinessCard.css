@@ -36,7 +36,7 @@
     margin-bottom: 0;
 
 }
-.business-card-info .budiness_heading{
+.business-card-info .business_heading{
     font-weight: 700;
     opacity: .9;
     margin-bottom: 0;
@@ -80,14 +80,18 @@
 .business_address .search-item::after{
     content: ', ';
 }
-.business_address .business_location{
-    display: inline;
-}
+
 .business-card-info .business_categories{
     font-size: 12px;
     opacity: 1;
     padding-left: 1%;
     font-weight: 500;
+    text-decoration: none;
+    display: grid;
+}
+.business-card-info .business_location {
+    display: grid;
+    text-decoration: none;
 }
 .business_rating{
     display: inline;

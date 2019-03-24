@@ -37,9 +37,8 @@ class BusinessCard extends Component {
                 <div className='business-card-info'>
                     <Link className='search-item' key={this.props.index} to={`/business/${this.props.business.slug}`}>
                         <h5
-                            onClick={this.props.business.businessUrl}
-                            className="budiness_heading">
-                            {this.props.business.slug}</h5></Link>
+                            className="business_heading">
+                            {this.props.business.name}</h5></Link>
                     <div className="business_address">
                         <Link className='search-item' key={this.props.index} to={`/business/${this.props.business.slug}`}>
                             {this.props.business.address}</Link></div>
