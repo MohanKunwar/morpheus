@@ -83,7 +83,7 @@
     height: 130px;
 }
 .average_rating{
-    margin-top: -95px;
+    margin-top: -85px;
     color: #ffffff;
     font-size: 20px;
 }
@@ -96,4 +96,7 @@
     .business_body{
         grid-template-columns: 1fr;
     }
+}
+.business_container p{
+    margin-bottom: 0;
 }

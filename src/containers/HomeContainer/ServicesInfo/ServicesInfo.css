@@ -21,7 +21,18 @@
 .card-overlay-facebook-text, .card-overlay-food-text, .card-overlay-hotel-text {
     position: absolute;
 }
-
+.services-info button{
+    width: 90%;
+    height: 35px;
+    font-size: 15px;
+    border-radius: 3px;
+    border: transparent;
+}
+@media (max-width:768px){
+    .services-info button{
+        width: 95%;
+    }
+}
 /* facebook boosting */
 .servicesinfo-facebook-card{
     border: 1px solid rgba(219, 224, 229, 0.5);
@@ -38,12 +49,7 @@
     width: 100%;
 }
 .info-card-facebook-btn{
-    width: 90%;
-    height: 35px;
-    border: transparent;
     color: #ffffff;
-    font-size: 15px;
-    border-radius: 3px;
     background: #20438E;
 }
 .info-card-facebook-heading{
@@ -69,13 +75,9 @@
     margin-left: 13px;
     width: 100%;
 }
+
 .card-overlay-hotel-text .info-card-hotel-btn{
-    width: 90%;
-    height: 35px;
-    border: transparent;
     color: #20438E;
-    font-size: 15px;
-    border-radius: 3px;
     background: #fff;
 }
 .servicesinfo-hotel-card img{
@@ -114,12 +116,7 @@
     margin-left: 30%;
 }
 .info-card-food-btn{
-    width: 90%;
-    height: 35px;
-    border: transparent;
     color: #ffffff;
-    font-size: 15px;
-    border-radius: 3px;
     background: #20438E;
 }
 .info-card-food-heading{
@@ -130,4 +127,7 @@
     font-size: 14px;
     opacity: 0.7;
     padding-bottom: 20px;
+}
+.services-info p{
+    margin-bottom: 0 !important;
 }

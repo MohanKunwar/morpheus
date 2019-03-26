@@ -34,7 +34,7 @@
     border: 1px solid #DF1D3F;
     color: #DF1D3F;
     height: 35px;
-    padding: 8px;
+    padding: 5px;
     text-align: center;
     border-radius: 20px;
     width: 100px;
@@ -98,3 +98,6 @@
    }
    
 }
+.card-business-header p{
+    margin-bottom: 0;
+  }

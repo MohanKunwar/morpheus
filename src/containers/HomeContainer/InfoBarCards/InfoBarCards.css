@@ -28,7 +28,7 @@
 .infocardhotel_icon_container, .infocardfood_icon_container{
     width: 40px;
     height: 40px;
-    padding: 10px;
+    padding: 8px 12px;
     border-radius: 50%;
 }
 .infocardhotel_icon_container{

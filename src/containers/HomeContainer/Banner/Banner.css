@@ -1,0 +1,18 @@
+.carousel-fade{
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  z-index: -1;
+  
+}
+.carousel-inner{
+  height: 350px !important;
+}
+.carousel-caption{
+  bottom: 40px !important;
+}
+@media (max-width: 768px){
+  .carousel-inner{
+    height: auto !important;
+  }
+}
