@@ -44,7 +44,7 @@
     padding: 5px 10px;
     width: 45px;
     vertical-align: middle;
-    outline: none;
+    outline: none !important;
 }
 .search_bar .searchbar_doubledown {
     position: absolute;

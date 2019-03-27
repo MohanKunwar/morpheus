@@ -9,6 +9,7 @@ import ServicesInfo from './ServicesInfo/ServicesInfo';
 import RequestCard from './RequestCard/RequestCard';
 import Axios from '../../services/Axios';
 import Spinner from '../../helpers/Spinner';
+import RoomCard from '../../UI/RoomCard/RoomCard';
 import Banner from './Banner/Banner';
 
 // const Banner1 = () => {
@@ -21,7 +22,7 @@ class HomeContainer extends Component {
     state = {
         featuredItems: null,
         recentlyAddedItems: null,
-        banners: null
+        // banners: null
     }
     componentWillMount() {
         Axios.instance.get(Axios.API.common.featuredUrl).then(response => {
@@ -34,11 +35,11 @@ class HomeContainer extends Component {
                 this.setState({ recentlyAddedItems: response.data.data })
             }
         })
-        Axios.instance.get(Axios.API.common.getBannersUrl).then(response => {
-            if (response && response.data) {
-                this.setState({ banners: response.data.data })
-            }
-        })
+        // Axios.instance.get(Axios.API.common.getBannersUrl).then(response => {
+        //     if (response && response.data) {
+        //         this.setState({ banners: response.data.data })
+        //     }
+        // })
     }
 
     render() {
@@ -48,6 +49,7 @@ class HomeContainer extends Component {
                 (<div className='home-container'>
                     {/* <Banner banners={this.state.banners} /> */}
                     {/* <Banner1 /> */}
+                    <Banner />
                     <div className='card-container'>
                         <WellCards />
                         <div className='page-grid'>
@@ -58,6 +60,7 @@ class HomeContainer extends Component {
                             <div className='middle-grid'>
                                 <FilteredBusinesses title='Featured' items={this.state.featuredItems} />
                                 <FilteredBusinesses title='Recently Added' items={this.state.recentlyAddedItems} />
+                                <RoomCard />
                             </div>
                             <div className='right-grid'>
                                 <InfoBarCards hotelBooked='345' foodOrdered='2345' servicesRequested='6543' />

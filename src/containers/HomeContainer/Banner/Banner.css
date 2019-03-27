@@ -1,0 +1,29 @@
+.carousel.carousel-slider{
+    grid-template-columns: 1fr;
+    height: 400px;
+  }
+  .carousel .slider-wrapper{
+    position: relative;
+    z-index: -1;
+  }
+  .carousel .slide .legend{
+    top: 30%;
+    background: transparent !important;
+    opacity: 1 !important;
+    color: red;
+    font-size: 20px !important;
+  }
+  @media (min-width: 768px){
+    .carousel .control-dots{
+        bottom: 40px !important;
+    }
+  }
+
+  @media (max-width: 768px){
+    .carousel.carousel-slider{
+      height: auto;
+    }
+    .carousel .slide .legend{
+      top: 80% !important;
+    }
+  }

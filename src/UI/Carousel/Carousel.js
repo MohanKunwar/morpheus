@@ -37,7 +37,7 @@ class Carousel extends Component {
 
     render() { 
         let carousel = this.props.items.length > 0 && this.state.currItem ?
-            (<div className='carousel'>
+            (<div className='carousel1'>
                 <div className='curr-item'>
                     {
                         this.currIndex !== 0
