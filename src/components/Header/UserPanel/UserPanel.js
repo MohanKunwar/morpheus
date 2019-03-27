@@ -14,9 +14,11 @@ class UserPanel extends Component {
                         ?
                         <AuthPanel user={this.props.context.user} logout={this.props.context.logout} />
                         : (<React.Fragment>
-                            <Link to='/khoz/login'>Login</Link>
+                            <Link to='/business/register'>Add Business</Link>
+                            <span className="pipesign"></span>
                             <Link to='/khoz/register'>Join</Link>
-                            <Link to='/business/register'>Add Business<span>&#124;</span></Link>
+                            <span className="pipesign"></span>
+                            <Link to='/khoz/login'>Login</Link>
                         </React.Fragment>)
 
                 }
@@ -33,8 +35,10 @@ class AuthPanel extends Component {
     render() {
         return (
             <React.Fragment>
+                 <Link to='/business/register'>Add Business</Link>
+                 <span className="pipesign"></span>
                 <Link to='/user/notifications'><FaBell /></Link>
-                <Link to='/business/register'>Add Business<span className='pipe_sign'>&#124;</span></Link>
+                <span className="pipesign"></span>
                 <Link to='/user/account/image'>
                     {
                         this.props.user.photo ?
@@ -42,6 +46,7 @@ class AuthPanel extends Component {
                             : <FaUserPlus />
                     }
                 </Link>
+                <span className="pipesign"></span>
                 <Dropdown user={this.props.user} logout={this.props.logout} />
             </React.Fragment>
 
