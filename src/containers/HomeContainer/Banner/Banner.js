@@ -16,6 +16,7 @@ class Banner extends Component {
           showThumbs={false}
           showStatus={false}
           emulateTouch
+          stopOnHover= {false}
           >
               <div>
                   <img src="http://lorempixel.com/output/cats-q-c-640-480-5.jpg" />

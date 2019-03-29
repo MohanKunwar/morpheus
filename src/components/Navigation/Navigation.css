@@ -1,20 +1,6 @@
 .nav-area{
     margin-top: -4px;
 }
-
-@media (max-width:767px){
-    .nav-area {
-        display: grid;
-        grid-template-columns: 3fr 1fr;
-    }
-}
-
-@media (min-width: 768px) {
-    .nav-area {
-        display: grid;
-        grid-template-columns: 4fr 1.5fr;
-    }
-}
 .navigation_container{
     padding: 0;
     margin: 0;
@@ -23,11 +9,12 @@
 
 .request_btn {
     text-align: right;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .request-btn-nav {
     padding: 8px 15px;
     display: inline-block;
-    margin-top: 6px;
     color: #ffffff;
     background: #DF1D3F;
     border-radius: 30px;
@@ -56,5 +43,50 @@
 .nav-item:hover{
     opacity: 0.8;
 }
+@media (min-width: 768px) {
+    .nav-area {
+        display: grid;
+        grid-template-columns: 4fr 1.5fr;
+    }
+}
+
+@media (max-width:767px){
+    .nav-area {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+    .nav_heading{
+        display: none;
+    }
+    .nav-item{
+        padding: 10px 30px 10px; 
+        padding-left: 0;
+    }
+    .nav-item.active{
+        padding-left: 15px;
+    }
+    .request-btn-nav{
+        font-size: 13px;
+        padding: 5px 6px;
+    }
+}
+@media (max-width:576px){
+    .nav-item{
+        padding: 10px 15px 10px; 
+        padding-left: 0; 
+    }
+    .nav-item.active{
+        padding-left: 10px;
+    }
+    .nav-item svg{
+        font-size: 13px;
+    }
+    .request-btn-nav{
+        font-size: 10px;
+        padding: 2px 4px;
+        text-align: center;
+    }
+}
+
 
 

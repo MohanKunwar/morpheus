@@ -42,7 +42,7 @@ class HomeContainer extends Component {
         // })
     }
 
-    render() {
+    render(){
         return (
             this.state.featuredItems && this.state.recentlyAddedItems
                 ?
