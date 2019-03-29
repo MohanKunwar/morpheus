@@ -7,6 +7,7 @@ import khozlogo from "./../../../assets/images/khozlogo.png";
 import boosting from "./../../../assets/images/boosting.jpg";
 import Inputfield from "../../../UI/Inputfield/inputfield";
 import Error from '../../../helpers/FormError';
+import Timer from '../../common/Timer/timer';
 
 class Register extends React.Component {
   confirmCode;
@@ -191,7 +192,8 @@ class Register extends React.Component {
                   <Error className="form-error" name="confirmation_code" />
                   <div className="buttons">
                   <button type="submit">Submit</button>
-                    <button onClick={e => this.resendConfirmCode(e)}>Resend Confirmation Code</button>
+                    {/* <button onClick={e => this.resendConfirmCode(e)}>Resend Confirmation Code</button> */}
+                    <Timer time= {90}/>
                   
                 </div>
                 </div>

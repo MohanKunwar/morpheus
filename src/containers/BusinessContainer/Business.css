@@ -92,6 +92,11 @@
     font-weight: 600;
     opacity: 1;
 }
+.googlemap{
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
 @media (max-width: 768px){
     .business_body{
         grid-template-columns: 1fr;

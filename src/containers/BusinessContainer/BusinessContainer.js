@@ -10,7 +10,7 @@ import Reviews from './Reviews/Reviews';
 import {FaMapMarkerAlt, FaRegEnvelope,FaGlobeAsia, FaPhone} from 'react-icons/fa';
 import Img from 'react-image';
 import star from './../../assets/images/ratings.svg';
-
+import GoogleMap from '../../components/common/GoogleMap/GoogleMap';
 // import BusinessView from '../../components/BusinessView';
 
 import Hotel from './features/Hotel';
@@ -51,7 +51,7 @@ class BusinessContainer extends Component {
         });
     }
     render() {
-        const currUrl = this.props.match.url
+        const currUrl = this.props.match.url;
         // if (this.state.business) {
         //     if (!this.state.isUserOwner) {
         //         return (<BusinessView business={this.state.business} currUrl={this.props.match.url} />)
@@ -107,19 +107,19 @@ class BusinessContainer extends Component {
                                 <Redirect to={`${currUrl}/overview`} />
                             </Switch>
                             <div className='overview-contact'>
-                                google api integration
+                                <GoogleMap latitude={this.state.business.latitude} longitude={this.state.business.latitude} />
                                 <p className="overview_address"><FaMapMarkerAlt className="overview-icon" /> {this.state.business.address}</p>
                                 <p className="overview_email"><FaRegEnvelope className="overview-icon" /> {this.state.business.email}</p>
                                 {/* // todo
                         // check if user logged in for phone number and hours */}
                                 <p className="overview_mobile_number"><FaPhone className="overview-icon" /> {this.state.business.mobile_number}</p>
                                 <p className="overview_website"><FaGlobeAsia className="overview-icon" /> {this.state.business.website}</p>
-                                <div className='overview-rating'>
+                                {/* <div className='overview-rating'>
                                 <Img src={star} className="overview_star" />
                                     <div className="average_rating">{this.state.business.rating_avg}</div>
                                     <p className="average_rating_text">Average Rating</p> 
                                     <p><Link to={`${currUrl}/reviews`} className="review_link">{this.state.business.review_count} reviews</Link></p>
-                                </div>
+                                </div> */}
                             </div>
                             </div>
                         </div>
