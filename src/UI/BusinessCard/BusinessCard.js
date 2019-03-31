@@ -36,9 +36,9 @@ class BusinessCard extends Component {
                 </div>
                 <div className='business-card-info'>
                     <Link className='search-item' key={this.props.index} to={`/business/${this.props.business.slug}`}>
-                        <h6
+                        <div
                             className="business_heading">
-                            {this.props.business.name}</h6></Link>
+                            {this.props.business.name}</div></Link>
                     <div className="business_address">
                         <Link className='search-item' key={this.props.index} to={`/business/${this.props.business.slug}`}>
                             {this.props.business.address}</Link></div>
@@ -46,7 +46,7 @@ class BusinessCard extends Component {
                         className="business_categories">{this.props.business.category.name}</Link>
                     <Link to={`/search/business?location=${this.props.business.location.name}`} className='business_location'>{this.props.business.location.name}</Link>
                     <p className="business_view">{this.props.business.view_count} views</p>
-                    <Link to={`/business/${this.props.business.slug}/reviews`}>
+                    <Link to={`/business/${this.props.business.slug}/reviews`} className="business_review_rating">
                         <p className="business_rating"><Star business={this.props.business.rating_avg} /></p>
                         <p className="business_review">{this.props.business.review_count} reviews</p>
                     </Link>

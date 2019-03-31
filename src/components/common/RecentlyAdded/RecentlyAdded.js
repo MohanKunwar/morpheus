@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import BusinessCard from './../../../UI/BusinessCard/BusinessCard';
-import Carousel from './../../../UI/Carousel/Carousel';
+import Carousel1 from './../../../UI/Carousel/Carousel';
 
 import Axios from '../../../services/Axios';
 import './RecentlyAdded.css';
@@ -32,7 +32,7 @@ class RecentlyAdded extends Component {
         return (
             <div className='recently-added'>
                 <div>Recently Added</div>
-        {items ? <Carousel items={items} /> : <Spinner /> }
+        {items ? <Carousel1 items={items} /> : <Spinner /> }
                 </div>
         )
     }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import FeaturedItem from './FeaturedItem/FeaturedItem';
 import Axios from '../../../services/Axios';
 import BusinessCard from './../../../UI/BusinessCard/BusinessCard';
-import Carousel from './../../../UI/Carousel/Carousel';
+import Carousel1 from './../../../UI/Carousel/Carousel';
 import './Featured.css';
 import Spinner from '../../../helpers/Spinner';
 
@@ -36,7 +36,7 @@ class Featured extends Component {
         return (
             <div className='featured'>
                 <div>Featured</div>
-                { items ? <Carousel items={items} /> : <Spinner /> }
+                { items ? <Carousel1 items={items} /> : <Spinner /> }
             </div>
         )
     }

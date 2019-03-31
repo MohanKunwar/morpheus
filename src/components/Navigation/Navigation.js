@@ -16,11 +16,11 @@ class Navigation extends Component {
                 <div className='card-container'>
                     <div className='nav-area'>
                         <div className='nav-links'>
-                            <NavLink to='/home' className="nav-item"><FaHome /> Home</NavLink>
-                            <NavLink to='/user/account' className="nav-item"><FaUser /> My Account</NavLink>
-                            <NavLink to='/user/reviews' className="nav-item"><FaComments /> Reviews</NavLink>
-                            <NavLink to='/user/requirements' className="nav-item"><FaShoppingCart /> My Requirements</NavLink>
-                            <NavLink to='/business/12' className="nav-item"><FaBriefcase /> Business</NavLink>
+                            <NavLink to='/home' className="nav-item"><FaHome /><span className="nav_heading"> Home</span></NavLink>
+                            <NavLink to='/user/account' className="nav-item"><FaUser /><span className="nav_heading"> My Account</span></NavLink>
+                            <NavLink to='/user/reviews' className="nav-item"><FaComments /><span className="nav_heading"> Reviews</span></NavLink>
+                            <NavLink to='/user/requirements' className="nav-item"><FaShoppingCart /><span className="nav_heading"> My Requirements</span></NavLink>
+                            <NavLink to='/business/12' className="nav-item"><FaBriefcase /><span className="nav_heading"> Business</span></NavLink>
                         </div>
                         <div className='request_btn'>
                             <Link to='/user/request'>
