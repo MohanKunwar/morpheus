@@ -20,7 +20,6 @@ class Carousel1 extends Component {
             infiniteLoop
             autoPlay
             interval={4000} 
-            showThumbs={false}
             showStatus={false}
             emulateTouch
             onChange={this.setSelectedPage}
@@ -28,6 +27,8 @@ class Carousel1 extends Component {
             centerSlidePercentage={50}
             dynamicHeight={false}
             showIndicators={false}
+            showThumbs={false}
+            showArrows
             className="custom_carousel"
             >
                 {carouselitems}
