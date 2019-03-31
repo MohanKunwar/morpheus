@@ -16,11 +16,11 @@ class Reviews extends Component {
         if (!this.state.reviews) {
         Axios.authInstance.get(this.props.reviews).then(response => {
             console.log(this.props.context.user)
-            const userReviewIndex = response.data.data.findIndex(review => review.reviewer.id === this.props.context.user.id)
-            const reviews = userReviewIndex >= 0 ? response.data.data.splice(userReviewIndex, 1) : response.data.data
+            // const userReviewIndex = response.data.data.findIndex(review => review.reviewer.id === this.props.context.user.id)
+            // const reviews = userReviewIndex >= 0 ? response.data.data.splice(userReviewIndex, 1) : response.data.data
             this.setState({
-                reviews: reviews,
-                userReview: userReviewIndex >= 0 ? response.data.data[userReviewIndex] : null
+                reviews: response.data.data,
+                // userReview: userReviewIndex >= 0 ? response.data.data[userReviewIndex] : null
             })
             console.log('reviews state', this.state.reviews)
         })   
@@ -28,6 +28,7 @@ class Reviews extends Component {
     }
 
     render() {
+        console.log(this.state.reviews)
         return (
             this.state.reviews ?
                 (<div className='business-reviews'>

@@ -8,10 +8,9 @@ import Footer from '../components/Footer';
 
 import HomeContainer from './HomeContainer';
 import UserContainer from './UserContainer/UserContainer';
-import Business from './BusinessContainer';
 import ProductContainer from './ProductContainer';
 
-import BusinessContainer from './BusinessContainer/BusinessContainer';
+import BusinessContainer from './BusinessContainer';
 
 class AppContainer extends Component {
 
