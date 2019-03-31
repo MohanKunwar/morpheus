@@ -17,13 +17,6 @@ export const Star = (props) => {
     )
 }
 
-const ProfileImage = (props) => {
-    return (
-        <div className='review-image'>
-            <Img src={props.photoUrl} alt={props.name} />
-        </div>
-    )
-}
 const Review = (props) => {
     // let photoUrl = null;
     let review = props.review
@@ -39,11 +32,13 @@ const Review = (props) => {
     return (
         <div className="review-container">
             <div className="review-header">
-                {/* user review or business reviews check
-                todo */}
-                    {/* <ProfileImage photoUrl={photoUrl} /> */}
-                    <Img className='review_image' src={photoUrl} alt='review image' />
-                
+                <div className='review-image'>
+                    {
+                        photoUrl
+                            ? <Img className='review_image' src={photoUrl} alt='review image' />
+                            : <Img className='review_image' src={require('../../assets/images/khoz-ph.jpg')} alt='placeholder image' />
+                    }
+                </div>
                 <div className="review_on_name">
                     <div className="review_name">{name}</div>
                     <div className="review_date">{props.review.created_at}</div>

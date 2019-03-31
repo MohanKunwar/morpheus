@@ -4,7 +4,7 @@ import Carousel1 from '../../../UI/Carousel/Carousel';
 import './FilteredBusiness.css';
 
 const FilteredBusinesses = props => {
-
+    
     let items = 
     props.items ? props.items.map(item => {
         return (

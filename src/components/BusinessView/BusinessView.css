@@ -6,7 +6,7 @@
 }
 .card-business-body {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 7fr;
     grid-gap: 15px;
     margin-top: 15px;
 }
@@ -17,10 +17,7 @@
 }
 .side-bar ul {
     list-style: none;
-    
-}
-.business-data-container {
-    /* margin-left: 30px; */
+    min-width: 150px;
 }
 .side-bar ul li{
     position: relative;
@@ -97,9 +94,23 @@
     width: 100%;
     height: 300px;
 }
+.side-bar-mobile {
+    display: none;
+}
 @media (max-width: 768px){
     .business_body{
         grid-template-columns: 1fr;
     }
+    .side-bar {
+        display: none;
+    }
+    .side-bar-mobile {
+        display: block;
+    }
+    .card-business-body {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
 }
+
 

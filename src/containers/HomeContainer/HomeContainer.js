@@ -35,21 +35,19 @@ class HomeContainer extends Component {
                 this.setState({ recentlyAddedItems: response.data.data })
             }
         })
-        // Axios.instance.get(Axios.API.common.getBannersUrl).then(response => {
-        //     if (response && response.data) {
-        //         this.setState({ banners: response.data.data })
-        //     }
-        // })
+        Axios.instance.get(Axios.API.common.getBannersUrl).then(response => {
+            if (response && response.data) {
+                this.setState({ banners: response.data.data })
+            }
+        })
     }
 
     render(){
         return (
-            this.state.featuredItems && this.state.recentlyAddedItems
+            this.state.featuredItems && this.state.recentlyAddedItems && this.state.banners
                 ?
                 (<div className='home-container'>
-                    {/* <Banner banners={this.state.banners} /> */}
-                    {/* <Banner1 /> */}
-                    <Banner />
+                    <Banner banners={this.state.banners} />
                     <div className='card-container'>
                         <WellCards />
                         <div className='page-grid'>
@@ -60,6 +58,8 @@ class HomeContainer extends Component {
                             <div className='middle-grid'>
                                 <FilteredBusinesses title='Featured' items={this.state.featuredItems} />
                                 <FilteredBusinesses title='Recently Added' items={this.state.recentlyAddedItems} />
+                                {/* <FilteredBusinesses title='Featured' itemsUrl={Axios.API.common.featuredUrl} />
+                                <FilteredBusinesses title='Recently Added' items={Axios.API.common.recentlyAddedUrl} /> */}
                                 <RoomCard />
                             </div>
                             <div className='right-grid'>
