@@ -1,3 +1,3 @@
-import Business from './Business';
+import BusinessContainer from './BusinessContainer';
 
-export default Business;
+export default BusinessContainer;
