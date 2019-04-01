@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from '../../services/Axios';
 import Spinner from '../../helpers/Spinner';
-import { Carousel } from 'react-responsive-carousel';
+// import { Carousel } from 'react-responsive-carousel';
 import { GoogleMap } from '../../components/common/GoogleMap/GoogleMap';
 import { FaMapMarkerAlt, FaRegEnvelope, FaGlobeAsia, FaPhone } from 'react-icons/fa';
 
@@ -40,25 +40,26 @@ class ProductContainer extends Component {
                                     {
                                         this.state.photos
                                             ?
-                                            <Carousel
-                                                // showArrows
-                                                infiniteLoop
-                                                autoPlay
-                                                interval={2000}
-                                                showThumbs={false}
-                                                showStatus={false}
-                                                emulateTouch
-                                                stopOnHover={false}
-                                            >
-                                                {
-                                                    this.state.photos.map((photo, index) =>
-                                                        <div key={index}>
-                                                            <img src={photo.src} alt={photo.id} />
-                                                            {/* <p className="legend">{banner.body}</p> */}
-                                                        </div>
-                                                    )
-                                                }
-                                            </Carousel>
+                                            <span>photo carousel goes here</span>
+                                            // <Carousel
+                                            //     // showArrows
+                                            //     infiniteLoop
+                                            //     autoPlay
+                                            //     interval={2000}
+                                            //     showThumbs={false}
+                                            //     showStatus={false}
+                                            //     emulateTouch
+                                            //     stopOnHover={false}
+                                            // >
+                                            //     {
+                                            //         this.state.photos.map((photo, index) =>
+                                            //             <div key={index}>
+                                            //                 <img src={photo.src} alt={photo.id} />
+                                            //                 {/* <p className="legend">{banner.body}</p> */}
+                                            //             </div>
+                                            //         )
+                                            //     }
+                                            // </Carousel>
                                             :
                                             <span>Placeholder</span>
                                     }

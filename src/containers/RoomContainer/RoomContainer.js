@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Axios from '../../services/Axios'
 import Spinner from '../../helpers/Spinner';
-import { Carousel } from 'react-responsive-carousel';
+// import { Carousel } from 'react-responsive-carousel';
 import { GoogleMap } from '../../components/common/GoogleMap/GoogleMap';
 
 class RoomContainer extends Component {
@@ -41,24 +41,25 @@ class RoomContainer extends Component {
                             {
                                 this.state.photos
                                     ?
-                                    <Carousel
-                                        // showArrows
-                                        infiniteLoop
-                                        autoPlay
-                                        interval={2000}
-                                        showThumbs={false}
-                                        showStatus={false}
-                                        emulateTouch
-                                        stopOnHover={false}
-                                    >
-                                        {
-                                            this.state.photos.map((photo, index) =>
-                                                <div key={index}>
-                                                    <img src={photo.src} alt={photo.title} />
-                                                </div>
-                                            )
-                                        }
-                                    </Carousel>
+                                    <span>photo carousel goes here</span>
+                                    // <Carousel
+                                    //     // showArrows
+                                    //     infiniteLoop
+                                    //     autoPlay
+                                    //     interval={2000}
+                                    //     showThumbs={false}
+                                    //     showStatus={false}
+                                    //     emulateTouch
+                                    //     stopOnHover={false}
+                                    // >
+                                    //     {
+                                    //         this.state.photos.map((photo, index) =>
+                                    //             <div key={index}>
+                                    //                 <img src={photo.src} alt={photo.title} />
+                                    //             </div>
+                                    //         )
+                                    //     }
+                                    // </Carousel>
                                     :
                                     <span>loading photos gif goes here</span>
                             }
