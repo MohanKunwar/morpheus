@@ -1,37 +1,33 @@
 import React, { Component } from 'react';
 import './Carousel.css';
 import Spinner from '../../helpers/Spinner';
-import { Carousel } from 'react-responsive-carousel';
-import { propTypes } from 'react-image';
+import Carousel from 'nuka-carousel';
 
 
 class Carousel1 extends Component {
     render(){
-           let carouselitems = this.props.items.map((item, index) => {
-                return (
-                    <div className='carousels_container' key={index}>
-                    {item}
-                    </div>
-                );
-            })
-
         return (
             <Carousel
-            infiniteLoop
-            autoPlay
-            interval={4000} 
-            showStatus={false}
-            emulateTouch
-            onChange={this.setSelectedPage}
-            centerMode 
-            centerSlidePercentage={50}
-            dynamicHeight={false}
-            showIndicators={false}
-            showThumbs={false}
-            showArrows
+            autoplay={true}
+            autoplayInterval={5000}
+            pauseOnHover={true}
+            slideIndex= {0}
+            slidesToShow= {2}
+            cellSpacing={10}
+            slidesToScroll={2}
+            dragging={false}
+            wrapAround={true}
+            width="100%"
+            renderBottomCenterControls={false}
             className="custom_carousel"
             >
-                {carouselitems}
+               {
+                this.props.items.map((item, index) => 
+                <div key={index}>
+                {item}
+                </div>
+                )
+        }
             </Carousel>
         );
     }

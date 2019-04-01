@@ -1,24 +1,23 @@
 import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
+import Carousel from 'nuka-carousel';
+
 import './Banner.css';
 
 const Banner = props => {
     return (
         <Carousel
-            // showArrows
-            infiniteLoop
-            autoPlay
-            interval={2000}
-            showThumbs={false}
-            showStatus={false}
-            emulateTouch
-            stopOnHover= {false}
+            autoplay={true}
+            autoplayInterval={3000}
+            pauseOnHover={false}
+            wrapAround={true}
+            width="100%"
+            className="banner_container"
         >
             {
                 props.banners.map((banner, index) =>
                     <div key={index}>
                         <img src={banner.src} alt={banner.title} />
-                        <p className="legend">{banner.body}</p>
+                        <p className="banner_text">{banner.body}</p>
                     </div>
                 )
             }

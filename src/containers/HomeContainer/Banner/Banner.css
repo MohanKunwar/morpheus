@@ -1,29 +1,42 @@
-.carousel.carousel-slider{
-    grid-template-columns: 1fr;
-    height: 400px;
+.banner_container{
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(var(--min-card-width), 1fr)) !important;
+  height: 400px !important;
+  overflow: hidden;
+  }
+  .banner_container .slider-frame{
+    z-index: -1;
+  }
+  .banner_container img{
+    width: 100%;
   }
   .carousel .slider-wrapper{
     position: relative;
     z-index: -1;
   }
-  .carousel .slide .legend{
-    top: 30%;
-    background: transparent !important;
+  .banner_container .banner_text{
+    position: absolute;
+    top: 50%;
     opacity: 1 !important;
-    color: red;
+    color: #ffffff;
     font-size: 20px !important;
+    margin: auto;
+    left: 30%;
+  }
+  .slider-control-bottomcenter li button{
+    color: #ffffff !important;
   }
   @media (min-width: 768px){
-    .carousel .control-dots{
+    .banner_container .slider-control-bottomcenter{
         bottom: 40px !important;
     }
   }
 
   @media (max-width: 768px){
-    .carousel.carousel-slider{
-      height: auto;
+    .banner_container{
+      height: auto !important;
     }
-    .carousel .slide .legend{
-      top: 80% !important;
+    .banner_container .banner_text{
+      left: 5%;
     }
   }
