@@ -60,7 +60,7 @@ class HomeContainer extends Component {
                                 <FilteredBusinesses title='Recently Added' items={this.state.recentlyAddedItems} />
                                 {/* <FilteredBusinesses title='Featured' itemsUrl={Axios.API.common.featuredUrl} />
                                 <FilteredBusinesses title='Recently Added' items={Axios.API.common.recentlyAddedUrl} /> */}
-                                <RoomCard />
+                                {/* <RoomCard /> */}
                             </div>
                             <div className='right-grid'>
                                 <InfoBarCards hotelBooked='345' foodOrdered='2345' servicesRequested='6543' />

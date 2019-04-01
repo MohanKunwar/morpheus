@@ -46,7 +46,11 @@ const Header = (props) => {
         header = (
             <div className='card-business-header'>
                 <div className='business-profile-image'>
-                    <Img className='business-logo' src={props.business.logo} alt={props.business.name} />
+                {
+                    props.business.logo
+                    ? <Img className='business-logo' src={props.business.logo} alt={props.business.name} />
+                    : <Img className='business-logo' src={require('../../../assets/images/khoz-ph.jpg')} alt={props.business.name} />
+                }
                     {
                         props.isUserOwner
                             ? <button>edit</button>

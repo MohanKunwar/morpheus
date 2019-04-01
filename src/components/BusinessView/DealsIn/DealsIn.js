@@ -8,7 +8,6 @@ class DealsIn extends Component {
     }
     componentWillMount() {
         console.log('deals in', this.props.dealsIn);
-        // this.props.dealsIn
         Axios.instance.get(this.props.dealsIn).then(response => {
             this.setState({ dealsIn: response.data.data });
         })

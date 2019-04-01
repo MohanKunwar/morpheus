@@ -12,7 +12,7 @@ class BusinessEdit extends Component {
     tabs = [ 'Overview', 'Photos', 'Products', 'Services', 'Deals In']
     componentWillMount() {
         if (this.props.businessUrl) {
-            Axios.instance.get(`${Axios.API.business.getBusinessUrl}/${this.props.businessUrl}`).then(response => {
+            Axios.instance.get(Axios.API.business.getBusinessUrl(this.props.businessUrl)).then(response => {
                 if (response && response.data) {
                     this.setState({
                         business: response.data.data,
