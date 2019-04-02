@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect, NavLink } from 'react-router-dom';
-import Search from '../../components/Search';
-import Header from '../../components/Header';
+import Search from '../components/Search';
+import Header from '../components/Header';
 
 class SearchContainer extends Component {
     types = {

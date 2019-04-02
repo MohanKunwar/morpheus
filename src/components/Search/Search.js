@@ -1,6 +1,7 @@
 import React from 'react';
 import './Search.css';
 import SearchFilters from './Filters';
+import RoomFilters from './RoomFilters'
 
 const Search = props => {
 
@@ -22,7 +23,12 @@ const Search = props => {
 
     return (
         <div className='search-container'>
-            <SearchFilters type={props.match.params.id} filters={filters} />
+        {
+            props.match.params.id === 'room'
+            ? <RoomFilters />
+            : <SearchFilters type={props.match.params.id} filters={filters} />
+        }
+            
         </div>
     )
 }

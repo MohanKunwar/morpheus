@@ -3,7 +3,9 @@ import { instance, authInstance } from './Axios';
 
 const API = {
     business: {
-        getBusinessUrl: 'businesses', // id is attached whenever called
+        getBusinessUrl: businessUrl => { return `businesses/${businessUrl} ` }, 
+        getBusinessProductsUrl: businessUrl => { return `businesses/${businessUrl}/products` },
+        getRoomsUrl: businessSlug => { return `businesses/${businessSlug}/rooms` }
     },
     common: {
         featuredUrl: 'businesses/featured',
@@ -14,9 +16,8 @@ const API = {
         getBannersUrl: '/banners'
     },
     product: {
-        getProductUrl: slug => {
-            return (`/products/${slug}`)
-        }
+        getProductUrl: slug => { return `/products/${slug}` },
+        getProductPhotosUrl: slug => { return `/products/${slug}/photos`}
     },
     requirement: {
         getUserRequirementsUrl: 'user/leads',
@@ -25,6 +26,11 @@ const API = {
         closeRequirementUrl: (id) => {
             return (`leads/${id}/close`)
         }
+    },
+    room: {
+        getRoomUrl: slug => { return `/rooms/${slug}` },
+        getRoomPhotosUrl: slug => { return `/rooms/${slug}/photos`},
+        getRoomAmenitiesUrl: slug => { return `/rooms/${slug}/amenities` }
     },
     search: {
         getResults: (type, params) => {
