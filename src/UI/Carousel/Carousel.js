@@ -19,6 +19,7 @@ class KhozCarousel extends Component {
             cellSpacing={10}
             dragging={false}
             ref={c => this.carousel = c}
+            className="custom_carousel"
             >
                {
                 this.props.items.map((item, index) => 
