@@ -36,17 +36,17 @@
     overflow: visible;
     white-space: nowrap;
     text-overflow: none;
-    margin-left: 100%;
-    animation: scroll-left 5s linear infinite;
+    /* margin-left: 100%; */
+    /* animation: scroll-left 5s linear infinite; */
     }
-    @keyframes scroll-left {
+    /* @keyframes scroll-left {
     0%   { 
     margin-left: 0%; 		
     }
     100% { 
     margin-left: -100%; 
     }
-}
+} */
 .product_price{
     opacity: 0.6;
     font-size: 14px;

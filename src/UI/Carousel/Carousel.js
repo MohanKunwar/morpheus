@@ -4,7 +4,10 @@ import Spinner from '../../helpers/Spinner';
 import Carousel from 'nuka-carousel';
 
 
-class Carousel1 extends Component {
+class KhozCarousel extends Component {
+    _handleLoadImage = () => {
+        this.carousel.setDimensions()
+      }
     render(){
         return (
             <Carousel
@@ -14,16 +17,17 @@ class Carousel1 extends Component {
             slideIndex= {0}
             slidesToShow= {2}
             cellSpacing={10}
-            slidesToScroll={2}
+            // slidesToScroll={2}
             dragging={false}
             wrapAround={true}
             width="100%"
             renderBottomCenterControls={false}
             className="custom_carousel"
+            ref={c => this.carousel = c}
             >
                {
                 this.props.items.map((item, index) => 
-                <div key={index}>
+                <div key={index} onLoad={this._handleLoadImage}>
                 {item}
                 </div>
                 )
@@ -34,7 +38,7 @@ class Carousel1 extends Component {
   };
   
 
-// class Carousel1 extends Component {
+// class KhozCarousel extends Component {
 //     currIndex = 0
 //     state = {
 //         nextItem: null,
@@ -69,7 +73,7 @@ class Carousel1 extends Component {
 
 //     render() { 
 //         let carousel = this.props.items.length > 0 && this.state.currItem ?
-//             (<div className='carousel1'>
+//             (<div className='KhozCarousel'>
 //                 <div className='curr-item'>
 //                     {
 //                         this.currIndex !== 0
@@ -93,4 +97,4 @@ class Carousel1 extends Component {
 //     }
 // }
 
-export default Carousel1;
+export default KhozCarousel;

@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import Axios from '../../services/Axios'
 import Spinner from '../../helpers/Spinner';
-// import { Carousel } from 'react-responsive-carousel';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { GoogleMap } from '../../components/common/GoogleMap/GoogleMap';
+import './RoomContainer.css';
+import { FaMapMarkerAlt } from "react-icons/fa";
+
+
 
 class RoomContainer extends Component {
     state = {
@@ -31,6 +36,7 @@ class RoomContainer extends Component {
         })
     }
     render() {
+        console.log(this.state.room);
         let room = this.state.room
         return (
             <div className='card-container'>
@@ -38,39 +44,41 @@ class RoomContainer extends Component {
                     this.state.room
                         ?
                         <div className='room-container'>
+                        <div className="room_container_header">
+                        {room.type}
+                        <span className="room_location"><FaMapMarkerAlt /> location</span>
+                        </div>
+                        <div>
                             {
-                                this.state.photos
-                                    ?
-                                    <span>photo carousel goes here</span>
-                                    // <Carousel
-                                    //     // showArrows
-                                    //     infiniteLoop
-                                    //     autoPlay
-                                    //     interval={2000}
-                                    //     showThumbs={false}
-                                    //     showStatus={false}
-                                    //     emulateTouch
-                                    //     stopOnHover={false}
-                                    // >
-                                    //     {
-                                    //         this.state.photos.map((photo, index) =>
-                                    //             <div key={index}>
-                                    //                 <img src={photo.src} alt={photo.title} />
-                                    //             </div>
-                                    //         )
-                                    //     }
-                                    // </Carousel>
-                                    :
-                                    <span>loading photos gif goes here</span>
+                                <div>
+                                    <Carousel
+                                       showArrows
+                                       infiniteLoop
+                                       autoPlay
+                                       interval={3000} 
+                                       emulateTouch
+                                       className="room_carousel_container"
+                                       showStatus={false}
+                                    >
+                                        {
+                                            this.state.photos.map((photo, index) =>
+                                                <div key={index}>
+                                                    <img src={photo.src} alt={photo.title} />
+                                                </div>
+                                            )
+                                        }
+                                    </Carousel>
+                                    </div>
                             }
 
+                                <div className="room_description">
+                            <h3 className="room-description_head">About Room</h3>
+                            <p className="room-description_text">{room.description}</p>
 
-                            <h2>{room.type}</h2>
-                            <h4>{room.description}</h4>
 
 
-
-                            <h3>Room Amenities</h3>
+                            <h3 className="room_amenities">Amenities</h3>
+                            <div className="amenities_body">
                             {
                                 this.state.amenities
                                     ?
@@ -83,21 +91,20 @@ class RoomContainer extends Component {
                                     :
                                     <span>loading amenities gif goes here</span>
                             }
-
-
+                            </div>
+                                </div>
                             <div className='details_selector_container'>
 
                             </div>
+                            </div>
 
-
-
+                            <div>
                             <div className='room_price_container'>
-                                <span>Total Price</span>
-                                <span>{room.price}</span>
-                                <span>{room.discount} % off</span>
-                                <span>{room.price_after_discount}</span>
-                                <span>inclusive of all taxes</span>
-                                <button>Book Now</button>
+                                <span className="room_total_price">Rs.{room.price}</span>
+                                <span className="room_price_a_discount">Rs.{room.price_after_discount}</span>
+                                <span className="room_discount_percent">{room.discount}% off</span><br />
+                                <span className="room_discount_text">(inclusive of all taxes)</span><br />
+                                <button className="room_book_button">Book Now</button>
                             </div>
 
 
@@ -116,6 +123,7 @@ class RoomContainer extends Component {
 
                             
                             <GoogleMap latitude={room.business.latitude} longitude={this.state.room.business.longitude} />
+                            </div>
                         </div>
                         : <Spinner />
                 }
