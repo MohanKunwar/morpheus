@@ -14,11 +14,10 @@ class Carousel1 extends Component {
             slideIndex= {0}
             slidesToShow= {2}
             cellSpacing={10}
-            slidesToScroll={2}
+            slidesToScroll={1}
             dragging={false}
             wrapAround={true}
             width="100%"
-            renderBottomCenterControls={false}
             className="custom_carousel"
             >
                {
