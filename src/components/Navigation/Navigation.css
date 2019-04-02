@@ -72,7 +72,7 @@
 }
 @media (max-width:576px){
     .nav-item{
-        padding: 10px 15px 10px; 
+        padding: 10px 20px 10px; 
         padding-left: 0; 
     }
     .nav-item.active{
@@ -82,11 +82,28 @@
         font-size: 13px;
     }
     .request-btn-nav{
+        font-size: 11px;
+        padding: 4px 4px;
+        text-align: center;
+    }
+    
+}
+@media (max-width: 391px){
+    .request-btn-nav{
         font-size: 10px;
         padding: 2px 4px;
         text-align: center;
     }
+    .nav-item{
+        padding: 10px 15px 10px; 
+        padding-left: 0; 
+    }
+    .nav-item.active{
+        padding-left: 10px;
+    }
+    .nav-item svg{
+        font-size: 13px;
+    }
 }
-
 
 
