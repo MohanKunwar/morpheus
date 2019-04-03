@@ -1,5 +1,6 @@
 import React from 'react'
 import BusinessProductCard from '../../../UI/BusinessProductCard/BusinessProductCard';
+import './Products.css';
 const Products = props => {
 return (
     props.products.map((product, index) => 

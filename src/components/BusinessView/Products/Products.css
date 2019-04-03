@@ -1,0 +1,5 @@
+.business_products_container{
+    display:grid;
+    grid-template-columns: repeat(2 , minmax(100px, 1fr));
+    grid-gap: 10px;   
+}
