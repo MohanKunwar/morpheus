@@ -1,6 +1,5 @@
 import React from 'react';
 import Carousel from 'nuka-carousel';
-
 import './Banner.css';
 
 const Banner = props => {

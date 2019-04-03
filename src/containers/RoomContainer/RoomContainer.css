@@ -1,0 +1,121 @@
+.room-container{
+    color: #112e51;
+    margin-top: 30px;
+}
+.room_container_header{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-size: 22px;
+    font-weight: 700; 
+}
+.room_location{
+    font-size: 16px;
+    opacity: 0.8;
+    display: block;
+    padding-top: 5px;
+}
+.room_description{
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    box-shadow: 0px 1px 1px rgba(218, 218, 218, 0.5);
+    padding: 20px 15px;
+    border-radius: 3px;
+}
+.room-description_head{
+    padding-bottom: 15px;
+}
+.room-description_text{
+    opacity: 0.6;
+    line-height: 2;
+    padding-bottom: 20px;
+}
+.room_amenities{
+    padding: 20px 0 15px;
+    border-top: 1px solid rgba(128, 128, 128, 0.3);
+}
+.amenities_body{
+    display: grid;
+    grid-template-columns: repeat(3 , minmax(100px, 1fr));
+    grid-gap: 10px;
+}
+.amenities_container{
+    margin-bottom: 5px;
+}
+.room_price_container{
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    box-shadow: 0px 1px 1px rgba(218, 218, 218, 0.5);
+    padding: 20px 15px;
+    border-radius: 3px;
+}
+
+.room_total_price{
+    font-weight: 700;
+    font-size: 18px;
+}
+.room_price_a_discount{
+    padding-left: 15px;
+    padding-right: 15px;
+    opacity: 0.7;
+    text-decoration: line-through;
+}
+.room_discount_percent{
+    padding-left: 15px;
+    background: #DF1D3F;
+    border-color: #DF1D3F;
+    padding: 3px 8px;
+    color: #fff;
+    border-radius: 20px;
+}
+.room_discount_text{
+    opacity: 0.6;
+    font-size: 13px;
+}
+.room_book_button{
+    padding: 8px 15px;
+    margin-top: 10px;
+    background: #DF1D3F;
+    color: #fff;
+    border: transparent;
+    border-radius: 2px;
+    width: 100%;
+}
+.hotel_rules_container{
+    margin-top: 10px;
+    padding: 20px 0;
+}
+.hotel_rules_header{
+    padding: 10px 0 15px;
+}
+.hotel_rules_container ul{
+    list-style-type: none;
+    text-decoration: none;
+}
+.hotel_rules_container ul li{
+    opacity: 0.8;
+    padding-bottom: 5px;
+}
+/* carousel */
+.room_carousel_container{
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(var(--min-card-width), 1fr)) !important;
+    /* height: 400px !important; */
+    overflow: hidden;
+}
+/* .room_carousel_container .slider-wrapper{
+    position: relative;
+    z-index: -1;
+  } */
+@media (min-width: 768px){
+    .room-container{
+        display: grid;
+        grid-template-columns: 4fr 2fr;
+        grid-gap: 20px;
+    }
+}
+@media (max-width: 768px){
+    .room_price_container{
+       margin: 20px 0 10px;
+    }
+    .room_container_header{
+        margin-bottom: 10px;
+    }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import BusinessCard from '../../../UI/BusinessCard/BusinessCard';
-import Carousel1 from '../../../UI/Carousel/Carousel';
+import KhozCarousel from '../../../UI/Carousel/Carousel';
 import './FilteredBusiness.css';
 
 const FilteredBusinesses = props => {
@@ -18,7 +18,7 @@ const FilteredBusinesses = props => {
         items ?
         <div className='filtered_businesses'>
             <div className="heading">{props.title}</div>
-            <Carousel1 items={items} />
+            <KhozCarousel items={items} />
         </div>
         : null
     )
