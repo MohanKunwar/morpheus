@@ -50,7 +50,6 @@ class RoomContainer extends Component {
                         </div>
                         <div>
                             {
-                                <div>
                                     <Carousel
                                        showArrows
                                        infiniteLoop
@@ -68,7 +67,6 @@ class RoomContainer extends Component {
                                             )
                                         }
                                     </Carousel>
-                                    </div>
                             }
 
                                 <div className="room_description">
