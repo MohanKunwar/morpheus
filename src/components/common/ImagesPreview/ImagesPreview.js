@@ -21,7 +21,7 @@ class ImagesPreview extends React.Component{
         image.src= filereader.result;
         document.querySelector(".preview").prepend(image);
         }
-        document.querySelector(".submit").style.display= "block";
+        document.querySelector(".submit").style.display= "inline-block";
     }
     render(){
         return(
