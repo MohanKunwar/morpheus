@@ -6,7 +6,7 @@ import Error from "../../../helpers/FormError";
 import DateRangePicker from "react-daterange-picker";
 import "react-daterange-picker/dist/css/react-calendar.css";
 import * as moment from 'moment'
-import './RoomFilters.css'
+import './RoomSearch.css'
 class RoomFilters extends Component {
     state = {
         checkIn: null,
@@ -20,13 +20,9 @@ class RoomFilters extends Component {
         location: null
     }
     componentWillMount() {
-        let checkIn = UserService.getItem("check_in");
+        let checkIn = UserService.getSessionItem("check_in");
         if (checkIn) {
-            this.setState({
-                checkIn: checkIn,
-                checkOut: UserService.getItem("check_out"),
-                location: UserService.getItem("location")
-            });
+            this.setState({ checkIn: checkIn });
         }
         Axios.instance.get(Axios.API.common.getLocationsUrl).then(response => {
             if (response && response.data) {
@@ -54,9 +50,9 @@ class RoomFilters extends Component {
         this.setState({ location: e.target.value })
     }
     initializeSearch = () => {
-        UserService.setItem('check_in', this.values.start)
-        UserService.setItem('check_out', this.values.end)
-        UserService.setItem('location', this.values.location)
+        UserService.setSessionItem('check_in', this.values.start)
+        UserService.setSessionItem('check_out', this.values.end)
+        UserService.setSessionItem('location', this.values.location)
         this.setState({ checkIn: this.values.start })
     }
     render() {
@@ -65,7 +61,7 @@ class RoomFilters extends Component {
                 {this.state.checkIn
                     ?
                     (
-                        <span>filters go here</span>
+                        <RoomFilters locations={this.state.locations} />
                     )
                     :
                     (

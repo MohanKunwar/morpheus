@@ -1,0 +1,9 @@
+.business_edit_container {
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+}
+
+.business_edit_tabs {
+    display: grid;
+    max-width: 200px;
+}
