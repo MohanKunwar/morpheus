@@ -23,7 +23,7 @@ class Login extends Component {
         Axios.authInstance.get(Axios.API.user.userDetailsUrl).then(response => {
           if (response.status === 200) {
             this.props.context.login(response.data.data)
-            this.props.history.push('/home')
+            this.props.history.goBack()
           } else {
 
           }

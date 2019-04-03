@@ -1,21 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Switch, Route, NavLink, Redirect } from 'react-router-dom'
-import Axios from '../../services/Axios';
-import Overview from './Overview/Overview';
-import Header from './Header/Header';
-import DealsIn from './DealsIn/DealsIn';
-import Photos from './Photos/Photos';
-import Reviews from './Reviews/Reviews';
+import Axios from '../../services/Axios'
+import Overview from './Overview/Overview'
+import Header from './Header/Header'
+import DealsIn from './DealsIn/DealsIn'
+import Photos from './Photos/Photos'
+import Reviews from './Reviews/Reviews'
 import Products from './Products/Products'
-import { FaMapMarkerAlt, FaRegEnvelope, FaGlobeAsia, FaPhone } from 'react-icons/fa';
-import Img from 'react-image';
-import star from './../../assets/images/ratings.svg';
-import GoogleMap from '../../components/common/GoogleMap/GoogleMap';
-// import BusinessView from '../../components/BusinessView';
+import { FaMapMarkerAlt, FaRegEnvelope, FaGlobeAsia, FaPhone } from 'react-icons/fa'
+import GoogleMap from '../../components/common/GoogleMap/GoogleMap'
 
-import Hotel from './features/Hotel';
-import './BusinessView.css';
-import Spinner from '../../helpers/Spinner';
+import Hotel from './features/Hotel'
+import './BusinessView.css'
+import Spinner from '../../helpers/Spinner'
 
 
 class BusinessView extends Component {
@@ -33,15 +30,14 @@ class BusinessView extends Component {
                         currUrl: `/business/${this.props.businessUrl}`
                     })
                 }
-            });
+            })
             Axios.instance.get(Axios.API.business.getBusinessProductsUrl(this.props.businessUrl)).then(response => {
                 if (response && response.data) {
-                    console.log('products', response.data.data)
                     this.setState({
                         products: response.data.data
                     })
                 }
-            });
+            })
         }
     }
     render() {
@@ -135,4 +131,4 @@ class BusinessView extends Component {
 }
 
 
-export default BusinessView;
+export default BusinessView

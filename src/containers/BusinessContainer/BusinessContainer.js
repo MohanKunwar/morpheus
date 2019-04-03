@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import KhozContext from '../../services/Context';
-import BusinessView from '../../components/BusinessView';
-import BusinessEdit from '../../components/BusinessEdit';
-import Spinner from '../../helpers/Spinner';
+import React, { Component } from 'react'
+import KhozContext from '../../services/Context'
+import BusinessView from '../../components/BusinessView'
+import BusinessEdit from '../../components/BusinessEdit'
+import Spinner from '../../helpers/Spinner'
 
 class BusinessContainer extends Component {
     state = {
         isUserOwner: undefined
     }
     componentWillMount() {
-        const { match: { params } } = this.props;
+        const { match: { params } } = this.props
         if (this.props.context.user && this.props.context.user.businesses.length > 0) {
             let ownerIndex = this.props.context.user.businesses.findIndex(business => business.slug === params.id)
             ownerIndex > -1 ? this.setState({isUserOwner: true}) : this.setState({ isUserOwner: false })
@@ -30,4 +30,4 @@ class BusinessContainer extends Component {
 }
 
 
-export default KhozContext.withAppContext(BusinessContainer);
+export default KhozContext.withAppContext(BusinessContainer)

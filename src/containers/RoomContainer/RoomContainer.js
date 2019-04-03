@@ -94,7 +94,7 @@ class RoomContainer extends Component {
                             </div>
                                 </div>
                             <div className='details_selector_container'>
-
+                            
                             </div>
                             </div>
 
