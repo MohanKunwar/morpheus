@@ -1,13 +1,10 @@
 .room-container{
-    display: grid;
-    grid-template-columns: 4fr 2fr;
-    grid-gap: 20px;
     color: #112e51;
     margin-top: 30px;
 }
 .room_container_header{
     grid-column-start: 1;
-    grid-column-end: 6;
+    grid-column-end: 3;
     font-size: 22px;
     font-weight: 700; 
 }
@@ -85,12 +82,16 @@
     margin-top: 10px;
     padding: 20px 0;
 }
+.hotel_rules_header{
+    padding: 10px 0 15px;
+}
 .hotel_rules_container ul{
     list-style-type: none;
     text-decoration: none;
 }
-.hotel_rules_container ul{
+.hotel_rules_container ul li{
     opacity: 0.8;
+    padding-bottom: 5px;
 }
 /* carousel */
 .room_carousel_container{
@@ -103,3 +104,18 @@
     position: relative;
     z-index: -1;
   } */
+@media (min-width: 768px){
+    .room-container{
+        display: grid;
+        grid-template-columns: 4fr 2fr;
+        grid-gap: 20px;
+    }
+}
+@media (max-width: 768px){
+    .room_price_container{
+       margin: 20px 0 10px;
+    }
+    .room_container_header{
+        margin-bottom: 10px;
+    }
+}

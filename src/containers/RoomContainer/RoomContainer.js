@@ -110,7 +110,7 @@ class RoomContainer extends Component {
 
 
                             <div className='hotel_rules_container'>
-                                <span>Hotel Rules</span>
+                                <h3 className="hotel_rules_header">Hotel Rules</h3>
                                 <ul>
                                     {
                                         this.roomRules.map((rule, index) =>
