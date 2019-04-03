@@ -100,8 +100,8 @@ class RoomContainer extends Component {
 
                             <div>
                             <div className='room_price_container'>
-                                <span className="room_total_price">Rs.{room.price}</span>
-                                <span className="room_price_a_discount">Rs.{room.price_after_discount}</span>
+                                <span className="room_total_price">Rs.{room.price_after_discount}</span>
+                                <span className="room_price_a_discount">Rs.{room.price}</span>
                                 <span className="room_discount_percent">{room.discount}% off</span><br />
                                 <span className="room_discount_text">(inclusive of all taxes)</span><br />
                                 <button className="room_book_button">Book Now</button>

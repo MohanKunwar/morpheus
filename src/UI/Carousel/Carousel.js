@@ -18,6 +18,7 @@ class KhozCarousel extends Component {
             slidesToShow= {2}
             cellSpacing={10}
             dragging={false}
+            wrapAround={true}
             ref={c => this.carousel = c}
             className="custom_carousel"
             >
