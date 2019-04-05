@@ -46,10 +46,13 @@ class RoomContainer extends Component {
                         <div className='room-container'>
                         <div className="room_container_header">
                         {room.type}
-                        <span className="room_location"><FaMapMarkerAlt /> location</span>
+                        <span className="room_location"><FaMapMarkerAlt /> {room.business.address}</span>
                         </div>
                         <div>
+                        
                             {
+                                  this.state.photos
+                                  ?
                                     <Carousel
                                        showArrows
                                        infiniteLoop
@@ -67,7 +70,9 @@ class RoomContainer extends Component {
                                             )
                                         }
                                     </Carousel>
-                            }
+                                     :
+                                     <span>Placeholder</span>
+                             }
 
                                 <div className="room_description">
                             <h3 className="room-description_head">About Room</h3>
