@@ -52,19 +52,19 @@
     overflow: visible;
     white-space: nowrap;
     text-overflow: none;
-    width: 100%;
+    /* width: 100%;
     margin: 0;
     animation: scroll-left 4s linear infinite;
-    transition-delay: 1s;
+    transition-delay: 1s; */
     }
-    @keyframes scroll-left {
+    /* @keyframes scroll-left {
     0%   { 
     margin-left: 100%; 		
     }
     100% { 
     margin-left: -100%; 
     }
-    }
+    } */
     
 
 .business-card-info .business_address{
@@ -87,11 +87,18 @@
 .business-card-info .business_categories{
     text-decoration: none;
     color: rgb(65, 92, 161,0.6);
-    font-weight: 600;
+}
+.business-card-info .business_categories p{
     border: 1px solid rgba(128, 128, 128, 0.2);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 600;
     width: auto !important;
     padding: 2px 5px;
     font-size: 13px;
+    text-align: center;
+    position: relative;
 }
 .business-card-info .business_location {
     display: grid;

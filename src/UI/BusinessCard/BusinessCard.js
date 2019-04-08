@@ -43,7 +43,7 @@ class BusinessCard extends Component {
                         <Link className='search-item' key={this.props.index} to={`/business/${this.props.business.slug}`}>
                             {this.props.business.address}</Link></div>
                     <Link to={`/search/business?category=${this.props.business.category.slug}`}
-                        className="business_categories">{this.props.business.category.name}</Link>
+                        className="business_categories"><p>{this.props.business.category.name}</p></Link>
                     <Link to={`/search/business?location=${this.props.business.location.name}`} className='business_location'>{this.props.business.location.name}</Link>
                     <p className="business_view">{this.props.business.view_count} views</p>
                     <Link to={`/business/${this.props.business.slug}/reviews`} className="business_review_rating">

@@ -61,6 +61,8 @@ class RoomContainer extends Component {
                                        emulateTouch
                                        className="room_carousel_container"
                                        showStatus={false}
+                                       verticalSwipe={true}
+                                       width='100%'
                                     >
                                         {
                                             this.state.photos.map((photo, index) =>

@@ -92,26 +92,42 @@
 }
 .hotel_rules_container ul li{
     opacity: 0.7;
-    padding-bottom: 5px;
+    line-height: 2;
 }
 /* carousel */
 .room_carousel_container{
     display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(var(--min-card-width), 1fr)) !important;
+    /* grid-template-columns: repeat(auto-fill, minmax(var(--min-card-width), 1fr)) !important; */
     overflow: hidden;
+    grid-gap: 10px;
 }
-/* .room_carousel_container .slider-wrapper{
-    position: relative;
-    z-index: -1;
-  } */
 @media (min-width: 768px){
     .room-container{
         display: grid;
         grid-template-columns: 4fr 2fr;
         grid-gap: 20px;
     }
+    .room_carousel_container{
+        grid-template-columns: 1fr 20%;
+    }
+    .room_carousel_container .thumbs{
+        display: grid;
+        grid-template-columns: 1fr;
+        -webkit-transform: none;
+        transform: none !important;
+    }
+    .room_carousel_container .thumb{
+        width: 100%;
+    }
+    .room_description{
+        margin-top: 25px;
+    }
 }
 @media (max-width: 768px){
+    .room_carousel_container{
+        grid-template-columns: repeat(auto-fill, minmax(var(--min-card-width), 1fr)) !important;
+        height: auto;
+    }
     .room_price_container{
        margin: 20px 0 10px;
     }
