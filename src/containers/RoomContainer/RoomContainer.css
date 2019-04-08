@@ -40,6 +40,11 @@
 .amenities_container{
     margin-bottom: 5px;
 }
+.amenities_icon_svg {
+    max-width: 30px;
+    vertical-align: middle;
+    margin: 5px;
+}
 .room_price_container{
     border: 1px solid rgba(128, 128, 128, 0.2);
     box-shadow: 0px 1px 1px rgba(218, 218, 218, 0.5);
