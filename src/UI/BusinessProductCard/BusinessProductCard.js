@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './BusinessProductCard.css';
 // import './productCard.css';
 class BusinessProductCard extends Component {
     render() {
         console.log('product card prop', this.props.product)
         return (
-            <div className='product-card'>
-            <div className='product-img-container'>
+            <div className='business_product-card'>
+            <div className='business_product-img-container'>
             {
                 this.props.product.photo
                 ?
@@ -15,14 +16,15 @@ class BusinessProductCard extends Component {
                 <img src={require('../../assets/images/khoz-ph.jpg')} alt={this.props.product.name} />
             }
             </div>
-            <div className='product-card-info'>
-            <Link className='search-item' key={this.props.index} to={`/product/${this.props.product.slug}`}>
-            <div className="hover_product"><p className="product_heading">
+            <div className='business_product-card-info'>
+            <p className="business_product_heading">
             {this.props.product.name}
-            </p></div></Link>
-            <div className="product_price">
+            </p>
+            <h3 className="business_product_price">
             Rs. {this.props.product.price}
-            </div>
+            </h3>
+            <p className="product_feature">{this.props.product.description}</p>
+            <Link className='business_product-view' key={this.props.index} to={`/product/${this.props.product.slug}`}>View</Link>
             {/* <div className="product_business_name">
             <Link className='search-item' key={this.props.index} to={`/product/${this.props.product.business.slug}`}>{this.props.product.business.name}</Link>
             </div> */}

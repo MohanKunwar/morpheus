@@ -20,12 +20,6 @@ import demoimage from './../../assets/images/business/concept.jpeg';
             return (
             <div className="roomcard-container">
                  <div className="room_img_container">
-                 
-                 <div className="room_overlay">
-                 <p className="room_after_discount">NRs. {this.state.room.price_after_discount}</p>
-                 <p className="room_before_discount">NRs. {this.state.room.price}</p>
-                <p className="room_discount">{this.state.room.discount} % off</p><br />
-                 </div>
                  <Img src={demoimage} alt="room image" />
                  </div>
                  
@@ -35,8 +29,11 @@ import demoimage from './../../assets/images/business/concept.jpeg';
                     onClick={this.state.room.roomUrl}
                     className="room_heading">
                     {this.state.room.type}</p></Link>
-                <p className="room_hotel_name">Hotel Avenue Pvt.Ltd</p>
-                <p className="room_hotel_location">Sukkhanagar, Butwal</p>
+                    <div className="room_card_price">
+                <span className="room_after_discount">NRs.12000{this.state.room.price_after_discount}</span>
+                 <span className="room_before_discount">NRs.13000 {this.state.room.price}</span>
+                <span className="room_discount">{this.state.room.discount}10% off</span></div>
+                <span className="room_hotel_name">Hotel Avenue Pvt.Ltd</span>
                 <button className="room_book_btn">Book Now</button>
             </div>
             </div>

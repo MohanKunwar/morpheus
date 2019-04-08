@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Axios from '../../../../services/Axios';
 import Spinner from '../../../../helpers/Spinner';
-import HotelRoomCard from '../../../../UI/HotelRoomCard';
+import HotelRoomCard from '../../../../UI/HotelRoom/HotelRoomCard';
+import './Hotel.css';
 
 class Hotel extends Component {
     state = {
@@ -19,6 +20,7 @@ class Hotel extends Component {
     render() {
         return (
             <div className='hotel-container'>
+            <h4 className="hotel_room_title">Rooms</h4>
             {
                 this.state.rooms
                 ? 

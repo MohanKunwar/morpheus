@@ -1,7 +1,7 @@
 .roomcard-container{
     border: 1px solid rgba(214, 211, 211, 0.5);
     width: 50%;
-    color: rgb(65, 92, 161);
+    color: #112e51;
     box-shadow: 0 1px 2px 0 rgba(128, 128, 128, 0.2), 0 1px 2px 0 rgba(128, 128, 128, 0.19);
     border-radius: 2px;
 }
@@ -23,7 +23,7 @@
     padding-bottom: 0;
     margin-bottom: 0;
 }
-.room_overlay{
+/* .room_overlay{
     position: absolute;
     z-index: 99;
     background: rgba(17, 46, 81, 0.3);
@@ -31,7 +31,7 @@
     bottom: 1%;
     padding: 20px 15px;
     color: #fff;
-}
+} */
 .room_after_discount{
     padding-bottom: 10px;
     font-size: 18px;
@@ -41,24 +41,33 @@
     display: inline;
     text-decoration: line-through;
     text-decoration-color: red;
+    padding-left: 10px;
 }
 .room_discount{
     display: inline;
-    margin-left: 20px;
-    background: yellow;
+    margin-left: 15px;
+    background: #DF1D3F;
     padding: 2px 10px;
     border-radius: 20px;
-    color: #000;
+    color: #fff;
 }
 .room_heading{
-    font-weight: 600;
+    font-weight: 700;
     padding-bottom: 5px;
 }
 .room-card-info{
-    padding: 10px 15px 20px 15px;
+    padding: 5px 5px 20px 10px;
 }
 .room_hotel_name{
-    color: #DF1D3F;
+    font-weight: 600;
+    opacity: 0.7;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    width: auto !important;
+    padding: 2px 5px;
+    font-size: 14px;
+}
+.room_card_price{
+    margin-bottom: 5px;
 }
 .room_hotel_location{
     opacity: 0.7;
@@ -67,7 +76,6 @@
 }
 .room_book_btn{
     background: #DF1D3F;
-    border-radius: 20px;
     height: 35px;
     width: 130px;
     color: #fff;
@@ -77,6 +85,7 @@
     margin-left: auto !important;
     display: block; */
     margin-top: 10px;
+    display: block;
    
 }
 .roomcard-container p{
