@@ -63,7 +63,6 @@
 }
 .overview-contact{
     font-size: 14px;
-    opacity: 0.8;
     color: #112e51;
     line-height: 2;
 }
@@ -95,6 +94,24 @@
 }
 .side-bar-mobile {
     display: none;
+}
+.get_direction{
+    color: #fff;
+    background-color: #dc3545;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 17px;
+    outline: none;
+    letter-spacing: 1px;
+    margin: 10px 0;
+}
+.get_direction:hover{
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+.overview_contact_body{
+    padding: 20px;
 }
 @media (max-width: 768px){
     .business_body{

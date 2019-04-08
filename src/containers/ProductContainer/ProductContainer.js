@@ -4,9 +4,8 @@ import './ProductContainer.css';
 import Spinner from '../../helpers/Spinner';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { GoogleMap } from '../../components/common/GoogleMap/GoogleMap';
 import { FaMapMarkerAlt, FaRegEnvelope, FaGlobeAsia, FaPhone } from 'react-icons/fa';
-
+import GoogleMap from '../../components/common/GoogleMap/GoogleMap'
 class ProductContainer extends Component {
     state = {
         product: null,
@@ -77,7 +76,14 @@ class ProductContainer extends Component {
                                 </div>
 
                                     <div className="overview-contact">
-                                    <GoogleMap latitude={this.state.product.business.latitude} longitude={this.state.product.business.longitude} />
+                                    <GoogleMap 
+                                        center= {
+                                            {
+                                              lat: this.state.product.business.latitude,
+                                              lng: this.state.product.business.longitude
+                                            }
+                                          } 
+                                        />
                                     <p className="overview_address"><FaMapMarkerAlt className="overview-icon" /> {this.state.product.business.address}</p>
                                     <p className="overview_email"><FaRegEnvelope className="overview-icon" /> {this.state.product.business.email}</p>
                                     {/* // todo
