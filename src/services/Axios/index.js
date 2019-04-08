@@ -35,6 +35,9 @@ const API = {
     search: {
         getResults: (type, params) => {
             return (`search/${type}?${params}`)
+        },
+        getRoomsResults: (checkin, checkout, location) => {
+            return `search/room?checkin=${checkin}&checkout=${checkout}&location_id=${location}`
         }
     },
     user: {

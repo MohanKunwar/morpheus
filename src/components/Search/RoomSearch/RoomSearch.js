@@ -10,16 +10,16 @@ import './RoomSearch.css'
 class RoomFilters extends Component {
     state = {
         checkIn: null,
+        checkOut: null,
         showDateRange: undefined,
         pickedDate: 'Select Checkin-Checkout Date',
         location: null
     }
-    values = {
-        start: null,
-        end: null,
-        location: null
-    }
     componentWillMount() {
+
+        UserService.setSessionItem('check_in', '2019-10-10')
+        UserService.setSessionItem('check_out', '2019-10-12')
+        UserService.setSessionItem('location', '1')
         let checkIn = UserService.getSessionItem("check_in");
         if (checkIn) {
             this.setState({ checkIn: checkIn });
@@ -29,9 +29,7 @@ class RoomFilters extends Component {
                 this.setState({ locations: response.data.data });
             }
         });
-    }
-    onStayDetailsSubmit = values => {
-        console.log("values");
+
     }
     showDateRangePicker = () => {
         this.setState({ showDateRange: true })
@@ -39,26 +37,27 @@ class RoomFilters extends Component {
     handleDateSelect = range => {
         this.setState({
             showDateRange: false,
-            pickedDate: `${moment(range.start).format('MMM Do YY')} - ${moment(range.end).format('MMM Do YY')}`
+            pickedDate: `${moment(range.start).format('MMM Do YY')} - ${moment(range.end).format('MMM Do YY')}`,
+            checkIn: range.start,
+            checkOut: range.end
         })
-        this.values.start = range.start
-        this.values.end = range.end
     }
     handleLocationChange = e => {
         e.preventDefault()
-        this.values.location = e.target.value
         this.setState({ location: e.target.value })
     }
-    initializeSearch = () => {
-        UserService.setSessionItem('check_in', this.values.start)
-        UserService.setSessionItem('check_out', this.values.end)
-        UserService.setSessionItem('location', this.values.location)
-        this.setState({ checkIn: this.values.start })
+    initializeSearch = e => {
+        e.preventDefault()
+        UserService.setSessionItem('check_in', this.state.checkIn)
+        UserService.setSessionItem('check_out', this.state.checkOut)
+        UserService.setSessionItem('location', this.state.location)
+        this.setState({ checkIn: this.state.checkIn })
     }
     render() {
         return (
             <div className="card-container">
-                {this.state.checkIn
+                {
+                    this.state.checkIn
                     ?
                     (
                         <RoomFilters locations={this.state.locations} />
@@ -66,12 +65,12 @@ class RoomFilters extends Component {
                     :
                     (
                         <div className='search-room'>
-                            <input type='text' value={this.state.pickedDate} onClick={this.showDateRangePicker} />
+                            <input type='text' defaultValue={this.state.pickedDate} onClick={this.showDateRangePicker} />
                             {
                                 this.state.showDateRange
                                     ?
                                     <DateRangePicker
-                                        numberOfCalendars={2}
+                                        numberOfCalendars={1}
                                         selectionType="range"
                                         minimumDate={new Date()}
                                         onSelect={this.handleDateSelect} />
@@ -85,7 +84,7 @@ class RoomFilters extends Component {
                                         <select
                                             onChange={e => this.handleLocationChange(e)}
                                             className="search_filter_select"
-                                            value={this.state.location ? this.state.location : 'All'}>
+                                            defaultValue={this.state.location ? this.state.location : 'All'}>
                                             <option value='All'>All Locations</option>
                                             {
                                                 this.state.locations.map((location, index) => {
@@ -97,7 +96,7 @@ class RoomFilters extends Component {
 
                                     : null
                             }
-                            <button onClick={this.initializeSearch}>Search Rooms</button>
+                            <button onClick={e => this.initializeSearch(e)}>Search Rooms</button>
                         </div>
                     )
                 }
