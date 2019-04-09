@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./Dropdown.css";
+import Link from 'react-router-dom/Link'
 import { FaAngleDown } from 'react-icons/fa';
 class Dropdown extends Component {
     constructor() {
@@ -51,7 +52,7 @@ class Dropdown extends Component {
                                                 ? <img src={business.logo} alt={business.name} />
                                                 : <img id="default-business" src={require("../../../assets/images/default-business.svg")} alt={business.name} />
                                             }
-                                                <span>{business.name}</span>
+                                                <Link to={`/business/${business.slug}`}>{business.name}</Link>
                                             </div>
                                         )
                                         :

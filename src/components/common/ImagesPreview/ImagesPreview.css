@@ -1,0 +1,33 @@
+.images-preview{
+    width: 100%;
+    text-align: center;
+}
+.preview{
+    width: 100%;
+    display: grid;
+    /* align-items: center;
+    flex-wrap: wrap; */
+    grid-template-columns: repeat(auto-fit, 500px);
+    justify-content: center;
+    grid-column-gap: 15px;
+    grid-row-gap: 25px;
+}
+.preview img{
+    width: 100%;
+    max-width: 500px;
+}
+.upload-button{
+    cursor: pointer;
+}
+.submit{
+    background-color: rgb(60,90,153);
+    color: #ffffff;
+    border: transparent;
+    margin: 18px 5px;
+    height: 30px;
+    border-radius: 3px;
+    width: 100px;
+    font-size: 16px;
+    display: none;
+    cursor: pointer;
+}
