@@ -14,12 +14,11 @@ class RoomSearch extends Component {
         pickedDate: 'Select Checkin-Checkout Date',
         location: null
     }
-    initSearch = false
+    initSearch = true
     componentWillMount() {
-
-        // UserService.setSessionItem('check_in', '2019-10-10')
-        // UserService.setSessionItem('check_out', '2019-10-12')
-        // UserService.setSessionItem('location', '1')
+        UserService.setSessionItem('check_in', '2019-10-10')
+        UserService.setSessionItem('check_out', '2019-10-12')
+        UserService.setSessionItem('location', '1')
         let checkIn = UserService.getSessionItem("check_in")
         if (checkIn) {
             this.setState({ checkIn: checkIn });
@@ -28,7 +27,17 @@ class RoomSearch extends Component {
             if (response && response.data) {
                 this.setState({ locations: response.data.data });
             }
-        });
+        })
+        Axios.instance.get(Axios.API.room.getAllHotelRoomAmenitiesUrl).then(response => {
+            if (response && response.data) {
+                this.setState({ hotelRoomsAmenities: response.data.data})
+            }
+        })
+        Axios.instance.get(Axios.API.room.getAllHotelAmenitiesUrl).then(response => {
+            if (response && response.data) {
+                this.setState({ hotelAmenities: response.data.data})
+            }
+        })
 
     }
     showDateRangePicker = () => {
@@ -60,7 +69,10 @@ class RoomSearch extends Component {
                     this.initSearch
                     ?
                     (
-                        <RoomFilters locations={this.state.locations} />
+                        <RoomFilters 
+                        locations={this.state.locations} 
+                        hotelAmenities={this.state.hotelAmenities} 
+                        hotelRoomsAmenities={this.state.hotelRoomsAmenities} />
                     )
                     :
                     (
@@ -100,6 +112,9 @@ class RoomSearch extends Component {
                         </div>
                     )
         )
+    }
+    componentWillUnmount() {
+        console.log('abc')
     }
 }
 export default RoomSearch;

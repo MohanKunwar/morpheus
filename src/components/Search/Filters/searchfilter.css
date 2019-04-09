@@ -12,7 +12,7 @@
     left: 0;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
-    z-index: 999;
+    z-index: 998;
 }
 .search_filter_select{
     height: 30px;
