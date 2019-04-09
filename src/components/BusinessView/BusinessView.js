@@ -21,6 +21,9 @@ class BusinessView extends Component {
         currUrl: null,
         products: null
     }
+    handleRedirect= () => {
+        window.open(`https://www.google.com/maps/dir//${this.state.business.latitude},${this.state.business.longitude}/@${this.state.business.latitude},${this.state.business.longitude},17z`);
+    }
     componentWillMount() {
         if (this.props.businessUrl) {
             Axios.instance.get(Axios.API.business.getBusinessUrl(this.props.businessUrl)).then(response => {
@@ -105,7 +108,17 @@ class BusinessView extends Component {
                                         <Redirect to={`/business/${this.props.businessUrl}/overview`} />
                                     </Switch>
                                     <div className='overview-contact'>
-                                        <GoogleMap latitude={this.state.business.latitude} longitude={this.state.business.longitude} />
+                                    <GoogleMap 
+                                        center= {
+                                            {
+                                              lat: this.state.business.latitude,
+                                              lng: this.state.business.longitude
+                                            }
+                                          } 
+                                        />
+                                    <button onClick= {this.handleRedirect} className="get_direction">
+                                        Get Direction
+                                    </button>
                                         <p className="overview_address"><FaMapMarkerAlt className="overview-icon" /> {this.state.business.address}</p>
                                         <p className="overview_email"><FaRegEnvelope className="overview-icon" /> {this.state.business.email}</p>
                                         {/* // todo
