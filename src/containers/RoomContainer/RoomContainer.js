@@ -3,7 +3,7 @@ import Axios from '../../services/Axios'
 import Spinner from '../../helpers/Spinner'
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import { GoogleMap } from '../../components/common/GoogleMap/GoogleMap'
+import GoogleMap from '../../components/common/GoogleMap/GoogleMap'
 import './RoomContainer.css'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import DateRangePicker from 'react-daterange-picker'
@@ -120,7 +120,14 @@ class RoomContainer extends Component {
                                         }
                                     </ul>
                                 </div>
-                                <GoogleMap latitude={room.business.latitude} longitude={this.state.room.business.longitude} />
+                                <GoogleMap 
+                                        center= {
+                                            {
+                                              lat: this.state.room.business.latitude,
+                                              lng: this.state.room.business.longitude
+                                            }
+                                          } 
+                                        />
                             </div>
                         </div>
                         : <Spinner />

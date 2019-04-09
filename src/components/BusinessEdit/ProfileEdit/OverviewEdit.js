@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import GoogleMapEdit from '../../common/GoogleMapEdit/GoogleMapEdit'
 export default class OverviewEdit extends Component {
     state = {
         data: null
@@ -17,7 +17,11 @@ export default class OverviewEdit extends Component {
         return (
             <div className='business_overview_edit'>
                 overview
-            <button onClick={e => this.handleChanges(e)}>abc</button>
+                <GoogleMapEdit
+                lat= {this.props.business.latitude}
+                lng= {this.props.business.longitude}
+                 />
+            <button onClick={e => this.handleChanges(e)}>Save</button>
             </div>
         )
     }
