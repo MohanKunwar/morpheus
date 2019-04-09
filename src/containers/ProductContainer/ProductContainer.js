@@ -48,7 +48,7 @@ class ProductContainer extends Component {
                                        autoPlay
                                        interval={3000} 
                                        emulateTouch
-                                       className="room_carousel_container"
+                                       className="product_carousel_container"
                                        showStatus={false}
                                     >
                                         {

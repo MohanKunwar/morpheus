@@ -38,6 +38,7 @@ class Category extends Component {
                 );
             })
         }
+
         return (
             <div className='category-btn' onMouseEnter={() => this.loadSubCategories(this.props.id)}
                 onMouseLeave={() => this.setState({ hover: false })}>{this.props.name}
