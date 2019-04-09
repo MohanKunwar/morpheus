@@ -62,9 +62,9 @@ class ProductContainer extends Component {
                                             :
                                             <span>Placeholder</span>
                                     }
-                                <div className="product_description">
-                                <h3 className="product-description_head">Product Description</h3>
-                                <p className="product-description_text">{this.state.product.description}</p>
+                                <div className="overview">
+                                <h3 className="overview_heading">Product Description</h3>
+                                <p className="overview_dec">{this.state.product.description}</p>
                                 </div>
 
                                 </div>
