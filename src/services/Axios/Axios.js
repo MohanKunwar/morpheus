@@ -2,11 +2,14 @@ import axios from 'axios';
 import UserService from './../User';
 
 export const instance = axios.create({
-    baseURL: 'https://mock.khozinfo.com/api/v1'
+    baseURL: 'https://khozinfo.com/api/v1'
 });
 
 export const authInstance = Object.create(instance);
 
+
+export const signal = axios.CancelToken.source()
+export const isCancel = error => axios.isCancel(error)
 instance.interceptors.request.use(request => {
     return request;
 }, error => {

@@ -8,17 +8,17 @@
 }
 .require_status{
     border: 1px solid rgba(128, 128, 128, 0.150);  
-    background: rgba(238, 240, 243, 0.03);
+    background: rgba(238, 240, 243, 1);
+    box-shadow: 0px 1px 1px rgba(218, 218, 218, 0.3);
     padding: 5px;
     color: rgba(65, 92, 161, 0.9);
     text-align: center;
-    border-radius: 3px;
     text-decoration: none !important;
 }
 .require_status.active{
-    color: rgba(22, 74, 185, 1);
-    background: #ffffff;
-    font-weight: 500;
+    color: rgb(234, 236, 240);
+    background: rgb(100, 15, 4);
+    font-weight: 700;
     border-bottom: transparent;
 }
 .requirement-details{

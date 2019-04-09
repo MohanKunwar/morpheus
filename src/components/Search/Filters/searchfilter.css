@@ -1,6 +1,6 @@
 .search-filters{
     position: sticky;
-    top: 120px;
+    top: 90px;
     left: 0;
     height: 0px;
     padding-top: 10px;
@@ -8,8 +8,11 @@
 }
 .search-types{
     position: sticky;
-    top: 88px;
+    top: 55px;
     left: 0;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    z-index: 998;
 }
 .search_filter_select{
     height: 30px;

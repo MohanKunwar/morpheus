@@ -59,7 +59,7 @@ class SearchFilters extends Component {
                 <React.Fragment>
                     <div className='search-filters'>
                         {
-                            this.props.type !== 'hotel' && this.props.type !== 'room'
+                            this.props.type !== 'hotel'
                                 ?
                                 <div className='category-filter'>
                                     <p className="filter_heading">Select Category</p>

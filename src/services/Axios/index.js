@@ -1,4 +1,4 @@
-import { instance, authInstance } from './Axios';
+import { instance, authInstance, signal, isCancel } from './Axios';
 // import authInstance from './Axios';
 
 const API = {
@@ -30,14 +30,19 @@ const API = {
     room: {
         getRoomUrl: slug => { return `/rooms/${slug}` },
         getRoomPhotosUrl: slug => { return `/rooms/${slug}/photos`},
-        getRoomAmenitiesUrl: slug => { return `/rooms/${slug}/amenities` }
+        getRoomAmenitiesUrl: slug => { return `/rooms/${slug}/amenities` },
+        getAllHotelAmenitiesUrl: '/hotels/amenities',
+        getAllHotelRoomAmenitiesUrl: '/hotel-rooms/amenities'
     },
     search: {
         getResults: (type, params) => {
             return (`search/${type}?${params}`)
         },
-        getRoomsResults: (checkin, checkout, location) => {
-            return `search/room?checkin=${checkin}&checkout=${checkout}&location_id=${location}`
+        // getRoomsResults: (checkin, checkout, location) => {
+        //     return `search/room?checkin=${checkin}&checkout=${checkout}&location_id=${location}`
+        // }
+        getRoomsResults: (params) => {
+            return `search/room?${params}`
         }
     },
     user: {
@@ -58,7 +63,8 @@ const API = {
         changePasswordUrl: '/user/password'
     }
 }
+
 const Axios = {
-    instance, authInstance, API
+    instance, authInstance, API, signal, isCancel
 }
 export default Axios;

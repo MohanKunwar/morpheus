@@ -115,6 +115,7 @@ class BusinessView extends Component {
                                               lng: this.state.business.longitude
                                             }
                                           } 
+                                          zoom={16}
                                         />
                                     <button onClick= {this.handleRedirect} className="get_direction">
                                         Get Direction
