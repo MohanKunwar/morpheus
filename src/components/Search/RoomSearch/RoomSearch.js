@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import UserService from "../../../services/User";
-import { Form } from "react-final-form";
+import UserService from "../../../services/User"
 import Axios from "../../../services/Axios";
-import Error from "../../../helpers/FormError";
 import DateRangePicker from "react-daterange-picker";
 import "react-daterange-picker/dist/css/react-calendar.css";
 import * as moment from 'moment'
+import RoomFilters from './RoomFilters'
 import './RoomSearch.css'
-class RoomFilters extends Component {
+class RoomSearch extends Component {
     state = {
         checkIn: null,
         checkOut: null,
@@ -15,12 +14,13 @@ class RoomFilters extends Component {
         pickedDate: 'Select Checkin-Checkout Date',
         location: null
     }
+    initSearch = false
     componentWillMount() {
 
-        UserService.setSessionItem('check_in', '2019-10-10')
-        UserService.setSessionItem('check_out', '2019-10-12')
-        UserService.setSessionItem('location', '1')
-        let checkIn = UserService.getSessionItem("check_in");
+        // UserService.setSessionItem('check_in', '2019-10-10')
+        // UserService.setSessionItem('check_out', '2019-10-12')
+        // UserService.setSessionItem('location', '1')
+        let checkIn = UserService.getSessionItem("check_in")
         if (checkIn) {
             this.setState({ checkIn: checkIn });
         }
@@ -38,8 +38,8 @@ class RoomFilters extends Component {
         this.setState({
             showDateRange: false,
             pickedDate: `${moment(range.start).format('MMM Do YY')} - ${moment(range.end).format('MMM Do YY')}`,
-            checkIn: range.start,
-            checkOut: range.end
+            checkIn: moment(range.start).format('YYYY-MM-DD'),
+            checkOut: moment(range.end).format('YYYY-MM-DD')
         })
     }
     handleLocationChange = e => {
@@ -51,13 +51,13 @@ class RoomFilters extends Component {
         UserService.setSessionItem('check_in', this.state.checkIn)
         UserService.setSessionItem('check_out', this.state.checkOut)
         UserService.setSessionItem('location', this.state.location)
-        this.setState({ checkIn: this.state.checkIn })
+        this.initSearch = true
+        this.setState({checkIn: this.state.checkIn})
     }
     render() {
         return (
-            <div className="card-container">
-                {
-                    this.state.checkIn
+                
+                    this.initSearch
                     ?
                     (
                         <RoomFilters locations={this.state.locations} />
@@ -99,9 +99,7 @@ class RoomFilters extends Component {
                             <button onClick={e => this.initializeSearch(e)}>Search Rooms</button>
                         </div>
                     )
-                }
-            </div>
-        );
+        )
     }
 }
-export default RoomFilters;
+export default RoomSearch;

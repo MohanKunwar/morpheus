@@ -84,8 +84,8 @@ class MyProfile extends Component {
                 }
                 case 422: {
                     this.setState({
-                        serverEmailError: response.data.errors.email ? response.data.errors.email[1] : null,
-                        serverMobileError: response.data.errors.mobile ? response.data.errors.mobile[1] : null
+                        serverEmailError: response.data.errors.email ? response.data.errors.email[0] : null,
+                        serverMobileError: response.data.errors.mobile ? response.data.errors.mobile[0] : null
                     })
 break
                 }

@@ -3,6 +3,7 @@
     grid-template-columns: repeat(3 , minmax(100px, 1fr));
     grid-gap: 15px;
     flex-wrap: wrap;
+    margin-top: 10px;
     /* overflow: hidden; */
     
 }

@@ -1,4 +1,4 @@
-import { instance, authInstance } from './Axios';
+import { instance, authInstance, signal, isCancel } from './Axios';
 // import authInstance from './Axios';
 
 const API = {
@@ -58,7 +58,8 @@ const API = {
         changePasswordUrl: '/user/password'
     }
 }
+
 const Axios = {
-    instance, authInstance, API
+    instance, authInstance, API, signal, isCancel
 }
 export default Axios;

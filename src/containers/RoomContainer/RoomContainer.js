@@ -6,7 +6,6 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import GoogleMap from '../../components/common/GoogleMap/GoogleMap'
 import './RoomContainer.css'
 import { FaMapMarkerAlt } from 'react-icons/fa'
-import DateRangePicker from 'react-daterange-picker'
 import BookRoom from './BookRoom';
 
 
