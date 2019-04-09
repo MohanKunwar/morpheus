@@ -39,8 +39,8 @@ class Dropdown extends Component {
                                 <img src={require("../../../assets/images/user.svg")} alt="user svg" />
                                 <p>My Account</p>
                                 </div>
-                                <hr style={{marginTop: "3px", marginBottom: "10px"}}/>
-                                <div><p>Businessess</p></div>
+                                <hr style={{marginTop: "3px", marginBottom: "6px"}}/>
+                                <div hidden= {this.props.businesses > 0 ? false: true}><p>Businesses</p></div>
                                 <div className="user-business-list">{
                                     this.props.user.businesses && this.props.user.businesses.length > 0
                                         ?
@@ -58,7 +58,7 @@ class Dropdown extends Component {
                                         :
                                         null
                                 }</div>
-                                <hr style={{marginTop: "8px", marginBottom: "6px"}}/>
+                                <hr hidden={this.props.businesses > 0 ? false: true} style={{marginTop: "8px", marginBottom: "6px"}}/>
                                 <div onClick={(e) => this.props.logout(e)}><p>Logout</p></div>
                             </div>
                         )
