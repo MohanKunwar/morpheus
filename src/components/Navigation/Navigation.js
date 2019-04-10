@@ -20,7 +20,7 @@ class Navigation extends Component {
                             <NavLink to='/user/account' className="nav-item"><FaUser /><span className="nav_heading"> My Account</span></NavLink>
                             <NavLink to='/user/reviews' className="nav-item"><FaComments /><span className="nav_heading"> Reviews</span></NavLink>
                             <NavLink to='/user/requirements' className="nav-item"><FaShoppingCart /><span className="nav_heading"> My Requirements</span></NavLink>
-                            <NavLink to='/business/12' className="nav-item"><FaBriefcase /><span className="nav_heading"> Business</span></NavLink>
+                            <NavLink to='/user/bookings' className="nav-item"><FaBriefcase /><span className="nav_heading"> My Bookings</span></NavLink>
                         </div>
                         <div className='request_btn'>
                             <Link to='/user/request'>

@@ -1,15 +1,20 @@
 import React, { Component } from 'react'
 import UserService from '../../../../services/User'
-import Axios from '../../../../services/Axios';
-import Spinner from '../../../../helpers/Spinner';
+import Axios from '../../../../services/Axios'
+import Spinner from '../../../../helpers/Spinner'
 import RoomCard from '../../../../UI/RoomCard'
+import DateRangePicker from 'react-daterange-picker'
 import * as moment from 'moment'
 import './RoomFilters.css'
 class RoomFilters extends Component {
     state = {
         checkin: UserService.getSessionItem('check_in'),
         checkout: UserService.getSessionItem('check_out'),
-        location: UserService.getSessionItem('location')
+        location: UserService.getSessionItem('location'),
+        showDatePicker: false,
+        datePickerText: UserService.getSessionItem('check_in')
+            ? `${moment(UserService.getSessionItem('check_in')).format('MMM Do YY')} - ${moment(UserService.getSessionItem('check_out')).format('MMM Do YY')}`
+            : 'Select Checkin Checkout Date'
     }
     room_amenities = []
     hotel_amenities = []
@@ -24,19 +29,17 @@ class RoomFilters extends Component {
         } else {
             this[type].push(amenityId)
         }
-        this.setState({ loading: true })
+        this.setState({ loading: true }, () => this.getResults())
         // this.room_amenities[amenity.amenity] = this.room_amenities[amenity.amenity] ? null : amenity.id
-        this.getResults()
     }
-   handleLocationChange = e => {
-       e.preventDefault()
-       console.log(e.target.value)
-       this.setState({
-           loading: true,
-           location: e.target.value
-       })
-       this.getResults()
-   }
+    handleLocationChange = e => {
+
+        UserService.setSessionItem('location', e.target.value)
+        this.setState({
+            loading: true,
+            location: e.target.value
+        }, () => this.getResults())
+    }
 
     getResults = () => {
         let params = `checkin=${this.state.checkin}&checkout=${this.state.checkout}`
@@ -55,14 +58,43 @@ class RoomFilters extends Component {
             }
         })
     }
+    showDateRangePicker = () => {
+        this.setState({ showDatePicker: true })
+    }
+    handleDateSelect = range => {
+        let checkin = moment(range.start).format('YYYY-MM-DD')
+        let checkout = moment(range.end).format('YYYY-MM-DD')
+        UserService.setSessionItem('check_in', checkin)
+        UserService.setSessionItem('check_out', checkout)
+        this.setState({
+            loading:true,
+            showDatePicker: false,
+            checkin: checkin,
+            checkout: checkout,
+            datePickerText: `${moment(range.start).format('MMM Do YYYY')} - ${moment(range.end).format('MMM Do YYYY')}`
+        }, () => this.getResults())
+    }
     render() {
         return (
             <React.Fragment>
                 <div className='search-filters'>
+
+                    <input type='text' onClick={this.showDateRangePicker} value={this.state.datePickerText} readOnly />
+                    {
+                        this.state.showDatePicker
+                            ?
+                            <DateRangePicker
+                                numberOfCalendars={1}
+                                selectionType='range'
+                                minimumDate={new Date()}
+                                onSelect={this.handleDateSelect} />
+                            : null
+                    }
                     {
                         this.props.locations
                             ?
-                            <select onChange={e => this.handleLocationChange(e)}>
+                            <select onChange={e => this.handleLocationChange(e)} 
+                            defaultValue={this.state.location ? this.state.location : 'All'}>
                                 {
                                     this.props.locations.map((location, index) =>
                                         <option key={index} value={location.id}>{location.name}</option>
@@ -104,16 +136,15 @@ class RoomFilters extends Component {
                             : null
                     }
                 </div>
-                <div className='search-results-container'>
-                    {
-                        this.state.rooms && !this.state.loading
-                            ?
-                            this.state.rooms.map((room, index) =>
-                                <RoomCard key={index} room={room} />
-                            )
-                            : <Spinner />
-                    }
-                </div>
+                {
+                    this.state.rooms && !this.state.loading
+                        ?
+
+                        <div className='search-results-container'>
+                            {this.state.rooms.map((room, index) => <RoomCard key={index} room={room} />)}
+                        </div>
+                        : <Spinner />
+                }
             </React.Fragment>
         )
     }

@@ -32,7 +32,8 @@ const API = {
         getRoomPhotosUrl: slug => { return `/rooms/${slug}/photos`},
         getRoomAmenitiesUrl: slug => { return `/rooms/${slug}/amenities` },
         getAllHotelAmenitiesUrl: '/hotels/amenities',
-        getAllHotelRoomAmenitiesUrl: '/hotel-rooms/amenities'
+        getAllHotelRoomAmenitiesUrl: '/hotel-rooms/amenities',
+        createReservationUrl: 'hotel-reservations'
     },
     search: {
         getResults: (type, params) => {
@@ -60,7 +61,8 @@ const API = {
         getUserReviewsUrl: '/user/business-reviews',
         userDetailsUrl: '/user',
         editProfileUrl: '/user/profile',
-        changePasswordUrl: '/user/password'
+        changePasswordUrl: '/user/password',
+        userBookingsUrl: '/user/hotel-reservations'
     }
 }
 

@@ -14,7 +14,6 @@ const Star = () => {
 };
 
 const BusinessCard = props => {
-  console.log(props.business);
   return (
     <div className="business-card">
       <div className="business_img_container">
