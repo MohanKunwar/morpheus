@@ -8,20 +8,17 @@ import RoomFilters from './RoomFilters'
 import './RoomSearch.css'
 class RoomSearch extends Component {
     state = {
-        checkIn: null,
-        checkOut: null,
+        checkIn: UserService.getSessionItem("check_in"),
+        checkOut: UserService.getSessionItem('check_out'),
         showDateRange: undefined,
         pickedDate: 'Select Checkin-Checkout Date',
-        location: null
+        location: UserService.getSessionItem('location'),
+        
     }
-    initSearch = true
+    initSearch = false
     componentWillMount() {
-        UserService.setSessionItem('check_in', '2019-10-10')
-        UserService.setSessionItem('check_out', '2019-10-12')
-        UserService.setSessionItem('location', '1')
-        let checkIn = UserService.getSessionItem("check_in")
-        if (checkIn) {
-            this.setState({ checkIn: checkIn });
+        if (this.state.checkIn) {
+            this.initSearch = true
         }
         Axios.instance.get(Axios.API.common.getLocationsUrl).then(response => {
             if (response && response.data) {
@@ -50,16 +47,16 @@ class RoomSearch extends Component {
             checkIn: moment(range.start).format('YYYY-MM-DD'),
             checkOut: moment(range.end).format('YYYY-MM-DD')
         })
+        UserService.setSessionItem('check_in', this.state.checkIn)
+        UserService.setSessionItem('check_out', this.state.checkOut)
     }
     handleLocationChange = e => {
-        e.preventDefault()
+
+        UserService.setSessionItem('location', e.target.value) 
         this.setState({ location: e.target.value })
     }
     initializeSearch = e => {
         e.preventDefault()
-        UserService.setSessionItem('check_in', this.state.checkIn)
-        UserService.setSessionItem('check_out', this.state.checkOut)
-        UserService.setSessionItem('location', this.state.location)
         this.initSearch = true
         this.setState({checkIn: this.state.checkIn})
     }
@@ -77,7 +74,7 @@ class RoomSearch extends Component {
                     :
                     (
                         <div className='search-room'>
-                            <input type='text' defaultValue={this.state.pickedDate} onClick={this.showDateRangePicker} />
+                            <input type='text' value={this.state.pickedDate} onClick={this.showDateRangePicker} readOnly />
                             {
                                 this.state.showDateRange
                                     ?

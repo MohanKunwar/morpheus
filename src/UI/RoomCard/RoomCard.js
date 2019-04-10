@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import Img from 'react-image'
 const RoomCard = props => {
   const { room } = props
-  console.log('room', room)
   return (
     <div className='roomcard-container'>
       <div className='room_img_container'>
