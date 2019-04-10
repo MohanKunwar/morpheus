@@ -115,22 +115,25 @@ class BusinessView extends Component {
                                               lng: this.state.business.longitude
                                             }
                                           } 
+                                          zoom={16}
                                         />
                                     <button onClick= {this.handleRedirect} className="get_direction">
                                         Get Direction
                                     </button>
-                                        <p className="overview_address"><FaMapMarkerAlt className="overview-icon" /> {this.state.business.address}</p>
-                                        <p className="overview_email"><FaRegEnvelope className="overview-icon" /> {this.state.business.email}</p>
+                                    <div className="overview_des">
+                                        <p style={this.state.business.address ? {display: "block"}: {display: "none"}}  className="overview_address"><FaMapMarkerAlt className="overview-icon" /> {this.state.business.address}</p>
+                                        <p style={this.state.business.email ? {display: "block"}: {display: "none"}}  className="overview_email"><FaRegEnvelope className="overview-icon" /> {this.state.business.email}</p>
                                         {/* // todo
                                         // check if user logged in for phone number and hours */}
-                                        <p className="overview_mobile_number"><FaPhone className="overview-icon" /> {this.state.business.mobile_number}</p>
-                                        <p className="overview_website"><FaGlobeAsia className="overview-icon" /> {this.state.business.website}</p>
+                                        <p style={this.state.business.mobile_number ? {display: "block"}: {display: "none"}}  className="overview_mobile_number"><FaPhone className="overview-icon" /> {this.state.business.mobile_number}</p>
+                                        <p style={this.state.business.website ? {display: "block"}: {display: "none"}} className="overview_website"><FaGlobeAsia className="overview-icon" /> {this.state.business.website}</p>
                                         {/* <div className='overview-rating'>
                                 <Img src={star} className="overview_star" />
                                     <div className="average_rating">{this.state.business.rating_avg}</div>
                                     <p className="average_rating_text">Average Rating</p> 
                                     <p><Link to={`/business/${this.props.businessUrl}/reviews`} className="review_link">{this.state.business.review_count} reviews</Link></p>
                                 </div> */}
+                                </div>
                                     </div>
                                 </div>
                             </div>

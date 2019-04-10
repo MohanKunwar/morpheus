@@ -1,34 +1,40 @@
 import React, { Component } from "react";
-import UserService from "../../../services/User";
-import { Form } from "react-final-form";
+import UserService from "../../../services/User"
 import Axios from "../../../services/Axios";
-import Error from "../../../helpers/FormError";
 import DateRangePicker from "react-daterange-picker";
 import "react-daterange-picker/dist/css/react-calendar.css";
 import * as moment from 'moment'
+import RoomFilters from './RoomFilters'
 import './RoomSearch.css'
-class RoomFilters extends Component {
+class RoomSearch extends Component {
     state = {
-        checkIn: null,
-        checkOut: null,
+        checkIn: UserService.getSessionItem("check_in"),
+        checkOut: UserService.getSessionItem('check_out'),
         showDateRange: undefined,
         pickedDate: 'Select Checkin-Checkout Date',
-        location: null
+        location: UserService.getSessionItem('location'),
+        
     }
+    initSearch = false
     componentWillMount() {
-
-        UserService.setSessionItem('check_in', '2019-10-10')
-        UserService.setSessionItem('check_out', '2019-10-12')
-        UserService.setSessionItem('location', '1')
-        let checkIn = UserService.getSessionItem("check_in");
-        if (checkIn) {
-            this.setState({ checkIn: checkIn });
+        if (this.state.checkIn) {
+            this.initSearch = true
         }
         Axios.instance.get(Axios.API.common.getLocationsUrl).then(response => {
             if (response && response.data) {
                 this.setState({ locations: response.data.data });
             }
-        });
+        })
+        Axios.instance.get(Axios.API.room.getAllHotelRoomAmenitiesUrl).then(response => {
+            if (response && response.data) {
+                this.setState({ hotelRoomsAmenities: response.data.data})
+            }
+        })
+        Axios.instance.get(Axios.API.room.getAllHotelAmenitiesUrl).then(response => {
+            if (response && response.data) {
+                this.setState({ hotelAmenities: response.data.data})
+            }
+        })
 
     }
     showDateRangePicker = () => {
@@ -38,34 +44,37 @@ class RoomFilters extends Component {
         this.setState({
             showDateRange: false,
             pickedDate: `${moment(range.start).format('MMM Do YY')} - ${moment(range.end).format('MMM Do YY')}`,
-            checkIn: range.start,
-            checkOut: range.end
+            checkIn: moment(range.start).format('YYYY-MM-DD'),
+            checkOut: moment(range.end).format('YYYY-MM-DD')
         })
+        UserService.setSessionItem('check_in', this.state.checkIn)
+        UserService.setSessionItem('check_out', this.state.checkOut)
     }
     handleLocationChange = e => {
-        e.preventDefault()
+
+        UserService.setSessionItem('location', e.target.value) 
         this.setState({ location: e.target.value })
     }
     initializeSearch = e => {
         e.preventDefault()
-        UserService.setSessionItem('check_in', this.state.checkIn)
-        UserService.setSessionItem('check_out', this.state.checkOut)
-        UserService.setSessionItem('location', this.state.location)
-        this.setState({ checkIn: this.state.checkIn })
+        this.initSearch = true
+        this.setState({checkIn: this.state.checkIn})
     }
     render() {
         return (
-            <div className="card-container">
-                {
-                    this.state.checkIn
+                
+                    this.initSearch
                     ?
                     (
-                        <RoomFilters locations={this.state.locations} />
+                        <RoomFilters 
+                        locations={this.state.locations} 
+                        hotelAmenities={this.state.hotelAmenities} 
+                        hotelRoomsAmenities={this.state.hotelRoomsAmenities} />
                     )
                     :
                     (
                         <div className='search-room'>
-                            <input type='text' defaultValue={this.state.pickedDate} onClick={this.showDateRangePicker} />
+                            <input type='text' value={this.state.pickedDate} onClick={this.showDateRangePicker} readOnly />
                             {
                                 this.state.showDateRange
                                     ?
@@ -99,9 +108,10 @@ class RoomFilters extends Component {
                             <button onClick={e => this.initializeSearch(e)}>Search Rooms</button>
                         </div>
                     )
-                }
-            </div>
-        );
+        )
+    }
+    componentWillUnmount() {
+        console.log('abc')
     }
 }
-export default RoomFilters;
+export default RoomSearch;

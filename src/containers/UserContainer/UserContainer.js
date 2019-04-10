@@ -8,11 +8,12 @@ import TermsAndConditions from '../../components/user/TermsAndConditions';
 // import Navigation from '../../components/Navigation';
 import Account from '../../components/user/Account';
 import PrivateRoute from '../../helpers/PrivateRoute';
+import MyBookings from '../../components/user/MyBookings'
 
 
 class UserContainer extends Component {
 
-    render() {
+    render() { 
         const currUrl = this.props.match.url
         return (
             <div className='user-container'>
@@ -23,7 +24,8 @@ class UserContainer extends Component {
                 <PrivateRoute path={`${currUrl}/account`} component={Account} />
                 <Route path={`${currUrl}/terms-and-conditions`} component={TermsAndConditions} />
                 <Route path={`${currUrl}/request`} component={CreateRequirement} />
-                <Redirect to={`${currUrl}/reviews`} />
+                <Route path={`${currUrl}/bookings`} component={MyBookings} />
+                <Redirect to={`reviews`} />
             </Switch>
             </div>
         );

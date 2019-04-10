@@ -1,41 +1,153 @@
 import React, { Component } from 'react'
 import UserService from '../../../../services/User'
-import Axios from '../../../../services/Axios';
-import Spinner from '../../../../helpers/Spinner';
+import Axios from '../../../../services/Axios'
+import Spinner from '../../../../helpers/Spinner'
 import RoomCard from '../../../../UI/RoomCard'
+import DateRangePicker from 'react-daterange-picker'
 import * as moment from 'moment'
+import './RoomFilters.css'
 class RoomFilters extends Component {
+    state = {
+        checkin: UserService.getSessionItem('check_in'),
+        checkout: UserService.getSessionItem('check_out'),
+        location: UserService.getSessionItem('location'),
+        showDatePicker: false,
+        datePickerText: UserService.getSessionItem('check_in')
+            ? `${moment(UserService.getSessionItem('check_in')).format('MMM Do YY')} - ${moment(UserService.getSessionItem('check_out')).format('MMM Do YY')}`
+            : 'Select Checkin Checkout Date'
+    }
+    room_amenities = []
+    hotel_amenities = []
     componentWillMount() {
+        this.getResults()
+    }
+
+    toggleAmenity = (e, amenityId, type) => {
+        let index = this[type].findIndex(id => amenityId === id)
+        if (index >= 0) {
+            this[type].splice(index, 1)
+        } else {
+            this[type].push(amenityId)
+        }
+        this.setState({ loading: true }, () => this.getResults())
+        // this.room_amenities[amenity.amenity] = this.room_amenities[amenity.amenity] ? null : amenity.id
+    }
+    handleLocationChange = e => {
+
+        UserService.setSessionItem('location', e.target.value)
         this.setState({
-            checkin: moment(UserService.getSessionItem('check_in')).format('YYYY-MM-DD'),
-            checkout: moment(UserService.getSessionItem('check_out')).format('YYYY-MM-DD'),
-            location: UserService.getSessionItem('location')
-        })
-        Axios.instance.get(Axios.API.search.getRoomsResults(this.state.checkin, this.state.checkout, this.state.location)).then(response => {
+            loading: true,
+            location: e.target.value
+        }, () => this.getResults())
+    }
+
+    getResults = () => {
+        let params = `checkin=${this.state.checkin}&checkout=${this.state.checkout}`
+        if (this.state.location) {
+            params += `&location_id=${this.state.location}`
+        }
+        if (this.room_amenities.length > 0) {
+            params += `&room_amenities=${this.room_amenities.join()}`
+        }
+        if (this.hotel_amenities.length > 0) {
+            params += `&hotel_amenities=${this.hotel_amenities.join()}`
+        }
+        Axios.instance.get(Axios.API.search.getRoomsResults(params)).then(response => {
             if (response && response.data) {
-                this.setState({ rooms: response.data.data})
+                this.setState({ rooms: response.data.data, loading: false })
             }
         })
-        // get hotel amenities
-        // get room amenities
+    }
+    showDateRangePicker = () => {
+        this.setState({ showDatePicker: true })
+    }
+    handleDateSelect = range => {
+        let checkin = moment(range.start).format('YYYY-MM-DD')
+        let checkout = moment(range.end).format('YYYY-MM-DD')
+        UserService.setSessionItem('check_in', checkin)
+        UserService.setSessionItem('check_out', checkout)
+        this.setState({
+            loading:true,
+            showDatePicker: false,
+            checkin: checkin,
+            checkout: checkout,
+            datePickerText: `${moment(range.start).format('MMM Do YYYY')} - ${moment(range.end).format('MMM Do YYYY')}`
+        }, () => this.getResults())
     }
     render() {
         return (
             <React.Fragment>
-                <div className='room_search_filters'>
+                <div className='search-filters'>
+
+                    <input type='text' onClick={this.showDateRangePicker} value={this.state.datePickerText} readOnly />
+                    {
+                        this.state.showDatePicker
+                            ?
+                            <DateRangePicker
+                                numberOfCalendars={1}
+                                selectionType='range'
+                                minimumDate={new Date()}
+                                onSelect={this.handleDateSelect} />
+                            : null
+                    }
+                    {
+                        this.props.locations
+                            ?
+                            <select onChange={e => this.handleLocationChange(e)} 
+                            defaultValue={this.state.location ? this.state.location : 'All'}>
+                                {
+                                    this.props.locations.map((location, index) =>
+                                        <option key={index} value={location.id}>{location.name}</option>
+                                    )
+                                }
+                            </select>
+                            : null
+                    }
+                    {
+                        this.props.hotelRoomsAmenities
+                            ?
+                            <div className='room_amenities'>
+                                {
+                                    this.props.hotelRoomsAmenities.map((roomAmenitiy, index) =>
+                                        <div className='room_amenity' key={index}>
+                                            <input type='checkbox' onChange={e => this.toggleAmenity(e, roomAmenitiy.id, 'room_amenities')} />
+                                            {/* <img className='amenities_icon' src={roomAmenitiy.icon_svg} alt={roomAmenitiy.amenity} /> */}
+                                            <span>{roomAmenitiy.amenity}</span>
+                                        </div>)
+                                }
+                            </div>
+                            : null
+
+
+                    }
+                    {
+                        this.props.hotelAmenities
+                            ?
+                            <div className='room_amenities'>
+                                {
+                                    this.props.hotelAmenities.map((hotelAmenitiy, index) =>
+                                        <div className='hotel_amenity' key={index}>
+                                            <input type='checkbox' onChange={e => this.toggleAmenity(e, hotelAmenitiy.id, 'hotel_amenities')} />
+                                            {/* <img className='amenities_icon' src={hotelAmenitiy.icon_svg} alt={hotelAmenitiy.amenity} /> */}
+                                            <span>{hotelAmenitiy.amenity}</span>
+                                        </div>)
+                                }
+                            </div>
+                            : null
+                    }
                 </div>
-                <div className='room_search_results'>
                 {
-                    this.state.rooms
-                    ? 
-                    this.state.rooms.map((room, index) =>
-                        <RoomCard key={index} room={room} />
-                    )
-                    : <Spinner />
+                    this.state.rooms && !this.state.loading
+                        ?
+
+                        <div className='search-results-container'>
+                            {this.state.rooms.map((room, index) => <RoomCard key={index} room={room} />)}
+                        </div>
+                        : <Spinner />
                 }
-                </div>
             </React.Fragment>
         )
     }
+
 }
 export default RoomFilters

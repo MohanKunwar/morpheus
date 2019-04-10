@@ -12,7 +12,7 @@
     padding: 6px 0 8px 0;
     background: white;
     color: black;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     text-overflow: ellipsis;
     box-shadow: 0 0 7px 2px rgba(0,0,0,.65);
@@ -60,6 +60,9 @@
     margin: 2px 0 2px 0;
     padding: 5px 12px 5px 12px !important;
     cursor: pointer;
+}
+.user-business a{
+    color: black !important;
 }
 .user-business:hover{
     background: #f8f9fa;

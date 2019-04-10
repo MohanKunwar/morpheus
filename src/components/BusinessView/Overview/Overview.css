@@ -1,20 +1,21 @@
-.business-overview {
+.business_overview {
     display: grid;
+    grid-gap: 20px;
     color: #112e51;
 }
-.overview-body {
-    display: grid;
-    /* grid-template-columns: 3.5fr 1.5fr; */
-    grid-gap: 30px;
+.overview{
+    border: 2px solid rgb(211, 207, 207);
 }
-.business-cover {
+.business_cover {
     width: 100%;
 }
-.overview-body .overview_heading{
-    padding-top: 20px;
+.overview .overview_heading{
+    padding: 13px 18px;
     font-weight: 700;
+    border-bottom: 2px solid rgb(211, 207, 207);
 }
-.overview-body .overview_dec{
-    font-size: 15px;
+.overview .overview_dec{
+    padding: 13px 18px 14px 18px;
     opacity: 0.7;
+    line-height: 1.5;
 }

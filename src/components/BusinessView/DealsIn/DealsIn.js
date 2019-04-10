@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Axios from '../../../services/Axios';
-
+import "./Dealsin.css";
 
 class DealsIn extends Component {
     state = {
@@ -18,7 +18,7 @@ class DealsIn extends Component {
             dealsInList = this.state.dealsIn.map((item) => {
                 return (
                     <div key={item.id} className='deals-in'>
-                        {item.name}
+                        <div> {item.name} </div>
                     </div>
                 )
             })
