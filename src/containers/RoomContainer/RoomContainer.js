@@ -63,7 +63,7 @@ class RoomContainer extends Component {
                                        emulateTouch
                                        className="room_carousel_container"
                                        showStatus={false}
-                                       verticalSwipe={true}
+                                       verticalSwipe={'natural'}
                                        width='100%'
                                     >
                                         {
