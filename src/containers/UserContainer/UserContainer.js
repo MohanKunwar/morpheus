@@ -24,7 +24,7 @@ class UserContainer extends Component {
                 <PrivateRoute path={`${currUrl}/account`} component={Account} />
                 <Route path={`${currUrl}/terms-and-conditions`} component={TermsAndConditions} />
                 <Route path={`${currUrl}/request`} component={CreateRequirement} />
-                <Route path={`${currUrl}/bookings`} component={MyBookings} />
+                <PrivateRoute path={`${currUrl}/bookings`} component={MyBookings} />
                 <Redirect to={`reviews`} />
             </Switch>
             </div>
