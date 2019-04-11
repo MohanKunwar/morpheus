@@ -10,6 +10,7 @@ import MyPassword from './MyPassword';
 
 class Account extends Component {
     render() {
+        document.title = 'My Account'
         const currUrl = this.props.match.url
         console.log('url for account', currUrl)
         return (

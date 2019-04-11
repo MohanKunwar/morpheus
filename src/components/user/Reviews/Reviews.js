@@ -21,7 +21,7 @@ class UserReviews extends Component {
         })
     }
     render() {
-
+        document.title = 'My Reviews'
         return (
             <div className="card-container">
                 <h4 className="card_header">My Reviews</h4>

@@ -1,37 +1,50 @@
 import React, { Component } from 'react'
 import './Category.css'
-
+import axios from 'axios'
 import Axios from '../../../../services/Axios'
 import Spinner from '../../../../helpers/Spinner'
-import { MountCheckFetch } from '../../../../helpers/MountCheckFetch'
+// import { MountCheckFetch } from '../../../../helpers/MountCheckFetch'
 
 class Category extends Component {
-  signal = Axios.signal
+  // signal = Axios.signal
+  signal = axios.CancelToken.source()
   state = {
     subCategories: null,
     hover: false,
     categoryItems: null
   }
 
-  loadSubCategories = async id => {
+  loadSubCategories = id => {
     this.setState({ hover: true })
     if (!this.state.subCategories) {
-      try {
-        const data = await MountCheckFetch(
-          this.signal.token,
-          Axios.API.common.getCategoryUrl + id + '/children'
-        )
-        if (data && data.data.length > 0) {
-          this.setState({ subCategories: data.data })
-        } else {
-          this.setState({ subCategories: [] })
+      Axios.instance.get(Axios.API.common.getCategoryUrl(id), { cancelToken: this.signal.token }).then(response => {
+        if (response && response.data) {
+          if (response.data.data.length > 0) {
+            this.setState({ subCategories: response.data.data })
+          } else {
+            this.setState({ subCategories: [] })
+          }
         }
-      } catch (error) {
-        if (Axios.isCancel(error)) {
-          console.log('error', error.message)
-        }
-      }
+      })
     }
+
+    // if (!this.state.subCategories) {
+    //   try {
+    //     const data = await MountCheckFetch(
+    //       this.signal.token,
+    //       Axios.API.common.getCategoryUrl + id + '/children'
+    //     )
+    //     if (data && data.data.length > 0) {
+    //       this.setState({ subCategories: data.data })
+    //     } else {
+    //       this.setState({ subCategories: [] })
+    //     }
+    //   } catch (error) {
+    //     if (Axios.isCancel(error)) {
+    //       console.log('error', error.message)
+    //     }
+    //   }
+    // }
   }
   render() {
     let categoryItems = null
@@ -67,7 +80,9 @@ class Category extends Component {
     )
   }
   componentWillUnmount() {
-    this.signal.cancel('sub categories api cancelled')
+    this.signal.cancel({
+      response: 'sub categories api cancelled'
+    })
   }
 }
 export default Category

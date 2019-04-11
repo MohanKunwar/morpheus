@@ -34,11 +34,15 @@ class BookRoom extends Component {
         this.setState({ showCalendar: true })
     }
     handleDateSelect = range => {
+        let checkin = moment(range.start).format('YYYY-MM-DD')
+        let checkout = moment(range.end).format('YYYY-MM-DD')
+        UserService.setSessionItem('check_in', checkin)
+        UserService.setSessionItem('check_out', checkout)
         this.setState({
             showCalendar: false,
             pickDateText: `${moment(range.start).format('MMM Do YY')} - ${moment(range.end).format('MMM Do YY')}`,
-            checkin: moment(range.start).format('YYYY-MM-DD'),
-            checkout: moment(range.end).format('YYYY-MM-DD'),
+            checkin: checkin,
+            checkout: checkout,
             noOfDays: moment(range.end).diff(moment(range.start), 'days')
         })
     }

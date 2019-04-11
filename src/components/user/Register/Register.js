@@ -49,6 +49,7 @@ class Register extends React.Component {
   }
 
   render() {
+    document.title = 'Khoz-Register'
     return (
       <div className="register-container">
         {this.state.register ? (

@@ -20,13 +20,14 @@ const Search = props => {
         contextObject['q'] = null
     }
     filters = contextObject
-
+    let param = props.match.params.id
+    document.title = `Khoz-${param.charAt(0).toUpperCase() + param.slice(1).toLowerCase()}`
     return (
         <div className='search-container'>
         {
-            props.match.params.id === 'room'
+            param === 'room'
             ? <RoomSearch />
-            : <SearchFilters type={props.match.params.id} filters={filters} />
+            : <SearchFilters type={param} filters={filters} />
         }
             
         </div>
