@@ -5,6 +5,7 @@ import withRouter from 'react-router/withRouter'
 import * as moment from 'moment'
 import KhozContext from '../../services/Context'
 import Axios from '../../services/Axios';
+import './RoomContainer.css'
 class BookRoom extends Component {
     state = {
         showCalendar: false,
