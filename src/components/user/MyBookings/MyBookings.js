@@ -46,7 +46,7 @@ class MyBookings extends Component {
         this.setState({ showPopup: false })
     }
     render() {
-
+        document.title='My Bookings'
         return (
             <div className='card-container'>
             <h4 style={MybookStyle}>My Booking</h4>
