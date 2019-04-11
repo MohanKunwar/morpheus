@@ -3,7 +3,16 @@
     grid-template-columns: 1fr 7fr;
 }
 
+
 .business_edit_tabs {
-    display: grid;
-    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.business_edit_tab{
+    margin: 5px 12px 5px 20px;
+    white-space: nowrap;
+}
+.active{
+    color: red;
 }
