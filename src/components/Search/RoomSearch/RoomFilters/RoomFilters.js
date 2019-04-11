@@ -78,7 +78,8 @@ class RoomFilters extends Component {
         return (
             <React.Fragment>
                 <div className='search-filters'>
-
+                <div className="room_filter_container">
+                <div className='filter_room_date'>
                     <input type='text' onClick={this.showDateRangePicker} value={this.state.datePickerText} readOnly />
                     {
                         this.state.showDatePicker
@@ -90,6 +91,8 @@ class RoomFilters extends Component {
                                 onSelect={this.handleDateSelect} />
                             : null
                     }
+                    </div>
+                    <div className='filter_room_location'>
                     {
                         this.props.locations
                             ?
@@ -103,10 +106,12 @@ class RoomFilters extends Component {
                             </select>
                             : null
                     }
+                    </div>
                     {
                         this.props.hotelRoomsAmenities
                             ?
-                            <div className='room_amenities'>
+                            <div className='filter_room_amenities'>
+                            <h4>Room Amenities</h4>
                                 {
                                     this.props.hotelRoomsAmenities.map((roomAmenitiy, index) =>
                                         <div className='room_amenity' key={index}>
@@ -123,7 +128,8 @@ class RoomFilters extends Component {
                     {
                         this.props.hotelAmenities
                             ?
-                            <div className='room_amenities'>
+                            <div className='filter_room_amenities'>
+                            <h4>Hotel Amenities</h4>
                                 {
                                     this.props.hotelAmenities.map((hotelAmenitiy, index) =>
                                         <div className='hotel_amenity' key={index}>
@@ -135,6 +141,7 @@ class RoomFilters extends Component {
                             </div>
                             : null
                     }
+                    </div>
                 </div>
                 {
                     this.state.rooms && !this.state.loading
@@ -142,6 +149,7 @@ class RoomFilters extends Component {
 
                         <div className='search-results-container'>
                             {this.state.rooms.map((room, index) => <RoomCard key={index} room={room} />)}
+                            
                         </div>
                         : <Spinner />
                 }

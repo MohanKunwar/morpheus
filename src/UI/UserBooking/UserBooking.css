@@ -1,7 +1,57 @@
 .booking_container {
     display: grid;
-    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-columns: 10% 2fr 1fr 10%;
+    grid-gap: 15px;
+    margin: 10px 0;
+    padding: 20px 0;
+    border-radius: 3px;
+    border-bottom: 1px solid rgba(218, 218, 218, 0.5);
+    box-shadow: 0px 1px 1px rgba(218, 218, 218, 0.5);
+    color: #112E51;
 }
 .booking_container img {
-    max-height: 200px;
+    width:100%;
+    max-height: 150px;
+}
+.booking_container svg{
+    vertical-align: middle;
+}
+.my_booking_details{
+    margin: auto 0;
+}
+.my_booking_details{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.my_booking_room_type{
+    font-weight: 600;
+    display: block;
+    padding-bottom: 10px;
+}
+.my_booking_room_name{
+    opacity: 0.8;
+    font-size: 14px;
+}
+.my_booking_date{
+    font-weight: 600;
+    display: block;
+    padding-bottom: 10px;
+}
+.my_guest_room_count{
+    opacity: 0.8;
+    font-size: 14px;
+}
+.my_booking_price{
+    margin: auto 0;
+}
+.my_booking_price .mybook_total_price{
+    font-weight: 600;
+    
+}
+.my_booking_price .room_discount_text{
+    padding-top: 10px;
+}
+.my_booking_status{
+    margin: auto 0;
+    text-align: right;
 }

@@ -11,6 +11,7 @@ import UserContainer from './UserContainer/UserContainer';
 import ProductContainer from './ProductContainer';
 import RoomContainer from './RoomContainer'
 import BusinessContainer from './BusinessContainer';
+import BusinessRegister from './../components/BusinessRegister'
 
 class AppContainer extends Component {
 
@@ -21,6 +22,7 @@ class AppContainer extends Component {
                 <Navigation />
                 <Switch>
                     <Route path='/home' component={HomeContainer} />
+                    <Route path='/business/register' component={BusinessRegister} />
                     <Route path='/business/:id' component={BusinessContainer}/>
                     <Route path='/product/:id' component={ProductContainer} />
                     <Route path='/room/:id' component={RoomContainer} />

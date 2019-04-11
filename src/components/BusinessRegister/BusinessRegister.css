@@ -1,0 +1,25 @@
+.business_register_card{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: #112E51;
+}
+.business_register_form{
+    margin-top: 30px;
+}
+.business_register_form_group{
+    line-height: 2;
+    margin-bottom: 10px;
+}
+.register_filter_location{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    margin-bottom: 15px;
+}
+.business_form_label{
+    opacity: 0.8;
+}
+.business_register_card option[value=""][disabled] {
+    display: none;
+  }
+

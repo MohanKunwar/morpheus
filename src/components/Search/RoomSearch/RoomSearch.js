@@ -74,6 +74,7 @@ class RoomSearch extends Component {
                     :
                     (
                         <div className='search-room'>
+                        <p className="filter_heading">Check In - Check Out</p>
                             <input type='text' value={this.state.pickedDate} onClick={this.showDateRangePicker} readOnly />
                             {
                                 this.state.showDateRange

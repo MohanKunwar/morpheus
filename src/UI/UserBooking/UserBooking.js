@@ -1,5 +1,6 @@
 import React from 'react'
 import * as moment from 'moment'
+import { FaHotel, FaDoorOpen, FaUserFriends } from "react-icons/fa";
 import './UserBooking.css'
 
 const UserBooking = props => {
@@ -10,25 +11,31 @@ const UserBooking = props => {
                 <div>
                     <img src={props.booking.room.photo} alt={props.booking.room.type} />
                 </div>
-                <div>
-                    <span>{props.booking.business.name}</span>
-                    <span>{props.booking.room.type}</span>
-                    <span>{props.booking.room_count} {props.booking.room_count > 1 ? ' rooms ' : ' room '}</span>,
-                <span>{props.booking.no_of_guests}</span> {props.booking.no_of_guests > 1 ? ' guests ' : ' guest '}
-                    <span>From: {moment(props.booking.arrival).format('MMM DD YYYY')} To: {moment(props.booking.departure).format('MMM DD YYYY')}</span>
+                <div className='my_booking_details'>
+                <div><span className='my_booking_room_type'>{props.booking.room.type}</span>
+                    <span className='my_booking_room_name'><FaHotel /> {props.booking.business.name}</span>
+                    </div>
+                    <div className='my_booking_date_details'>
+                    <span className='my_booking_date'>From: {moment(props.booking.arrival).format('MMM DD YYYY')} To: {moment(props.booking.departure).format('MMM DD YYYY')}</span>
+                        <span className='my_guest_room_count'><FaDoorOpen />{props.booking.room_count} {props.booking.room_count > 1 ? ' rooms ' : ' room '}</span>,
+                <span className='my_guest_room_count'><FaUserFriends />{props.booking.no_of_guests} {props.booking.no_of_guests > 1 ? ' guests ' : ' guest '}</span>
+                    </div>
                 </div>
-                <div>
-                    <span className='room_total_price'>
+                <div className='my_booking_price'>
+                    <span className='mybook_total_price'>
                         Rs.{props.booking.price}
                     </span>
                     <span className='room_price_a_discount'>
-                        {props.booking.price_after_discount}
+                        Rs.{props.booking.price_after_discount}
                     </span>
                     <span className='room_discount_percent'>
                         {props.booking.room.discount}% off
-                    </span><br />
-                    <span className='room_discount_text'>(inclusive of all taxes)</span><br />
-                    <span>{props.booking.booking_status}</span>
+                    </span>
+                    <span className='room_discount_text'>(inclusive of all taxes)</span>
+                   
+                </div>
+                <div className='my_booking_status'>
+                <span>{props.booking.booking_status}</span>
                     {
                         props.booking.booking_status === 'pending' || props.booking.booking_status === 'approved'
                             ?

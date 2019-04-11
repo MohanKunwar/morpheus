@@ -85,7 +85,7 @@ class MyProfile extends Component {
                 case 422: {
                     this.setState({
                         serverEmailError: response.data.errors.email ? response.data.errors.email[0] : null,
-                        serverMobileError: response.data.errors.mobile ? response.data.errors.mobile[0] : null
+                        serverMobileError: response.data.errors.mobile_number ? response.data.errors.mobile_number[0] : null
                     })
 break
                 }
@@ -125,7 +125,7 @@ break
                         <React.Fragment>
                             <input ref={this.emailRef} defaultValue={this.user.email} className="account_inputfield" />
                             {this.state.invalidEmail ? <div className="Input_Err">invalid email</div> : null}
-                            {this.state.serverEmailError ? <div>{this.state.serverEmailError}</div> : null}
+                            {this.state.serverEmailError ? <div className="Input_Err">{this.state.serverEmailError}</div> : null}
                             <div className="account_button_group">
                             <button onClick={e => this.saveEmail(e)} className="save_btn">save</button>
                             <button onClick={e => this.setState({email: false})}  className="cancel_btn">cancel</button>
