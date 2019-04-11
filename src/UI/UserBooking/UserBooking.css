@@ -1,0 +1,7 @@
+.booking_container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+}
+.booking_container img {
+    max-height: 200px;
+}
