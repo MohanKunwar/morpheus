@@ -41,7 +41,7 @@
     margin-bottom: 5px;
 }
 .amenities_icon_svg {
-    max-width: 30px;
+    max-width: 25px;
     vertical-align: middle;
     margin: 5px;
 }
@@ -52,9 +52,10 @@
     border-radius: 3px;
 }
 
-.room_total_price{
+.room_total_price, .room_base_price{
     font-weight: 700;
     font-size: 18px;
+    padding-left: 5px;
 }
 .room_price_a_discount{
     padding-left: 15px;
@@ -73,6 +74,13 @@
 .room_discount_text{
     opacity: 0.6;
     font-size: 13px;
+    display: block;
+    padding: 5px 0;
+}
+.for_one_day{
+    font-size: 14px;
+    opacity: 0.8;
+    color: #DF1D3F;
 }
 .room_book_button{
     padding: 8px 15px;
@@ -161,5 +169,31 @@
 }
 /* book room */
 .booking_portal_container{
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    box-shadow: 0px 1px 1px rgba(218, 218, 218, 0.5);
+    padding: 20px 15px;
+    border-radius: 3px;
+    margin-bottom: 25px;
     
+}
+.booking_portal_container h3{
+    padding-bottom: 5px;
+}
+.booking_portal_container h5{
+    padding-bottom: 5px;
+    opacity: 0.8;
+}
+.book_form_datepicker button, .book_form_room select, .book_form_guests select{
+    height: 30px;
+    width: 100%;
+    padding: 0 5px;
+    border: 1px solid rgba(60,90,153, 0.1);
+    outline: none;
+}
+.book_form_datepicker button:hover, .book_form_room select:hover, .book_form_guests select:hover {
+    border-color: rgba(60,90,153, 0.5);
+    box-shadow: 0 1px 3px rgba(60,90,153,0.19), 0 1px 1px rgba(60,90,153,0.23);
+}
+.book_form_room{
+    margin: 10px 0;
 }

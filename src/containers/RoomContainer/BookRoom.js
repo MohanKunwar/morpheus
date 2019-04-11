@@ -103,7 +103,9 @@ class BookRoom extends Component {
         return (
             <React.Fragment>
                 <div className='booking_portal_container'>
-                    <h3>Book this Room</h3>
+                    <h3>Book Room</h3>
+                    <div className='book_form_datepicker'>
+                    <h5>Check In - Check Out</h5>
                     <button onClick={this.openCalendar}>{this.state.pickDateText}</button>
                     {
                         this.state.showCalendar
@@ -114,7 +116,9 @@ class BookRoom extends Component {
                                 onSelect={this.handleDateSelect} />
                             : null
                     }
-                    <span>Rooms:</span>
+                    </div>
+                    <div className='book_form_room'>
+                    <h5>Rooms:</h5>
                     <select onChange={e => this.roomCountChange(e)}>
                         {
                             selectRooms.map((noOfRooms, index) =>
@@ -129,7 +133,9 @@ class BookRoom extends Component {
                         value={this.state.rooms_no ? this.state.rooms_no : 1}
                         min='1'
                         onChange={e => this.roomCountChange(e)} /> */}
-                    <span>Guests:</span>
+                        </div>
+                        <div className='book_form_guests'>
+                    <h5>Guests:</h5>
                     {/* <input
                         type='number'
                         value={this.state.guests_no ? this.state.guests_no : this.props.room.max_capacity}
@@ -144,8 +150,10 @@ class BookRoom extends Component {
                             )
                         }
                     </select>
+                    </div>
                 </div>
                 <div className='room_price_container'>
+                <div>
                     {
                         this.state.rooms_no > 1
                             ?
@@ -161,7 +169,8 @@ class BookRoom extends Component {
                             : null
 
                     }
-                    <span>Total</span>
+                    </div>
+                    <span>Total </span>
                     <span className='room_total_price'>
                         Rs.{
                             this.state.rooms_no 
@@ -175,12 +184,12 @@ class BookRoom extends Component {
                     </span>
                     <span className='room_discount_percent'>
                         {this.state.rooms_no ? this.props.room.discount * this.state.rooms_no : this.props.room.discount}% off
-                    </span><br />
-                    <span className='room_discount_text'>(inclusive of all taxes)</span><br />
+                    </span>
+                    <span className='room_discount_text'>(inclusive of all taxes)</span>
                     {
                         this.state.noOfDays
-                        ? <span>For {this.state.noOfDays} days</span>
-                        : <span>For 1 Day</span>
+                        ? <span className='for_one_day'>For {this.state.noOfDays} days</span>
+                        : <span className='for_one_day'>For 1 Day</span>
                     }
                     <button
                         className='room_book_button'

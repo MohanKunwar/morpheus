@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import Axios from '../../../services/Axios';
 import * as moment from 'moment'
 import UserBooking from '../../../UI/UserBooking'
+
+const MybookStyle = {
+    color: '#112E51'
+}
+
 class MyBookings extends Component {
     state = {
         activeBookings: null,
@@ -44,6 +49,7 @@ class MyBookings extends Component {
 
         return (
             <div className='card-container'>
+            <h4 style={MybookStyle}>My Booking</h4>
                 {
                     this.state.activeBookings
                         ?
