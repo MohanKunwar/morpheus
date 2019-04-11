@@ -3,7 +3,7 @@ import { instance, authInstance, signal, isCancel } from './Axios';
 
 const API = {
     business: {
-        getBusinessUrl: businessUrl => { return `businesses/${businessUrl} ` }, 
+        getBusinessUrl: businessUrl => { return `businesses/${businessUrl} ` },
         getBusinessProductsUrl: businessUrl => { return `businesses/${businessUrl}/products` },
         getRoomsUrl: businessSlug => { return `businesses/${businessSlug}/rooms` }
     },
@@ -11,13 +11,13 @@ const API = {
         featuredUrl: 'businesses/featured',
         recentlyAddedUrl: 'businesses/latest',
         topLevelCategoriesUrl: 'categories/parent',
-        getCategoryUrl: '/categories/', // id is attached whenever used
+        getCategoryUrl: id => { return `/categories/${id}/children` },
         getLocationsUrl: '/locations',
         getBannersUrl: '/banners'
     },
     product: {
         getProductUrl: slug => { return `/products/${slug}` },
-        getProductPhotosUrl: slug => { return `/products/${slug}/photos`}
+        getProductPhotosUrl: slug => { return `/products/${slug}/photos` }
     },
     requirement: {
         getUserRequirementsUrl: 'user/leads',
@@ -29,7 +29,7 @@ const API = {
     },
     room: {
         getRoomUrl: slug => { return `/rooms/${slug}` },
-        getRoomPhotosUrl: slug => { return `/rooms/${slug}/photos`},
+        getRoomPhotosUrl: slug => { return `/rooms/${slug}/photos` },
         getRoomAmenitiesUrl: slug => { return `/rooms/${slug}/amenities` },
         getAllHotelAmenitiesUrl: '/hotels/amenities',
         getAllHotelRoomAmenitiesUrl: '/hotel-rooms/amenities',
@@ -68,6 +68,6 @@ const API = {
 }
 
 const Axios = {
-    instance, authInstance, API, signal, isCancel
+    instance, authInstance, API, signal
 }
 export default Axios;

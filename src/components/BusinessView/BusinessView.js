@@ -28,6 +28,7 @@ class BusinessView extends Component {
         if (this.props.businessUrl) {
             Axios.instance.get(Axios.API.business.getBusinessUrl(this.props.businessUrl)).then(response => {
                 if (response && response.data) {
+                    document.title = `${response.data.data.name}-Khoz`
                     this.setState({
                         business: response.data.data,
                         currUrl: `/business/${this.props.businessUrl}`

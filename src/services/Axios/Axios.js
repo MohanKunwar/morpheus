@@ -9,7 +9,7 @@ export const authInstance = Object.create(instance);
 
 
 export const signal = axios.CancelToken.source()
-export const isCancel = error => axios.isCancel(error)
+// export const isCancel = error => axios.isCancel(error)
 instance.interceptors.request.use(request => {
     return request;
 }, error => {

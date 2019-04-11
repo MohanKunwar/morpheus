@@ -28,6 +28,7 @@ class Requirements extends Component {
         )
     }
     render() {
+        document.title = `My Requirements`
         let currUrl = this.props.match.url
         return (
             <div className="card-container">

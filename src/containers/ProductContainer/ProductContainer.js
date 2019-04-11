@@ -16,6 +16,7 @@ class ProductContainer extends Component {
         Axios.instance.get(Axios.API.product.getProductUrl(params.id)).then(
             response => {
                 if (response && response.data) {
+                    document.title = `${response.data.data.name}-${response.data.data.business.name}`
                     this.setState({ product: response.data.data })
                 }
             }

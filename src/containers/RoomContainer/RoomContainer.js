@@ -21,7 +21,10 @@ class RoomContainer extends Component {
         const { match: { params } } = this.props
         Axios.instance.get(Axios.API.room.getRoomUrl(params.id)).then(response => {
             if (response && response.data) {
-                this.roomRules = response.data.data.rule.split(/\n/)
+                if (response.data.data.rule) {
+                    this.roomRules = response.data.data.rule.split(/\n/)
+                }
+                document.title = `${response.data.data.type}-${response.data.data.business.name}`
                 this.setState({ room: response.data.data })
             }
         })
@@ -46,37 +49,37 @@ class RoomContainer extends Component {
                     this.state.room
                         ?
                         <div className='room-container'>
-                        <div className="room_container_header">
-                        {room.type}
-                        <span className="room_location"><FaMapMarkerAlt /> {room.business.address}</span>
-                        </div>
-                        <div>
-                        
-                            {
-                                  this.state.photos
-                                  ?
-                                    <Carousel
-                                       showArrows
-                                       infiniteLoop
-                                       autoPlay
-                                       interval={3000} 
-                                       emulateTouch
-                                       className="room_carousel_container"
-                                       showStatus={false}
-                                       verticalSwipe={'natural'}
-                                       width='100%'
-                                    >
-                                        {
-                                            this.state.photos.map((photo, index) =>
-                                                <div key={index}>
-                                                    <img src={photo.src} alt={photo.title} />
-                                                </div>
-                                            )
-                                        }
-                                    </Carousel>
-                                     :
-                                     <span>Placeholder</span>
-                             }
+                            <div className="room_container_header">
+                                {room.type}
+                                <span className="room_location"><FaMapMarkerAlt /> {room.business.address}</span>
+                            </div>
+                            <div>
+
+                                {
+                                    this.state.photos
+                                        ?
+                                        <Carousel
+                                            showArrows
+                                            infiniteLoop
+                                            autoPlay
+                                            interval={3000}
+                                            emulateTouch
+                                            className="room_carousel_container"
+                                            showStatus={false}
+                                            verticalSwipe={'natural'}
+                                            width='100%'
+                                        >
+                                            {
+                                                this.state.photos.map((photo, index) =>
+                                                    <div key={index}>
+                                                        <img src={photo.src} alt={photo.title} />
+                                                    </div>
+                                                )
+                                            }
+                                        </Carousel>
+                                        :
+                                        <span>Placeholder</span>
+                                }
 
                                 <div className='room_description'>
                                     <h3 className='room-description_head'>About Room</h3>
@@ -119,14 +122,14 @@ class RoomContainer extends Component {
                                         }
                                     </ul>
                                 </div>
-                                <GoogleMap 
-                                        center= {
-                                            {
-                                              lat: this.state.room.business.latitude,
-                                              lng: this.state.room.business.longitude
-                                            }
-                                          } 
-                                        />
+                                <GoogleMap
+                                    center={
+                                        {
+                                            lat: this.state.room.business.latitude,
+                                            lng: this.state.room.business.longitude
+                                        }
+                                    }
+                                />
                             </div>
                         </div>
                         : <Spinner />

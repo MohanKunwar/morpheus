@@ -41,6 +41,7 @@ class Login extends Component {
   };
 
   render() {
+    document.title = 'Khoz-Login'
     return (
       <div className="login-container">
         <Form

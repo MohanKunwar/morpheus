@@ -56,6 +56,7 @@ class CreateRequirement extends Component {
         }
     }
     render() {
+        document.title='Create Requirement'
         return (
             <div className="card-container">
             {
