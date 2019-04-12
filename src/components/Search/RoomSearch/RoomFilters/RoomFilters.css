@@ -48,3 +48,7 @@
     opacity: 0.8;
     font-size: 15px;
 }
+.loader_result{
+    grid-column: 1/-1;
+    text-align: center;
+}
