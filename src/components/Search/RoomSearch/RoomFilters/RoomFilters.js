@@ -58,6 +58,7 @@ class RoomFilters extends Component {
         }
     }
     getResults = next => {
+        this.setState({ nextResults: null})
         let params = `checkin=${this.state.checkin}&checkout=${this.state.checkout}`
         if (this.state.location) {
             params += `&location_id=${this.state.location}`
@@ -78,11 +79,11 @@ class RoomFilters extends Component {
                     if (tempResults) {
                         response.data.data.map(item => tempResults.push(item))
                     }
-                    this.setState({ 
+                    this.setState({
                         rooms: !this.state.rooms ? response.data.data : tempResults,
                         noResult: false,
                         nextResults: response.data.links.next
-                     })
+                    })
                 } else {
                     this.setState({ noResult: true, rooms: [] })
                 }
@@ -92,6 +93,9 @@ class RoomFilters extends Component {
     }
     showDateRangePicker = () => {
         this.setState({ showDatePicker: true })
+    }
+    handleRangeChange = range => {
+        this.setState({ minPrice: range.min, maxPrice: range.max})
     }
     handleDateSelect = range => {
         let checkin = moment(range.start).format('YYYY-MM-DD')
@@ -110,86 +114,94 @@ class RoomFilters extends Component {
         return (
             <React.Fragment>
                 <div className='search-filters'>
-                <div className="room_filter_container">
-                <div className='filter_room_date'>
-                    <input type='text' onClick={this.showDateRangePicker} value={this.state.datePickerText} readOnly />
-                    {
-                        this.state.showDatePicker
-                            ?
-                            <DateRangePicker
-                                numberOfCalendars={1}
-                                selectionType='range'
-                                minimumDate={new Date()}
-                                onSelect={this.handleDateSelect} />
-                            : null
-                    }
-                    </div>
-                    <div className='filter_room_location'>
-                    {
-                        this.props.locations
-                            ?
-                            <select onChange={e => this.handleLocationChange(e)} 
-                            defaultValue={this.state.location ? this.state.location : 'All'}>
-                                {
-                                    this.props.locations.map((location, index) =>
-                                        <option key={index} value={location.id}>{location.name}</option>
-                                    )
-                                }
-                            </select>
-                            : null
-                    }
-                    </div>
-                    {
-                        this.props.hotelRoomsAmenities
-                            ?
-                            <div className='filter_room_amenities'>
-                            <h4>Room Amenities</h4>
-                                {
-                                    this.props.hotelRoomsAmenities.map((roomAmenitiy, index) =>
-                                        <div className='room_amenity' key={index}>
-                                            <input type='checkbox' onChange={e => this.toggleAmenity(e, roomAmenitiy.id, 'room_amenities')} />
-                                            {/* <img className='amenities_icon' src={roomAmenitiy.icon_svg} alt={roomAmenitiy.amenity} /> */}
-                                            <span>{roomAmenitiy.amenity}</span>
-                                        </div>)
-                                }
-                            </div>
-                            : null
+                    <div className="room_filter_container">
+                        <div className='filter_room_date'>
+                            <input type='text' onClick={this.showDateRangePicker} value={this.state.datePickerText} readOnly />
+                            {
+                                this.state.showDatePicker
+                                    ?
+                                    <DateRangePicker
+                                        numberOfCalendars={1}
+                                        selectionType='range'
+                                        minimumDate={new Date()}
+                                        onSelect={this.handleDateSelect} />
+                                    : null
+                            }
+                        </div>
+                        <div className='filter_room_location'>
+                            {
+                                this.props.locations
+                                    ?
+                                    <select onChange={e => this.handleLocationChange(e)}
+                                        defaultValue={this.state.location ? this.state.location : 'All'}>
+                                        {
+                                            this.props.locations.map((location, index) =>
+                                                <option key={index} value={location.id}>{location.name}</option>
+                                            )
+                                        }
+                                    </select>
+                                    : null
+                            }
+                        </div>
+                        <div className='filter_room_price'>
+                            Rs. { this.state.minPrice ? this.state.minPrice : 0 } - Rs. {this.state.maxPrice ? this.state.maxPrice : 20000 }
+                            {/* <ReactDualRangeSlider
+                                limits={[0,20000]}
+                                onChange={(range) => 
+                                    this.handleRangeChange(range)}
+                            /> */}
+                        </div>
+                        {
+                            this.props.hotelRoomsAmenities
+                                ?
+                                <div className='filter_room_amenities'>
+                                    <h4>Room Amenities</h4>
+                                    {
+                                        this.props.hotelRoomsAmenities.map((roomAmenitiy, index) =>
+                                            <div className='room_amenity' key={index}>
+                                                <input type='checkbox' onChange={e => this.toggleAmenity(e, roomAmenitiy.id, 'room_amenities')} />
+                                                {/* <img className='amenities_icon' src={roomAmenitiy.icon_svg} alt={roomAmenitiy.amenity} /> */}
+                                                <span>{roomAmenitiy.amenity}</span>
+                                            </div>)
+                                    }
+                                </div>
+                                : null
 
 
-                    }
-                    {
-                        this.props.hotelAmenities
-                            ?
-                            <div className='filter_room_amenities'>
-                            <h4>Hotel Amenities</h4>
-                                {
-                                    this.props.hotelAmenities.map((hotelAmenitiy, index) =>
-                                        <div className='hotel_amenity' key={index}>
-                                            <input type='checkbox' onChange={e => this.toggleAmenity(e, hotelAmenitiy.id, 'hotel_amenities')} />
-                                            {/* <img className='amenities_icon' src={hotelAmenitiy.icon_svg} alt={hotelAmenitiy.amenity} /> */}
-                                            <span>{hotelAmenitiy.amenity}</span>
-                                        </div>)
-                                }
-                            </div>
-                            : null
-                    }
+                        }
+                        {
+                            this.props.hotelAmenities
+                                ?
+                                <div className='filter_room_amenities'>
+                                    <h4>Hotel Amenities</h4>
+                                    {
+                                        this.props.hotelAmenities.map((hotelAmenitiy, index) =>
+                                            <div className='hotel_amenity' key={index}>
+                                                <input type='checkbox' onChange={e => this.toggleAmenity(e, hotelAmenitiy.id, 'hotel_amenities')} />
+                                                {/* <img className='amenities_icon' src={hotelAmenitiy.icon_svg} alt={hotelAmenitiy.amenity} /> */}
+                                                <span>{hotelAmenitiy.amenity}</span>
+                                            </div>)
+                                    }
+                                </div>
+                                : null
+                        }
                     </div>
                 </div>
                 {
                     this.state.rooms
                         ?
-                        this.state.noResult 
-                        ? <div>No results Found</div>
-                        :
-                        <div className='search-results-container'>
-                            {this.state.rooms.map((room, index) => <RoomCard key={index} room={room} />)}
-                            {
-                                this.state.loadNewItems
-                                ? <div>loading more results...</div>
-                                : <div>no more records</div>
-                            }
-                            <div id='end_of_search'></div>
-                        </div>
+                        this.state.noResult
+                            ? <div>No results Found</div>
+                            :
+                            <div className='search-results-container'>
+                                {this.state.rooms.map((room, index) => <RoomCard key={index} room={room} />)}
+                                {
+                                    this.state.loadNewItems
+                                        ? <div>loading more results...</div>
+                                        : <div>no more records</div>
+                                }
+                                <div id='end_of_search'></div>
+                            </div>
                         : <Spinner />
                 }
             </React.Fragment>
