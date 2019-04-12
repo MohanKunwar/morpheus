@@ -14,24 +14,26 @@ import axios from 'axios'
 
 class HomeContainer extends Component {
 
-    signal = axios.CancelToken.source()
+    signalFeatured = axios.CancelToken.source()
+    signalBanner = axios.CancelToken.source()
+    signalRecentlyAdded = axios.CancelToken.source()
     state = {
         featuredItems: null,
         recentlyAddedItems: null,
         banners: null
     }
     componentWillMount() {
-        Axios.instance.get(Axios.API.common.featuredUrl, { cancelToken: this.signal.token }).then(response => {
+        Axios.instance.get(Axios.API.common.featuredUrl, { cancelToken: this.signalFeatured.token }).then(response => {
             if (response && response.data) {
                 this.setState({ featuredItems: response.data.data })
             }
         })
-        Axios.instance.get(Axios.API.common.recentlyAddedUrl, { cancelToken: this.signal.token }).then(response => {
+        Axios.instance.get(Axios.API.common.recentlyAddedUrl, { cancelToken: this.signalRecentlyAdded.token }).then(response => {
             if (response && response.data) {
                 this.setState({ recentlyAddedItems: response.data.data })
             }
         })
-        Axios.instance.get(Axios.API.common.getBannersUrl, { cancelToken: this.signal.token }).then(response => {
+        Axios.instance.get(Axios.API.common.getBannersUrl, { cancelToken: this.signalBanner.token }).then(response => {
             if (response && response.data) {
                 this.setState({ banners: response.data.data })
             }
@@ -68,8 +70,14 @@ class HomeContainer extends Component {
     }
 
     componentWillUnmount() {
-        this.signal.cancel({
-            response: 'home call apis cancelled'
+        this.signalFeatured.cancel({
+            response: 'featured api call cancelled at home page'
+        })
+        this.signalBanner.cancel({
+            response: 'banner api call cancelled at home page'
+        })
+        this.signalRecentlyAdded.cancel({
+            response: 'recently added api call cancelled at home page'
         })
     }
 

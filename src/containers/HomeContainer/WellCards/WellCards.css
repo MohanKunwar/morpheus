@@ -19,6 +19,7 @@
     font-weight: 700;
     margin: auto 0;
     color: #112e51;
+    text-decoration: none;
 }
 .wellcard-hotel-icon, .wellcard-food-icon, .wellcard-facebook-icon{
     text-align: center;

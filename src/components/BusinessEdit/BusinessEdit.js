@@ -26,17 +26,26 @@ class BusinessEdit extends Component {
 
     componentWillMount() {
         if (this.props.businessUrl) {
-            Axios.authInstance.get(Axios.API.business.getBusinessUrl(this.props.businessUrl)).then(response => {
-                if (response && response.data) {
-                    if (response.data.data.feature_enabled.includes('hotel')) {
-                        this.tabs.push('Manage Hotel')
-                    }
-                    this.setState({
-                        business: response.data.data
-                    })
-                    console.log(response.data.data)
+            this.getBusiness(this.props.businessUrl)
+        }
+    }
+    getBusiness(businessUrl) {
+        Axios.authInstance.get(Axios.API.business.getBusinessUrl(businessUrl)).then(response => {
+            if (response && response.data) {
+                if (response.data.data.feature_enabled.includes('hotel')) {
+                    this.tabs.push('Manage Hotel')
                 }
-            })
+                this.setState({
+                    business: response.data.data
+                })
+                document.title = `Edit-${response.data.data.name}`
+                console.log(response.data.data)
+            }
+        })
+    }
+    componentWillReceiveProps(nextProps) {
+        if (this.props.businessUrl !== nextProps.businessUrl) {
+            this.getBusiness(nextProps.businessUrl)
         }
     }
     getDealsIn() {

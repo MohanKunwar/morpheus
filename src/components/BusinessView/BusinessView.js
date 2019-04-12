@@ -33,6 +33,9 @@ class BusinessView extends Component {
                         business: response.data.data,
                         currUrl: `/business/${this.props.businessUrl}`
                     })
+                    if (response.data.data.feature_enabled.includes('hotel')) {
+                        this.getHotelAmenities(this.props.businessUrl)
+                    }
                 }
             })
             Axios.instance.get(Axios.API.business.getBusinessProductsUrl(this.props.businessUrl)).then(response => {
@@ -43,6 +46,13 @@ class BusinessView extends Component {
                 }
             })
         }
+    }
+    getHotelAmenities(businessUrl) {
+        Axios.instance.get(Axios.API.room.getHotelAmenitiesUrl(businessUrl)).then(response => {
+            if (response && response.data) {
+                this.setState({ hotelAmenities: response.data.data })
+            }
+        })
     }
     render() {
         return (
@@ -90,7 +100,7 @@ class BusinessView extends Component {
                                 </div>
                                 <div className="business_body">
                                     <Switch>
-                                        <Route path={`/business/${this.props.businessUrl}/overview`} component={() => <Overview business={this.state.business} />} />
+                                        <Route path={`/business/${this.props.businessUrl}/overview`} component={() => <Overview business={this.state.business} hotelAmenities={this.state.hotelAmenities} />} />
                                         <Route path={`/business/${this.props.businessUrl}/photos`} component={() => <Photos photos={this.state.business.photos_url} />} />
                                         <Route path={`/business/${this.props.businessUrl}/reviews`} component={() => <Reviews reviews={this.state.business.reviews_url} />} />
                                         <Route path={`/business/${this.props.businessUrl}/deals-in`} component={() => <DealsIn dealsIn={this.state.business.dealsin_url} />} />
