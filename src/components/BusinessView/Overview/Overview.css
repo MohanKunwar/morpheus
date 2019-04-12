@@ -20,6 +20,7 @@
     line-height: 1.5;
     width: 100%;
     height: auto;
+    text-align: justify;
 }
 .overview_dec p{
     white-space: pre-wrap;
