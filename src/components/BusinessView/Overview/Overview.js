@@ -12,7 +12,8 @@ const Overview = (props) => {
                 About {business.name}
                 </div>
                 <div className="overview_dec">
-                {business.description}
+                {/* <textarea rows="13" className="overview_description"  readOnly>{business.description}</textarea> */}
+                <p>{business.description}</p>
                 </div>
                 </div>
                 </div>
