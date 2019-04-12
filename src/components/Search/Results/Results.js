@@ -171,8 +171,8 @@ class SearchResults extends Component {
                                 {items}
                                 {
                                     this.state.loadNewItems
-                                        ? <div>loading more results...</div>
-                                        : <div>no more records</div>
+                                        ? <div className="loader_result">loading more results...</div>
+                                        : <div className="loader_result">no more records</div>
                                 }
                                 <div id='end_of_search'></div>
                             </div>)
