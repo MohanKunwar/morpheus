@@ -18,21 +18,15 @@ const Overview = (props) => {
                         props.hotelAmenities
                             ?
                             <React.Fragment>
-
-
                                 <h3 className='room_amenities'>Hotel Amenities</h3>
                                 <div className='amenities_body'>
                                     {
-                                        props.hotelAmenities
-                                            ?
-                                            props.hotelAmenities.map((amenity, index) =>
-                                                <div key={index} className='amenities_container'>
-                                                    <img className='amenities_icon_svg' src={amenity.icon_svg} alt={amenity.amenity} />
-                                                    {amenity.amenity}
-                                                </div>
-                                            )
-                                            :
-                                            <span>loading amenities gif goes here</span>
+                                        props.hotelAmenities.map((amenity, index) =>
+                                            <div key={index} className='amenities_container'>
+                                                <img className='amenities_icon_svg' src={amenity.icon_svg} alt={amenity.amenity} />
+                                                {amenity.amenity}
+                                            </div>
+                                        )
                                     }
                                 </div>
                             </React.Fragment>
