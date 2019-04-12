@@ -45,7 +45,7 @@ class SearchBar extends Component {
 
                 <select ref='fieldInput' onChange={e => this.setContext(e)} className="search_select">
                     <option value='business'>Business</option>
-                    <option value='room'>Room</option>
+                    {/* <option value='room'>Room</option> */}
                     <option value='product'>Product</option>
                 </select>
                 <FaAngleDoubleDown onClick={e => this.openSelect(e)} className="searchbar_doubledown" />
