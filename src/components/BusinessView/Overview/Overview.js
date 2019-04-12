@@ -12,7 +12,7 @@ const Overview = (props) => {
                         About {business.name}
                     </div>
                     <div className="overview_dec">
-                        {business.description}
+                       <p>{business.description}</p> 
                     </div>
                     {
                         props.hotelAmenities
