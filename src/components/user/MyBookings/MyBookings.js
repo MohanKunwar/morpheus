@@ -46,7 +46,7 @@ class MyBookings extends Component {
         this.setState({ showPopup: false })
     }
     render() {
-
+        document.title='My Bookings'
         return (
             <div className='card-container'>
             <h4 style={MybookStyle}>My Booking</h4>
@@ -54,7 +54,7 @@ class MyBookings extends Component {
                     this.state.activeBookings
                         ?
                         this.state.activeBookings.map((booking, index) =>
-                            <UserBooking booking={booking} key={index} >
+                            <UserBooking booking={booking} key={index} index={index}>
                                 <button onClick={e => this.showPopup(e)}>cancel</button>
                                 {
                                     this.state.showPopup

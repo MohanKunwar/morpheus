@@ -1,5 +1,4 @@
-import { instance, authInstance, signal, isCancel } from './Axios';
-// import authInstance from './Axios';
+import { instance, authInstance, signal } from './Axios';
 
 const API = {
     business: {
@@ -32,7 +31,8 @@ const API = {
         getRoomPhotosUrl: slug => { return `/rooms/${slug}/photos` },
         getRoomAmenitiesUrl: slug => { return `/rooms/${slug}/amenities` },
         getAllHotelAmenitiesUrl: '/hotels/amenities',
-        getAllHotelRoomAmenitiesUrl: '/hotel-rooms/amenities',
+        getHotelAmenitiesUrl: slug => { return `/businesses/${slug}/amenities`},
+        getAllHotelRoomAmenitiesUrl: '/rooms/amenities',
         createReservationUrl: 'hotel-reservations',
         cancelBookingUrl: id => { return `hotel-reservations/${id}/cancel` }
     },

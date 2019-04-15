@@ -6,22 +6,35 @@ import Spinner from '../../helpers/Spinner'
 
 class BusinessContainer extends Component {
     state = {
-        isUserOwner: undefined
+        isUserOwner: undefined,
+        businessUrl: this.props.match.params.id
     }
     componentWillMount() {
-        const { match: { params } } = this.props
+
+        this.checkOwner(this.state.businessUrl)
+    }
+    checkOwner(id) {
         if (this.props.context.user && this.props.context.user.businesses.length > 0) {
-            let ownerIndex = this.props.context.user.businesses.findIndex(business => business.slug === params.id)
+            let ownerIndex = this.props.context.user.businesses.findIndex(business => business.slug === id)
             ownerIndex > -1 ? this.setState({isUserOwner: true}) : this.setState({ isUserOwner: false })
         } else {
             this.setState({ isUserOwner: false })
         }
     }
+    componentWillReceiveProps(nextProps) {
+        // if (this.params !== nextProps.match.p)
+        // const {match: {params}} = nextProps
+        if (nextProps.match.params.id !== this.props.match.params.id) {
+            this.checkOwner(nextProps.match.params.id)
+            this.setState({businessUrl: nextProps.match.params.id})
+        }
+        console.log(nextProps)
+    }
     render() {
             if (!this.state.isUserOwner) {
-                return (<BusinessView businessUrl={this.props.match.params.id} />)
+                return (<BusinessView businessUrl={this.state.businessUrl} />)
             } else if (this.state.isUserOwner) {
-                return (<BusinessEdit businessUrl={this.props.match.params.id} user={this.props.context.user} />)
+                return (<BusinessEdit businessUrl={this.state.businessUrl} user={this.props.context.user} />)
             } else {
                 return (<Spinner />)
             }
