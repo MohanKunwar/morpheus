@@ -66,7 +66,7 @@ class SearchResults extends Component {
         }
     }
     getResults = (url) => {
-        this.setState({nextResults: null})
+        // this.setState({nextResults: null})
         Axios.instance.get(Axios.API.search.getResults(this.nextPropType, url)).then(
             response => {
                 if (response.data) {
