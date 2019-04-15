@@ -157,7 +157,7 @@ class BookRoom extends Component {
                     </div>
                 </div>
                 <div className='room_price_container'>
-                <div>
+                <div className='base_price'>
                     {
                         this.state.rooms_no > 1
                             ?
@@ -174,7 +174,7 @@ class BookRoom extends Component {
 
                     }
                     </div>
-                    <span>Total </span>
+                    <span>Total Price</span>
                     <span className='room_total_price'>
                         Rs.{
                             this.state.rooms_no 

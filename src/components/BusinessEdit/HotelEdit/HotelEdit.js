@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import KhozTabs from '../../../UI/Tabs'
+import AddRooms from './AddRooms'
 
 export default class HotelEdit extends Component {
     render() {
@@ -10,7 +11,7 @@ export default class HotelEdit extends Component {
                     bookings goes here
                     </div>
                      <div title='rooms' icon='apple.svg'>
-                    rooms goes here
+                    <AddRooms />
                     </div>
                    <div title='hotel amenities' icon='apple.svg'>
                         amenities goes here

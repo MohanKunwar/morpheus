@@ -70,6 +70,7 @@
     padding: 3px 8px;
     color: #fff;
     border-radius: 20px;
+    white-space: nowrap;
 }
 .room_discount_text{
     opacity: 0.6;
@@ -196,4 +197,7 @@
 }
 .book_form_room{
     margin: 10px 0;
+}
+.base_price{
+    margin-bottom: 5px;
 }

@@ -16,7 +16,7 @@ const UserBooking = props => {
                     <span className='my_booking_room_name'><FaHotel /> {props.booking.business.name}</span>
                     </div>
                     <div className='my_booking_date_details'>
-                    <span className='my_booking_date'>From: {moment(props.booking.arrival).format('MMM DD YYYY')} To: {moment(props.booking.departure).format('MMM DD YYYY')}</span>
+                    <span className='my_booking_date'>From: {moment(props.booking.arrival).format('MMM DD YYYY')}<br/>To: {moment(props.booking.departure).format('MMM DD YYYY')}</span>
                         <span className='my_guest_room_count'><FaDoorOpen />{props.booking.room_count} {props.booking.room_count > 1 ? ' rooms ' : ' room '}</span>,
                 <span className='my_guest_room_count'><FaUserFriends />{props.booking.no_of_guests} {props.booking.no_of_guests > 1 ? ' guests ' : ' guest '}</span>
                     </div>
