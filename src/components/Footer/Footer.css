@@ -130,6 +130,9 @@ div.apple p, div.android p{
 div.footer-base{
     text-align: center;
 }
+div.footer-base p{
+    padding-bottom: 10px;
+}
 
 @media only screen and (max-width: 768px){
     div.footer-area{
