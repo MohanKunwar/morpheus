@@ -7,7 +7,7 @@ import DealsInEdit from './ProfileEdit/DealsInEdit'
 import PhotosEdit from './ProfileEdit/PhotosEdit'
 import ProductsEdit from './ProfileEdit/ProductsEdit'
 import ServicesEdit from './ProfileEdit/ServicesEdit'
-import HotelEdit from './HotelEdit'
+import HotelEdits from './HotelEdit'
 
 import './BusinessEdit.css'
 
@@ -109,7 +109,7 @@ class BusinessEdit extends Component {
                 break
             }
             case 'Manage Hotel': {
-                activeTab = <HotelEdit />
+                activeTab = <HotelEdits business={this.props.businessUrl} />
                 break
             }
         }

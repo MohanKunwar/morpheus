@@ -122,14 +122,14 @@ class RoomContainer extends Component {
                                         }
                                     </ul>
                                 </div>
-                                <GoogleMap
+                                {/* <GoogleMap
                                     center={
                                         {
                                             lat: this.state.room.business.latitude,
                                             lng: this.state.room.business.longitude
                                         }
                                     }
-                                />
+                                /> */}
                             </div>
                         </div>
                         : <Spinner />

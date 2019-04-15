@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import KhozTabs from '../../../UI/Tabs'
 import HotelRooms from './HotelRooms';
+import Bookings from './Bookings'
 
 export default class HotelEdit extends Component {
     render() {
@@ -8,12 +9,12 @@ export default class HotelEdit extends Component {
             <div className='business_hotel_edit'>
                 <KhozTabs>
                     <div title='bookings' icon='apple.svg'>
-                    bookings goes here
+                        <Bookings />
                     </div>
-                     <div title='rooms' icon='apple.svg'>
-                    <HotelRooms />
+                    <div title='rooms' icon='apple.svg'>
+                        <HotelRooms businessSlug={this.props.business} />
                     </div>
-                   <div title='hotel amenities' icon='apple.svg'>
+                    <div title='hotel amenities' icon='apple.svg'>
                         amenities goes here
                     </div>
                     <div title='book rooms from desk' icon='apple.svg'>

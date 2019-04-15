@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import GoogleMapReact from 'google-map-react'
 class GoogleMap extends Component {
-  static defaultProps = {
+  centerProps = {
     center: {
       lat: 27.686386,
       lng: 83.432426
@@ -10,7 +10,7 @@ class GoogleMap extends Component {
   };
   renderMarkers(map, maps) {
     return new maps.Marker({
-      position: this.props.center,
+      position: this.props.center.lat ? this.props.center : this.centerProps.center,
       map,
     });
   }

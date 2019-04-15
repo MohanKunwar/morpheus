@@ -1,3 +1,3 @@
-import HotelEdit from './HotelEdit'
+import HotelEdits from './HotelEdits'
 
-export default HotelEdit
+export default HotelEdits
