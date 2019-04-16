@@ -4,7 +4,7 @@
    grid-template-columns: repeat(3, 1fr);
    grid-gap: 15px;
    justify-content: center;
-   height: 100px;
+   align-items: center;
 }
 .deals-in{
  position: relative;
@@ -35,9 +35,9 @@
 }
 .deals-in div{
     z-index: 2;
-    opacity: 1;
     color: white;
     letter-spacing: 2px;
+    line-height: 1.4;
 }
 @media only screen and (max-width: 768px){
     .deals{
