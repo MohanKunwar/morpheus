@@ -24,6 +24,7 @@
 div.sub-categories{
     position: absolute;
     left: 100%;
+    top: 0;
     z-index: 100;
     background: #ccc;
     width: 100%;
