@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AddNewRoom from './AddNewRoom';
-import Axios from '../../../../services/Axios';
+import Axios from '../../../../services/Axios'
+import HotelRoomCard from '../../../../UI/HotelRoom/HotelRoomCard'
 class HotelRooms extends Component {
     state = {
         rooms: null
@@ -22,6 +23,11 @@ class HotelRooms extends Component {
                     this.state.rooms
                         ?
                         <div className='edit_rooms_container'>
+                            {
+                                this.state.rooms.map((room, index) =>
+                                    <HotelRoomCard key={index} room={room} page='edit' />
+                                )
+                            }
                         </div>
                         : null
                 }

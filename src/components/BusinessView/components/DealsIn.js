@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import Axios from '../../../services/Axios';
-import "./Dealsin.css";
+import Axios from '../../../services/Axios'
 
 class DealsIn extends Component {
     state = {
@@ -25,7 +24,10 @@ class DealsIn extends Component {
         }
         return (
             this.state.dealsIn.length > 0 ?
-            <div className='deals'>
+            <div className='business_section'>
+            <div className="business_heading">
+                Deals In
+            </div>
                 {dealsInList}
             </div>
             : <div> loading</div>

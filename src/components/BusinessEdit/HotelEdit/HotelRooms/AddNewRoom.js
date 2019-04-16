@@ -16,11 +16,15 @@ class AddNewRoom extends Component {
     render() {
         return (
             <React.Fragment>
-                <button aria-label="show modal" onClick={() => this.toggleModal(true)} >Show Modal</button>
+                <button aria-label="show modal" onClick={() => this.toggleModal(true)} >
+                {
+                    this.props.room ? 'Edit Room' : 'Add New Room'
+                }
+                </button>
                     <KhozModal
                         toggleModal={this.toggleModal}
                         showModal={this.state.showModal}
-                        title='Add New Room'
+                        title={this.props.room ? 'Edit Room' : 'Add New Room'}
                     >
                         <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur
                         dolor iste amet error natus in quos harum eligendi perspiciatis cum,
