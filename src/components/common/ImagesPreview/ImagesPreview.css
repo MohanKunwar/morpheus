@@ -7,14 +7,16 @@
     display: grid;
     /* align-items: center;
     flex-wrap: wrap; */
-    grid-template-columns: repeat(auto-fit, 500px);
+    grid-template-columns: repeat(auto-fit, 300px);
     justify-content: center;
     grid-column-gap: 15px;
     grid-row-gap: 25px;
+    align-items: center;
 }
 .preview img{
     width: 100%;
-    max-width: 500px;
+    max-height: 275px;
+    object-fit: cover;
 }
 .upload-button{
     cursor: pointer;
