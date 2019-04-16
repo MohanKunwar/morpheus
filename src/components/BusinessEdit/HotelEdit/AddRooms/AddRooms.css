@@ -1,0 +1,70 @@
+/* .upload_room_img{
+    border: 1px dashed black;
+    width: auto;
+} */
+.room_add_container{
+    margin-top: 20px;
+    color: #112E51;
+}
+.add_room_form_group label{
+    padding-bottom: 10px;
+}
+.add_room_name{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    line-height: 2;
+}
+.add_room_amenities{
+    display: grid;
+    grid-template-columns: repeat(3 1fr);
+    grid-gap: 10px;
+    line-height: 2;
+    margin-top: 20px;
+}
+.add_room_amenities .room_amenities_title{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    line-height: 2;
+}
+.add_room_amenities input{
+    margin-right: 5px;
+}
+.add_room_description{
+    margin-top: 20px;
+}
+.add_room_description h4{
+    padding-bottom: 10px;
+}
+.add_room_description textarea{
+    width: 100%;
+    min-height: 100px;
+    border-radius: 3px;
+    padding: 5px 10px;
+    border: 1px solid rgba(60,90,153, 0.1);
+    
+}
+.add_room_description textarea:hover {
+    border-color: rgba(60,90,153, 0.5);
+    box-shadow: 0 1px 3px rgba(60,90,153,0.19), 0 1px 1px rgba(60,90,153,0.23);
+}
+.room_add_buttons{
+    text-align: right;
+    margin-top: 15px;
+    
+}
+.room_add_buttons .room_save_btn{
+    background: #112E51;
+    color: #ffffff;
+    padding: 10px 30px;
+    border: transparent;
+    border-radius: 20px;
+    font-size: 15px;
+}
+.room_add_buttons .room_cancel_btn{
+    padding: 10px 30px;
+    border: transparent;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 15px;
+}

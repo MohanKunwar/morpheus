@@ -1,6 +1,6 @@
 .booking_container {
     display: grid;
-    grid-template-columns: 10% 2fr 1fr 10%;
+    grid-template-columns: 10% 3fr 2fr 1fr;
     grid-gap: 15px;
     margin: 10px 0;
     padding: 20px 0;
@@ -38,8 +38,7 @@
     padding-bottom: 10px;
 }
 .my_guest_room_count{
-    opacity: 0.8;
-    font-size: 14px;
+    font-weight: 600;
 }
 .my_booking_price{
     margin: auto 0;
@@ -54,4 +53,13 @@
 .my_booking_status{
     margin: auto 0;
     text-align: right;
+}
+.my_booking_status button{
+    background: red;
+    color: #ffffff;
+    padding: 3px 10px;
+    border: transparent;
+    border-radius: 3px;
+    margin-left: 5px;
+    display: inline;
 }
