@@ -9,7 +9,7 @@ export default class HotelEdit extends Component {
             <div className='business_hotel_edit'>
                 <KhozTabs>
                     <div title='bookings' icon='apple.svg'>
-                        <Bookings />
+                        <Bookings businessSlug={this.props.business}/>
                     </div>
                     <div title='rooms' icon='apple.svg'>
                         <HotelRooms businessSlug={this.props.business} />

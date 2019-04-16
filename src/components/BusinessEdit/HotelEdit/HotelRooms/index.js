@@ -25,10 +25,7 @@ class HotelRooms extends Component {
                         <div className='edit_rooms_container'>
                             {
                                 this.state.rooms.map((room, index) =>
-                                    <React.Fragment>
-                                        <HotelRoomCard key={index} room={room} page='edit' />
-                                        <button>edit</button>
-                                    </React.Fragment>
+                                    <HotelRoomCard key={index} room={room} page='edit' />
                                 )
                             }
                         </div>

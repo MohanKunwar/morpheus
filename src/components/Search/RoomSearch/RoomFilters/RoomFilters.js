@@ -59,7 +59,7 @@ class RoomFilters extends Component {
     }
     getResults = next => {
         this.setState({ nextResults: null})
-        let params = `checkin=${this.state.checkin}&checkout=${this.state.checkout}`
+        let params = `checkin=${this.state.checkin}&checkout=${this.state.checkout}&rooms=1&guests=1`
         if (this.state.location) {
             params += `&location_id=${this.state.location}`
         }
