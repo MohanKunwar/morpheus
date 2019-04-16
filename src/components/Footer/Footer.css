@@ -47,10 +47,9 @@ div.footer-khozinfo #logo{
    width: 190px;
    cursor: pointer;
 }
-div.footer-khozinfo .social-icons{
-    padding: 0 30px 0 0;
-    width: 40px;
-    height: 40px;
+.social-icons{
+    margin: 0 30px 0 0;
+    width: 25px;
     cursor: pointer;
 }
 div.footer-navigate ul{
@@ -69,8 +68,8 @@ div.footer-contacts {
     flex-direction: column;
 }
 div.footer-contacts img{
-    width: 18px;
-    padding: 0 8px 0 0;
+    width: 15px;
+    margin: 0 8px 0 0;
 }
 div.footer-contacts span{
     margin-bottom: 8px;
@@ -134,6 +133,9 @@ div.apple p, div.android p{
 div.footer-base{
     text-align: center;
 }
+div.footer-base p{
+    padding-bottom: 10px;
+}
 
 @media only screen and (max-width: 768px){
     div.footer-area{
@@ -144,10 +146,8 @@ div.footer-base{
         margin: 0px;
         padding: 5px 0 10px 0;
     }
-    div.footer-khozinfo .social-icons{
-        padding: 0 20px 0 0;
-        width: 40px;
-        height: 40px;
+    .social-icons{
+        width: 25px;
         cursor: pointer;
     }
     div.footer-khozinfo{

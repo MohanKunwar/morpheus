@@ -23,6 +23,7 @@
 .business-card-info {
     background: #fffffcb4;
     padding: 10px 15px 20px 15px;
+    min-height: 205px;
 }
 .business_img_container{
     height: auto;
