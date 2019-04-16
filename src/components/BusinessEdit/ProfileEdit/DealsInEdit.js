@@ -25,6 +25,10 @@ export default class DealsInEdit extends Component {
             <label htmlFor={dealsIn.id}>{dealsIn.name}</label>
             </div>
             }) }
+            <button type="submit" className="dealsin_submit">
+            <img src={require("../../../assets/images/send.svg")} alt="send svg" />
+             Submit
+            </button>
             </div>
             : <Spinner />
         )
