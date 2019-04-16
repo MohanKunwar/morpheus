@@ -43,10 +43,6 @@ const BusinessHeader = (props) => {
         }
         header = (
             <div className='business_header'>
-                <Img className='business_logo'
-                    src={props.business.logo ? props.business.logo : require('../../../assets/images/khoz-ph.jpg')}
-                    alt={props.business.name}
-                />
                 <div className='business_info'>
                     <h4>{props.business.name}</h4>
                     <h5>{props.business.address}</h5>

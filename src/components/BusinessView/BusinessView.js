@@ -60,7 +60,7 @@ class BusinessView extends Component {
                     <React.Fragment>
                         <BusinessHeader business={this.state.business} />
                         <BusinessNav
-                            businessUrl={this.props.businessUrl}
+                            business={this.state.business}
                             products={this.state.products && this.state.products.length > 0 ? true : false}
                             hotel={this.state.business.feature_enabled.includes('hotel')}
                             active={this.active}
