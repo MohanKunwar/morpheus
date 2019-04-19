@@ -49,6 +49,9 @@ class AddRooms extends Component{
                       if (!values.add_max_capacity) {
                         errors.add_max_capacity = 'Room maximum capacity is required'
                       }
+                      if (!values.add_room_amenity) {
+                        errors.add_room_amenity = 'Room amenities are not selected'
+                      }
                       if (!values.add_room_des) {
                         errors.add_room_des = 'Room description is required'
                       }
@@ -125,11 +128,15 @@ class AddRooms extends Component{
                     <h4 className='room_amenities_title'>Select the amenities</h4>
                     {
                         this.state.allhotelAmenities.map((addAmenity, index) => <div key={index}>
-                             <input type='checkbox' />
+                             <input 
+                                type='checkbox'
+                                name='add_room_amenity'
+                                 />
                              <span>{addAmenity.amenity}</span>
                         </div>
                         )
                     }
+                    <Error name='add_room_amenity' />
                      </div>
                      :null
                 }
