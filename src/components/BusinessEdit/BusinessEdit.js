@@ -62,15 +62,19 @@ class BusinessEdit extends Component {
         if (!this.state.products) {
             Axios.authInstance.get(Axios.API.business.getBusinessProductsUrl(this.state.business.slug)).then(response => {
                 if (response && response.data) {
+                    response.data.data.map(product => product.business = this.state.business)
                     this.setState({ products: response.data.data })
                 }
             })
         }
     }
+
     getPhotos() {
         if (!this.state.photos) {
             Axios.authInstance.get(this.state.business.photos_url).then(response => {
+                console.log(response)
                 if (response && response.data) {
+                    console.log(response.data.data)
                     this.setState({ photos: response.data.data })
                 }
             })
@@ -91,7 +95,7 @@ class BusinessEdit extends Component {
             }
             case 'Photos': {
                 this.getPhotos()
-                activeTab = <PhotosEdit photos={this.state.photos} />
+                activeTab = <PhotosEdit photos={this.state.photos} businessSlug={this.props.businessUrl} />
                 break
             }
             case 'Products': {
@@ -109,7 +113,7 @@ class BusinessEdit extends Component {
                 break
             }
             case 'Manage Hotel': {
-                activeTab = <HotelEdits business={this.props.businessUrl} />
+                activeTab = <HotelEdits business={this.state.business} />
                 break
             }
         }

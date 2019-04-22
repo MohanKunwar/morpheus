@@ -13,7 +13,6 @@ class AddNewRoom extends Component {
             this.setState({ showModal: false })
         }
     }
-
     render() {
         return (
             <React.Fragment>

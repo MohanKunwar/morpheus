@@ -7,13 +7,14 @@ import Bookings from './Bookings'
 export default class HotelEdit extends Component {
     render() {
         return (
+            this.props.business ?
             <div className='business_hotel_edit'>
                 <KhozTabs>
                     <div title='bookings' icon='apple.svg'>
-                        <Bookings businessSlug={this.props.business}/>
+                        <Bookings business={this.props.business}/>
                     </div>
                     <div title='rooms' icon='apple.svg'>
-                        <HotelRooms businessSlug={this.props.business} />
+                        <HotelRooms businessSlug={this.props.business.slug} />
                     </div>
                     <div title='hotel amenities' icon='apple.svg'>
                         amenities goes here
@@ -26,6 +27,7 @@ export default class HotelEdit extends Component {
                     </div>
                 </KhozTabs>
             </div>
+            : null
         )
     }
 }

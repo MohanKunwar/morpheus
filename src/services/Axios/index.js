@@ -4,7 +4,12 @@ const API = {
     business: {
         getBusinessUrl: businessUrl => { return `businesses/${businessUrl} ` },
         getBusinessProductsUrl: businessUrl => { return `businesses/${businessUrl}/products` },
-        getRoomsUrl: businessSlug => { return `businesses/${businessSlug}/rooms` }
+        getRoomsUrl: businessSlug => { return `businesses/${businessSlug}/rooms` },
+        getHoursUrl: businessSlug => { return `businesses/${businessSlug}/hours`}
+    },
+    businessEdit: {
+        deletePhotoUrl: (slug, id) => { return `businesses/${slug}/photos/${id}` },
+        uploadImagesUrl: slug => { return  `businesses/${slug}/photos`}
     },
     common: {
         featuredUrl: 'businesses/featured',
@@ -16,7 +21,8 @@ const API = {
     },
     product: {
         getProductUrl: slug => { return `/products/${slug}` },
-        getProductPhotosUrl: slug => { return `/products/${slug}/photos` }
+        getProductPhotosUrl: slug => { return `/products/${slug}/photos` },
+        deleteProductPhotoUrl: (businessId, photoId) => { return  }
     },
     requirement: {
         getUserRequirementsUrl: 'user/leads',

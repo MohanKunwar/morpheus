@@ -5,11 +5,9 @@ import BusinessHeader from './containers/Header'
 import BusinessNav from './containers/BusinessNav'
 import BusinessContents from './containers/BusinessContents'
 
-import { FaMapMarkerAlt, FaRegEnvelope, FaGlobeAsia, FaPhone } from 'react-icons/fa'
-import GoogleMap from '../../components/common/GoogleMap/GoogleMap'
-
 import './BusinessView.css'
 import Spinner from '../../helpers/Spinner'
+import BusinessDetails from './containers/BusinessDetails';
 
 
 class BusinessView extends Component {
@@ -73,25 +71,9 @@ class BusinessView extends Component {
                             hotelAmenities={this.state.hotelAmenities}
                             products={this.state.products}
                         />
-                        <div className='business_details'>
-                            <GoogleMap
-                                center={
-                                    {
-                                        lat: this.state.business.latitude,
-                                        lng: this.state.business.longitude
-                                    }
-                                }
-                                zoom={16}
-                            />
-                            <button onClick={this.handleRedirect} className='get_direction'>Get </button>
-                            <div className='overview_des'>
-                                <p style={this.state.business.address ? { display: 'block' } : { display: 'none' }} className='overview_address'><FaMapMarkerAlt className='overview-icon' /> {this.state.business.address}</p>
-                                <p style={this.state.business.email ? { display: 'block' } : { display: 'none' }} className='overview_email'><FaRegEnvelope className='overview-icon' /> {this.state.business.email}</p>
-                                <p style={this.state.business.mobile_number ? { display: 'block' } : { display: 'none' }} className='overview_mobile_number'><FaPhone className='overview-icon' /> {this.state.business.mobile_number}</p>
-                                <p style={this.state.business.website ? { display: 'block' } : { display: 'none' }} className='overview_website'><FaGlobeAsia className='overview-icon' /> {this.state.business.website}</p>
-
-                            </div>
-                        </div>
+                        <BusinessDetails
+                            business={this.state.business}
+                        />
                     </React.Fragment>
                     : <Spinner />
                 } </div>
