@@ -17,13 +17,17 @@ class Photos extends Component {
     
     handleCarousel= (index) => {
       let viewSliderWrapper= document.querySelector(".view_slider_wrapper");
+      let body= document.body;
       viewSliderWrapper.style.display= 'block';
+      body.style.overflow= "hidden";
       this.setState({itemId: index});
     }
 
     handleCancel= () => {
+      let body= document.body;
         let viewSliderWrapper= document.querySelector(".view_slider_wrapper");
         viewSliderWrapper.style.display= "none";
+        body.style.overflowY= 'scroll';
     }
     render() {
         let coreImages= []
