@@ -29,7 +29,6 @@ class BusinessContents extends Component {
                 <Reviews reviews={business.reviews_url} />
             </div>
     
-    
         )
     }
 }

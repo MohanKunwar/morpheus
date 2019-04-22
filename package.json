@@ -12,6 +12,7 @@
     "nuka-carousel": "^4.5.3",
     "organism-react-scroll-nav": "^0.5.1",
     "prop-types": "^15.6.2",
+    "pure-react-carousel": "^1.19.4",
     "react": "^16.8.5",
     "react-daterange-picker": "^2.0.1",
     "react-dom": "^16.8.5",
