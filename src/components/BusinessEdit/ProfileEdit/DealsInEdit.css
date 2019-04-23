@@ -1,14 +1,16 @@
 .business_dealsin_edit{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-row-gap: 20px;
 }
 .business_dealsin_edit input{
     position: relative;
-    margin-right: 10px;
     min-width: 18px;
     min-height: 18px;
     border-radius: 4px;
     cursor: pointer;
+    vertical-align: middle;
+    margin-right: 10px;
 }
 .business_dealsin_edit input:checked::before{
     display: block;
@@ -28,12 +30,16 @@
     border-radius: 4px;
     display: none;
 }
-.business_dealsin_edit label{
-display: inline-block;
+ .business_dealsin_edit label{
 user-select: none;
+white-space: pre-line;
 }
-.dealsin_list{
-    margin: 5px;
+
+.dealsin_list h4{
+    margin-bottom: 10px;
+}
+.deals_individual{
     display: flex;
-    align-items: center;
+    margin: 5px 0 5px 0;
+    width: 100%;
 }

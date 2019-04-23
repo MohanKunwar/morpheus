@@ -12,6 +12,11 @@ const API = {
         uploadImagesUrl: slug => { return  `businesses/${slug}/photos`},
         editLogoUrl: slug => { return `businesses/${slug}/logo`}
     },
+    businessEdit: {
+        deletePhotoUrl: (slug, id) => { return `businesses/${slug}/photos/${id}` },
+        uploadImagesUrl: slug => { return  `businesses/${slug}/photos`},
+        getDealsInUrl: slug => { return `businesses/${slug}/dealsin/edit`}
+    },
     common: {
         featuredUrl: 'businesses/featured',
         recentlyAddedUrl: 'businesses/latest',
