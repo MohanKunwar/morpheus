@@ -6,6 +6,11 @@ const API = {
         getBusinessProductsUrl: businessUrl => { return `businesses/${businessUrl}/products` },
         getRoomsUrl: businessSlug => { return `businesses/${businessSlug}/rooms` }
     },
+    businessEdit: {
+        deletePhotoUrl: (slug, id) => { return `businesses/${slug}/photos/${id}` },
+        uploadImagesUrl: slug => { return  `businesses/${slug}/photos`},
+        getDealsInUrl: slug => { return `businesses/${slug}/dealsin/edit`}
+    },
     common: {
         featuredUrl: 'businesses/featured',
         recentlyAddedUrl: 'businesses/latest',

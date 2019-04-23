@@ -50,14 +50,14 @@ class BusinessEdit extends Component {
     }
     getDealsIn() {
         if (!this.state.dealsIn) {
-            Axios.authInstance.get(this.state.business.dealsin_url).then(response => {
+            Axios.authInstance.get(Axios.API.businessEdit.getDealsInUrl(this.state.business.slug)).then(response => {
                 if (response && response.data) {
                     this.setState({ dealsIn: response.data.data })
                 }
             })
         }
     }
-
+    
     getProducts = () => {
         if (!this.state.products) {
             Axios.authInstance.get(Axios.API.business.getBusinessProductsUrl(this.state.business.slug)).then(response => {
