@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Axios from './../../../../services/Axios'
 import ImagesPreview from '../../../common/ImagesPreview/ImagesPreview'
 import './AddRooms.css'
-import { Form } from 'react-final-form'
+import { Form, Field } from 'react-final-form'
 import Inputfield from './../../../../UI/Inputfield/inputfield'
 import Error from './../../../../helpers/FormError'
 
@@ -19,12 +19,20 @@ class AddRooms extends Component{
     }
 
     onSubmit = values => {
-        
+        Axios.instance.post(Axios.API.room.createAddRoomUrl(this.props.business), values )
+        .then(response => {
+            console.log('confirm response', values)
+          })
+          .catch((error) => {
+            console.log(error)
+        });
       }
-    
+
+
 
     render(){
         console.log(this.state.allhotelAmenities)
+        console.log(this.props.business)
         return(
             <div className='room_add_container'>
             {/* hotels/{businessUrl}/rooms */}
@@ -34,47 +42,51 @@ class AddRooms extends Component{
             </div>
                 <Form onSubmit={this.onSubmit}
                 validate = {values => {
-                    const errors = {};
-                    if (!values.add_room_name) {
-                        errors.add_room_name = 'Room name is required'
+                    const errors = {}
+                    if (!values.type) {
+                        errors.type = 'Room name is required'
                       }
-                      if (!values.add_room_price) {
-                        errors.add_room_price = 'Price is required'
-                      } else if(isNaN(values.add_room_price)){
-                          errors.add_room_price ='Price must be number'
+                      if (!values.price) {
+                        errors.price = 'Price is required'
+                      }else if (isNaN(values.price)) {
+                        errors.price = "Must be a number";
+                      } 
+                      if (!values.room_count) {
+                        errors.room_count = 'Room count is required'
                       }
-                      if (!values.add_room_count) {
-                        errors.add_room_count = 'Room count is required'
+                      if (!values.max_capacity) {
+                        errors.max_capacity = 'Room maximum capacity is required'
                       }
-                      if (!values.add_max_capacity) {
-                        errors.add_max_capacity = 'Room maximum capacity is required'
+                      if (!values.amenity) {
+                        errors.amenity = 'Room amenities are not selected'
                       }
-                      if (!values.add_room_amenity) {
-                        errors.add_room_amenity = 'Room amenities are not selected'
+                      if (!values.description) {
+                        errors.description = 'Room description is required'
+                      }else if(values.description.length < 20){
+                        errors.description = 'must be 20 characters'
                       }
-                      if (!values.add_room_des) {
-                        errors.add_room_des = 'Room description is required'
-                      }
-                      if (!values.add_room_rules) {
-                        errors.add_room_rules = 'Room rules are required'
+                      if (!values.rules) {
+                        errors.rules = 'Room rules are required'
+                      } else if(values.rules.length < 20){
+                        errors.rules = 'must be 20 characters'
                       }
                       
                       return errors
                 }}
                 >
-                {({ handleSubmit}) => (
+                {({ handleSubmit, reset, submitting}) => (
                 <form onSubmit ={handleSubmit}>
                 <div className='add_room_name'>
                     <div className='add_room_form_group'>
                     <label>Room Type</label>
                     <Inputfield
                     type={'text'}
-                    name={'add_room_name'}
+                    name={'type'}
                     placeholder={'add room type'}
                     />
-                    <Error name='add_room_name' />
+                    <Error name='type' />
                     {/* {
-                        this.add_room_name ? this.add_room_name : null
+                        this.type ? this.type : null
                     } */}
                     </div>
 
@@ -82,20 +94,17 @@ class AddRooms extends Component{
                     <label>Price(NRS.)</label>
                     <Inputfield
                     type={'text'}
-                    name={'add_room_price'}
+                    name={'price'}
                     placeholder={'room price'}
                     />
-                    <Error name='add_room_price' />
-                    {
-                        this.add_room_price ? this.add_room_price : null
-                    }
+                    <Error name='price' />
                     </div>
 
                     <div className='add_room_form_group'>
                     <label>Discount %</label>
                     <Inputfield
                     type={'number'}
-                    name={'add_room_price_discount'}
+                    name={'discount'}
                     placeholder={'discount %'}
                     />
                     </div>
@@ -104,20 +113,20 @@ class AddRooms extends Component{
                     <label>Room Count</label>
                     <Inputfield
                     type={'number'}
-                    name={'add_room_count'}
+                    name={'room_count'}
                     placeholder={'room count'}
                     />
-                    <Error name='add_room_count' />
+                    <Error name='room_count' />
                     </div>
 
                     <div className='add_room_form_group'>
                     <label>Maximum Capacity</label>
                     <Inputfield
                     type={'number'}
-                    name={'add_max_capacity'}
+                    name={'max_capacity'}
                     placeholder={'maximum capacity'}
                     />
-                    <Error name='add_max_capacity' />
+                    <Error name='max_capacity' />
                     </div>
                 </div>
                 
@@ -128,43 +137,52 @@ class AddRooms extends Component{
                     <h4 className='room_amenities_title'>Select the amenities</h4>
                     {
                         this.state.allhotelAmenities.map((addAmenity, index) => <div key={index}>
-                             <input 
+                             <Field
+                                component='input' 
                                 type='checkbox'
-                                name='add_room_amenity'
+                                value={addAmenity.id}
+                                name='amenity'
                                  />
                              <span>{addAmenity.amenity}</span>
                         </div>
                         )
                     }
-                    <Error name='add_room_amenity' />
+                    <Error name='amenity' />
                      </div>
                      :null
                 }
                  <div className='add_room_description'>
                     <h4>Description</h4>
-                   <textarea 
-                   type='textarea' 
-                   name='add_room_des'
-                   cols='auto' 
-                   rows='auto'>
-                   Room description
-                   </textarea>
-                   <Error name = 'add_room_des' />
+                   <Field
+                   type='textarea'
+                   component='textarea'
+                   name='description'
+                   placeholder='room description'
+                   className= 'textarea'
+                   />
+                   <Error name = 'description' />
                     </div>
                     <div className='add_room_description'>
                     <h4>Rules</h4>
-                   <textarea 
-                   type='textarea'
-                   name='add_room_rules' 
+                   <Field 
+                   className= 'textarea'
+                   component='textarea'
+                   name='rules' 
+                   placeholder='rules'
                    cols='auto' 
-                   rows='auto'>
-                   Rules
-                   </textarea>
-                   <Error name='add_room_rules' />
+                   rows='auto' />
+                   
+                   <Error name='rules' />
                     </div>
                     <div className='room_add_buttons'>
-                        <button type='submit' className='room_cancel_btn'>cancel</button>
-                        <button type='submit' className='room_save_btn'>Save</button>
+                        <button type='button' 
+                        className='room_cancel_btn'
+                        onClick={reset}
+                        disabled={submitting}
+                        >cancel</button>
+                        <button type='submit' 
+                        className='room_save_btn'>
+                        Save</button>
                     </div>
                 </form>
                 )}

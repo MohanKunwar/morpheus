@@ -1,7 +1,7 @@
 .banner_container{
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(var(--min-card-width), 1fr)) !important;
-  height: 400px !important;
+  /* height: 400px !important; */
   overflow: hidden;
   }
   .banner_container .slider-frame{

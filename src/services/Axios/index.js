@@ -35,7 +35,8 @@ const API = {
         getHotelReservationsUrl: slug => { return `/hotels/${slug}/reservations`},
         getAllHotelRoomAmenitiesUrl: '/rooms/amenities',
         createReservationUrl: 'hotel-reservations',
-        cancelBookingUrl: id => { return `hotel-reservations/${id}/cancel` }
+        cancelBookingUrl: id => { return `hotel-reservations/${id}/cancel` },
+        createAddRoomUrl: id => { return `hotels/${id}/rooms` }
     },
     search: {
         getResults: (type, params) => {

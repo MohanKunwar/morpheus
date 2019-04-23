@@ -113,7 +113,7 @@ class RoomFilters extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className='search-filters'>
+                <div className='search-filters-room'>
                     <div className="room_filter_container">
                         <div className='filter_room_date'>
                             <input type='text' onClick={this.showDateRangePicker} value={this.state.datePickerText} readOnly />

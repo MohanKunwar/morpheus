@@ -5,11 +5,13 @@ import Inputfield from './../../UI/Inputfield/inputfield'
 import Error from './../../helpers/FormError'
 
 class BusinessRegister extends Component{
-    state = {
-        business_register: true
-      }
+    // state = {
+    //     business_register: true
+    //   }
 
-      onSubmit = values => {}
+      onSubmit = values => {
+
+      }
     render(){
         return(
             <div className='card-container business_register_card'>

@@ -1,12 +1,29 @@
-.search-filters{
-    /* overflow-y: auto;
-    height: 100%;
-    overflow: hidden; */
+.search-filters-room{
+    position: relative;
+    color: #112E51;
 }
 .room_filter_container{
     overflow-y: auto;
-    height: auto;
+    /* height: 100%; */
+    position: fixed;
+    top: 115px;
+    bottom: 0;
+    /* right: 0; */
 }
+@media (min-width: 1200px){
+    .room_filter_container{
+        width: 290px;
+    }
+}
+/* @media (max-width: 900px){
+    .room_filter_container{
+        width: auto;
+        max-width: 200px;
+    }
+} */
+.room_filter_container::-webkit-scrollbar {
+    display: none;
+  }
 .amenities_icon {
     width: 20px;
 }

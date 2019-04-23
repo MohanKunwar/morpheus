@@ -49,24 +49,36 @@
     padding: 2px 10px;
     border-radius: 20px;
     color: #fff;
+    white-space: nowrap;
 }
 .room_heading{
     font-weight: 700;
     padding-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .room-card-info{
     padding: 5px 5px 20px 10px;
+    
+}
+.room_hotel_name_container{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .room_hotel_name{
     font-weight: 600;
     opacity: 0.7;
-    border: 1px solid rgba(128, 128, 128, 0.3);
+    /* border: 1px solid rgba(128, 128, 128, 0.3); */
     width: auto !important;
-    padding: 2px 5px;
+    padding: 2px 0;
     font-size: 14px;
+
 }
 .room_card_price{
     margin-bottom: 5px;
+    overflow: hidden;
 }
 .room_hotel_location{
     opacity: 0.7;
