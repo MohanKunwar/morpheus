@@ -4,6 +4,7 @@ import Axios from '../../../services/Axios';
 import KhozContext from '../../../services/Context';
 import Review from './../../../UI/Review/Review'
 import Spinner from '../../../helpers/Spinner';
+import WriteReview from '../../../UI/WriteReview/WriteReview'
 
 class Reviews extends Component {
 
@@ -11,36 +12,39 @@ class Reviews extends Component {
         reviews: null
     }
     componentWillMount() {
-        // console.log('nextprops', nextProps)
         if (!this.state.reviews) {
-        Axios.authInstance.get(this.props.reviews).then(response => {
-            // const userReviewIndex = response.data.data.findIndex(review => review.reviewer.id === this.props.context.user.id)
-            // const reviews = userReviewIndex >= 0 ? response.data.data.splice(userReviewIndex, 1) : response.data.data
-            this.setState({
-                reviews: response.data.data,
-                // userReview: userReviewIndex >= 0 ? response.data.data[userReviewIndex] : null
+            Axios.authInstance.get(this.props.reviews).then(response => {
+                if (response && response.data.data) {
+                    let results = [...response.data.data]
+                    const userReviewIndex = response.data.data.findIndex(review => review.reviewer.id === this.props.context.user.id)
+                    if (userReviewIndex >= 0) {
+                        results.splice(0, 1)
+                        this.setState({
+                            userReview: response.data.data[userReviewIndex],
+                            reviews: results,
+                        })
+                    } else {
+                        this.setState({ reviews: response.data.data })
+                    }
+                }
             })
-        })   
-    }
+        }
     }
 
     render() {
         return (
-            this.state.reviews ?
-                (<div className='business-reviews'>
-                    {
-                        this.state.reviews.length > 0
-                            ? this.state.reviews.map((review, index) =>
-                                <Review review={review} key={index} edit={false} />
-                            )
-                            : <div>no reviews found</div>
-                    }
-                </div>)
-                : <Spinner />
+            <div className='business_section'>
+                <div className='business_heading'>Reviews</div>
+                {
+                    this.state.reviews ?
+                        this.state.reviews.map((review, index) =>
+                            <Review review={review} key={index} edit={false} />
+                        )
+                        : <span>be the first one to review this business</span>
+                }
+                <WriteReview review={this.state.userReview} user={this.props.context.user} />
+            </div>
         )
-    }
-    componentWillUnmount() {
-        console.log('unmounted reviews')
     }
 }
 export default KhozContext.withAppContext(Reviews);

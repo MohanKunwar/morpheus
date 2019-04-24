@@ -1,0 +1,7 @@
+#file_upload {
+    display: none;
+}
+.circular_crop_selection {
+    border-radius: 50%;
+    border-image-source: none;
+}
