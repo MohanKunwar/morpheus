@@ -26,16 +26,16 @@ const RoomCard = props => {
         </Link>
         <div className='room_card_price'>
           <span className='room_after_discount'>
-            Rs. {room.price_after_discount}
+            Rs.{room.price_after_discount}
           </span>
           <span className='room_before_discount'>
-            Rs. {room.price}
+            Rs.{room.price}
           </span>
           <span className='room_discount'>
             {room.discount}% off
           </span>
         </div>
-        <span className='room_hotel_name'>{room.business.name}</span>
+        <div className='room_hotel_name_container'><span className='room_hotel_name'>{room.business.name}</span></div>
 
         <Link to={`/room/${room.slug}`} className='room_book_btn'>Book Now</Link>
         {/* <button className='room_book_btn'>Book Now</button> */}

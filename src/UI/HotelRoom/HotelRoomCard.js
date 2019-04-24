@@ -38,9 +38,10 @@ class HotelRoomCard extends Component {
           >
             <FaListAlt /> show amenities
           </span>
+          <div className='hotel_amenities_list'>
           {this.state.showAmenities
             ? this.state.amenities.map(amenity => (
-              <div key={amenity.id} className='hotel_amenities_list'>
+              <div key={amenity.id}>
                 <img
                   className='amenities_icon_svg'
                   src={amenity.icon_svg}
@@ -50,7 +51,7 @@ class HotelRoomCard extends Component {
               </div>
             ))
             : null}
-
+          </div>
           <p className='room_type_count'>
             <FaDoorOpen /> room type count: {room.room_count}{' '}
           </p>

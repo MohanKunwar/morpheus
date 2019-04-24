@@ -56,8 +56,13 @@
     font-size: 13px;
     width: auto;
     margin-bottom: 5px;
+    overflow: hidden;
 }
 .search-item{
     white-space: normal;
     text-decoration: none !important;
+}
+.product_business_name .search-item{
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

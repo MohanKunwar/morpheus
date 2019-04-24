@@ -18,7 +18,7 @@ class HotelRooms extends Component {
     render() {
         return (
             <React.Fragment>
-                <AddNewRoom />
+                <AddNewRoom business={this.props.businessSlug}/>
                 {
                     this.state.rooms
                         ?

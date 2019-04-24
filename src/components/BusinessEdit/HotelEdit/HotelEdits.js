@@ -3,6 +3,7 @@ import KhozTabs from '../../../UI/Tabs'
 import HotelRooms from './HotelRooms';
 import Bookings from './Bookings'
 
+
 export default class HotelEdit extends Component {
     render() {
         return (

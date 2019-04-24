@@ -3,8 +3,7 @@ import { Field } from 'react-final-form';
  
 const err_style = {
   color : 'red',
-  fontSize: '12px',
-  position: 'absolute'
+  fontSize: '12px'
 
   
 }
