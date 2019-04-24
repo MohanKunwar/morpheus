@@ -4,38 +4,42 @@ import Images from '../../common/ImagesPreview/ImagesPreview'
 import { FaTrash } from 'react-icons/fa';
 import Axios from '../../../services/Axios';
 export default class PhotosEdit extends Component {
-    
-    uploadImages = []
-    componentWillMount() {
-      console.log(this.props.photos)
+    state = {
+
     }
-    
     deleteClicked = photoId => {
+        this.setState({ [`deleting${photoId}`]: true })
         Axios.authInstance.delete(Axios.API.businessEdit.deletePhotoUrl(this.props.businessSlug, photoId)).then(response => {
             if (response) {
-                console.log('photo deleted', response)
+               // this.props.update('photos')
                 let deletedPhotoIndex = this.props.photos.findIndex(photo => photo.id === photoId)
                 this.props.photos.splice(deletedPhotoIndex, 1)
             }
         })
     }
-    addPhotos = photos => {
-
+    addPhotos = photo => {
+        const formData = new FormData()
+        formData.append('photo[]', photo)
+        // photo.map((photon, index) => 
+        //     formData.append(`photo[]`, photon)
+        // )
+        console.log(formData.values)
+        Axios.authInstance.post(Axios.API.businessEdit.uploadImagesUrl(this.props.businessSlug), formData).then(response => {
+            console.log('photos posted', response)
+            this.props.update('photos')
+        })
     }
     readFile = e => {
+        // let uploadImages
         for (let file of e.target.files) {
             if (file.size < 5000000) {
                 let filereader = new FileReader();
                 filereader.readAsDataURL(file);
                 filereader.onloadend = () => {
-                    this.uploadImages.push(file)
+                    this.addPhotos(file)
                 }
             }
         }
-        console.log(this.uploadImages)
-        Axios.authInstance.post(Axios.API.businessEdit.uploadImagesUrl(this.props.businessSlug), this.uploadImages).then(response => {
-            console.log(response)
-        })
     }
     render() {
         return (
@@ -49,16 +53,18 @@ export default class PhotosEdit extends Component {
                         src={require('../../../assets/images/upload.ico')} alt="upload button"
                         style={{ width: this.props.width || "90px", height: this.props.height || "90px" }}
                         onClick={e => document.querySelector('#upload_image').click()} />
-                    <div className="preview">
-                    
-                    </div>
+                    {/* <div className='business_photos_view'>  */}
                     {
                         this.props.photos.map((photo, index) =>
-                            <div key={photo.id} className='business-image'>
-                                <img src={photo.src} alt={photo.description} />
-                                <FaTrash onClick={this.deleteClicked(photo.id)} />
-                            </div>)
+                            !this.state[`deleting${photo.id}`] ?
+                                <div key={photo.id} className='business-image'>
+                                    <FaTrash className='delete_btn' onClick={e => this.deleteClicked(photo.id)} />
+                                    <img src={photo.src} alt={photo.description} />
+                                </div>
+                                : <span key={photo.id}>deleting photo</span> // todo deleting photo spinner
+                        )
                     }
+                    {/* </div> */}
                 </div>
                 : <Spinner />
         )

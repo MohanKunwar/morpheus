@@ -68,9 +68,19 @@ class BusinessEdit extends Component {
             })
         }
     }
-
-    getPhotos() {
-        if (!this.state.photos) {
+    update = tab => {
+        switch (tab) {
+            case 'photos': {
+                this.getPhotos('update')
+                break
+            }
+            default: {
+                break
+            }
+        }
+    }
+    getPhotos(update) {
+        if (update || !this.state.photos) {
             Axios.authInstance.get(this.state.business.photos_url).then(response => {
                 console.log(response)
                 if (response && response.data) {
@@ -95,12 +105,12 @@ class BusinessEdit extends Component {
             }
             case 'Photos': {
                 this.getPhotos()
-                activeTab = <PhotosEdit photos={this.state.photos} businessSlug={this.props.businessUrl} />
+                activeTab = <PhotosEdit photos={this.state.photos} businessSlug={this.props.businessUrl} update={this.update}/>
                 break
             }
             case 'Products': {
                 this.getProducts()
-                activeTab = <ProductsEdit products={this.state.products} />
+                activeTab = <ProductsEdit products={this.state.products} businessSlug={this.props.businessUrl} business={this.state.business} />
                 break
             }
             case 'Services': {

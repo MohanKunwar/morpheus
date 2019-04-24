@@ -9,7 +9,8 @@ const API = {
     },
     businessEdit: {
         deletePhotoUrl: (slug, id) => { return `businesses/${slug}/photos/${id}` },
-        uploadImagesUrl: slug => { return  `businesses/${slug}/photos`}
+        uploadImagesUrl: slug => { return  `businesses/${slug}/photos`},
+        editLogoUrl: slug => { return `businesses/${slug}/logo`}
     },
     common: {
         featuredUrl: 'businesses/featured',
@@ -22,7 +23,7 @@ const API = {
     product: {
         getProductUrl: slug => { return `/products/${slug}` },
         getProductPhotosUrl: slug => { return `/products/${slug}/photos` },
-        deleteProductPhotoUrl: (businessId, photoId) => { return  }
+        deleteProductPhotoUrl: (businessId, photoId) => { return `businesses/${businessId}/product-photos/${photoId}` }
     },
     requirement: {
         getUserRequirementsUrl: 'user/leads',

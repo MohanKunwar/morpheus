@@ -36,3 +36,26 @@ PRODUCT EDIT
     grid-gap: 15px;
 }
 
+/*
+----------------
+PHOTOS EDIT
+----------------
+*/
+.business_photos_edit {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
+    column-fill: balance;
+    grid-gap: 18px;
+}
+.business-image img {
+    max-width: 100%;
+}
+.delete_btn {
+    position: absolute;
+    margin: 5px;
+}
+.delete_btn:hover {
+    color: #fff;
+}
+

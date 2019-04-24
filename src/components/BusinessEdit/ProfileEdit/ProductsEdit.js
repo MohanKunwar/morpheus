@@ -7,17 +7,11 @@ import Axios from '../../../services/Axios';
 
 export default class ProductsEdit extends Component {
     state = {
-        modals: {}
+        modals: {},
+        products : this.props.products
     }
-    toggleModal = id => {
-        if (id && this.state[`photos${id}`])  {
-            this.setState(prevState => ({
-                ...prevState, modals: {
-                    ...prevState.modals,
-                    [`modal${id}`]: true
-                }
-            }))
-        } else if (id) {
+    toggleModal = (id, command) => {
+        if (id && command) {
             Axios.authInstance.get(Axios.API.product.getProductPhotosUrl(id)).then(response => {
                 if (response && response.data) {
                     this.setState(prevState => ({
@@ -30,12 +24,28 @@ export default class ProductsEdit extends Component {
                     }))
                 }
             })
-        } else {
+        } else if (id && this.state[`photos${id}`])  {
+            this.setState(prevState => ({
+                ...prevState, modals: {
+                    ...prevState.modals,
+                    [`modal${id}`]: true
+                }
+            }))
+        }  else {
             this.setState({ modals: {}, add: false })
         }
     }
     openAddProduct = () => {
         this.setState({ add: true })
+    }
+    getProduct = id => {
+        Axios.authInstance.get(Axios.API.product.getProductUrl(id)).then(response => {
+            if (response && response.data) {
+                response.data.data.business = this.props.business
+                let productIndex = this.props.products.findIndex(product => product.id === response.data.data.id)
+                this.props.products.splice(productIndex, 1, response.data.data)
+            }
+        })
     }
     render() {
         return (
@@ -57,7 +67,7 @@ export default class ProductsEdit extends Component {
                     {
                         this.props.products.map(product =>
                             <React.Fragment key={product.id}>
-                                <ProductCard product={product} index={product.id} edit={e => this.toggleModal(product.id)} />
+                                <ProductCard product={product} index={product.id} edit={e => this.toggleModal(product.id, 'open')} />
                                 {
                                     this.state.modals[`modal${product.id}`] ?
                                         <KhozModal
@@ -65,7 +75,7 @@ export default class ProductsEdit extends Component {
                                             title={'Edit Product'}
                                             toggleModal={this.toggleModal}
                                         >
-                                            <AddEditProduct product={product} photos={this.state[`photos${product.id}`]} />
+                                            <AddEditProduct refresh={e => this.getProduct(product.id)} businessSlug={this.props.businessSlug} product={product} photos={this.state[`photos${product.id}`]} />
                                         </KhozModal>
                                         : null
                                 }
