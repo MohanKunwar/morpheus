@@ -26,11 +26,12 @@ class BusinessEdit extends Component {
 
     componentWillMount() {
         if (this.props.businessUrl) {
-            this.getBusiness(this.props.businessUrl)
+            this.getBusiness()
+            this.getTopLevelCategories()
         }
     }
-    getBusiness(businessUrl) {
-        Axios.authInstance.get(Axios.API.business.getBusinessUrl(businessUrl)).then(response => {
+    getBusiness() {
+        Axios.authInstance.get(Axios.API.business.getBusinessUrl(this.props.businessUrl)).then(response => {
             if (response && response.data) {
                 if (response.data.data.feature_enabled.includes('hotel')) {
                     this.tabs.push('Manage Hotel')
@@ -43,6 +44,7 @@ class BusinessEdit extends Component {
             }
         })
     }
+    // reload business page while switching from one business view to edit business view'
     componentWillReceiveProps(nextProps) {
         if (this.props.businessUrl !== nextProps.businessUrl) {
             this.getBusiness(nextProps.businessUrl)
@@ -64,6 +66,15 @@ class BusinessEdit extends Component {
                 if (response && response.data) {
                     response.data.data.map(product => product.business = this.state.business)
                     this.setState({ products: response.data.data })
+                }
+            })
+        }
+    }
+    getTopLevelCategories() {
+        if (!this.state.topLevelCategories) {
+            Axios.authInstance.get(Axios.API.common.topLevelCategoriesUrl).then(response => {
+                if (response && response.data) {
+                    this.setState({topLevelCategories: response.data.data})
                 }
             })
         }
@@ -100,7 +111,10 @@ class BusinessEdit extends Component {
         let activeTab
         switch (this.state.tab) {
             case 'Overview': default: {
-                activeTab = <OverviewEdit business={this.state.business} />
+                activeTab = <OverviewEdit 
+                business={this.state.business}
+                topLevelCategories={this.state.topLevelCategories}
+                update={this.getBusiness.bind(this)} />
                 break
             }
             case 'Photos': {
