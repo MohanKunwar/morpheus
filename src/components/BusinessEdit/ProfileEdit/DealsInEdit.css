@@ -1,7 +1,8 @@
 .business_dealsin_edit{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 20px;
+    grid-column-gap: 20px;
 }
 .business_dealsin_edit input{
     position: relative;
@@ -42,4 +43,9 @@ white-space: pre-line;
     margin: 5px 0 5px 0;
     width: 100%;
     align-items: center;
+}
+@media only screen and (max-width: 720px){
+    .business_dealsin_edit{
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
