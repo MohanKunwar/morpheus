@@ -12,7 +12,8 @@ const API = {
         uploadImagesUrl: slug => { return  `businesses/${slug}/photos`},
         editLogoUrl: slug => { return `businesses/${slug}/logo`},
         editCoverUrl: slug => { return `businesses/${slug}/cover`},
-        editHoursUrl: slug => {return `businesses/${slug}/hours`}
+        editHoursUrl: slug => {return `businesses/${slug}/hours`},
+        editSocialLinksUrl: slug => { return `businesses/${slug}/social-links`}
     },
     businessEdit: {
         deletePhotoUrl: (slug, id) => { return `businesses/${slug}/photos/${id}` },

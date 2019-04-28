@@ -9,6 +9,8 @@ import { Form, Field } from 'react-final-form';
 import Error from '../../../helpers/FormError';
 import AddEditBusinessHours from '../../../UI/AddEditBusinessHours';
 import * as moment from 'moment'
+import SocialLinks from '../../../views/SocialLinks';
+import AddEditSocialLinks from '../../../UI/AddEditSocialLinks';
 class OverviewEdit extends Component {
     state = {
         logoEdit: false
@@ -21,7 +23,7 @@ class OverviewEdit extends Component {
             }
         })
     }
-    openHoursEdit = stateVar => {
+    openButtonModal = stateVar => {
         this.setState({[stateVar]: true})
     }
     toggleModal = stateVar => {
@@ -62,7 +64,6 @@ class OverviewEdit extends Component {
             <div className='business_overview_edit'>
                 <div className='business_logo_edit' title='logo' icon='instagram.svg'>
                     <img src={business.logo} alt={business.name} className='business_logo' />
-                    {/* <FaEdit onClick={this.editLogo} /> */}
 
                     <input onChange={e => this.onSelectFile(e, 'logo')} type="file" />
                     <KhozModal
@@ -110,7 +111,7 @@ class OverviewEdit extends Component {
                                         x: 0,
                                         y: 0
                                     }}
-                                    update={this.props.update}
+                                    update={update}
                                     postUrl={Axios.API.businessEdit.editCoverUrl(business.slug)}
                                     toggleModal={e => this.toggleModal('cover')} />
                                 : null
@@ -234,11 +235,12 @@ class OverviewEdit extends Component {
                         </form>
                     )}
                 </Form>
+               
                 {
                     this.state.hours ?
                         <div className='business_hours_edit'>
                             <span>Business Hours</span>
-                            <button onClick={e => this.openHoursEdit('edit_hours')}>Edit</button>
+                            <button onClick={e => this.openButtonModal('edit_hours')}>Edit</button>
                             {
                                 business.hours_always_open ?
                                     <span>Open 24 Hrs</span>
@@ -267,7 +269,27 @@ class OverviewEdit extends Component {
                         </div>
                         : null
                 }
-                {/* <button onClick={e => this.handleChanges(e)}>Save</button> */}
+                    <div className='social_links_edit'>
+                    
+                    <SocialLinks links={business.social_links}  />
+                    <button className='social_links_edit_btn' onClick={e => this.openButtonModal('social_links')}>Edit</button>
+                    {
+                        this.state.social_links ?
+                        <KhozModal
+                                toggleModal={e => this.toggleModal('social_links')}
+                                showModal={this.state.social_links}
+                                title={'Add Social Links'}
+                            >
+                            <AddEditSocialLinks
+                            business={business} 
+                            links={business.social_links} 
+                            update={update}
+                            toggleModal={e => this.toggleModal('social_links')} />
+                            </KhozModal>
+                        : null
+                    }
+                    </div>
+                
             </div>
         )
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import Img from 'react-image';
 import star from './../../../assets/images/ratings.svg';
+import SocialLinks from '../../../views/SocialLinks';
 
 const Stars = () => {
     return (
@@ -9,38 +10,11 @@ const Stars = () => {
     )
 }
 
-const GetIcon = props => {
-    console.log('url for icons', props.url);
-    const url = props.url;
-    if (url.includes('facebook')) {
-        return (<Img src={require('./../../../assets/images/facebook.svg')}
-            alt="facebook" className="social_icons" onClick={() => window.open(url)} />);
-    } else if (url.includes('twitter')) {
-        return (<img src={require('./../../../assets/images/twitter.svg')}
-            alt="twitter" className="social_icons" onClick={() => window.open(url)} />);
-    } else if (url.includes('instagram')) {
-        return (<img src={require('./../../../assets/images/instagram.svg')}
-            alt="instagram" className="social_icons" onClick={() => window.open(url)} />);
-    } else if (url.includes('tripadvisor')) {
-        // todo tripadvisor image
-        return (<img src={require('./../../../assets/images/instagram.svg')}
-            alt="instagram" className="social_icons" onClick={() => window.open(url)} />);
-    } else {
-        // todo website image
-        return (<img src={require('./../../../assets/images/instagram.svg')}
-            alt="instagram" className="social_icons" onClick={() => window.open(url)} />);
-    }
-}
-
 const BusinessHeader = (props) => {
-    let header = null; let socialLinks = null;
+    let header = null
     if (props.business !== null) {
 
-        if (props.business.social_links.length > 0) {
-            socialLinks = props.business.social_links.map((link, index) => {
-                return (<GetIcon key={index} url={link} />)
-            });
-        }
+       
         header = (
             <div className='business_header'>
                 <div className='business_info'>
@@ -57,12 +31,7 @@ const BusinessHeader = (props) => {
                 </div>
                 <div className='business_social'>
                     <div className='social_links'>
-                        {socialLinks}
-                        {
-                            props.isUserOwner
-                                ? <button>edit</button>
-                                : null
-                        }
+                        <SocialLinks links={props.business.social_links} />
                     </div>
                     <p className="business_report">Report</p>
                 </div>

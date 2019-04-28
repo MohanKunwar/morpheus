@@ -5,7 +5,7 @@ export class AppContextProvider extends Component {
     state = {
         user: this.props.user
     }
-    logout = (e) => {
+    logout = (e,url) => {
         e.preventDefault()
         this.setState({ user: null })
         localStorage.clear()
