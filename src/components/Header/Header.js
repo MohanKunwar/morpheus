@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import khozinfo from '../../assets/images/Khozinfo.svg';
+import khozinfo from '../../assets/images/khozinfo.png';
 import UserPanel from './UserPanel/UserPanel';
 import SearchBar from './SearchBar';
 import './Header.css';
