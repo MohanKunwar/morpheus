@@ -13,16 +13,7 @@ const API = {
         editLogoUrl: slug => { return `businesses/${slug}/logo`},
         editCoverUrl: slug => { return `businesses/${slug}/cover`},
         editHoursUrl: slug => {return `businesses/${slug}/hours`},
-        editSocialLinksUrl: slug => { return `businesses/${slug}/social-links`}
-    },
-    businessEdit: {
-        deletePhotoUrl: (slug, id) => { return `businesses/${slug}/photos/${id}` },
-        uploadImagesUrl: slug => { return  `businesses/${slug}/photos`},
-        getDealsInUrl: slug => { return `businesses/${slug}/dealsin/edit`}
-    },
-    businessEdit: {
-        deletePhotoUrl: (slug, id) => { return `businesses/${slug}/photos/${id}` },
-        uploadImagesUrl: slug => { return  `businesses/${slug}/photos`},
+        editSocialLinksUrl: slug => { return `businesses/${slug}/social-links`},
         getDealsInUrl: slug => { return `businesses/${slug}/dealsin/edit`}
     },
     common: {
