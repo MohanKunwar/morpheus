@@ -10,19 +10,16 @@ export default class PhotosEdit extends Component {
     deleteClicked = photoId => {
         this.setState({ [`deleting${photoId}`]: true })
         Axios.authInstance.delete(Axios.API.businessEdit.deletePhotoUrl(this.props.businessSlug, photoId)).then(response => {
-            if (response) {
-               // this.props.update('photos')
-                let deletedPhotoIndex = this.props.photos.findIndex(photo => photo.id === photoId)
-                this.props.photos.splice(deletedPhotoIndex, 1)
+            if (response.status === 204) {
+               this.props.update('photos')
+                // let deletedPhotoIndex = this.props.photos.findIndex(photo => photo.id === photoId)
+                // this.props.photos.splice(deletedPhotoIndex, 1)
             }
         })
     }
     addPhotos = photo => {
         const formData = new FormData()
         formData.append('photo[]', photo)
-        // photo.map((photon, index) => 
-        //     formData.append(`photo[]`, photon)
-        // )
         console.log(formData.values)
         Axios.authInstance.post(Axios.API.businessEdit.uploadImagesUrl(this.props.businessSlug), formData).then(response => {
             console.log('photos posted', response)
