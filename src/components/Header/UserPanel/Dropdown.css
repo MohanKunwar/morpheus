@@ -63,6 +63,7 @@
 }
 .user-business a{
     color: black !important;
+    width: 100%;
 }
 .user-business:hover{
     background: #f8f9fa;
