@@ -21,8 +21,13 @@ export default class DealsInEdit extends Component {
                 <div className='business_dealsin_edit'>
                     {this.props.dealsIn.map((dealsIn) => {
                         return <div className="dealsin_list" key={dealsIn.id}>
+                            <h4>{dealsIn.name}</h4>
+                            {dealsIn.children.map((dealsIn) => {
+                            return <div className="deals_individual">
                             <input onChange={this.handleChecked} type="checkbox" id={dealsIn.id} value={dealsIn.id} />
                             <label htmlFor={dealsIn.id}>{dealsIn.name}</label>
+                            </div>
+                            })}
                         </div>
                     })}
                 </div>
