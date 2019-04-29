@@ -36,16 +36,18 @@ class HomeContainer extends Component {
         Axios.instance.get(Axios.API.common.getBannersUrl, { cancelToken: this.signalBanner.token }).then(response => {
             if (response && response.data) {
                 this.setState({ banners: response.data.data })
+                
             }
         })
     }
 
     render() {
         document.title = `Khoz-Decision with Precision`
-        return (
+        return(
             this.state.featuredItems && this.state.recentlyAddedItems && this.state.banners
                 ?
-                (<div className='home-container'>
+                (
+                <div className='home-container'>
                     <Banner banners={this.state.banners} />
                     <div className='card-container'>
                         <WellCards />
