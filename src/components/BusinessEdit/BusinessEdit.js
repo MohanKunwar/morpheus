@@ -49,7 +49,12 @@ class BusinessEdit extends Component {
         }
     }
     getDealsIn() {
-        if (!this.state.dealsIn) {
+        if (!this.state.dealsIn && !this.state.topLevelCategories) {
+            Axios.authInstance.get(Axios.API.common.topLevelCategoriesUrl).then((res) => {
+                if(res && res.data){
+                    this.setState({topLevelCategories: res.data.data})
+                }
+            })
             Axios.authInstance.get(Axios.API.businessEdit.getDealsInUrl(this.state.business.slug)).then(response => {
                 if (response && response.data) {
                     this.setState({ dealsIn: response.data.data })
@@ -57,7 +62,7 @@ class BusinessEdit extends Component {
             })
         }
     }
-    
+
     getProducts = () => {
         if (!this.state.products) {
             Axios.authInstance.get(Axios.API.business.getBusinessProductsUrl(this.state.business.slug)).then(response => {
@@ -119,7 +124,7 @@ class BusinessEdit extends Component {
             }
             case 'Deals In': {
                 this.getDealsIn()
-                activeTab = <DealsInEdit dealsIn={this.state.dealsIn} />
+                activeTab = <DealsInEdit topLevelCategories= {this.state.topLevelCategories} dealsIn={this.state.dealsIn} />
                 break
             }
             case 'Manage Hotel': {

@@ -34,7 +34,10 @@
 user-select: none;
 white-space: pre-line;
 }
-
+.dealsin_categories{
+    justify-self: end;
+    grid-column: 1 / -1;
+}
 .dealsin_list h4{
     margin-bottom: 10px;
 }
