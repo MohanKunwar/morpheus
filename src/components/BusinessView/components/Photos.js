@@ -34,8 +34,8 @@ class Photos extends Component {
         let images = []
         if (this.state.photos.length > 0) {
          this.state.photos.map((item, index) => {
-                     coreImages.push(<img onClick={() => this.handleCarousel(index)} src={item.src} alt={item.description} />)
-                      images.push({img: <img src={item.src} alt={item.description} />, id: index})
+                     coreImages.push(<img key={index} onClick={() => this.handleCarousel(index)} src={item.src} alt={item.description} />)
+                      images.push({img: <img key={index} src={item.src} alt={item.description} />, id: index})
             })
         }
         return (
@@ -58,8 +58,8 @@ class Photos extends Component {
         className="view_slider_wrapper"
       >
           <Slider className="view_slider">
-          {images.map((image) => {
-                  return <Slide className="view_slides" index={image.id}>{image.img}</Slide>
+          {images.map((image, index) => {
+                  return <Slide key={index} className="view_slides" index={image.id}>{image.img}</Slide>
                 })}
         </Slider>
         <ButtonBack className="slider_button" id="slider_button_left">
@@ -68,7 +68,7 @@ class Photos extends Component {
         <img src={require("../../../assets/images/right-arrow.svg")} alt="right-arrow svg" /></ButtonNext>
         <div className="images_preview_wrapper">
                 {images.map((image, index) => {
-                  return <Dot slide={index} className="images_preview">{image.img}</Dot>
+                  return <Dot key={index} slide={index} className="images_preview">{image.img}</Dot>
                 })} 
         </div>
         <button className="cancel_view_slider" onClick= {this.handleCancel}><img src={require("../../../assets/images/cancel.svg")} alt="cancel svg"/></button>

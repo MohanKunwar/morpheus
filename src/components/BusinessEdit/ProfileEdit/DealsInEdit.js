@@ -12,9 +12,16 @@ export default class DealsInEdit extends Component {
     render() {
         console.log(this.props.dealsIn)
         return (
-            this.props.dealsIn
+            this.props.dealsIn && this.props.topLevelCategories
                 ?
                 <div className='business_dealsin_edit'>
+                <div className="dealsin_categories">
+                <select>
+                {this.props.topLevelCategories.map((categories) => {
+                   return <option>{categories.name}</option>
+                })}
+                </select>
+                </div>
                     {this.props.dealsIn.map((dealsIn, index) => {
                         return <div className="dealsin_list" key={index}>
                             <h4>{dealsIn.name}</h4>
