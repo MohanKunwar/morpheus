@@ -40,6 +40,7 @@ const API = {
     room: {
         getRoomUrl: slug => { return `/rooms/${slug}` },
         getRoomPhotosUrl: slug => { return `/rooms/${slug}/photos` },
+        deleteRoomPhotoUrl: (slug, photoId) => { return `hotels/${slug}/room-photos/${photoId}`},
         getRoomAmenitiesUrl: slug => { return `/rooms/${slug}/amenities` },
         getAllHotelAmenitiesUrl: '/hotels/amenities',
         getHotelAmenitiesUrl: slug => { return `/businesses/${slug}/amenities`},
@@ -47,7 +48,8 @@ const API = {
         getAllHotelRoomAmenitiesUrl: '/rooms/amenities',
         createReservationUrl: 'hotel-reservations',
         cancelBookingUrl: id => { return `hotel-reservations/${id}/cancel` },
-        createAddRoomUrl: id => { return `hotels/${id}/rooms` }
+        createAddRoomUrl: id => { return `hotels/${id}/rooms` },
+        updateRoomUrl: (bId, rId) => { return `hotels/${bId}/rooms/${rId}`}
     },
     search: {
         getResults: (type, params) => {
@@ -76,7 +78,9 @@ const API = {
         userDetailsUrl: '/user',
         editProfileUrl: '/user/profile',
         changePasswordUrl: '/user/password',
-        userBookingsUrl: '/user/hotel-reservations'
+        userBookingsUrl: '/user/hotel-reservations',
+        addUserUrl: slug => { return `businesses/${slug}/users`},
+        getUsersUrl: slug => { return `businesses/${slug}/users`}
     }
 }
 

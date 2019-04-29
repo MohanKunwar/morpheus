@@ -35,7 +35,7 @@ export default class HotelEdit extends Component {
                         <Bookings business={this.props.business}/>
                     </div>
                     <div title='rooms' icon='apple.svg' switch='rooms'>
-                        <HotelRooms businessSlug={this.props.business.slug} />
+                        <HotelRooms business={this.props.business} />
                     </div>
                     <div title='hotel amenities' icon='apple.svg' switch='hotel_amennities'>
                         {/* <HotelAmenities allAmenities={this.state.allHotelAmenities()} hotelAmenities={this.state.hotelAmenities} /> */}
