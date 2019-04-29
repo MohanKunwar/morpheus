@@ -7,6 +7,7 @@ import DealsInEdit from './ProfileEdit/DealsInEdit'
 import PhotosEdit from './ProfileEdit/PhotosEdit'
 import ProductsEdit from './ProfileEdit/ProductsEdit'
 import ServicesEdit from './ProfileEdit/ServicesEdit'
+import Settings from './ProfileEdit/Settings'
 import HotelEdits from './HotelEdit'
 
 import './BusinessEdit.css'
@@ -36,6 +37,8 @@ class BusinessEdit extends Component {
                 if (response.data.data.feature_enabled.includes('hotel')) {
                     this.tabs.push('Manage Hotel')
                 }
+                // put settings at end on tab list
+                this.tabs.push('Settings')
                 this.setState({
                     business: response.data.data
                 })
@@ -85,6 +88,10 @@ class BusinessEdit extends Component {
                 this.getPhotos('update')
                 break
             }
+            case 'settings': {
+                this.getUsers('update')
+                break
+            }
             default: {
                 break
             }
@@ -97,6 +104,15 @@ class BusinessEdit extends Component {
                 if (response && response.data) {
                     console.log(response.data.data)
                     this.setState({ photos: response.data.data })
+                }
+            })
+        }
+    }
+    getUsers = update => {
+        if (update || !this.state.users) {
+            Axios.authInstance.get(Axios.API.businessEdit.getUsersUrl(this.state.business.slug)).then(response => {
+                if (response && response.data) {
+                    this.setState({users: response.data.data})
                 }
             })
         }
@@ -138,6 +154,11 @@ class BusinessEdit extends Component {
             }
             case 'Manage Hotel': {
                 activeTab = <HotelEdits business={this.state.business} />
+                break
+            }
+            case 'Settings': {
+                // this.getUsers()
+                activeTab = <Settings business={this.state.business} update={this.update} users={this.state.users}/>
                 break
             }
         }

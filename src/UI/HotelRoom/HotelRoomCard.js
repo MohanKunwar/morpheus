@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Axios from '../../services/Axios';
 import './HotelRoomCard.css';
 import { FaListAlt, FaDoorOpen, FaUserFriends } from 'react-icons/fa';
-import AddNewRoom from '../../components/BusinessEdit/HotelEdit/HotelRooms/AddNewRoom';
 
 class HotelRoomCard extends Component {
   state = {
@@ -69,8 +68,7 @@ class HotelRoomCard extends Component {
             this.props.page !== 'edit'
               ?
               <Link to={`/room/${room.slug}`} className='hotel_room_btn'>Book Now</Link>
-              : 
-              <AddNewRoom room={room} />
+              : null
           }
         </div>
       </div>
