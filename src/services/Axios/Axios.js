@@ -2,7 +2,7 @@ import axios from 'axios';
 import UserService from './../User';
 
 export const instance = axios.create({
-    baseURL: 'https://khozinfo.com/api/v1'
+    baseURL: 'base URL goes here'
 });
 
 export const authInstance = Object.create(instance);
@@ -17,8 +17,6 @@ instance.interceptors.request.use(request => {
     // todo
     // switch (error.response.status) {
     //     case 401: {
-    //         axios.post('https://mock.khozinfo.com/api/v1/login/refresh', {refresh_token: localStorage.getItem('refresh_token')})
-    //             .then()
     //         break
     //     }
     //     default: {
